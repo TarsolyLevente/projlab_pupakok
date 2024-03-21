@@ -131,6 +131,10 @@ public class Szoba {
         System.out.println("Hallgato added");
     }
       
+    public ArrayList<Szoba> getSzomszedok() {
+        return szomszedok;
+    }
+    
     /*
     public boolean isGazos() {
         return gazos;
@@ -151,9 +155,7 @@ public class Szoba {
         this.regiszobak = regiszobak;
     }
       
-    public ArrayList<Szoba> getSzomszedok() {
-        return szomszedok;
-    }
+    
       
     public void setSzomszedok(ArrayList<Szoba> szomszedok) {
         this.szomszedok = szomszedok;

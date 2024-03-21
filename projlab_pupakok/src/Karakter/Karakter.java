@@ -1,6 +1,6 @@
 package com.example.Karakter;
 
-public class Karakter 
+abstract class Karakter 
 {
     protected boolean eszmeletvesztett;
     protected Szoba szoba;
