@@ -30,6 +30,18 @@ public class Szoba {
 	 */
     protected ArrayList<Targy> targyak;
       
+    public Szoba(bool gaz, int bef){
+        System.out.println("Szoba konstruktor");
+        this.gazos = gaz;
+        this.befogadokepesseg = bef;
+        //TODO TÁRGY GENERÁLÁS KÖSZÖNÖM SZÉPEN
+        regiszobak = new ArrayList<>();
+        szomszedok = new ArrayList<>();
+        hallgatok = new ArrayList<>();
+        oktatok = new ArrayList<>();
+        targyak = new ArrayList<>();
+    }
+
     /**
 	 * A szobába tárgyat lehelyező függvény
 	 * @param t a tárgy, amit letesz a szobába
