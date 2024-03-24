@@ -10,17 +10,6 @@ import Targy.*;
 public class Skeleton {
 
     /**
-     * Oktato mozgása szobába tesztje.
-     */
-    public static void test27(){
-        Szoba szoba1 = new Szoba(false, 10);
-        Szoba szoba2 = new Szoba(false, 10);
-        Oktato oktato = new Oktato(szoba1);
-        oktato.mozog(szoba2);
-    }
-
-
-    /**
      * Elátkozott szobában ajtó eltüntetése
      */
     public static void test22() {
@@ -102,6 +91,7 @@ public class Skeleton {
         oktato.mozog(szoba2);
         
     }
+
     /**
      * Hallgató mozgása szobába
      */
