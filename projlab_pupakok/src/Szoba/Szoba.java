@@ -36,7 +36,7 @@ public class Szoba {
 	 */
     protected ArrayList<Targy> targyak;
     /**
-     * A szoba páyla attribútuma
+     * A szoba pálya attribútuma
      */
     protected Palya palya;
       
@@ -62,7 +62,6 @@ public class Szoba {
         System.out.println("Szoba -> create");
         this.gazos = gaz;
         this.befogadokepesseg = bef;
-        //TODO TÁRGY GENERÁLÁS KÖSZÖNÖM SZÉPEN
         regiszobak = new ArrayList<>();
         szomszedok = new ArrayList<>();
         hallgatok = new ArrayList<>();
@@ -97,7 +96,7 @@ public class Szoba {
     /**
 	 * Egy szoba a két eredeti szobájává osztódik
 	 */
-    public Szoba osztodik() {
+    public void osztodik() {
         System.out.println("Szoba -> osztodik()");
         Szoba regi = regiszobak.get(1);
         Szoba uj = new Szoba(regi.gazos, regi.befogadokepesseg);
@@ -119,7 +118,7 @@ public class Szoba {
                 }
             }
         }
-        return uj;
+        palya.addSzoba(uj);
     }
 
     /**   
@@ -139,6 +138,7 @@ public class Szoba {
             szoba.removeSzomszed(sz);
             szoba.addSzomszed(this);
         }
+        palya.removeSzoba(sz);
     }
 
     public boolean isGazos() {
@@ -196,6 +196,16 @@ public class Szoba {
         System.out.println("Szoba -> addOktato()");
         if(oktatok.size() + hallgatok.size() < befogadokepesseg - 1){
             oktatok.add(o);
+            if (gazos) {
+                if (!o.vedette(Vedettseg.gaztol)) {
+                    o.eszmeletvesztes();
+                    return true;
+                }
+            }
+            for (int i = 0; i < hallgatok.size(); i++) {
+                if (!hallgatok.get(i).vedette(Vedettseg.oktatotol))
+                    hallgatok.get(i).kibukik();
+            }
             return true;
         } else {
             return false;
@@ -208,6 +218,7 @@ public class Szoba {
 	 */
     public boolean addHallgato(Hallgato h){
         System.out.println("Szoba -> addHallgato()");
+        hallgatok.add(h);
         return true;
     }
 

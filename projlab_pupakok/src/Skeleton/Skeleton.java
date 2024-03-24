@@ -39,7 +39,7 @@ public class Skeleton {
      */
     public static void test1() {
         Palya palya = new Palya();
-        palya.general(); // TODO ?????????????
+        palya.general();
         System.out.println("");
         palya.leptet();
     }
@@ -78,7 +78,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 0);
         Camembert camembert = new Camembert(szoba);
         System.out.println("");
-        szoba.targy_elhelyezese(camembert); // TODO Targyak.add ????
+        szoba.targy_elhelyezese(camembert);
     }
 
     /**
@@ -89,7 +89,7 @@ public class Skeleton {
         Camembert camembert = new Camembert(szoba);
         szoba.targy_elhelyezese(camembert);
         System.out.println("");
-        szoba.targy_eltuntetese(camembert); // eltuntetes???
+        szoba.targy_eltuntetese(camembert);
     }
 
     /**
@@ -99,7 +99,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 0);
         Logarlec logarlec = new Logarlec(szoba);
         System.out.println("");
-        szoba.targy_elhelyezese(logarlec); // TODO Targyak.add ????
+        szoba.targy_elhelyezese(logarlec);
     }
 
     /**
@@ -120,7 +120,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 0);
         Tranzisztor tranzisztor = new Tranzisztor(szoba);
         System.out.println("");
-        szoba.targy_elhelyezese(tranzisztor); // TODO Targyak.add ????
+        szoba.targy_elhelyezese(tranzisztor);
     }
 
     /**
@@ -148,7 +148,7 @@ public class Skeleton {
         ArrayList<Szoba> elatkozottszobaszomszedok = new ArrayList<>();
         elatkozottszobaszomszedok.add(szoba);
         elatkozottszoba.setSzomszedok(elatkozottszobaszomszedok);
-        
+        System.out.println("");
         elatkozottszoba.eltunik(szoba);
 
         
@@ -167,7 +167,7 @@ public class Skeleton {
         ArrayList<Szoba> elatkozottszobaszomszedok = new ArrayList<>();
         elatkozottszobaszomszedok.add(szoba);
         elatkozottszoba.setSzomszedok(elatkozottszobaszomszedok);
-        
+        System.out.println("");
         elatkozottszoba.elotunik(szoba);
 
     }
@@ -178,6 +178,7 @@ public class Skeleton {
         Szoba gazosszoba = new Szoba(true, 10);
         Szoba szoba2 = new Szoba(false, 10);
         Oktato oktato = new Oktato(szoba2);
+        System.out.println("");
         gazosszoba.addOktato(oktato);
         
     }
@@ -185,16 +186,28 @@ public class Skeleton {
      * Hallgató kibuktatása
      */
     public static void test25() {
-        Szoba szoba1 = new Szoba(false, 10);
-        Szoba szoba2 = new Szoba(false, 10);
+        Palya palya = new Palya();
+        Szoba szoba1 = new Szoba(false, 10, palya);
+        Szoba szoba2 = new Szoba(false, 10, palya);
         Oktato oktato = new Oktato(szoba1);
-        Hallgato hallgato = new Hallgato(szoba2);
+        Hallgato hallgato1 = new Hallgato(szoba1);
+        Hallgato hallgato2 = new Hallgato(szoba2);
+        Maszk Maszk = new Maszk(szoba2);
+
+        hallgato2.felvesz(Maszk);
+        szoba1.addHallgato(hallgato1);
+        palya.addHallgato(hallgato1);
+        szoba2.addHallgato(hallgato2);
+        palya.addHallgato(hallgato2);
+
+        System.out.println("");
         oktato.mozog(szoba2);
         
     }
     /**
      * Oktató megbénítása
      */
+    // TODO
     public static void test26() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);
@@ -202,17 +215,19 @@ public class Skeleton {
         Hallgato hallgato = new Hallgato(szoba2);
         Rongy rongy = new Rongy(szoba2);
         hallgato.felvesz(rongy);
-
+        System.out.println("");
         oktato.mozog(szoba2);
         
     }
     /**
      * Oktató mozgása szobába
      */
+    // TODO
     public static void test27() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);
         Oktato oktato = new Oktato(szoba1);
+        System.out.println("");
         oktato.mozog(szoba2);
         
     }
@@ -224,6 +239,7 @@ public class Skeleton {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);
         Hallgato hallgato = new Hallgato(szoba1);
+        System.out.println("");
         hallgato.mozog(szoba2);
         
     }
@@ -234,6 +250,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Camembert camambert = new Camembert(szoba);
+        System.out.println("");
         h.felvesz(camambert);
         
     }
@@ -244,6 +261,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Logarlec logarlec = new Logarlec(szoba);
+        System.out.println("");
         h.felvesz(logarlec);
     }
     /**
@@ -253,6 +271,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Tranzisztor tranzisztor = new Tranzisztor(szoba);
+        System.out.println("");
         h.felvesz(tranzisztor);
         
     }
@@ -263,6 +282,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         TVSZ tvsz = new TVSZ(szoba);
+        System.out.println("");
         h.felvesz(tvsz);
         
     }
@@ -273,6 +293,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Sorospohar sorospohar = new Sorospohar(szoba);
+        System.out.println("");
         h.felvesz(sorospohar);
         
     }
@@ -285,6 +306,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Rongy rongy = new Rongy(szoba);
+        System.out.println("");
         h.felvesz(rongy);
     }
 
@@ -295,6 +317,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Maszk maszk = new Maszk(szoba);
+        System.out.println("");
         h.felvesz(maszk);
     }
 
@@ -306,6 +329,7 @@ public class Skeleton {
         Hallgato h = new Hallgato(szoba);
         Camembert c = new Camembert(szoba);
         h.felvesz(c);
+        System.out.println("");
         h.eldob(c);
     }
 
@@ -317,6 +341,7 @@ public class Skeleton {
         Hallgato h = new Hallgato(szoba);
         Tranzisztor t = new Tranzisztor(szoba);
         h.felvesz(t);
+        System.out.println("");
         h.eldob(t);
     }
 
@@ -328,6 +353,7 @@ public class Skeleton {
         Hallgato h = new Hallgato(szoba);
         TVSZ t = new TVSZ(szoba);
         h.felvesz(t);
+        System.out.println("");
         h.eldob(t);
     }
 
@@ -339,6 +365,7 @@ public class Skeleton {
         Hallgato h = new Hallgato(szoba);
         Sorospohar t = new Sorospohar(szoba);
         h.felvesz(t);
+        System.out.println("");
         h.eldob(t);
     }
 
@@ -350,6 +377,7 @@ public class Skeleton {
         Hallgato h = new Hallgato(szoba);
         Rongy t = new Rongy(szoba);
         h.felvesz(t);
+        System.out.println("");
         h.eldob(t);
     }
 
@@ -361,6 +389,7 @@ public class Skeleton {
         Hallgato h = new Hallgato(szoba);
         Maszk t = new Maszk(szoba);
         h.felvesz(t);
+        System.out.println("");
         h.eldob(t);
     }
 
@@ -371,6 +400,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Oktato h = new Oktato(szoba);
         Camembert camembert = new Camembert(szoba);
+        System.out.println("");
         h.felvesz(camembert);
     }
 
@@ -381,6 +411,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Oktato oktato = new Oktato(szoba);
         Tranzisztor tranzisztor = new Tranzisztor(szoba);
+        System.out.println("");
         oktato.felvesz(tranzisztor);
     }
 
@@ -391,6 +422,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Oktato oktato = new Oktato(szoba);
         TVSZ tvsz = new TVSZ(szoba);
+        System.out.println("");
         oktato.felvesz(tvsz);
     }
 
@@ -401,6 +433,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Oktato oktato = new Oktato(szoba);
         Sorospohar sorospohar = new Sorospohar(szoba);
+        System.out.println("");
         oktato.felvesz(sorospohar);
     }
 
@@ -411,6 +444,7 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Oktato oktato = new Oktato(szoba);
         Rongy rongy = new Rongy(szoba);
+        System.out.println("");
         oktato.felvesz(rongy);
     }
 
@@ -421,12 +455,14 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         Oktato oktato = new Oktato(szoba);
         Maszk maszk = new Maszk(szoba);
+        System.out.println("");
         oktato.felvesz(maszk);
     }
 
     /**
      * Camembert használata
      */
+    // TODO
     public static void test51() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(true, 10);
@@ -434,6 +470,7 @@ public class Skeleton {
         Camembert camembert = new Camembert(szoba1);
         hallgato.felvesz(camembert);
         hallgato.mozog(szoba2);
+        System.out.println("");
         camembert.use();
     }
 
@@ -449,6 +486,7 @@ public class Skeleton {
         hallgato.felvesz(t1);
         hallgato.mozog(szoba2);
         hallgato.felvesz(t2);
+        System.out.println("");
         t1.setTars(t2);
         t2.setTars(t1);
     }
@@ -456,6 +494,7 @@ public class Skeleton {
     /**
      * Tranzisztor használata
      */
+    // TODO exception
     public static void test53() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);
@@ -467,6 +506,7 @@ public class Skeleton {
         hallgato.felvesz(t2);
         t1.setTars(t2);
         t2.setTars(t1);
+        System.out.println("");
         t1.use();
         t2.use();
     }
@@ -474,6 +514,7 @@ public class Skeleton {
     /**
      * Teleportálás tranzisztor segítségvel
      */
+    // TODO exception
     public static void test54() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);
@@ -487,6 +528,7 @@ public class Skeleton {
         t2.setTars(t1);
         t1.use();
         t2.use();
+        System.out.println("");
         hallgato.teleport(t1);
     }
 
@@ -499,12 +541,14 @@ public class Skeleton {
         Hallgato hallgato = new Hallgato(szoba);
         Logarlec logarlec = new Logarlec(szoba);
         logarlec.addPropertyChangeListener(new LogarlecPropertyChangeListener(game));
+        System.out.println("");
         hallgato.felvesz(logarlec);
     }
 
     /**
      * Hallgató kibukása, a játék vége
      */
+    // TODO
     public static void test56() {
         Palya palya = new Palya();
         Game game = new Game(0);
@@ -513,6 +557,7 @@ public class Skeleton {
         Hallgato hallgato = new Hallgato(szoba1);
         palya.addHallgato(hallgato);
         Oktato oktato = new Oktato(szoba2);
+        System.out.println("");
         hallgato.mozog(szoba2);
     }
 
@@ -522,6 +567,7 @@ public class Skeleton {
     public static void test57() {
         Palya palya = new Palya();
         Game game = new Game(0);
+        System.out.println("");
         game.jatekLeptetes();
     }
 
@@ -541,7 +587,6 @@ public class Skeleton {
             }
             br.close();
         } catch (Exception e) {
-            // TODO: handle exception
         }
         return lines;
     }
@@ -691,7 +736,7 @@ public class Skeleton {
                     test42();
                     break;
                 case 43:
-
+                    test27();
                     break;
                 case 44:
                     test44();
@@ -740,10 +785,6 @@ public class Skeleton {
                 default:
                     break;
             }
-            scanner.next();
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-            printMenu(lines);
         }
         scanner.close();
     }

@@ -1,6 +1,6 @@
 package Karakter;
 
-public enum Védettség {
+public enum Vedettseg {
     gaztol,
     oktatotol
 }

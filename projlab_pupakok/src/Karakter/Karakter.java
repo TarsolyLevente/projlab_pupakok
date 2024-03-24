@@ -44,12 +44,12 @@ public abstract class Karakter
 
     public void eszmeletvesztes()
     {
-        System.out.println("eszmeletvesztes fv lefutott");
+        System.out.println("Karakter -> eszmeletvesztes()");
     }
 
-    public boolean vedette(Védettség v)
+    public boolean vedette(Vedettseg v)
     {
-        System.out.println("vedette fv lefutott");
+        System.out.println("Karakter ->vedette()");
         return false;
     }
 }

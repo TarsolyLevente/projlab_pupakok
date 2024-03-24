@@ -17,7 +17,6 @@ public class Hallgato extends Karakter
     {
         System.out.println("Hallgato -> eldob()");
         szoba.targy_elhelyezese(t);
-        t.setSzoba(szoba);
         t.setBirtokos(null);
     }
 
@@ -30,8 +29,12 @@ public class Hallgato extends Karakter
 
     public void kibukik() 
     {
-        System.out.println("kibukik fv lefutott");
+        System.out.println("Hallgato -> kibukik()");
         this.getSzoba().deleteHallgato(this);
+        for (Targy targy : taska) {
+            targy.setSzoba(null);
+            targy.setBirtokos(null);
+        }
     }
 
     public void teleport(Tranzisztor t) 
@@ -49,6 +52,7 @@ public class Hallgato extends Karakter
             t.setBirtokos(this);
             t.setSzoba(null);
             szoba.targy_eltuntetese(t);
+            taska.add(t);
         }
     }
 }

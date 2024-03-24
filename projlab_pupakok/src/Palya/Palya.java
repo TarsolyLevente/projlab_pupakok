@@ -76,9 +76,23 @@ public class Palya {
     }
 
     /**
-     * Hallgató eltávolítása a pályához
+     * Hallgató eltávolítása a pályából
      */
     public void removeHallgato(Hallgato h) {
         hallgatok.remove(h);
+    }
+
+    /**
+     * Szoba hozzáadása a pályához
+     */
+    public void addSzoba(Szoba sz) {
+        szobak.add(sz);
+    }
+
+    /**
+     * Szoba eltávolítása a pályához
+     */
+    public void removeSzoba(Szoba sz) {
+        szobak.remove(sz);
     }
 }
