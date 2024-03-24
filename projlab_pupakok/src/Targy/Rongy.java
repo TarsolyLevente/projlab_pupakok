@@ -1,8 +1,12 @@
+package Targy;
 
+import Szoba.*;
+import Karakter.*;;
 
 public class Rongy extends PasszivTargy{
-    public Rongy(Szoba sz, Karakter k, Funkcio f){
-        super(sz, k, f);
+
+    public Rongy(Szoba sz, Karakter k) {
+        super(sz, k, Funkcio.oktatotol_ved);
     }
 
     /**

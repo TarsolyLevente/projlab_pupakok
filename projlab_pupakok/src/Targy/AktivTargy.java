@@ -1,5 +1,3 @@
-
-
 public abstract class AktivTargy extends Targy {
     public AktivTargy(Szoba sz, Karakter k, Funkcio f){
         super(sz, k, f);

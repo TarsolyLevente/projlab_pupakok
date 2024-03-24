@@ -1,4 +1,7 @@
+package Targy;
 
+import Szoba.*;
+import Karakter.*;
 
 public abstract class PasszivTargy extends Targy {
     /**
