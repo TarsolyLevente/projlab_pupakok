@@ -1,10 +1,0 @@
-
-O
-java:S5993"9Change the visibility of this constructor to "protected".(ï«¾
-E	java:S106"+Replace this use of System.out by a logger.(üº¡Üıÿÿÿÿ
-E	java:S106'"+Replace this use of System.out by a logger.(Š›•Æüÿÿÿÿ
-E	java:S1060"+Replace this use of System.out by a logger.(Á²ÅÉúÿÿÿÿ
-E	java:S1068"+Replace this use of System.out by a logger.(·ÉÉàıÿÿÿÿ
-D
-java:S1068
-")Remove this unused "szoba" private field.(¨ƒ„ıÿÿÿÿ
