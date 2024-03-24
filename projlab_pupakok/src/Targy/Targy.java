@@ -36,7 +36,7 @@ public abstract class Targy {
 	 */
 	public void setSzoba(Szoba sz) {
 		szoba = sz;
-		System.out.printl("Targy -> setSzoba(Szoba)");
+		System.out.println("Targy -> setSzoba(Szoba)");
 	}
 	
 	/**

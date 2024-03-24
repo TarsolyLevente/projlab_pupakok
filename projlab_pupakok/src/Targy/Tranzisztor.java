@@ -28,6 +28,6 @@ public class Tranzisztor {
      */
     public void setTars(Tranzisztor t) {
         
-        System.out.printl("Tranzisztor -> setTars(Tranzisztor)");
+        System.out.println("Tranzisztor -> setTars(Tranzisztor)");
     }
 }

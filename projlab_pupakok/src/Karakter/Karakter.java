@@ -1,9 +1,15 @@
-package com.example.Karakter;
+import java.util.*;
 
 abstract class Karakter 
 {
     protected boolean eszmeletvesztett;
     protected Szoba szoba;
+    protected ArrayList<Targy> taska;
+
+    public Karakter(Szoba sz){
+        szoba = sz;
+        taska = new ArrayList<Targy>();
+    }
 
     public boolean getEszmeletvesztett() 
     {
@@ -31,10 +37,7 @@ abstract class Karakter
         System.out.println("mozog fv lefutott");
     }
    
-    public void felvesz(Tárgy t)
-    {
-        System.out.println("felvesz fv lefutott");
-    }
+    public abstract void felvesz(Targy t);
 
     public void eszmeletvesztes()
     {
@@ -44,6 +47,7 @@ abstract class Karakter
     public boolean vedette(Védettség v)
     {
         System.out.println("vedette fv lefutott");
+        return false;
     }
 
 }

@@ -1,6 +1,13 @@
 import java.util.Scanner;
 
 public class Main {
+    public static void test34(){
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato h = new Hallgato(null);
+        Rongy rongy = new Rongy(szoba, h, Funkcio.gaztol_ved);
+        h.felvesz(rongy);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int szam;
@@ -70,6 +77,10 @@ public class Main {
                     break;
                     
                 //TODO
+
+                case 34:
+                    test34();
+                 break;
 
                 default:
                     break;

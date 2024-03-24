@@ -1,6 +1,12 @@
+import java.util.ArrayList;
+
 public class Hallgato extends Karakter
 {
-    public void eldob(Tárgy t) 
+    public Hallgato(Szoba sz){
+        super(sz);
+    }
+
+    public void eldob(Targy t) 
     {
         System.out.println("eldob fv lefutott");
     }
@@ -13,5 +19,14 @@ public class Hallgato extends Karakter
     public void teleport(Tranzisztor t) 
     {
         System.out.println("teleport fv lefutott");
+    }
+    
+    public void felvesz(Targy t)
+    {
+        if(taska.size() < 5){
+            System.out.println("felvesz fv lefutott");
+            t.setBirtokos(this);
+            t.setSzoba(null);
+        }
     }
 }

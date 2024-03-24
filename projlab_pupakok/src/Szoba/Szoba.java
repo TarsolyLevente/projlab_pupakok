@@ -4,7 +4,7 @@ public class Szoba {
     /**
 	 * A szoba gázos-e vagy sem
 	 */
-    protected bool gazos;
+    protected boolean gazos;
     /**
 	 * A szoba befogadóképessége
 	 */
@@ -30,7 +30,7 @@ public class Szoba {
 	 */
     protected ArrayList<Targy> targyak;
       
-    public Szoba(bool gaz, int bef){
+    public Szoba(boolean gaz, int bef){
         System.out.println("Szoba konstruktor");
         this.gazos = gaz;
         this.befogadokepesseg = bef;
