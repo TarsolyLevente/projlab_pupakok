@@ -1,6 +1,17 @@
 package Skeleton;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import Szoba.*;
@@ -249,11 +260,42 @@ public class Skeleton {
         h.felvesz(camembert);
     }
 
+    private ArrayList<String> readMenu() {
+        File f = new File("projlab_pupakok/Data/Skeleton.txt");
+        File file = new File(f.getAbsolutePath());
+        ArrayList<String> lines = new ArrayList<>();
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                // process the line
+                lines.add(line);
+            }
+            br.close();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return lines;
+    }
+
+    private void printMenu(ArrayList<String> lines) {
+        for (String string : lines) {
+            System.out.println(string);
+        }
+    }
+
     public void skeleton() {
         Scanner scanner = new Scanner(System.in);
         int szam;
 
+        ArrayList<String> lines = readMenu();
+        printMenu(lines);
         while ((szam = scanner.nextInt()) != 100) {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
             switch (szam) {
                 case 0:
 
@@ -397,6 +439,10 @@ public class Skeleton {
                 default:
                     break;
             }
+            scanner.next();
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+            printMenu(lines);
         }
     }
 }
