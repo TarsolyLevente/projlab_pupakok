@@ -1,3 +1,11 @@
+package Game;
+
+import Karakter.*;
+import Palya.*;
+import Szoba.*;
+import Targy.*;
+
+
 public class Game {
     /**
 	 * A játékba lévő pálya

@@ -1,3 +1,8 @@
+package Karakter;
+
+import Palya.*;
+import Szoba.*;
+import Targy.*;
 
 public class Oktato extends Karakter
 {

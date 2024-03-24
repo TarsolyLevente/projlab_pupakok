@@ -1,4 +1,4 @@
-
+package Karakter;
 
 public enum Védettség {
     gaztol,

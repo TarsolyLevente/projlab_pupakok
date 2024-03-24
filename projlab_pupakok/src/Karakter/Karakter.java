@@ -1,3 +1,9 @@
+package Karakter;
+
+import Palya.*;
+import Szoba.*;
+import Targy.*;
+
 import java.util.*;
 
 abstract class Karakter 

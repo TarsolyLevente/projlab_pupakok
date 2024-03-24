@@ -1,3 +1,9 @@
+package Palya;
+
+import Karakter.*;
+import Szoba.*;
+import Targy.*;
+
 import java.util.ArrayList;
 import java.util.Random;
 

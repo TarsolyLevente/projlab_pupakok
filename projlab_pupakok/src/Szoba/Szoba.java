@@ -1,3 +1,9 @@
+package Szoba;
+
+import Palya.*;
+import Karakter.*;
+import Targy.*;
+
 import java.util.ArrayList;
 
 public class Szoba {
