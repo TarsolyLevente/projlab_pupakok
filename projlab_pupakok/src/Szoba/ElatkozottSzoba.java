@@ -19,6 +19,7 @@ public class ElatkozottSzoba extends Szoba{
      */
     public ElatkozottSzoba(boolean gaz, int bef){
         super(gaz, bef);
+        System.out.println("ElatkozottSzoba -> create");
     }
 
     /**
@@ -26,13 +27,13 @@ public class ElatkozottSzoba extends Szoba{
 	 * @param sz Eltűnő szomszéd
 	 */
     public void eltunik(Szoba sz){
-        System.out.println("Ajtó eltűnt");
+        System.out.println("ElatkozottSzoba -> eltunik()");
     }
     /**
 	 * Ajtó előtűnésének függvénye
 	 * @param sz Előtűnő szomszéd
 	 */
     public void elotunik(Szoba sz){
-        System.out.println("Ajtó előtűnt");
+        System.out.println("ElatkozottSzoba -> elotunik()");
     }
 }

@@ -40,7 +40,6 @@ public class Szoba {
         System.out.println("Szoba -> create");
         this.gazos = gaz;
         this.befogadokepesseg = bef;
-        //TODO TÁRGY GENERÁLÁS KÖSZÖNÖM SZÉPEN
         regiszobak = new ArrayList<>();
         szomszedok = new ArrayList<>();
         hallgatok = new ArrayList<>();
@@ -68,7 +67,7 @@ public class Szoba {
 	 * Egy szoba a két eredeti szobájává osztódik
 	 */
     public void osztodik(){
-        System.out.println("Szoba osztódott");
+        System.out.println("Szoba -> osztodik()");
     }
 
     /**   
@@ -76,14 +75,14 @@ public class Szoba {
 	 * @param sz a szoba, amivel egyesül
 	 */
     public void egyesul(Szoba sz){
-        System.out.println("Szobák egyesültek");
+        System.out.println("Szobák -> egyesul()");
     }
 
     /**
 	 * A gázosságot igazzá állító függvény
 	 */
     public void setGaz() {
-        System.out.println("Szoba -> gázos");
+        System.out.println("Szoba -> setGaz()");
         this.gazos = true;
     }
 
@@ -92,7 +91,7 @@ public class Szoba {
 	 * @return oktatók listája
 	 */
     public ArrayList<Oktato> getOktatok() {
-        System.out.println("getOktatok");
+        System.out.println("Szoba -> getOktatok()");
         return oktatok;
     }
 
@@ -101,7 +100,7 @@ public class Szoba {
 	 * @return hallgatók listája
 	 */
     public ArrayList<Hallgato> getHallgatok() {
-        System.out.println("getHallgatok");
+        System.out.println("Szoba -> getHallgatok()");
         return hallgatok;
     }
 
@@ -145,50 +144,49 @@ public class Szoba {
     }
       
     public ArrayList<Szoba> getSzomszedok() {
+        System.out.println("Szoba -> getSzomszedok()");
         return szomszedok;
     }
 
     public void setSzomszedok(ArrayList<Szoba> szomszedok) {
+        System.out.println("Szoba -> setSzomszedok()");
         this.szomszedok = szomszedok;
     }
     
     /*
-    public boolean isGazos() {
-        return gazos;
-    }
-    public int getBefogadokepesseg() {
-        return befogadokepesseg;
-    }
-      
-    public void setBefogadokepesseg(int befogadokepesseg) {
-        this.befogadokepesseg = befogadokepesseg;
-    }
-      
-    public ArrayList<Szoba> getRegiszobak() {
-        return regiszobak;
-    }
-      
-    public void setRegiszobak(ArrayList<Szoba> regiszobak) {
-        this.regiszobak = regiszobak;
-    }
-      
-    
-      
-    
-      
-    public void setHallgatok(ArrayList<Hallgato> hallgatok) {
-        this.hallgatok = hallgatok;
-    }
-      
-    public void setOktatok(ArrayList<Oktato> oktatok) {
-        this.oktatok = oktatok;
-    }
-      
-    public ArrayList<Targy> getTargyak() {
-        return targyak;
-    }
-      
-    public void setTargyak(ArrayList<Targy> targyak) {
-        this.targyak = targyak;
-    }*/
+     * public boolean isGazos() {
+     * return gazos;
+     * }
+     * public int getBefogadokepesseg() {
+     * return befogadokepesseg;
+     * }
+     * 
+     * public void setBefogadokepesseg(int befogadokepesseg) {
+     * this.befogadokepesseg = befogadokepesseg;
+     * }
+     * 
+     * public ArrayList<Szoba> getRegiszobak() {
+     * return regiszobak;
+     * }
+     * 
+     * public void setRegiszobak(ArrayList<Szoba> regiszobak) {
+     * this.regiszobak = regiszobak;
+     * }
+     * 
+     * public void setHallgatok(ArrayList<Hallgato> hallgatok) {
+     * this.hallgatok = hallgatok;
+     * }
+     * 
+     * public void setOktatok(ArrayList<Oktato> oktatok) {
+     * this.oktatok = oktatok;
+     * }
+     * 
+     * public ArrayList<Targy> getTargyak() {
+     * return targyak;
+     * }
+     * 
+     * public void setTargyak(ArrayList<Targy> targyak) {
+     * this.targyak = targyak;
+     * }
+     */
 }
