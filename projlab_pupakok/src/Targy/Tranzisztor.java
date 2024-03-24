@@ -1,4 +1,4 @@
-package targy;
+
 
 public class Tranzisztor {
     /**
@@ -26,7 +26,8 @@ public class Tranzisztor {
     /**
      * Setter a tranzisztorral kapcsolatban lévő társához
      */
-    public void setTars(Tranzisztor) {
+    public void setTars(Tranzisztor t) {
+        
         System.out.printl("Tranzisztor -> setTars(Tranzisztor)");
     }
 }

@@ -1,4 +1,4 @@
-package targy;
+
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -19,9 +19,9 @@ public class Logarlec extends Targy{
 	 * Logarlec setBirtokos függvénye, benne a propertyChange-hez szükséges firePropertyChange.
 	 */
 	public void setBirtokos(Karakter k) {
-		Hallgato oldBirtokos = this.getBirtokos();
+		Karakter oldBirtokos = this.getBirtokos();
 		super.setBirtokos(k);
-		Hallgato ujBirtokos = this.getBirtokos();
+		Karakter ujBirtokos = this.getBirtokos();
 		
 		firePropertyChange("birtokos", oldBirtokos, ujBirtokos);
 	}
@@ -32,7 +32,7 @@ public class Logarlec extends Targy{
 	 * @param oldValue
 	 * @param newValue
 	 */
-    private void firePropertyChange(String propertyName, Hallgato oldValue, Hallgato newValue) {
+    private void firePropertyChange(String propertyName, Karakter oldValue, Karakter newValue) {
         PropertyChangeEvent event = new PropertyChangeEvent(this, propertyName, oldValue, newValue);
         
         new LogarlecPropertyChangeListener().propertyChange(event);

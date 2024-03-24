@@ -1,4 +1,4 @@
-package targy;
+
 
 public abstract class Targy {
 	/**
