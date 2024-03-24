@@ -507,7 +507,7 @@ public class Skeleton {
      */
     public static void test56() {
         Palya palya = new Palya();
-        Game game = new Game(palya);
+        Game game = new Game(0);
         Szoba szoba1 = new Szoba(false, 10, palya);
         Szoba szoba2 = new Szoba(false, 10, palya);
         Hallgato hallgato = new Hallgato(szoba1);
@@ -521,7 +521,7 @@ public class Skeleton {
      */
     public static void test57() {
         Palya palya = new Palya();
-        Game game = new Game(palya);
+        Game game = new Game(0);
 
     }
 

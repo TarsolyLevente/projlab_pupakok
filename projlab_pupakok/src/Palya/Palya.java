@@ -65,7 +65,6 @@ public class Palya {
             oktato.mozog(randomSzoba);
 
         }
-        if ()
         return;
     }
 
