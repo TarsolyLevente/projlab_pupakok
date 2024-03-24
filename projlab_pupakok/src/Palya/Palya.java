@@ -45,7 +45,7 @@ public class Palya {
         System.out.println("Palya -> leptet()");
         Random rand = new Random();
 
-        for (ArrayList<Oktato> oktato : oktatok) {
+        for (Oktato oktato : oktatok) {
             
             Szoba szoba = oktato.getSzoba();
             ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
