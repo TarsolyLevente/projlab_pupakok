@@ -21,21 +21,32 @@ public class Palya {
 	 */
     protected ArrayList<Szoba> szobak;
 
-  
+    /**
+     * Konstruktor
+     */
 	public Palya() {
 		hallgatok =  new ArrayList<>();
         oktatok =  new ArrayList<>();
-        oktatok =  new ArrayList<>();
+        szobak = new ArrayList<>();
 	}
 
     /**
 	 * A szobákat beolvassa fájlból
 	 * és létrehozza a hallgatókat és oktatókat és elhelyezi a tárgyakat
 	 */
-    public  void general(){
+    public void general() {
 
         System.out.println("Palya -> general()");
+        Szoba szoba = new Szoba(false, 2);
+        ElatkozottSzoba elatkozottSzoba = new ElatkozottSzoba(false, 3);
 
+        szoba.addSzomszed(elatkozottSzoba);
+        elatkozottSzoba.addSzomszed(szoba);
+
+        Hallgato hallgato = new Hallgato(szoba);
+        hallgatok.add(hallgato);
+        Oktato oktato = new Oktato(elatkozottSzoba);
+        oktatok.add(oktato);
     }
 
      /**

@@ -30,8 +30,7 @@ public class Skeleton {
      * Jatek inditasa
      */
     public static void test0() {
-        Palya palya = new Palya();
-        Game game = new Game(palya, 0);
+        Game game = new Game(0);
         game.start();
     }
 
@@ -39,63 +38,100 @@ public class Skeleton {
      * Oktatok leptetese
      */
     public static void test1() {
-
+        Palya palya = new Palya();
+        palya.general(); // TODO ?????????????
+        System.out.println("");
+        palya.leptet();
     }
 
     /**
      * Szoba osztodasa
      */
     public static void test2() {
-
+        Szoba sz1 = new Szoba(false, 2);
+        Szoba sz2 = new Szoba(false, 2);
+        Szoba szomszedSzoba = new Szoba(false, 0);
+        sz2.addSzomszed(szomszedSzoba);
+        sz2.targy_elhelyezese(new Maszk(sz2));
+        sz1.egyesul(sz2);
+        System.out.println("");
+        sz1.osztodik();
     }
 
     /**
      * Szoba egyesulese
      */
     public static void test3() {
-
+        Szoba sz1 = new Szoba(false, 2);
+        Szoba sz2 = new Szoba(false, 2);
+        Szoba szomszedSzoba = new Szoba(false, 0);
+        sz2.addSzomszed(szomszedSzoba);
+        sz2.targy_elhelyezese(new Maszk(sz2));
+        System.out.println("");
+        sz1.egyesul(sz2);
     }
 
     /**
      * Camembert elhelyezese
      */
     public static void test4() {
-
+        Szoba szoba = new Szoba(false, 0);
+        Camembert camembert = new Camembert(szoba);
+        System.out.println("");
+        szoba.targy_elhelyezese(camembert); // TODO Targyak.add ????
     }
 
     /**
      * Camembert eltunetetese
      */
     public static void test5() {
-
+        Szoba szoba = new Szoba(false, 0);
+        Camembert camembert = new Camembert(szoba);
+        szoba.targy_elhelyezese(camembert);
+        System.out.println("");
+        szoba.targy_eltuntetese(camembert); // eltuntetes???
     }
 
     /**
      * Logarlec elhelyezese
      */
     public static void test6() {
-
+        Szoba szoba = new Szoba(false, 0);
+        Logarlec logarlec = new Logarlec(szoba);
+        System.out.println("");
+        szoba.targy_elhelyezese(logarlec); // TODO Targyak.add ????
     }
 
     /**
      * Logarlec eltuntetese
      */
     public static void test7() {
-
+        Szoba szoba = new Szoba(false, 0);
+        Logarlec logarlec = new Logarlec(szoba);
+        szoba.targy_elhelyezese(logarlec);
+        System.out.println("");
+        szoba.targy_eltuntetese(logarlec);
     }
 
     /**
      * Tranzisztor elhelyezese
      */
     public static void test8() {
-
+        Szoba szoba = new Szoba(false, 0);
+        Tranzisztor tranzisztor = new Tranzisztor(szoba);
+        System.out.println("");
+        szoba.targy_elhelyezese(tranzisztor); // TODO Targyak.add ????
     }
 
     /**
      * Tranzisztor eltuntetese
      */
     public static void test9() {
-
+        Szoba szoba = new Szoba(false, 0);
+        Tranzisztor tranzisztor = new Tranzisztor(szoba);
+        szoba.targy_elhelyezese(tranzisztor);
+        System.out.println("");
+        szoba.targy_eltuntetese(tranzisztor);
     }
 
     /**

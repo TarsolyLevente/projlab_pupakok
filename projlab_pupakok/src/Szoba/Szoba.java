@@ -40,6 +40,13 @@ public class Szoba {
      */
     protected Palya palya;
       
+
+    /**
+     * Konstruktor
+     * 
+     * @param gaz gázos-e alapértelmezetten a szoba
+     * @param bef a szoba befogadóképessége
+     */
     public Szoba(boolean gaz, int bef){
         System.out.println("Szoba -> create");
         this.gazos = gaz;
@@ -70,6 +77,8 @@ public class Szoba {
 	 */
     public void targy_elhelyezese(Targy t){
         System.out.println("Szoba -> targy_elhelyezese()");
+        t.setSzoba(this);
+        targyak.add(t);
     }
 
     /**
@@ -78,13 +87,39 @@ public class Szoba {
 	 */
     public void targy_eltuntetese(Targy t){
         System.out.println("Szoba -> targy_eltuntetese()");
+        targyak.remove(t);
+    }
+
+    public ArrayList<Targy> getTargyak() {
+        return targyak;
     }
 
     /**
 	 * Egy szoba a két eredeti szobájává osztódik
 	 */
-    public void osztodik(){
+    public Szoba osztodik() {
         System.out.println("Szoba -> osztodik()");
+        Szoba regi = regiszobak.get(1);
+        Szoba uj = new Szoba(regi.gazos, regi.befogadokepesseg);
+        for (Targy regitargy : regi.getTargyak()) {
+            for (Targy targy : this.getTargyak()) {
+                if (regitargy == targy) {
+                    this.targy_eltuntetese(targy);
+                    uj.targy_elhelyezese(targy);
+                }
+            }
+        }
+        ArrayList<Szoba> regiszomszedok = regi.getSzomszedok();
+        ArrayList<Szoba> szomszedok = this.getSzomszedok();
+        for (int i = 0; i < regiszomszedok.size(); i++) {
+            for (int j = 0; j < szomszedok.size(); j++) {
+                if (regiszomszedok.get(i) == szomszedok.get(j)) {
+                    uj.addSzomszed(szomszedok.get(j));
+                    this.removeSzomszed(szomszedok.get(j));
+                }
+            }
+        }
+        return uj;
     }
 
     /**   
@@ -92,7 +127,23 @@ public class Szoba {
 	 * @param sz a szoba, amivel egyesül
 	 */
     public void egyesul(Szoba sz){
-        System.out.println("Szobák -> egyesul()");
+        System.out.println("Szoba -> egyesul()");
+        regiszobak.add(sz);
+        regiszobak.add(this);
+        for (Targy targy : sz.getTargyak()) {
+            this.targy_elhelyezese(targy);
+        }
+        for (Szoba szoba : sz.getSzomszedok()) {
+            if (!this.szomszedok.contains(szoba))
+                this.addSzomszed(szoba);
+            szoba.removeSzomszed(sz);
+            szoba.addSzomszed(this);
+        }
+    }
+
+    public boolean isGazos() {
+        System.out.println("Szoba -> isGazos()");
+        return gazos;
     }
 
     /**
@@ -159,12 +210,22 @@ public class Szoba {
         System.out.println("Szoba -> addHallgato()");
         return true;
     }
-      
+
+    /**
+     * A szoba szomszédainak listájának gettere
+     * 
+     * @return Szomszédok listája
+     */
     public ArrayList<Szoba> getSzomszedok() {
         System.out.println("Szoba -> getSzomszedok()");
         return szomszedok;
     }
 
+    /**
+     * A szoba szomszédainak listájának settere
+     * 
+     * @param szomszedok
+     */
     public void setSzomszedok(ArrayList<Szoba> szomszedok) {
         System.out.println("Szoba -> setSzomszedok()");
         this.szomszedok = szomszedok;
@@ -185,7 +246,36 @@ public class Szoba {
      * public int getBefogadokepesseg() {
      * return befogadokepesseg;
      * }
+     * A paraméterben kapott szobát hozzáadja a szoba szomszédai közé
      * 
+     * @param sz új szomszéd
+     */
+    public void addSzomszed(Szoba sz) {
+        System.out.println("Szoba -> addSzomszed()");
+        szomszedok.add(sz);
+    }
+
+    /**
+     * A paraméterben kapott szobát törli a szoba szomszédai közül
+     * 
+     * @param sz törlendő szomszéd
+     */
+    public void removeSzomszed(Szoba sz) {
+        System.out.println("Szoba -> removeSzomszed()");
+        szomszedok.remove(sz);
+    }
+
+    /**
+     * A szoba befagadóképességének gettere
+     * 
+     * @return befogadóképesség
+     */
+    public int getBefogadokepesseg() {
+        System.out.println("Szoba -> getBefogadokepesseg()");
+        return befogadokepesseg;
+    }
+
+    /*
      * public void setBefogadokepesseg(int befogadokepesseg) {
      * this.befogadokepesseg = befogadokepesseg;
      * }
@@ -206,9 +296,6 @@ public class Szoba {
      * this.oktatok = oktatok;
      * }
      * 
-     * public ArrayList<Targy> getTargyak() {
-     * return targyak;
-     * }
      * 
      * public void setTargyak(ArrayList<Targy> targyak) {
      * this.targyak = targyak;
