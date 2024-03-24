@@ -6,7 +6,7 @@ import Targy.*;
 
 import java.util.*;
 
-abstract class Karakter 
+public abstract class Karakter 
 {
     protected boolean eszmeletvesztett;
     protected Szoba szoba;

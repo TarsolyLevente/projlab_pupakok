@@ -1,8 +1,10 @@
+package Targy;
 
+import Szoba.*;
 
 public class Sorospohar extends PasszivTargy{
-    public Sorospohar(Szoba sz, Karakter k, Funkcio f){
-        super(sz, k, f);
+    public Sorospohar(Szoba sz) {
+        super(sz, Funkcio.oktatotol_ved);
     }
     /**
      * Az idő múlását határozza meg

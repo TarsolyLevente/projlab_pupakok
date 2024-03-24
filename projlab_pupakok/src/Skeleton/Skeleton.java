@@ -14,7 +14,7 @@ public class Skeleton {
     public static void test34() {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
-        Rongy rongy = new Rongy(szoba, h, Funkcio.oktatotol_ved);
+        Rongy rongy = new Rongy(szoba);
         h.felvesz(rongy);
     }
 
@@ -24,7 +24,7 @@ public class Skeleton {
     public static void test35() {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
-        Maszk maszk = new Maszk(szoba, h, Funkcio.gaztol_ved);
+        Maszk maszk = new Maszk(szoba);
         h.felvesz(maszk);
     }
 
@@ -34,7 +34,7 @@ public class Skeleton {
     public static void test44() {
         Szoba szoba = new Szoba(false, 10);
         Oktato h = new Oktato(szoba);
-        Camembert camembert = new Camembert(szoba, h, Funkcio.gaztol_ved);
+        Camembert camembert = new Camembert(szoba);
         h.felvesz(camembert);
     }
 

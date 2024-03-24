@@ -1,6 +1,10 @@
+package Targy;
+
+import Szoba.*;
+
 public class Camembert extends AktivTargy {
-    public Camembert(Szoba sz, Karakter k, Funkcio f){
-        super(sz, k, f);
+    public Camembert(Szoba sz) {
+        super(sz);
     }
 
     /**

@@ -1,8 +1,10 @@
+package Targy;
 
+import Szoba.*;
 
 public class Maszk extends PasszivTargy {
-    public Maszk(Szoba sz, Karakter k, Funkcio f){
-        super(sz, k, f);
+    public Maszk(Szoba sz) {
+        super(sz, Funkcio.gaztol_ved);
     }
 
     /**

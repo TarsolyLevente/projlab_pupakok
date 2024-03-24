@@ -1,7 +1,6 @@
 package Targy;
 
 import Szoba.*;
-import Karakter.*;
 
 public abstract class PasszivTargy extends Targy {
     /**
@@ -9,8 +8,8 @@ public abstract class PasszivTargy extends Targy {
      */
     protected int toltet;
 
-    public PasszivTargy(Szoba sz, Karakter k, Funkcio f){
-        super(sz, k, f);
+    public PasszivTargy(Szoba sz, Funkcio f) {
+        super(sz, f);
     }
 
     /**

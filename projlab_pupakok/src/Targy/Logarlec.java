@@ -1,4 +1,7 @@
+package Targy;
 
+import Szoba.*;
+import Karakter.*;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -10,8 +13,8 @@ public class Logarlec extends Targy{
 	 * @param k Birtokos értéke
 	 * @param f Funkcio értéke
 	 */
-	public Logarlec(Szoba sz, Hallgato k, Funkcio f) {
-		super(sz, k, f);
+	public Logarlec(Szoba sz) {
+		super(sz, Funkcio.logarlec);
 		System.out.println("Logarlec -> create");
 	}
 	

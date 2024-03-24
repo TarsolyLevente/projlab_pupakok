@@ -1,6 +1,14 @@
+package Targy;
 
+import Szoba.*;
+import Karakter.*;
 
-public class Tranzisztor {
+public class Tranzisztor extends AktivTargy {
+
+    public Tranzisztor(Szoba sz) {
+        super(sz);
+    }
+
     /**
      * Aktiválva van-e a tranzisztor
      */

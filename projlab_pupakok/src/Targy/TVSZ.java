@@ -1,8 +1,11 @@
+package Targy;
 
+import Szoba.*;
+import Karakter.*;
 
 public class TVSZ extends PasszivTargy {
-    public TVSZ(Szoba sz, Karakter k, Funkcio f){
-        super(sz, k, f);
+    public TVSZ(Szoba sz) {
+        super(sz, Funkcio.oktatotol_ved);
     }
     /**
      * Az absztrakt setToltet() függvény megvalósítása a TVSZ által

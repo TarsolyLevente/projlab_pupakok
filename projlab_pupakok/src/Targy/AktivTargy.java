@@ -1,6 +1,10 @@
+package Targy;
+
+import Szoba.*;
+
 public abstract class AktivTargy extends Targy {
-    public AktivTargy(Szoba sz, Karakter k, Funkcio f){
-        super(sz, k, f);
+    public AktivTargy(Szoba sz) {
+        super(sz, Funkcio.aktiv);
     }
 
 
