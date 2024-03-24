@@ -14,8 +14,9 @@ public class Oktato extends Karakter
 
     public void felvesz(Targy t)
     {
+        System.out.println("felvesz fv lefutott");
         t.setBirtokos(this);
         t.setSzoba(null);
-        System.out.println("felvesz fv lefutott");
+        szoba.targy_eltuntetese(t);
     }
 }

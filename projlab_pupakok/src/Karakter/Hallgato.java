@@ -27,6 +27,7 @@ public class Hallgato extends Karakter
             System.out.println("felvesz fv lefutott");
             t.setBirtokos(this);
             t.setSzoba(null);
+            szoba.targy_eltuntetese(t);
         }
     }
 }
