@@ -30,6 +30,7 @@ public class Tranzisztor extends AktivTargy {
      */
     public void use() {
         System.out.println("Tranzisztor -> use()");
+        this.getSzoba().targy_elhelyezese(this);
     }
 
     /**
@@ -38,5 +39,20 @@ public class Tranzisztor extends AktivTargy {
     public void setTars(Tranzisztor t) {
         
         System.out.println("Tranzisztor -> setTars(Tranzisztor)");
+    }
+
+    /**
+     * Getter a tranzisztorral kapcsolatban lévő társához
+     */
+    public Tranzisztor getTars() {
+        System.out.println("Tranzisztor -> getTars()");
+        return tars;
+    }
+
+    /**
+     * Setter a tranzisztor aktiv adattagához
+     */
+    public void setAktiv(boolean b) {
+        aktiv = b;
     }
 }

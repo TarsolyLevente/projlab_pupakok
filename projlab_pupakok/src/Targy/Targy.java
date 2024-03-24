@@ -44,6 +44,14 @@ public abstract class Targy {
 	}
 
 	/**
+	 * A szoba tagváltozó getter-e.
+	 */
+	public Szoba getSzoba() {
+		System.out.println("Targy -> getSzoba()");
+		return szoba;
+	}
+
+	/**
 	 * A birtokos tagváltozó setter-e.
 	 * 
 	 * @param k A birtokos tagváltozó kapott értéke.

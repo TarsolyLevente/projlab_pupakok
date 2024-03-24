@@ -16,7 +16,7 @@ public class Game {
 	 */
     private int szamlalo;
 
-    Game(Palya p){
+    public Game(Palya p){
         palya= p;
         
     }

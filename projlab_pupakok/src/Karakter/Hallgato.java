@@ -23,16 +23,23 @@ public class Hallgato extends Karakter
 
     public void mozog(Szoba sz){
         System.out.println("Hallgato -> mozog()");
+        if (sz.getOktatok().size() != 0) {
+            kibukik();
+        }
     }
 
     public void kibukik() 
     {
         System.out.println("kibukik fv lefutott");
+        this.getSzoba().deleteHallgato(this);
     }
 
     public void teleport(Tranzisztor t) 
     {
         System.out.println("teleport fv lefutott");
+        this.mozog(t.getTars().getSzoba());
+        t.setAktiv(false);
+        t.getTars().setAktiv(true);
     }
     
     public void felvesz(Targy t)

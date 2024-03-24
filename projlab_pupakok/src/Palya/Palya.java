@@ -54,8 +54,21 @@ public class Palya {
             oktato.mozog(randomSzoba);
 
         }
+        if ()
         return;
     }
 
+    /**
+     * Hallgató hozzáadása a pályához
+     */
+    public void addHallgato(Hallgato h) {
+        hallgatok.add(h);
+    }
 
+    /**
+     * Hallgató eltávolítása a pályához
+     */
+    public void removeHallgato(Hallgato h) {
+        hallgatok.remove(h);
+    }
 }

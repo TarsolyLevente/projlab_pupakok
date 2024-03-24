@@ -13,7 +13,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
+
+import Game.Game;
+import Palya.Palya;
 import Szoba.*;
 import Karakter.*;
 import Targy.*;
@@ -258,6 +263,157 @@ public class Skeleton {
         Oktato h = new Oktato(szoba);
         Camembert camembert = new Camembert(szoba);
         h.felvesz(camembert);
+    }
+
+    /**
+     * Oktató felveszi a tranzisztort a földről.
+     */
+    public static void test46() {
+        Szoba szoba = new Szoba(false, 10);
+        Oktato oktato = new Oktato(szoba);
+        Tranzisztor tranzisztor = new Tranzisztor(szoba);
+        oktato.felvesz(tranzisztor);
+    }
+
+    /**
+     * Oktató felveszi a TVSZ-t a földről.
+     */
+    public static void test47() {
+        Szoba szoba = new Szoba(false, 10);
+        Oktato oktato = new Oktato(szoba);
+        TVSZ tvsz = new TVSZ(szoba);
+        oktato.felvesz(tvsz);
+    }
+
+    /**
+     * Oktató felveszi a söröspoharat a földről.
+     */
+    public static void test48() {
+        Szoba szoba = new Szoba(false, 10);
+        Oktato oktato = new Oktato(szoba);
+        Sorospohar sorospohar = new Sorospohar(szoba);
+        oktato.felvesz(sorospohar);
+    }
+
+    /**
+     * Oktató felveszi a rongyot a földről.
+     */
+    public static void test49() {
+        Szoba szoba = new Szoba(false, 10);
+        Oktato oktato = new Oktato(szoba);
+        Rongy rongy = new Rongy(szoba);
+        oktato.felvesz(rongy);
+    }
+
+    /**
+     * Oktató felveszi a maszkot a földről.
+     */
+    public static void test50() {
+        Szoba szoba = new Szoba(false, 10);
+        Oktato oktato = new Oktato(szoba);
+        Maszk maszk = new Maszk(szoba);
+        oktato.felvesz(maszk);
+    }
+
+    /**
+     * Camembert használata
+     */
+    public static void test51() {
+        Szoba szoba1 = new Szoba(false, 10);
+        Szoba szoba2 = new Szoba(true, 10);
+        Hallgato hallgato = new Hallgato(szoba1);
+        Camembert camembert = new Camembert(szoba1);
+        hallgato.felvesz(camembert);
+        hallgato.mozog(szoba2);
+        camembert.use();
+    }
+
+    /**
+     * Tranzisztor összekapcsolása
+     */
+    public static void test52() {
+        Szoba szoba1 = new Szoba(false, 10);
+        Szoba szoba2 = new Szoba(false, 10);
+        Tranzisztor t1 = new Tranzisztor(szoba1);
+        Tranzisztor t2 = new Tranzisztor(szoba2);
+        Hallgato hallgato = new Hallgato(szoba1);
+        hallgato.felvesz(t1);
+        hallgato.mozog(szoba2);
+        hallgato.felvesz(t2);
+        t1.setTars(t2);
+        t2.setTars(t1);
+    }
+
+    /**
+     * Tranzisztor használata
+     */
+    public static void test53() {
+        Szoba szoba1 = new Szoba(false, 10);
+        Szoba szoba2 = new Szoba(false, 10);
+        Tranzisztor t1 = new Tranzisztor(szoba1);
+        Tranzisztor t2 = new Tranzisztor(szoba2);
+        Hallgato hallgato = new Hallgato(szoba1);
+        hallgato.felvesz(t1);
+        hallgato.mozog(szoba2);
+        hallgato.felvesz(t2);
+        t1.setTars(t2);
+        t2.setTars(t1);
+        t1.use();
+        t2.use();
+    }
+
+    /**
+     * Teleportálás tranzisztor segítségvel
+     */
+    public static void test54() {
+        Szoba szoba1 = new Szoba(false, 10);
+        Szoba szoba2 = new Szoba(false, 10);
+        Tranzisztor t1 = new Tranzisztor(szoba1);
+        Tranzisztor t2 = new Tranzisztor(szoba2);
+        Hallgato hallgato = new Hallgato(szoba1);
+        hallgato.felvesz(t1);
+        hallgato.mozog(szoba2);
+        hallgato.felvesz(t2);
+        t1.setTars(t2);
+        t2.setTars(t1);
+        t1.use();
+        t2.use();
+        hallgato.teleport(t1);
+    }
+
+    /**
+     * Logarléc felvétele, a játék vége
+     */
+    public static void test55() {
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato hallgato = new Hallgato(szoba);
+        Logarlec logarlec = new Logarlec(szoba);
+        hallgato.felvesz(logarlec);
+        LogarlecPropertyChangeListener lgp = new LogarlecPropertyChangeListener();
+        //TODO - property faszsag
+    }
+
+    /**
+     * Hallgató kibukása, a játék vége
+     */
+    public static void test56() {
+        Palya palya = new Palya();
+        Game game = new Game(palya);
+        Szoba szoba1 = new Szoba(false, 10, palya);
+        Szoba szoba2 = new Szoba(false, 10, palya);
+        Hallgato hallgato = new Hallgato(szoba1);
+        palya.addHallgato(hallgato);
+        Oktato oktato = new Oktato(szoba2);
+        hallgato.mozog(szoba2);
+    }
+
+    /**
+     * Lejár az idő, a játéknak vége
+     */
+    public static void test57() {
+        Palya palya = new Palya();
+        Game game = new Game(palya);
+
     }
 
     private ArrayList<String> readMenu() {

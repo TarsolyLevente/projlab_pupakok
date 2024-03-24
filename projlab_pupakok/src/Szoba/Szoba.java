@@ -35,6 +35,10 @@ public class Szoba {
 	 * A szobában levő tárgyak
 	 */
     protected ArrayList<Targy> targyak;
+    /**
+     * A szoba páyla attribútuma
+     */
+    protected Palya palya;
       
     public Szoba(boolean gaz, int bef){
         System.out.println("Szoba -> create");
@@ -46,6 +50,19 @@ public class Szoba {
         hallgatok = new ArrayList<>();
         oktatok = new ArrayList<>();
         targyak = new ArrayList<>();
+    }
+
+    public Szoba(boolean gaz, int bef, Palya p){
+        System.out.println("Szoba -> create");
+        this.gazos = gaz;
+        this.befogadokepesseg = bef;
+        //TODO TÁRGY GENERÁLÁS KÖSZÖNÖM SZÉPEN
+        regiszobak = new ArrayList<>();
+        szomszedok = new ArrayList<>();
+        hallgatok = new ArrayList<>();
+        oktatok = new ArrayList<>();
+        targyak = new ArrayList<>();
+        palya = p;
     }
 
     /**
@@ -150,6 +167,14 @@ public class Szoba {
 
     public void setSzomszedok(ArrayList<Szoba> szomszedok) {
         this.szomszedok = szomszedok;
+    }
+
+    /**
+     * Törli a játékból a hallgatót
+     */
+    public void deleteHallgato(Hallgato h) {
+        palya.removeHallgato(h);
+        hallgatok.remove(h);
     }
     
     /*

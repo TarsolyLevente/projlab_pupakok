@@ -52,6 +52,5 @@ public abstract class Karakter
         System.out.println("vedette fv lefutott");
         return false;
     }
-
 }
 

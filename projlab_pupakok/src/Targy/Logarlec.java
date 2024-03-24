@@ -47,4 +47,13 @@ public class Logarlec extends Targy{
 	public void use() {
 		System.out.println("Logarlec -> use()");
 	}
+
+	/**
+	 *
+	 */
+	/*public void addPropertyChangeListener(PropertyChangeListener listener) {
+		getBirtokos().addListener((obs, oldValue, newValue) -> {
+			listener.propertyChange(new PropertyChangeEvent(this, "value", oldValue, newValue));
+		});
+	}*/
 }
