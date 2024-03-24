@@ -5,8 +5,13 @@ import Karakter.*;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 
 public class Logarlec extends Targy{
+	/**
+	 * PropertyChangeSupport attribútum
+	 */
+	private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 	/**
 	 * Logarlec konstruktora
 	 * @param sz Szoba értéke
@@ -26,20 +31,8 @@ public class Logarlec extends Targy{
 		super.setBirtokos(k);
 		Karakter ujBirtokos = this.getBirtokos();
 		
-		firePropertyChange("birtokos", oldBirtokos, ujBirtokos);
+		support.firePropertyChange("birtokos", oldBirtokos, ujBirtokos);
 	}
-	
-	/**
-	 * firePropertyChange metódus, hogy nyomon lehessen követni, mikor veszik fel a Logarlecet.
-	 * @param propertyName
-	 * @param oldValue
-	 * @param newValue
-	 */
-    private void firePropertyChange(String propertyName, Karakter oldValue, Karakter newValue) {
-        PropertyChangeEvent event = new PropertyChangeEvent(this, propertyName, oldValue, newValue);
-        
-        new LogarlecPropertyChangeListener().propertyChange(event);
-    }
 	
 	/**
 	 * Logarléc use függvénye.
@@ -49,11 +42,7 @@ public class Logarlec extends Targy{
 	}
 
 	/**
-	 *
+	 * addPropertyChangeListener
 	 */
-	/*public void addPropertyChangeListener(PropertyChangeListener listener) {
-		getBirtokos().addListener((obs, oldValue, newValue) -> {
-			listener.propertyChange(new PropertyChangeEvent(this, "value", oldValue, newValue));
-		});
-	}*/
+	public void addPropertyChangeListener(PropertyChangeListener listener) { support.addPropertyChangeListener(listener); }
 }

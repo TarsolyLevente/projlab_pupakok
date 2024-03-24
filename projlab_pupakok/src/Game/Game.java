@@ -37,9 +37,12 @@ public class Game {
     /**
      * Ezt fogja a start() a végén meghívni, hogy folyamatosan futtathassa a játékot
      */
-    private void jatekLeptetes() {
-        // while(szamlalo!=0)
-        palya.leptet();
+    public void jatekLeptetes() {
+        while(szamlalo!=0) {
+            palya.leptet();
+            szamlalo--;
+        }
+        endgame();
     }
 
     /**

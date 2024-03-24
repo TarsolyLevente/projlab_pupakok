@@ -495,11 +495,11 @@ public class Skeleton {
      */
     public static void test55() {
         Szoba szoba = new Szoba(false, 10);
+        Game game = new Game(0);
         Hallgato hallgato = new Hallgato(szoba);
         Logarlec logarlec = new Logarlec(szoba);
+        logarlec.addPropertyChangeListener(new LogarlecPropertyChangeListener(game));
         hallgato.felvesz(logarlec);
-        LogarlecPropertyChangeListener lgp = new LogarlecPropertyChangeListener();
-        //TODO - property faszsag
     }
 
     /**
@@ -522,7 +522,7 @@ public class Skeleton {
     public static void test57() {
         Palya palya = new Palya();
         Game game = new Game(0);
-
+        game.jatekLeptetes();
     }
 
     private ArrayList<String> readMenu() {
@@ -698,6 +698,42 @@ public class Skeleton {
                     break;
                 case 45:
 
+                    break;
+                case 46:
+                    test46();
+                    break;
+                case 47:
+                    test47();
+                    break;
+                case 48:
+                    test48();
+                    break;
+                case 49:
+                    test49();
+                    break;
+                case 50:
+                    test50();
+                    break;
+                case 51:
+                    test51();
+                    break;
+                case 52:
+                    test52();
+                    break;
+                case 53:
+                    test53();
+                    break;
+                case 54:
+                    test54();
+                    break;
+                case 55:
+                    test55();
+                    break;
+                case 56:
+                    test56();
+                    break;
+                case 57:
+                    test57();
                     break;
 
 
