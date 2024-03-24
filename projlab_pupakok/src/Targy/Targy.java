@@ -29,6 +29,7 @@ public abstract class Targy {
 	 */
 	public Targy(Szoba sz, Funkcio f) {
 		szoba = sz;
+		sz.targy_elhelyezese(this);
 		birtokos = null;
 		funkcio = f;
 	}

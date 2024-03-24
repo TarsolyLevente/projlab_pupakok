@@ -21,9 +21,82 @@ import Game.Game;
 import Palya.Palya;
 import Szoba.*;
 import Karakter.*;
+import Palya.Palya;
 import Targy.*;
 
 public class Skeleton {
+
+    /**
+     * Jatek inditasa
+     */
+    public static void test0() {
+        Palya palya = new Palya();
+        Game game = new Game(palya, 0);
+        game.start();
+    }
+
+    /**
+     * Oktatok leptetese
+     */
+    public static void test1() {
+
+    }
+
+    /**
+     * Szoba osztodasa
+     */
+    public static void test2() {
+
+    }
+
+    /**
+     * Szoba egyesulese
+     */
+    public static void test3() {
+
+    }
+
+    /**
+     * Camembert elhelyezese
+     */
+    public static void test4() {
+
+    }
+
+    /**
+     * Camembert eltunetetese
+     */
+    public static void test5() {
+
+    }
+
+    /**
+     * Logarlec elhelyezese
+     */
+    public static void test6() {
+
+    }
+
+    /**
+     * Logarlec eltuntetese
+     */
+    public static void test7() {
+
+    }
+
+    /**
+     * Tranzisztor elhelyezese
+     */
+    public static void test8() {
+
+    }
+
+    /**
+     * Tranzisztor eltuntetese
+     */
+    public static void test9() {
+
+    }
 
     /**
      * Elátkozott szobában ajtó eltüntetése
@@ -454,35 +527,35 @@ public class Skeleton {
             System.out.flush();
             switch (szam) {
                 case 0:
-
+                    test0();
                     break;
                 case 1:
-
+                    test1();
                     break;
                 case 2:
-
+                    test2();
                     break;
                 case 3:
-
+                    test3();
                     break;
                 case 4:
-
+                    test4();
                     break;
                 case 5:
-
+                    test5();
                     break;
 
                 case 6:
-
+                    test6();
                     break;
                 case 7:
-
+                    test7();
                     break;
                 case 8:
-
+                    test8();
                     break;
                 case 9:
-
+                    test9();
                     break;
                 case 10:
 
@@ -600,5 +673,6 @@ public class Skeleton {
             System.out.flush();
             printMenu(lines);
         }
+        scanner.close();
     }
 }

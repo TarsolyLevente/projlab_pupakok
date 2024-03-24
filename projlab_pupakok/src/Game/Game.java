@@ -16,9 +16,9 @@ public class Game {
 	 */
     private int szamlalo;
 
-    public Game(Palya p){
+    public Game(Palya p, int sz) {
         palya= p;
-        
+        szamlalo = sz;
     }
 
     /**
@@ -28,7 +28,7 @@ public class Game {
     public void start(){
         System.out.println("Game -> start()");
         palya.general();
-        //while(valameddig)
+        // while(szamlalo!=0)
         palya.leptet();
     }
 
