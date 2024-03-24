@@ -25,6 +25,7 @@ public class Palya {
 	 */
     public  void general(){
 
+        System.out.println("Palya -> general()");
 
     }
 
@@ -32,6 +33,7 @@ public class Palya {
 	 * Meghívja az oktatók mozog függvényét egy szomszédos szobába
 	 */
     public  void leptet(){
+        System.out.println("Palya -> leptet()");
         Random rand = new Random();
 
         for (ArrayList<Oktato> oktato : oktatok) {
