@@ -37,7 +37,7 @@ public class Szoba {
     protected ArrayList<Targy> targyak;
       
     public Szoba(boolean gaz, int bef){
-        System.out.println("Szoba konstruktor");
+        System.out.println("Szoba -> create");
         this.gazos = gaz;
         this.befogadokepesseg = bef;
         //TODO TÁRGY GENERÁLÁS KÖSZÖNÖM SZÉPEN
@@ -53,7 +53,7 @@ public class Szoba {
 	 * @param t a tárgy, amit letesz a szobába
 	 */
     public void targy_elhelyezese(Targy t){
-        System.out.println("Tárgy elhelyeződött");
+        System.out.println("Szoba -> targy_elhelyezese()");
     }
 
     /**
@@ -61,7 +61,7 @@ public class Szoba {
 	 * @param t a tárgy, amit kivesz a szobából
 	 */
     public void targy_eltuntetese(Targy t){
-        System.out.println("Tárgy etűnt");
+        System.out.println("Szoba -> targy_eltuntetese()");
     }
 
     /**
@@ -110,7 +110,7 @@ public class Szoba {
 	 * @param o az oktató, akit töröl
 	 */
     public void removeOktato(Oktato o){
-        System.out.println("removeOktato");
+        System.out.println("Szoba -> removeOktato()");
     }
 
     /**   
@@ -118,23 +118,30 @@ public class Szoba {
 	 * @param h az hallgató, akit töröl
 	 */
     public void removeHallgato(Hallgato h){
-        System.out.println("removeHallgato");
+        System.out.println("Szoba -> removeHallgato()");
     }
 
     /**   
      * A paraméterben kapott oktatót hozzáadja a szoba oktatói közé
 	 * @param o az oktató, akit addol
 	 */
-    public void addOktato(Oktato o){
-        System.out.println("Oktato added");
+    public boolean addOktato(Oktato o){
+        System.out.println("Szoba -> addOktato()");
+        if(oktatok.size() + hallgatok.size() < befogadokepesseg - 1){
+            oktatok.add(o);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**   
      * A paraméterben kapott hallgatót hozzáadja a szoba hallgatói közé
 	 * @param h az hallgató, akit addol
 	 */
-    public void addHallgato(Hallgato h){
-        System.out.println("Hallgato added");
+    public boolean addHallgato(Hallgato h){
+        System.out.println("Szoba -> addHallgato()");
+        return true;
     }
       
     public ArrayList<Szoba> getSzomszedok() {

@@ -31,7 +31,6 @@ public abstract class Targy {
 		szoba = sz;
 		birtokos = null;
 		funkcio = f;
-		System.out.println("Targy -> create");
 	}
 
 	/**

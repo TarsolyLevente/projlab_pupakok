@@ -6,6 +6,7 @@ public class Rongy extends PasszivTargy{
 
     public Rongy(Szoba sz) {
         super(sz, Funkcio.oktatotol_ved);
+        System.out.println("Rongy -> create");
     }
 
     /**

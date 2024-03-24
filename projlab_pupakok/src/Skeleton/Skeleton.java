@@ -9,6 +9,16 @@ import Targy.*;
 public class Skeleton {
 
     /**
+     * Oktato mozgása szobába tesztje.
+     */
+    public static void test27(){
+        Szoba szoba1 = new Szoba(false, 10);
+        Szoba szoba2 = new Szoba(false, 10);
+        Oktato oktato = new Oktato(szoba1);
+        oktato.mozog(szoba2);
+    }
+
+    /**
      * Hallgató felveszi a rongyot a földről.
      */
     public static void test34() {
@@ -26,6 +36,72 @@ public class Skeleton {
         Hallgato h = new Hallgato(szoba);
         Maszk maszk = new Maszk(szoba);
         h.felvesz(maszk);
+    }
+
+    /**
+     * Camembert eldobásának tesztje.
+     */
+    public static void test36(){
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato h = new Hallgato(szoba);
+        Camembert c = new Camembert(szoba);
+        h.felvesz(c);
+        h.eldob(c);
+    }
+
+    /**
+     * Tranzisztor eldobásának tesztje.
+     */
+    public static void test38(){
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato h = new Hallgato(szoba);
+        Tranzisztor t = new Tranzisztor(szoba);
+        h.felvesz(t);
+        h.eldob(t);
+    }
+
+    /**
+     * TVSZ eldobásának tesztje.
+     */
+    public static void test39(){
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato h = new Hallgato(szoba);
+        TVSZ t = new TVSZ(szoba);
+        h.felvesz(t);
+        h.eldob(t);
+    }
+
+    /**
+     * Söröspohár eldobásának tesztje.
+     */
+    public static void test40(){
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato h = new Hallgato(szoba);
+        Sorospohar t = new Sorospohar(szoba);
+        h.felvesz(t);
+        h.eldob(t);
+    }
+
+    /**
+     * Rongy eldobásának tesztje.
+     */
+    public static void test41(){
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato h = new Hallgato(szoba);
+        Rongy t = new Rongy(szoba);
+        h.felvesz(t);
+        h.eldob(t);
+    }
+
+    /**
+     * Maszk eldobásának tesztje.
+     */
+    public static void test42(){
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato h = new Hallgato(szoba);
+        Maszk t = new Maszk(szoba);
+        h.felvesz(t);
+        h.eldob(t);
     }
 
     /**
@@ -106,7 +182,11 @@ public class Skeleton {
 
                     break;
 
-                // TODO
+                
+
+                case 27:
+                    test27();
+                    break;    
 
                 case 34:
                     test34();
@@ -114,10 +194,37 @@ public class Skeleton {
                 case 35:
                     test35();
                     break;
+                case 36:
+                    test36();
+                    break;
+                case 37:
+                    
+                    break;
+                case 38:
+                    test38();
+                    break;
+                case 39:
+                    test39();
+                    break;
+                case 40:
+                    test40();
+                    break;
+                case 41:
+                    test41();
+                    break;
+                case 42:
+                    test42();
+                    break;
+                case 43:
 
+                    break;
                 case 44:
                     test44();
                     break;
+                case 45:
+
+                    break;
+
 
                 default:
                     break;
