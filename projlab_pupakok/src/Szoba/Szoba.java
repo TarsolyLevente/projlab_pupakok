@@ -140,6 +140,10 @@ public class Szoba {
     public ArrayList<Szoba> getSzomszedok() {
         return szomszedok;
     }
+
+    public void setSzomszedok(ArrayList<Szoba> szomszedok) {
+        this.szomszedok = szomszedok;
+    }
     
     /*
     public boolean isGazos() {
@@ -163,9 +167,7 @@ public class Szoba {
       
     
       
-    public void setSzomszedok(ArrayList<Szoba> szomszedok) {
-        this.szomszedok = szomszedok;
-    }
+    
       
     public void setHallgatok(ArrayList<Hallgato> hallgatok) {
         this.hallgatok = hallgatok;
