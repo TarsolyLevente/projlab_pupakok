@@ -38,10 +38,7 @@ public abstract class Karakter
         this.szoba = szoba;
     }
 
-    public void mozog(Szoba sz) 
-    {
-        System.out.println("mozog fv lefutott");
-    }
+    public abstract void mozog(Szoba sz);
    
     public abstract void felvesz(Targy t);
 

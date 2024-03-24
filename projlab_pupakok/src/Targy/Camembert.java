@@ -5,6 +5,7 @@ import Szoba.*;
 public class Camembert extends AktivTargy {
     public Camembert(Szoba sz) {
         super(sz);
+        System.out.println("Camembert -> create");
     }
 
     /**

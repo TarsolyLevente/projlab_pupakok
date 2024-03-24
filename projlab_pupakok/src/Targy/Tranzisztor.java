@@ -7,6 +7,7 @@ public class Tranzisztor extends AktivTargy {
 
     public Tranzisztor(Szoba sz) {
         super(sz);
+        System.out.println("Tranzisztor -> create");
     }
 
     /**
