@@ -697,7 +697,7 @@ public class Skeleton {
     }
 
     private ArrayList<String> readMenu() {
-        File f = new File("projlab_pupakok/Data/Skeleton.txt");
+        File f = new File("src/Data/Skeleton.txt");
         File file = new File(f.getAbsolutePath());
         ArrayList<String> lines = new ArrayList<>();
         try {
