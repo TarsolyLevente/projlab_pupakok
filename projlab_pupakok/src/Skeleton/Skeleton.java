@@ -204,25 +204,26 @@ public class Skeleton {
         oktato.mozog(szoba2);
         
     }
+
     /**
      * Oktató megbénítása
      */
-    // TODO
     public static void test26() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);
         Oktato oktato = new Oktato(szoba1);
         Hallgato hallgato = new Hallgato(szoba2);
         Rongy rongy = new Rongy(szoba2);
+        szoba2.addHallgato(hallgato);
         hallgato.felvesz(rongy);
         System.out.println("");
-        oktato.mozog(szoba2);
+        szoba2.addOktato(oktato);
         
     }
+    
     /**
      * Oktató mozgása szobába
      */
-    // TODO
     public static void test27() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);

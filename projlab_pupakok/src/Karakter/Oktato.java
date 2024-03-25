@@ -23,7 +23,7 @@ public class Oktato extends Karakter
 
     public void megbenul() 
     {
-        System.out.println("megbenul fv lefutott");
+        System.out.println("Oktato -> megbenul()");
     }
 
     public void felvesz(Targy t)

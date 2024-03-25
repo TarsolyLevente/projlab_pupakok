@@ -22,8 +22,9 @@ public class Hallgato extends Karakter
 
     public void mozog(Szoba sz){
         System.out.println("Hallgato -> mozog()");
-        if (sz.getOktatok().size() != 0) {
-            kibukik();
+        if (sz.addHallgato(this)) {
+            getSzoba().removeHallgato(this);
+            this.setSzoba(sz);
         }
     }
 

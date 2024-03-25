@@ -50,6 +50,14 @@ public abstract class Karakter
     public boolean vedette(Vedettseg v)
     {
         System.out.println("Karakter ->vedette()");
+        if (v == Vedettseg.oktatotol) {
+            for (int i = 0; i < taska.size(); i++) {
+                if (taska.get(i).getFunkcio() == Funkcio.oktatot_tamad) {
+                    taska.get(i).use();
+                    return true;
+                }
+            }
+        }
         return false;
     }
 }

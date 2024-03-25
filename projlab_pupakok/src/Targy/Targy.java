@@ -72,6 +72,11 @@ public abstract class Targy {
 		return birtokos;
 	}
 
+	public Funkcio getFunkcio() {
+		System.out.println("Targy -> getFunkcio()");
+		return funkcio;
+	}
+
 	/**
 	 * Abstract metódus, minden leszármazott felüldefiniálja a saját használatának
 	 * megfelelően.
