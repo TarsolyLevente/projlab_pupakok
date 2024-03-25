@@ -257,7 +257,7 @@ public class Szoba {
         hallgatok.remove(h);
         palya.removeHallgato(h);
         System.out.println("Palya -> hallgatok.remove(Hallgato)");
-        if (hallgatok.size() == 0)
+        if (palya.getHallgatok().size() == 0)
             palya.getGame().endgame();
     }
     

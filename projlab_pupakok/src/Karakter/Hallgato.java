@@ -40,7 +40,7 @@ public class Hallgato extends Karakter
         if (sz.addHallgato(this)) {
             getSzoba().removeHallgato(this);
             this.setSzoba(sz);
-        sz.addHallgato(this);
+        }
         if (sz.getOktatok().size() != 0) {
             kibukik();
         }
