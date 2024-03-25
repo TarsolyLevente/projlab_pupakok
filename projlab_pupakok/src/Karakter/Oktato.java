@@ -6,13 +6,24 @@ import Targy.*;
 
 public class Oktato extends Karakter
 {
+    /**
+     * Megbénult-e tárgy hatására.
+     */
     private boolean megbenult;
 
+    /**
+     * Oktató mozog függvénye
+     * @param sz Ide mozog át
+     */
     public Oktato(Szoba sz){
         super(sz);
         System.out.println("Oktato -> create");
     }
 
+    /**
+     * Hallgató mozgásért felelős függvénye
+     * @param sz Ebbe a szobába mozog át.
+     */
     public void mozog(Szoba sz){
         System.out.println("Oktato -> mozog()");
         if(sz.addOktato(this)){
@@ -21,11 +32,18 @@ public class Oktato extends Karakter
         }
     }
 
+    /**
+     * Oktató megbénul függvénye
+     */
     public void megbenul() 
     {
         System.out.println("Oktato -> megbenul()");
     }
 
+    /**
+     * Oktató felvesz függvénye
+     * @param t Ezt veszi fel
+     */
     public void felvesz(Targy t)
     {
         System.out.println("Oktato -> felvesz()");

@@ -16,6 +16,7 @@ public class Palya {
 	 * A játékba lévő oktatok
 	 */
     protected ArrayList<Oktato> oktatok;
+
     /**
 	 * A játékba lévő szobák
 	 */
@@ -80,6 +81,20 @@ public class Palya {
      */
     public void removeHallgato(Hallgato h) {
         hallgatok.remove(h);
+    }
+
+    /**
+	 * Oktató hozzáadása a pályához
+	 */
+    public void addOktato(Oktato o) {
+        oktatok.add(o);
+    }
+
+    /**
+     * Oktató eltávolítása a pályából
+     */
+    public void removeOktato(Oktato o) {
+        oktatok.remove(o);
     }
 
     /**

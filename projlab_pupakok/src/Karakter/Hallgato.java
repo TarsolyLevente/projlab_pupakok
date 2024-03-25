@@ -6,12 +6,22 @@ import Targy.*;
 
 import java.util.ArrayList;
 
+
 public class Hallgato extends Karakter
 {
+    /**
+     * Hallgató konstruktora
+     * @param sz Ebben a szobában lesz a hallgató
+     */
     public Hallgato(Szoba sz){
         super(sz);
         System.out.println("Hallgato -> create");
     }
+
+    /**
+     * Hallgató eldob függvénye
+     * @param t Ezt a tárgyat dobja el
+     */
 
     public void eldob(Targy t) 
     {
@@ -20,6 +30,11 @@ public class Hallgato extends Karakter
         t.setBirtokos(null);
     }
 
+    /**
+     * Hallgató mozgásért felelős függvénye
+     * @param sz Ebbe a szobába mozog át.
+     */
+
     public void mozog(Szoba sz){
         System.out.println("Hallgato -> mozog()");
         if (sz.addHallgato(this)) {
@@ -27,6 +42,10 @@ public class Hallgato extends Karakter
             this.setSzoba(sz);
         }
     }
+
+    /**
+     * Hallgató kibukásért felelős függvénye
+     */
 
     public void kibukik() 
     {
@@ -38,13 +57,23 @@ public class Hallgato extends Karakter
         }
     }
 
+    /**
+     * Hallgató teleportálásért felelős függvénye
+     * @param t Ehhez a teleoporthoz teleportál
+     */
+
     public void teleport(Tranzisztor t) 
     {
-        System.out.println("teleport fv lefutott");
+        System.out.println("Hallgato -> teleport()");
         this.mozog(t.getTars().getSzoba());
         t.setAktiv(false);
         t.getTars().setAktiv(true);
     }
+
+    /**
+     * Hallgató felvesz függvénye
+     * @param t Ezt veszi fel
+     */
     
     public void felvesz(Targy t)
     {

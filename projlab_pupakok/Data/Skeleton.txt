@@ -34,16 +34,13 @@
 33 -> Hallgató söröspohár felvétele 
 34 -> Hallgató rongy felvétele 
 35 -> Hallgató maszk felvétele 
-36 -> Camembert eldobása 
-37 -> Logarléc eldobása 
+36 -> Camembert eldobása
 38 -> Tranzisztor eldobása 
 39 -> TVSZ eldobása 
 40 -> Söröspohár eldobása 
 41 -> Rongy eldobása 
 42 -> Maszk eldobása 
-43 -> Oktató mozgása szobába 
 44 -> Oktató camembert felvétele 
-45 -> Oktató Logarléc felvétele 
 46 -> Oktató tranzisztor felvétele 
 47 -> Oktató TVSZ felvétele 
 48 -> Oktató söröspohár felvétele 

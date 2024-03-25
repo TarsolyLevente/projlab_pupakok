@@ -134,6 +134,135 @@ public class Skeleton {
         szoba.targy_eltuntetese(tranzisztor);
     }
 
+     /**
+     * TVSZ elhelyezese
+     */
+    public static void test10() {
+        Szoba szoba = new Szoba(false, 0);
+        TVSZ tvsz = new TVSZ(szoba);
+        System.out.println("");
+        szoba.targy_elhelyezese(tvsz);
+    }
+
+    /**
+     * TVSZ eltuntetese
+     */
+    public static void test11() {
+        Szoba szoba = new Szoba(false, 0);
+        TVSZ tvsz = new TVSZ(szoba);
+        szoba.targy_elhelyezese(tvsz);
+        System.out.println("");
+        szoba.targy_eltuntetese(tvsz);
+    }
+
+    /**
+     * Söröspohár elhelyezese
+     */
+    public static void test12() {
+        Szoba szoba = new Szoba(false, 0);
+        Sorospohar sorospohar = new Sorospohar(szoba);
+        System.out.println("");
+        szoba.targy_elhelyezese(sorospohar);
+    }
+
+    /**
+     * Söröspohár elhelyezese
+     */
+    public static void test13() {
+        Szoba szoba = new Szoba(false, 0);
+        Sorospohar sorospohar = new Sorospohar(szoba);
+        szoba.targy_elhelyezese(sorospohar);
+        System.out.println("");
+        szoba.targy_eltuntetese(sorospohar);
+    }
+
+    /**
+     * Rongy elhelyezese
+     */
+    public static void test14() {
+        Szoba szoba = new Szoba(false, 0);
+        Rongy rongy = new Rongy(szoba);
+        System.out.println("");
+        szoba.targy_elhelyezese(rongy);
+    }
+
+    /**
+     * Rongy eltuntetese
+     */
+    public static void test15() {
+        Szoba szoba = new Szoba(false, 0);
+        Rongy rongy = new Rongy(szoba);
+        szoba.targy_elhelyezese(rongy);
+        System.out.println("");
+        szoba.targy_eltuntetese(rongy);
+    }
+
+    /**
+     * Maszk elhelyezese
+     */
+    public static void test16() {
+        Szoba szoba = new Szoba(false, 0);
+        Maszk maszk = new Maszk(szoba);
+        System.out.println("");
+        szoba.targy_elhelyezese(maszk);
+    }
+
+    /**
+     * Maszk eltuntetese
+     */
+    public static void test17() {
+        Szoba szoba = new Szoba(false, 0);
+        Maszk maszk = new Maszk(szoba);
+        szoba.targy_elhelyezese(maszk);
+        System.out.println("");
+        szoba.targy_eltuntetese(maszk);
+    }
+
+    /**
+     * Hallgato elhelyezese
+     */
+    public static void test18() {
+        Szoba szoba = new Szoba(false, 0);
+        Hallgato hallgato = new Hallgato(szoba);
+        System.out.println("");
+        szoba.getHallgatok().add(hallgato);
+    }
+
+    /**
+     * Hallgato elhelyezese
+     */
+    public static void test19() {
+        Szoba szoba = new Szoba(false, 0);
+        Hallgato hallgato = new Hallgato(szoba);
+        szoba.getHallgatok().add(hallgato);
+        System.out.println("");
+        szoba.removeHallgato(hallgato);
+    }
+
+    /**
+     * Oktato elhelyezese
+     */
+    public static void test20() {
+        Szoba szoba = new Szoba(false, 0);
+        Palya palya = new Palya();
+        Oktato oktato = new Oktato(szoba);
+        System.out.println("");
+        palya.addOktato(oktato);
+        szoba.getOktatok().add(oktato);
+    }
+
+    /**
+     * Oktato elhelyezese
+     */
+    public static void test21() {
+        Szoba szoba = new Szoba(false, 0);
+        Oktato oktato = new Oktato(szoba);
+        szoba.getOktatok().add(oktato);
+        System.out.println("");
+        szoba.removeOktato(oktato);
+    }
+        
+
     /**
      * Elátkozott szobában ajtó eltüntetése
      */
@@ -640,37 +769,41 @@ public class Skeleton {
                     test9();
                     break;
                 case 10:
-
+                    test10();
                     break;
                 case 11:
-
+                    test11();
                     break;
                 case 12:
-
+                    test12();
                     break;
                 case 13:
-
+                    test13();
                     break;
                 case 14:
-
+                    test14();
                     break;
                 case 15:
-
+                    test15();
                     break;
                 case 16:
-
+                    test16();
                     break;
                 case 17:
-
+                    test17();
                     break;
                 case 18:
-
+                    test18();
                     break;
                 case 19:
-
+                    test19();
                     break;
-
-                // TODO
+                case 20:
+                    test20();
+                    break;
+                case 21:
+                    test21();
+                    break;
                 case 22:
                     test22();
                     break;
@@ -707,8 +840,6 @@ public class Skeleton {
                 case 33:
                     test33();
                     break;    
-                    
-
                 case 34:
                     test34();
                     break;
@@ -717,9 +848,6 @@ public class Skeleton {
                     break;
                 case 36:
                     test36();
-                    break;
-                case 37:
-                    
                     break;
                 case 38:
                     test38();
@@ -736,14 +864,8 @@ public class Skeleton {
                 case 42:
                     test42();
                     break;
-                case 43:
-                    test27();
-                    break;
                 case 44:
                     test44();
-                    break;
-                case 45:
-
                     break;
                 case 46:
                     test46();

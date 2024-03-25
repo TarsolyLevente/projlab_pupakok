@@ -49,6 +49,7 @@ public class Szoba {
      */
     public Szoba(boolean gaz, int bef){
         System.out.println("Szoba -> create");
+        palya = new Palya();
         this.gazos = gaz;
         this.befogadokepesseg = bef;
         regiszobak = new ArrayList<>();
