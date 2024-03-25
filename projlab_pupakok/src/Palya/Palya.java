@@ -1,5 +1,6 @@
 package Palya;
 
+import Game.Game;
 import Karakter.*;
 import Szoba.*;
 import Targy.*;
@@ -21,6 +22,10 @@ public class Palya {
 	 * A játékba lévő szobák
 	 */
     protected ArrayList<Szoba> szobak;
+    /**
+     * A pálya game attribútuma
+     */
+    protected Game game;
 
     /**
      * Konstruktor
@@ -30,6 +35,18 @@ public class Palya {
         oktatok =  new ArrayList<>();
         szobak = new ArrayList<>();
 	}
+
+    /**
+     * Konstruktor
+     *
+     * @param g a game amihez a pálya tartozik
+     */
+    public Palya(Game g) {
+        hallgatok =  new ArrayList<>();
+        oktatok =  new ArrayList<>();
+        szobak = new ArrayList<>();
+        game = g;
+    }
 
     /**
 	 * A szobákat beolvassa fájlból
@@ -109,5 +126,19 @@ public class Palya {
      */
     public void removeSzoba(Szoba sz) {
         szobak.remove(sz);
+    }
+
+    /**
+     * Getter a hallgatók listájára a pályán
+     */
+    public ArrayList<Hallgato> getHallgatok() {
+        return hallgatok;
+    }
+
+    /**
+     * Getter a game attribútumra
+     */
+    public Game getGame() {
+        return game;
     }
 }

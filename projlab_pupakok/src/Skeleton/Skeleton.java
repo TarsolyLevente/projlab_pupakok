@@ -592,15 +592,12 @@ public class Skeleton {
     /**
      * Camembert használata
      */
-    // TODO
     public static void test51() {
-        Szoba szoba1 = new Szoba(false, 10);
-        Szoba szoba2 = new Szoba(true, 10);
-        Hallgato hallgato = new Hallgato(szoba1);
-        Camembert camembert = new Camembert(szoba1);
-        hallgato.felvesz(camembert);
-        hallgato.mozog(szoba2);
+        Szoba szoba = new Szoba(false, 10);
+        Hallgato hallgato = new Hallgato(szoba);
+        Camembert camembert = new Camembert(szoba);
         System.out.println("");
+        hallgato.felvesz(camembert);
         camembert.use();
     }
 
@@ -624,7 +621,6 @@ public class Skeleton {
     /**
      * Tranzisztor használata
      */
-    // TODO exception
     public static void test53() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);
@@ -644,7 +640,6 @@ public class Skeleton {
     /**
      * Teleportálás tranzisztor segítségvel
      */
-    // TODO exception
     public static void test54() {
         Szoba szoba1 = new Szoba(false, 10);
         Szoba szoba2 = new Szoba(false, 10);
@@ -678,15 +673,15 @@ public class Skeleton {
     /**
      * Hallgató kibukása, a játék vége
      */
-    // TODO
     public static void test56() {
-        Palya palya = new Palya();
         Game game = new Game(0);
+        Palya palya = new Palya(game);
         Szoba szoba1 = new Szoba(false, 10, palya);
         Szoba szoba2 = new Szoba(false, 10, palya);
         Hallgato hallgato = new Hallgato(szoba1);
         palya.addHallgato(hallgato);
         Oktato oktato = new Oktato(szoba2);
+        palya.addOktato(oktato);
         System.out.println("");
         hallgato.mozog(szoba2);
     }
