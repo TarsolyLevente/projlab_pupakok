@@ -2,6 +2,8 @@ package Targy;
 
 import Szoba.*;
 
+import java.security.cert.TrustAnchor;
+
 public class Camembert extends AktivTargy {
     public Camembert(Szoba sz) {
         super(sz);
@@ -13,5 +15,6 @@ public class Camembert extends AktivTargy {
      */
     public void use() {
         System.out.println("Camembert -> use()");
+        this.getBirtokos().getSzoba().setGaz();
     }
 }

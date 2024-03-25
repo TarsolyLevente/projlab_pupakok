@@ -10,11 +10,13 @@ public class Oktato extends Karakter
 
     public Oktato(Szoba sz){
         super(sz);
+        sz.addOktato(this);
         System.out.println("Oktato -> create");
     }
 
     public void mozog(Szoba sz){
         System.out.println("Oktato -> mozog()");
+        sz.addOktato(this);
         if(sz.addOktato(this)){
             getSzoba().removeOktato(this);
             this.setSzoba(sz);

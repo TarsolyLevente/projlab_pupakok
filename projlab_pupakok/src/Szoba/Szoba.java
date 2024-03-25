@@ -58,6 +58,13 @@ public class Szoba {
         targyak = new ArrayList<>();
     }
 
+    /**
+     * Konstruktor
+     *
+     * @param gaz gázos-e alapértelmezetten a szoba
+     * @param bef a szoba befogadóképessége
+     * @param p a pálya, amihez a szoba tartozik
+     */
     public Szoba(boolean gaz, int bef, Palya p){
         System.out.println("Szoba -> create");
         this.gazos = gaz;
@@ -246,8 +253,11 @@ public class Szoba {
      * Törli a játékból a hallgatót
      */
     public void deleteHallgato(Hallgato h) {
-        palya.removeHallgato(h);
         hallgatok.remove(h);
+        palya.removeHallgato(h);
+        System.out.println("Palya -> hallgatok.remove(Hallgato)");
+        if (hallgatok.size() == 0)
+            palya.getGame().endgame();
     }
     
     /*
