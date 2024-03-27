@@ -29,9 +29,9 @@ public abstract class Targy {
 	 */
 	public Targy(Szoba sz, Funkcio f) {
 		szoba = sz;
+		sz.targy_elhelyezese(this);
 		birtokos = null;
 		funkcio = f;
-		System.out.println("Targy -> create");
 	}
 
 	/**
@@ -42,6 +42,14 @@ public abstract class Targy {
 	public void setSzoba(Szoba sz) {
 		szoba = sz;
 		System.out.println("Targy -> setSzoba(Szoba)");
+	}
+
+	/**
+	 * A szoba tagváltozó getter-e.
+	 */
+	public Szoba getSzoba() {
+		System.out.println("Targy -> getSzoba()");
+		return szoba;
 	}
 
 	/**
@@ -62,6 +70,11 @@ public abstract class Targy {
 	public Karakter getBirtokos() {
 		System.out.println("Targy -> getBirtokos()");
 		return birtokos;
+	}
+
+	public Funkcio getFunkcio() {
+		System.out.println("Targy -> getFunkcio()");
+		return funkcio;
 	}
 
 	/**

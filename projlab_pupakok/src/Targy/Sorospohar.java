@@ -5,6 +5,7 @@ import Szoba.*;
 public class Sorospohar extends PasszivTargy{
     public Sorospohar(Szoba sz) {
         super(sz, Funkcio.oktatotol_ved);
+        System.out.println("Sorospohar -> create");
     }
     /**
      * Az idő múlását határozza meg

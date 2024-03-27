@@ -16,22 +16,34 @@ public class Game {
 	 */
     private int szamlalo;
 
-    Game(Palya p){
-        palya= p;
-        
+    /**
+     * Konstruktor
+     * 
+     * @param sz az itőt reprezentáló számláló
+     */
+    public Game(int sz) {
+        palya = new Palya();
+        szamlalo = sz;
     }
 
     /**
-	 * le generálja a pályát és folyton meghívja a léptet függvényt a pályán
-	 */
-
+     * le generálja a pályát és folyton meghívja a léptet függvényt a pályán
+     */
     public void start(){
         System.out.println("Game -> start()");
         palya.general();
-        //while(valameddig)
-        palya.leptet();
     }
 
+    /**
+     * Ezt fogja a start() a végén meghívni, hogy folyamatosan futtathassa a játékot
+     */
+    public void jatekLeptetes() {
+        while(szamlalo!=0) {
+            palya.leptet();
+            szamlalo--;
+        }
+        endgame();
+    }
 
     /**
 	 * Befejezi a játékot
@@ -39,7 +51,4 @@ public class Game {
     public void endgame(){
         System.out.println("Game -> endgame()");
     }
-
-
-    
 }

@@ -19,6 +19,8 @@ public class ElatkozottSzoba extends Szoba{
      */
     public ElatkozottSzoba(boolean gaz, int bef){
         super(gaz, bef);
+        eltuntajto = new ArrayList<>();
+        System.out.println("ElatkozottSzoba -> create");
     }
 
     /**
@@ -26,13 +28,19 @@ public class ElatkozottSzoba extends Szoba{
 	 * @param sz Eltűnő szomszéd
 	 */
     public void eltunik(Szoba sz){
-        System.out.println("Ajtó eltűnt");
+        System.out.println("ElatkozottSzoba -> eltunik()");
+        eltuntajto.add(sz);
+        sz.removeSzomszed(this);
+        removeSzomszed(sz);
     }
     /**
 	 * Ajtó előtűnésének függvénye
 	 * @param sz Előtűnő szomszéd
 	 */
     public void elotunik(Szoba sz){
-        System.out.println("Ajtó előtűnt");
+        System.out.println("ElatkozottSzoba -> elotunik()");
+        szomszedok.add(sz);
+        sz.addSzomszed(this);
+        eltuntajto.remove(sz);
     }
 }

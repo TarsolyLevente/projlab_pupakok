@@ -1,11 +1,13 @@
 package Targy;
 
+import Karakter.Oktato;
 import Szoba.*;
 
 public class Rongy extends PasszivTargy{
 
     public Rongy(Szoba sz) {
-        super(sz, Funkcio.oktatotol_ved);
+        super(sz, Funkcio.oktatot_tamad);
+        System.out.println("Rongy -> create");
     }
 
     /**
@@ -23,6 +25,8 @@ public class Rongy extends PasszivTargy{
     }
 
     public void use(){
-        
+        for (Oktato oktato : getBirtokos().getSzoba().getOktatok()) {
+            oktato.megbenul();
+        }
     }
 }

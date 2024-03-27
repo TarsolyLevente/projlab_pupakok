@@ -7,6 +7,7 @@ public class Tranzisztor extends AktivTargy {
 
     public Tranzisztor(Szoba sz) {
         super(sz);
+        System.out.println("Tranzisztor -> create");
     }
 
     /**
@@ -29,13 +30,30 @@ public class Tranzisztor extends AktivTargy {
      */
     public void use() {
         System.out.println("Tranzisztor -> use()");
+        this.getBirtokos().getSzoba().targy_elhelyezese(this);
+        System.out.println("Tranzisztor -> targy_elhelyezese()");
     }
 
     /**
      * Setter a tranzisztorral kapcsolatban lévő társához
      */
     public void setTars(Tranzisztor t) {
-        
         System.out.println("Tranzisztor -> setTars(Tranzisztor)");
+        tars = t;
+    }
+
+    /**
+     * Getter a tranzisztorral kapcsolatban lévő társához
+     */
+    public Tranzisztor getTars() {
+        System.out.println("Tranzisztor -> getTars()");
+        return tars;
+    }
+
+    /**
+     * Setter a tranzisztor aktiv adattagához
+     */
+    public void setAktiv(boolean b) {
+        aktiv = b;
     }
 }
