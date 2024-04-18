@@ -43,4 +43,36 @@ public class ElatkozottSzoba extends Szoba{
         sz.addSzomszed(this);
         eltuntajto.remove(sz);
     }
+
+    /**
+     * Visszaadja az eltuntajto listát.
+     * @return
+     */
+    public ArrayList<Szoba> getEltuntajto(){
+        return eltuntajto;
+    }
+
+    /**
+     * Setter az eltuntajto attribútumra.
+     * @param e
+     */
+    public void setEltuntajto(ArrayList<Szoba> e){
+        eltuntajto = e;
+    }
+
+    /**
+     * Hozzáadja a paraméterben kapott szobát az eltuntajto listához.
+     * @param sz
+     */
+    public void addEltuntajto(Szoba sz){
+        eltuntajto.add(sz);
+    }
+
+    /**
+     * Eltávolítja a paraméterben kapott szobát az eltuntajto listából.
+     * @param sz
+     */
+    public void removeEltuntajto(Szoba sz){
+        eltuntajto.remove(sz);
+    }
 }

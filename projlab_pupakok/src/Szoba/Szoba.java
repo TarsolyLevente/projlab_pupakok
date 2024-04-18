@@ -39,7 +39,16 @@ public class Szoba {
      * A szoba pálya attribútuma
      */
     protected Palya palya;
-      
+    /**
+     * Minden szobát egyedileg azonosít.
+     */
+    protected String id;
+    /*
+     * A szoba ragacsosságát adja meg.
+     */
+    protected int ragacs_cnt;
+
+    //TODO: takarito - get, set, add, remove
 
     /**
      * Konstruktor
@@ -57,6 +66,7 @@ public class Szoba {
         hallgatok = new ArrayList<>();
         oktatok = new ArrayList<>();
         targyak = new ArrayList<>();
+        id = palya.getSzobak().size();
     }
 
     /**
@@ -172,6 +182,14 @@ public class Szoba {
     }
 
     /**
+     * Setter az oktatok listára.
+     * @param oktatok
+     */
+    public void setOktatok(ArrayList<Oktato> oktatok) {
+        this.oktatok = oktatok;
+    }
+
+    /**
 	 * A szobában levő hallgatók gettere
 	 * @return hallgatók listája
 	 */
@@ -180,12 +198,21 @@ public class Szoba {
         return hallgatok;
     }
 
+    /**
+     * Setter a hallgatok listára.
+     * @param hallgatok
+     */
+    public void setHallgatok(ArrayList<Hallgato> hallgatok) {
+        this.hallgatok = hallgatok;
+    }
+
     /**   
      * A paraméterben kapott oktatót törli a szoba oktatói közül
 	 * @param o az oktató, akit töröl
 	 */
     public void removeOktato(Oktato o){
         System.out.println("Szoba -> removeOktato()");
+        oktatok.remove(o);
     }
 
     /**   
@@ -194,6 +221,7 @@ public class Szoba {
 	 */
     public void removeHallgato(Hallgato h){
         System.out.println("Szoba -> removeHallgato()");
+        hallgatok.remove(h);
     }
 
     /**   
@@ -202,9 +230,9 @@ public class Szoba {
 	 */
     public boolean addOktato(Oktato o){
         System.out.println("Szoba -> addOktato()");
-        if(oktatok.size() + hallgatok.size() < befogadokepesseg - 1){
+        if(befer()){
             oktatok.add(o);
-            if (gazos) {
+            if (isGazos()) {
                 if (!o.vedette(Vedettseg.gaztol)) {
                     o.eszmeletvesztes();
                     return true;
@@ -226,8 +254,22 @@ public class Szoba {
 	 */
     public boolean addHallgato(Hallgato h){
         System.out.println("Szoba -> addHallgato()");
-        hallgatok.add(h);
-        return true;
+        if(befer()){
+            hallgatok.add(h);
+            if (isGazos()) {
+                if (!h.vedette(Vedettseg.gaztol)) {
+                    h.eszmeletvesztes();
+                }
+            }
+            if(oktatok.size() != 0){
+                if(!h.vedette(Vedettseg.oktatotol)){
+                    h.kibukik();
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -254,7 +296,6 @@ public class Szoba {
      * Törli a játékból a hallgatót
      */
     public void deleteHallgato(Hallgato h) {
-        hallgatok.remove(h);
         palya.removeHallgato(h);
         System.out.println("Palya -> hallgatok.remove(Hallgato)");
         if (palya.getHallgatok().size() == 0)
@@ -297,6 +338,38 @@ public class Szoba {
         return befogadokepesseg;
     }
 
+    /**
+     * Getter az id attribútumra.
+     * @return
+     */
+    public String getid(){
+        return id;
+    }
+
+    /**
+     * Setter az id attribútumra.
+     * @param str
+     */
+    public void setid(String str){
+        id = str;
+    }
+
+    /**
+     * Getter a ragacs_cnt attribútumra.
+     * @return
+     */
+    public int getRagacs_cnt(){
+        return ragacs_cnt;
+    }
+
+    /**
+     * Setter a ragacs_cnt attribútumra.
+     * @param r
+     */
+    public void setRagacs_cnt(int r){
+        ragacs_cnt = r;
+    }
+
     /*
      * public void setBefogadokepesseg(int befogadokepesseg) {
      * this.befogadokepesseg = befogadokepesseg;
@@ -310,13 +383,7 @@ public class Szoba {
      * this.regiszobak = regiszobak;
      * }
      * 
-     * public void setHallgatok(ArrayList<Hallgato> hallgatok) {
-     * this.hallgatok = hallgatok;
-     * }
      * 
-     * public void setOktatok(ArrayList<Oktato> oktatok) {
-     * this.oktatok = oktatok;
-     * }
      * 
      * 
      * public void setTargyak(ArrayList<Targy> targyak) {
