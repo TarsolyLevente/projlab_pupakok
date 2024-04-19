@@ -10,22 +10,23 @@ import java.util.Random;
 
 public class Palya {
     /**
-	 * A játékba lévő hallgatók
+	 * A játékban lévő hallgatók
 	 */
     protected ArrayList<Hallgato> hallgatok;
     /**
-	 * A játékba lévő oktatok
+	 * A játékban lévő oktatok
 	 */
     protected ArrayList<Oktato> oktatok;
 
     /**
-	 * A játékba lévő szobák
+	 * A játékban lévő szobák
 	 */
     protected ArrayList<Szoba> szobak;
+  
     /**
-     * A pálya game attribútuma
-     */
-    protected Game game;
+	 * A játékban lévő takarítók
+	 */
+    protected ArrayList<Takarító> takaritok;
 
     /**
      * Konstruktor
@@ -42,9 +43,10 @@ public class Palya {
      * @param g a game amihez a pálya tartozik
      */
     public Palya(Game g) {
-        hallgatok =  new ArrayList<>();
-        oktatok =  new ArrayList<>();
-        szobak = new ArrayList<>();
+        hallgatok =  new ArrayList<Hallgato>();
+        oktatok =  new ArrayList<Oktato>();
+        szobak = new ArrayList<Szoba>();
+        takaritok = new ArrayList<Takarito>()
         game = g;
     }
 
@@ -54,26 +56,34 @@ public class Palya {
 	 */
     public void general() {
 
-        System.out.println("Palya -> general()");
-        Szoba szoba = new Szoba(false, 2);
-        ElatkozottSzoba elatkozottSzoba = new ElatkozottSzoba(false, 3);
+        // hallgatók felvétele
+        while ((input = System.in.read()) != "q") 
+        {
+            Random random = new Random();
+            if (input == "\n") 
+            {
+                hallgatok.add(new Hallgato(random.nextInt(10), , (string) input))
+            }
 
-        szoba.addSzomszed(elatkozottSzoba);
-        elatkozottSzoba.addSzomszed(szoba);
+        }
 
-        Hallgato hallgato = new Hallgato(szoba);
-        hallgatok.add(hallgato);
-        Oktato oktato = new Oktato(elatkozottSzoba);
-        oktatok.add(oktato);
+        // oktatók felvétele
+        for (int i = 0; i <= Math.ceil(hallgatok.size()/3); i++) 
+        {
+            oktatok.add(new Oktato(43))
+        }
+        //TODO fajlbeolvasas, create command??
+
+        takaritok.add(new Takarito(25))
     }
 
      /**
 	 * Meghívja az oktatók mozog függvényét egy szomszédos szobába
 	 */
-    public  void leptet(){
-        System.out.println("Palya -> leptet()");
+    public void leptet(){
         Random rand = new Random();
 
+        //lépés az oktatóval
         for (Oktato oktato : oktatok) {
             
             Szoba szoba = oktato.getSzoba();
@@ -83,7 +93,30 @@ public class Palya {
             oktato.mozog(randomSzoba);
 
         }
-        return;
+
+        //lépés a takarítóval
+        for (Takarito takarito : oktatok) {
+            
+            Szoba szoba = takarito.getSzoba();
+            ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+            int randomIndex = rand.nextInt(szomszedok.size());
+            Szoba randomSzoba = szomszedok.get(randomIndex);
+            takarito.mozog(randomSzoba);
+
+        }
+
+        for (int i = 0; i <= 4; i++)
+        {
+            Random random = new Random();
+            Szoba temp = szobak.get(random.nextInt(szobak.size()));
+            temp.osztodik();
+        }
+
+        //TODO osztodott szobak egyesulese?
+
+        for (Szoba szoba : hallgatok) {
+            
+        }
     }
 
     /**
