@@ -48,7 +48,7 @@ public class Szoba {
      */
     protected int ragacs_cnt;
 
-    //TODO: takarito - get, set, add, remove
+    //TODO: takarito - get, set, add, remove, ctor
 
     /**
      * Konstruktor
@@ -86,6 +86,8 @@ public class Szoba {
         oktatok = new ArrayList<>();
         targyak = new ArrayList<>();
         palya = p;
+        palya.addSzoba(this);
+        id = palya.getSzobak().size();
     }
 
     /**
@@ -107,8 +109,20 @@ public class Szoba {
         targyak.remove(t);
     }
 
+    /**
+     * A tárgyak lista gettere
+     * @return a tárgyak listája
+     */
     public ArrayList<Targy> getTargyak() {
         return targyak;
+    }
+
+    /**
+     * A tárgyak lista settere
+     * @param targyak a beállítandó tárgylista
+     */
+    public void setTargyak(ArrayList<Targy> targyak) {
+        this.targyak = targyak;
     }
 
     /**
@@ -159,6 +173,10 @@ public class Szoba {
         palya.removeSzoba(sz);
     }
 
+    /**
+     * Visszaadja a szoba gázosságát
+     * @return gázos-e a szoba
+     */
     public boolean isGazos() {
         System.out.println("Szoba -> isGazos()");
         return gazos;
@@ -166,10 +184,11 @@ public class Szoba {
 
     /**
 	 * A gázosságot igazzá állító függvény
+     * @param gaz gázosság
 	 */
-    public void setGaz() {
+    public void setGaz(boolean gaz) {
         System.out.println("Szoba -> setGaz()");
-        this.gazos = true;
+        this.gazos = gaz;
     }
 
     /**
@@ -294,6 +313,7 @@ public class Szoba {
 
     /**
      * Törli a játékból a hallgatót
+     * @param A játékból törlendő hallgató
      */
     public void deleteHallgato(Hallgato h) {
         palya.removeHallgato(h);
@@ -303,14 +323,7 @@ public class Szoba {
     }
     
     /*
-     * public boolean isGazos() {
-     * return gazos;
-     * }
-     * public int getBefogadokepesseg() {
-     * return befogadokepesseg;
-     * }
      * A paraméterben kapott szobát hozzáadja a szoba szomszédai közé
-     * 
      * @param sz új szomszéd
      */
     public void addSzomszed(Szoba sz) {
@@ -329,7 +342,7 @@ public class Szoba {
     }
 
     /**
-     * A szoba befagadóképességének gettere
+     * A szoba befogadóképességének gettere
      * 
      * @return befogadóképesség
      */
@@ -339,8 +352,16 @@ public class Szoba {
     }
 
     /**
+     * A szoba befogadóképességének settere
+     * @param befogadokepesseg befogadóképesség
+     */
+    public void setBefogadokepesseg(int befogadokepesseg) {
+        this.befogadokepesseg = befogadokepesseg;
+        }
+
+    /**
      * Getter az id attribútumra.
-     * @return
+     * @return id
      */
     public String getid(){
         return id;
@@ -348,7 +369,7 @@ public class Szoba {
 
     /**
      * Setter az id attribútumra.
-     * @param str
+     * @param str id
      */
     public void setid(String str){
         id = str;
@@ -356,7 +377,7 @@ public class Szoba {
 
     /**
      * Getter a ragacs_cnt attribútumra.
-     * @return
+     * @return ragacs számláló értéke
      */
     public int getRagacs_cnt(){
         return ragacs_cnt;
@@ -364,30 +385,46 @@ public class Szoba {
 
     /**
      * Setter a ragacs_cnt attribútumra.
-     * @param r
+     * @param r ragacs szám
      */
     public void setRagacs_cnt(int r){
         ragacs_cnt = r;
     }
 
-    /*
-     * public void setBefogadokepesseg(int befogadokepesseg) {
-     * this.befogadokepesseg = befogadokepesseg;
-     * }
-     * 
-     * public ArrayList<Szoba> getRegiszobak() {
-     * return regiszobak;
-     * }
-     * 
-     * public void setRegiszobak(ArrayList<Szoba> regiszobak) {
-     * this.regiszobak = regiszobak;
-     * }
-     * 
-     * 
-     * 
-     * 
-     * public void setTargyak(ArrayList<Targy> targyak) {
-     * this.targyak = targyak;
-     * }
+    
+    /**
+     * Visszaadja, hogy ragacsos-e a szoba
+     * @return ragacsosság
      */
+    public boolean isRagacsos(){
+        if(ragacs_cnt >= Integer.MAX_VALUE) //TODO MENNYI
+            return true;
+        return false;
+    }
+
+    /**
+     * Visszadja, hogy befér-e még egy karakter a szobába
+     * @return befér-e
+     */
+    private boolean befer(){
+        if(befogadokepesseg-(hallgatok.size()+oktatok.size()+takaritok.size()) >= 1)
+            return false;
+        return true; 
+    }
+
+    /**
+     * A regiszobak lista gettere
+     * @return régi szobák listája
+     */
+    public ArrayList<Szoba> getRegiszobak() {
+        return regiszobak;
+    }
+
+    /**
+     * A regiszobak lista settere
+     * @param regiszobak régi szobák listája
+     */
+    public void setRegiszobak(ArrayList<Szoba> regiszobak) {
+        this.regiszobak = regiszobak;
+    }
 }
