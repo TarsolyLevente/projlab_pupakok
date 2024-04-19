@@ -16,7 +16,6 @@ import java.util.Scanner;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-
 import Game.Game;
 import Palya.Palya;
 import Szoba.*;
@@ -134,7 +133,7 @@ public class Skeleton {
         szoba.targy_eltuntetese(tranzisztor);
     }
 
-     /**
+    /**
      * TVSZ elhelyezese
      */
     public static void test10() {
@@ -261,7 +260,6 @@ public class Skeleton {
         System.out.println("");
         szoba.removeOktato(oktato);
     }
-        
 
     /**
      * Elátkozott szobában ajtó eltüntetése
@@ -273,15 +271,14 @@ public class Skeleton {
         szobaszomszedok.add(elatkozottszoba);
         szoba.setSzomszedok(szobaszomszedok);
 
-
         ArrayList<Szoba> elatkozottszobaszomszedok = new ArrayList<>();
         elatkozottszobaszomszedok.add(szoba);
         elatkozottszoba.setSzomszedok(elatkozottszobaszomszedok);
         System.out.println("");
         elatkozottszoba.eltunik(szoba);
 
-        
     }
+
     /**
      * Elátkozott szobában ajtó előtűnése
      */
@@ -289,9 +286,8 @@ public class Skeleton {
         Szoba szoba = new Szoba(false, 10);
         ElatkozottSzoba elatkozottszoba = new ElatkozottSzoba(false, 10);
         ArrayList<Szoba> szobaszomszedok = new ArrayList<>();
-        //szobaszomszedok.add(elatkozottszoba);
+        // szobaszomszedok.add(elatkozottszoba);
         szoba.setSzomszedok(szobaszomszedok);
-
 
         ArrayList<Szoba> elatkozottszobaszomszedok = new ArrayList<>();
         elatkozottszobaszomszedok.add(szoba);
@@ -300,6 +296,7 @@ public class Skeleton {
         elatkozottszoba.elotunik(szoba);
 
     }
+
     /**
      * Eszméletvesztés
      */
@@ -309,8 +306,9 @@ public class Skeleton {
         Oktato oktato = new Oktato(szoba2);
         System.out.println("");
         gazosszoba.addOktato(oktato);
-        
+
     }
+
     /**
      * Hallgató kibuktatása
      */
@@ -331,7 +329,7 @@ public class Skeleton {
 
         System.out.println("");
         oktato.mozog(szoba2);
-        
+
     }
 
     /**
@@ -347,9 +345,9 @@ public class Skeleton {
         hallgato.felvesz(rongy);
         System.out.println("");
         szoba2.addOktato(oktato);
-        
+
     }
-    
+
     /**
      * Oktató mozgása szobába
      */
@@ -359,7 +357,7 @@ public class Skeleton {
         Oktato oktato = new Oktato(szoba1);
         System.out.println("");
         oktato.mozog(szoba2);
-        
+
     }
 
     /**
@@ -371,8 +369,9 @@ public class Skeleton {
         Hallgato hallgato = new Hallgato(szoba1);
         System.out.println("");
         hallgato.mozog(szoba2);
-        
+
     }
+
     /**
      * Hallgató camembert felvétele
      */
@@ -382,8 +381,9 @@ public class Skeleton {
         Camembert camambert = new Camembert(szoba);
         System.out.println("");
         h.felvesz(camambert);
-        
+
     }
+
     /**
      * Hallgató Logarléc felvétele
      */
@@ -394,6 +394,7 @@ public class Skeleton {
         System.out.println("");
         h.felvesz(logarlec);
     }
+
     /**
      * Hallgató tranzisztor felvétele
      */
@@ -403,8 +404,9 @@ public class Skeleton {
         Tranzisztor tranzisztor = new Tranzisztor(szoba);
         System.out.println("");
         h.felvesz(tranzisztor);
-        
+
     }
+
     /**
      * Hallgató TVSZ felvétele
      */
@@ -414,8 +416,9 @@ public class Skeleton {
         TVSZ tvsz = new TVSZ(szoba);
         System.out.println("");
         h.felvesz(tvsz);
-        
+
     }
+
     /**
      * Hallgató söröspohár felvétele
      */
@@ -425,9 +428,8 @@ public class Skeleton {
         Sorospohar sorospohar = new Sorospohar(szoba);
         System.out.println("");
         h.felvesz(sorospohar);
-        
-    }
 
+    }
 
     /**
      * Hallgató felveszi a rongyot a földről.
@@ -454,7 +456,7 @@ public class Skeleton {
     /**
      * Camembert eldobásának tesztje.
      */
-    public static void test36(){
+    public static void test36() {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Camembert c = new Camembert(szoba);
@@ -466,7 +468,7 @@ public class Skeleton {
     /**
      * Tranzisztor eldobásának tesztje.
      */
-    public static void test38(){
+    public static void test38() {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Tranzisztor t = new Tranzisztor(szoba);
@@ -478,7 +480,7 @@ public class Skeleton {
     /**
      * TVSZ eldobásának tesztje.
      */
-    public static void test39(){
+    public static void test39() {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         TVSZ t = new TVSZ(szoba);
@@ -490,7 +492,7 @@ public class Skeleton {
     /**
      * Söröspohár eldobásának tesztje.
      */
-    public static void test40(){
+    public static void test40() {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Sorospohar t = new Sorospohar(szoba);
@@ -502,7 +504,7 @@ public class Skeleton {
     /**
      * Rongy eldobásának tesztje.
      */
-    public static void test41(){
+    public static void test41() {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Rongy t = new Rongy(szoba);
@@ -514,7 +516,7 @@ public class Skeleton {
     /**
      * Maszk eldobásának tesztje.
      */
-    public static void test42(){
+    public static void test42() {
         Szoba szoba = new Szoba(false, 10);
         Hallgato h = new Hallgato(szoba);
         Maszk t = new Maszk(szoba);
@@ -834,7 +836,7 @@ public class Skeleton {
                     break;
                 case 33:
                     test33();
-                    break;    
+                    break;
                 case 34:
                     test34();
                     break;
@@ -898,7 +900,6 @@ public class Skeleton {
                 case 57:
                     test57();
                     break;
-
 
                 default:
                     break;
