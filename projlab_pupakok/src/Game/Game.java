@@ -20,7 +20,7 @@ public class Game {
 
     Timer timer = new Timer();
 
-    LogarlecPropertyChangeListener logChange; // TODO mi ez???
+    LogarlecPropertyChangeListener logChange; // TODO ezt a feliratkozashoz atrakni
 
     /**
      * Konstruktor
@@ -56,8 +56,8 @@ public class Game {
 	 */
     public void endgame(){
         if (timer >= ???)  // minél nagyobb?
-            //mi lesz a vége?
-        else if (palya.getHallgatok().isEmpty())
+            System.out("nem GG, nyomj entert a menübe lépéshez")
+    else if (palya.getHallgatok().isEmpty())
             // vége?
         else
             //mi lesz ha gyoznek?

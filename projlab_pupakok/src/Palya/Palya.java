@@ -62,7 +62,7 @@ public class Palya {
             Random random = new Random();
             if (input == "\n") 
             {
-                hallgatok.add(new Hallgato(random.nextInt(10), , (string) input))
+                hallgatok.add(new Hallgato(random.nextInt(10), , (string) input));
             }
 
         }
@@ -70,11 +70,15 @@ public class Palya {
         // oktatók felvétele
         for (int i = 0; i <= Math.ceil(hallgatok.size()/3); i++) 
         {
-            oktatok.add(new Oktato(43))
+            //TODO ha nem fér el akkor nincs több
+            oktatok.add(new Oktato(43));
         }
-        //TODO fajlbeolvasas, create command??
+        //TODO fajlbeolvasas, protoban lesz fv.
 
-        takaritok.add(new Takarito(25))
+        takaritok.add(new Takarito(25));
+
+        //TODO itemek lerakas 
+        //TODO logarléc feliratkozas
     }
 
      /**
@@ -95,7 +99,7 @@ public class Palya {
         }
 
         //lépés a takarítóval
-        for (Takarito takarito : oktatok) {
+        for (Takarito takarito : takaritok) {
             
             Szoba szoba = takarito.getSzoba();
             ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
