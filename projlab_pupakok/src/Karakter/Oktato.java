@@ -15,8 +15,8 @@ public class Oktato extends Karakter
      * Oktató mozog függvénye
      * @param sz Ide mozog át
      */
-    public Oktato(Szoba sz){
-        super(sz);
+    public Oktato(Szoba sz, String id){
+        super(sz, id);
         sz.addOktato(this);
         System.out.println("Oktato -> create");
     }
@@ -27,10 +27,20 @@ public class Oktato extends Karakter
      */
     public void mozog(Szoba sz){
         System.out.println("Oktato -> mozog()");
-        sz.addOktato(this);
+        
         if(sz.addOktato(this)){
+            for (Targy targy : taska) {
+                targy.setSzoba(sz);
+            }
             getSzoba().removeOktato(this);
             this.setSzoba(sz);
+
+            if (sz.getHallgatok().size() != 0) {
+                    for (Hallgato hallgato : sz.getHallgatok()) {
+                        hallgato.kibukik();
+                    }     
+                
+                 }
         }
     }
 
@@ -39,6 +49,7 @@ public class Oktato extends Karakter
      */
     public void megbenul() 
     {
+        megbenult=true;
         System.out.println("Oktato -> megbenul()");
     }
 
@@ -50,7 +61,7 @@ public class Oktato extends Karakter
     {
         System.out.println("Oktato -> felvesz()");
         t.setBirtokos(this);
-        t.setSzoba(null);
-        szoba.targy_eltuntetese(t);
+        t.setSzoba(getSzoba());
+        getSzoba().targy_eltuntetese(t);
     }
 }

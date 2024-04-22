@@ -9,14 +9,19 @@ import java.util.ArrayList;
 
 public class Hallgato extends Karakter
 {
+
+   
+
     /**
      * Hallgató konstruktora
      * @param sz Ebben a szobában lesz a hallgató
      */
-    public Hallgato(Szoba sz){
-        super(sz);
+    public Hallgato(Szoba sz, String id){
+        super(sz, id);
         System.out.println("Hallgato -> create");
     }
+
+
 
     /**
      * Hallgató eldob függvénye
@@ -37,12 +42,19 @@ public class Hallgato extends Karakter
 
     public void mozog(Szoba sz){
         System.out.println("Hallgato -> mozog()");
+
         if (sz.addHallgato(this)) {
             getSzoba().removeHallgato(this);
             this.setSzoba(sz);
-        }
-        if (sz.getOktatok().size() != 0) {
-            kibukik();
+            
+            for (Targy targy : taska) {
+                targy.setSzoba(sz);
+            }
+
+            //TODO
+            // if (sz.getOktatok().size() != 0) {
+            //     kibukik();
+            // }
         }
     }
 
@@ -50,21 +62,23 @@ public class Hallgato extends Karakter
      * Hallgató kibukásért felelős függvénye
      */
 
+     //TODO
     public void kibukik() 
     {
         System.out.println("Hallgato -> kibukik()");
-        this.getSzoba().deleteHallgato(this);
+        
         for (Targy targy : taska) {
             targy.setSzoba(null);
             targy.setBirtokos(null);
         }
+        this.getSzoba().deleteHallgato(this);
     }
 
     /**
      * Hallgató teleportálásért felelős függvénye
      * @param t Ehhez a teleoporthoz teleportál
      */
-
+    //TODO
     public void teleport(Tranzisztor t) 
     {
         System.out.println("Hallgato -> teleport()");
@@ -84,8 +98,9 @@ public class Hallgato extends Karakter
             System.out.println("Hallgato -> felvesz()");
             t.setBirtokos(this);
             t.setSzoba(null);
-            szoba.targy_eltuntetese(t);
+            getSzoba().targy_eltuntetese(t);
             taska.add(t);
         }
+        return;
     }
 }
