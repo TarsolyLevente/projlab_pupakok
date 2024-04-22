@@ -117,6 +117,14 @@ public class Palya {
         for (Szoba szoba : hallgatok) {
             
         }
+
+        // Ajtok eltunese
+        for (ElatkozottSzoba szoba : szobak ) { //????
+            if (szoba.elobbeltunt)
+                szoba.eltunik;
+            else
+                szoba.elotunik(szoba); //???
+        }
     }
 
     /**

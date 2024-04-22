@@ -1,5 +1,7 @@
 package Game;
 
+import javax.management.timer.Timer;
+
 import Karakter.*;
 import Palya.*;
 import Szoba.*;
@@ -16,6 +18,10 @@ public class Game {
 	 */
     private int szamlalo;
 
+    Timer timer = new Timer();
+
+    LogarlecPropertyChangeListener logChange; // TODO mi ez???
+
     /**
      * Konstruktor
      * 
@@ -30,7 +36,7 @@ public class Game {
      * le generálja a pályát és folyton meghívja a léptet függvényt a pályán
      */
     public void start(){
-        System.out.println("Game -> start()");
+        timer.start();
         palya.general();
     }
 
@@ -49,6 +55,11 @@ public class Game {
 	 * Befejezi a játékot
 	 */
     public void endgame(){
-        System.out.println("Game -> endgame()");
+        if (timer >= ???)  // minél nagyobb?
+            //mi lesz a vége?
+        else if (palya.getHallgatok().isEmpty())
+            // vége?
+        else
+            //mi lesz ha gyoznek?
     }
 }
