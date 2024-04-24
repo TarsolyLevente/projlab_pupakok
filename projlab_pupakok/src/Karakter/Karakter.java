@@ -100,7 +100,6 @@ public abstract class Karakter
         }
         taska.clear(); // Minden elemet eltávolítunk a listából
 
-        System.out.println("Karakter -> eszmeletvesztes()");
     }
 
     /**

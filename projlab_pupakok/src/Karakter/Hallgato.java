@@ -18,7 +18,6 @@ public class Hallgato extends Karakter
      */
     public Hallgato(Szoba sz, String id){
         super(sz, id);
-        System.out.println("Hallgato -> create");
     }
 
 
@@ -30,7 +29,6 @@ public class Hallgato extends Karakter
 
     public void eldob(Targy t) 
     {
-        System.out.println("Hallgato -> eldob()");
         szoba.targy_elhelyezese(t);
         t.setBirtokos(null);
     }
@@ -41,8 +39,7 @@ public class Hallgato extends Karakter
      */
 
     public void mozog(Szoba sz){
-        System.out.println("Hallgato -> mozog()");
-
+      
         if (sz.addHallgato(this)) {
             getSzoba().removeHallgato(this);
             this.setSzoba(sz);
@@ -51,10 +48,8 @@ public class Hallgato extends Karakter
                 targy.setSzoba(sz);
             }
 
-            //TODO
-            // if (sz.getOktatok().size() != 0) {
-            //     kibukik();
-            // }
+            
+            
         }
     }
 
@@ -62,10 +57,8 @@ public class Hallgato extends Karakter
      * Hallgató kibukásért felelős függvénye
      */
 
-     //TODO
     public void kibukik() 
     {
-        System.out.println("Hallgato -> kibukik()");
         
         for (Targy targy : taska) {
             targy.setSzoba(null);
@@ -78,24 +71,45 @@ public class Hallgato extends Karakter
      * Hallgató teleportálásért felelős függvénye
      * @param t Ehhez a teleoporthoz teleportál
      */
-    //TODO
+    
     public void teleport(Tranzisztor t) 
     {
-        System.out.println("Hallgato -> teleport()");
+        if(t.getAktiv()){
         this.mozog(t.getTars().getSzoba());
         t.setAktiv(false);
         t.getTars().setAktiv(true);
+        }
     }
 
     /**
      * Hallgató felvesz függvénye
      * @param t Ezt veszi fel
      */
-    
+    //TODO tranzisztor felvetele
     public void felvesz(Targy t)
     {
         if(taska.size() < 5){
-            System.out.println("Hallgato -> felvesz()");
+           if(t instanceof Tranzisztor)
+           {
+            int tranzisztorSzam = 0;
+            // Számoljuk meg, hány tranzisztor van már a taskában
+            for (Targy targy : taska) {
+                if (targy instanceof Tranzisztor) {
+                    tranzisztorSzam++;
+                }
+                if (tranzisztorSzam >= 2) {
+                    return;
+                }
+
+                else{  
+                    for (Targy targy2 : taska) {
+                        if (targy2 instanceof Tranzisztor) {
+                            ((Tranzisztor)targy2).setTars((Tranzisztor)t);
+                            ((Tranzisztor)t).setTars((Tranzisztor)targy2);
+                        }     
+                    }
+
+           }
             t.setBirtokos(this);
             t.setSzoba(null);
             getSzoba().targy_eltuntetese(t);
@@ -103,4 +117,7 @@ public class Hallgato extends Karakter
         }
         return;
     }
+
+   
+    
 }

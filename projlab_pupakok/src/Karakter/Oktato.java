@@ -18,15 +18,13 @@ public class Oktato extends Karakter
     public Oktato(Szoba sz, String id){
         super(sz, id);
         sz.addOktato(this);
-        System.out.println("Oktato -> create");
     }
 
     /**
-     * Hallgató mozgásért felelős függvénye
+     * OKtató mozgásért felelős függvénye
      * @param sz Ebbe a szobába mozog át.
      */
     public void mozog(Szoba sz){
-        System.out.println("Oktato -> mozog()");
         
         if(sz.addOktato(this)){
             for (Targy targy : taska) {
@@ -50,7 +48,6 @@ public class Oktato extends Karakter
     public void megbenul() 
     {
         megbenult=true;
-        System.out.println("Oktato -> megbenul()");
     }
 
     /**
@@ -59,7 +56,6 @@ public class Oktato extends Karakter
      */
     public void felvesz(Targy t)
     {
-        System.out.println("Oktato -> felvesz()");
         t.setBirtokos(this);
         t.setSzoba(getSzoba());
         getSzoba().targy_eltuntetese(t);

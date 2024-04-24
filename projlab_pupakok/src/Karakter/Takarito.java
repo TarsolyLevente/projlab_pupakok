@@ -1,6 +1,6 @@
 package Karakter;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import Palya.*;
 import Szoba.*;
@@ -15,7 +15,6 @@ public class Takarito extends Karakter {
     public Takarito(Szoba sz, String id){
         super(sz, id);
         sz.addTakarito(this);
-        System.out.println("Takarito -> create");
     }
 
     /**
@@ -23,7 +22,6 @@ public class Takarito extends Karakter {
      * @param sz Ebbe a szobába mozog át.
      */
     public void mozog(Szoba sz){
-        System.out.println("Takarito -> mozog()");
         
         if(sz.addTakarito(this)){
             for (Targy targy : taska) {
@@ -32,7 +30,7 @@ public class Takarito extends Karakter {
             getSzoba().removeOTakarito(this);
             this.setSzoba(sz);
 
-                 }
+                 
         }
     }
 
@@ -44,7 +42,6 @@ public class Takarito extends Karakter {
      */
     public void felvesz(Targy t)
     {
-        System.out.println("Takarito -> felvesz()");
         t.setBirtokos(this);
         t.setSzoba(getSzoba());
         getSzoba().targy_eltuntetese(t);
@@ -56,7 +53,7 @@ public class Takarito extends Karakter {
      * A szoba ragacs számlálóját nullára állítja.
      */
     void takarit(){
-        getSzoba().setragacscnt = 0;
+        getSzoba().setRagacs_cnt(0);
 
     }
 
@@ -65,9 +62,10 @@ public class Takarito extends Karakter {
      * Takarító kikuld függvénye
      * A szobába tarkozkodókat áthelyezi egy szomszéd szobába
      */
-    //TODO import list??
+    
     public void kikuld() {
-        List<Szoba> szomszedok = getSzoba().getSzomszedok();
+        ArrayList<Szoba> szomszedok = new ArrayList<>();
+        szomszedok = getSzoba().getSzomszedok();
         while (!szomszedok.isEmpty() && (!getSzoba().getHallgatok().isEmpty() || !getSzoba().getOktatok().isEmpty())) {
             for (Szoba szomszedSzoba : szomszedok) {
                 for (Hallgato hallgato : szomszedSzoba.getHallgatok()) {
