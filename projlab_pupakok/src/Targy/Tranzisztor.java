@@ -4,49 +4,56 @@ import Szoba.*;
 import Karakter.*;
 
 public class Tranzisztor extends AktivTargy {
-
-    public Tranzisztor(Szoba sz) {
-        super(sz);
-        System.out.println("Tranzisztor -> create");
+    /**
+     * Tranzisztor osztály konstruktora.
+     */
+    public Tranzisztor(Szoba sz, String id) {
+        super(sz, id);
     }
 
     /**
-     * Aktiválva van-e a tranzisztor
+     * Meghatározza, hogy a tranzisztor aktiválva van-e, vagy sem.
      */
-    private boolean aktiv;
+    private boolean aktiv = false;
 
     /**
-     * Melyik szobával áll összeköttetésben a tranzisztor
+     * Megadja, hogy a tranzisztor, teleportálást követően melyik szobában fogja elhelyezni a hallgatót.
      */
     private Szoba hova;
 
     /**
-     * Az adott tranzisztor melyik másikkal van kapcsolatban
+     * Megadja, hogy az adott tranzisztor melyik másikkal van összekapcsolva a pályán.
      */
     private Tranzisztor tars;
 
     /**
-     * A tranzisztor tárgy megvalósítása az absztrakt use() függvénynek
+     * A függvény meghívása után a játékos elteleportál abba a Szobába, ami az aktivált tranzisztor társát tartalmazza.
      */
-    public void use() {
-        System.out.println("Tranzisztor -> use()");
-        this.getBirtokos().getSzoba().targy_elhelyezese(this);
-        System.out.println("Tranzisztor -> targy_elhelyezese()");
+    public void use(){
+        if (this.getTars() != null){
+            if (this.getTars().getAktiv() != true){
+                this.getBirtokos().getSzoba().targy_elhelyezese(this);
+                this.setAktiv(true);
+            }
+            else{
+                Hallgato h = (Hallgato) this.getBirtokos();
+                h.teleport(this);
+            }
+        }
     }
 
     /**
-     * Setter a tranzisztorral kapcsolatban lévő társához
+     * A függvény beállítja, hogy az adott tranzisztor melyik másikkal van összeköttetésben.
+     * Setter függvény a Tars attribútumra.
      */
     public void setTars(Tranzisztor t) {
-        System.out.println("Tranzisztor -> setTars(Tranzisztor)");
         tars = t;
     }
 
     /**
-     * Getter a tranzisztorral kapcsolatban lévő társához
+     * Getter a tranzisztor társához, amivel kapcsolatban van.
      */
     public Tranzisztor getTars() {
-        System.out.println("Tranzisztor -> getTars()");
         return tars;
     }
 
@@ -56,4 +63,13 @@ public class Tranzisztor extends AktivTargy {
     public void setAktiv(boolean b) {
         aktiv = b;
     }
+
+    /**
+     * Getter a tranzisztor aktiv attribútumához
+     */
+    public boolean getAktiv() {
+        return aktiv;
+    }
+
+    
 }

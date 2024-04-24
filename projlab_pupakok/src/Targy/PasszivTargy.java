@@ -2,18 +2,30 @@ package Targy;
 
 import Szoba.*;
 
-public abstract class PasszivTargy extends Targy {
+public abstract class PasszivTargy extends Targy{
     /**
-     * A tárgy mennyiszer használható még.
+     *  Egyes tárgyak felhasználásának száma egy bizonyos számhoz kötött.
+     *  A töltet ennek a felhasználási számnak a felügyeletéért felel.
      */
     protected int toltet;
 
-    public PasszivTargy(Szoba sz, Funkcio f) {
-        super(sz, f);
+    /**
+     * Konstruktor a Passzív Tárgyakhoz
+     */
+    public PasszivTargy(Funkcio f, String id, Szoba sz, int t) {
+        super(f, id, sz);
+        toltet = t;
     }
 
     /**
-     * Abstract metódus, minden leszármazott felüldefiniálja a saját használatának megfelelően.
+     * Absztrakt függvény, ami beállítja, hogy az adott tárgy még mennyi alkalommal használható mielőtt nem tudja többet használni a játékos.
      */
     public abstract void setToltet();
+
+    /**
+     * Getter függvény a Töltet attribútumra.
+     */
+    public int getToltet(){
+        return toltet;
+    }
 }

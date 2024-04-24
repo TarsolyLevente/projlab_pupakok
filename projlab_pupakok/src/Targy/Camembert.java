@@ -4,17 +4,18 @@ import Szoba.*;
 
 import java.security.cert.TrustAnchor;
 
-public class Camembert extends AktivTargy {
-    public Camembert(Szoba sz) {
-        super(sz);
-        System.out.println("Camembert -> create");
+public class Camembert extends AktivTargy{
+    /**
+     * Camembert osztály konstruktora.
+     */
+    public Camembert(Szoba sz, String id) {
+        super(sz, id);
     }
 
     /**
-     * A Camembert tárgy megvalósítása az absztrakt use() függvénynek.
+     * A függvény meghívása után a szoba, ahol a játékos tartózkodik, gázzal töltődik meg.
      */
-    public void use() {
-        System.out.println("Camembert -> use()");
-        this.getBirtokos().getSzoba().setGaz();
+    public void use(){
+        this.getBirtokos().getSzoba().setGaz(true);
     }
 }

@@ -5,43 +5,45 @@ import Karakter.*;
 
 public abstract class Targy {
 	/**
-	 * Privát és protected tagváltozók.
-	 */
-	/**
-	 * A szoba ahol a tárgy megtalálható.
-	 */
-	private Szoba szoba;
-	/**
-	 * A tárgy birtokosa.
-	 */
-	private Karakter birtokos;
-	/**
-	 * A tárgy funkciója.
+	 * Az adott tárgy funkciójának megfelelő enumerációs attribútum.
+	 * Egyedül azt dönti el pontosan, hogy milyen tárgyról is beszélünk.
 	 */
 	protected Funkcio funkcio;
 
 	/**
-	 * Targy konstruktora
-	 * 
-	 * @param sz Szoba értéke
-	 * @param k  Birtokos értéke
-	 * @param f  Funkcio értéke
+	 * A tárgyakat egyértelműen meghatározó azonosító.
 	 */
-	public Targy(Szoba sz, Funkcio f) {
+	protected String id;
+
+	/**
+	 * A szoba, ahol a tárgy megtalálható. WARNIGN - NEM CLASS DIAG-BAN.
+	 */
+	protected Szoba szoba;
+
+	/**
+	 * A tárgy birtokosa.
+	 */
+	private Karakter birtokos;
+
+	/**
+	 * Paraméteres konstruktor a Targy osztályhoz
+	 * @param f - funkció paraméter
+	 * @param i - id paraméter
+	 * @param sz - szoba paraméter
+	 */
+	public Targy(Funkcio f, String i, Szoba sz){
+		funkcio = f;
+		id = i;
 		szoba = sz;
 		sz.targy_elhelyezese(this);
-		birtokos = null;
-		funkcio = f;
 	}
 
 	/**
-	 * A szoba tagváltozó setter-e.
-	 * 
-	 * @param sz A szoba tagváltozó kapott értéke.
+	 * Beállítja az adott tárgyhoz tartozó szobát, amit paraméterként kap és ahol ezek után a tárgy megtalálható lesz.
+	 * @param sz - Szoba, ahol a tárgy elhelyezkedik a pályán.
 	 */
-	public void setSzoba(Szoba sz) {
+	public void setSzoba(Szoba sz){
 		szoba = sz;
-		System.out.println("Targy -> setSzoba(Szoba)");
 	}
 
 	/**
@@ -53,33 +55,44 @@ public abstract class Targy {
 	}
 
 	/**
-	 * A birtokos tagváltozó setter-e.
-	 * 
-	 * @param k A birtokos tagváltozó kapott értéke.
+	 * Beállítja az adott tárgyhoz tartozó gazda karaktert, amit paraméterként kap és akinél a tárgy megtalálható lesz, amíg valamilyen módon meg nem válik tőle.
+	 * @param k - A tárgy birtokosa.
 	 */
-	public void setBirtokos(Karakter k) {
+	public void setBirtokos(Karakter k){
 		birtokos = k;
-		System.out.println("Targy -> setBirtokos(Karakter)");
 	}
 
 	/**
-	 * Getter a birtokos attribútumra.
-	 * 
-	 * @return birtokos
+	 * Getter függvény a Birtokos attribútumra.
 	 */
 	public Karakter getBirtokos() {
-		System.out.println("Targy -> getBirtokos()");
 		return birtokos;
 	}
 
-	public Funkcio getFunkcio() {
-		System.out.println("Targy -> getFunkcio()");
+	/**
+	 * Getter függvény az Id attribútumra.
+	 */
+	public String getId(){
+		return id;
+	}
+
+	/**
+	 * Setter függvény az Id attribútumra.
+	 * @param i - Id string a setter függvényhez.
+	 */
+	public void setId(String i){
+		id = i;
+	}
+
+	/**
+	 * Getter függvény a Funkcio attribútumra.
+	 */
+	public Funkcio getFunkcio(){
 		return funkcio;
 	}
 
 	/**
-	 * Abstract metódus, minden leszármazott felüldefiniálja a saját használatának
-	 * megfelelően.
+	 * Absztrakt függvény, amely a specifikus tárgyak esetében, azok használatáért felelős.
 	 */
 	public abstract void use();
 }

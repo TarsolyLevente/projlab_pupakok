@@ -5,5 +5,6 @@ public enum Funkcio {
 	gaztol_ved,
 	oktatot_tamad,
 	aktiv,
+	hamis,
 	logarlec
 }

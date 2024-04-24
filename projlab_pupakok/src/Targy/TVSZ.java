@@ -3,20 +3,25 @@ package Targy;
 import Szoba.*;
 import Karakter.*;
 
-public class TVSZ extends PasszivTargy {
-    public TVSZ(Szoba sz) {
-        super(sz, Funkcio.oktatotol_ved);
-        System.out.println("TVSZ -> create");
-    }
+public class TVSZ extends PasszivTargy{
     /**
-     * Az absztrakt setToltet() függvény megvalósítása a TVSZ által
+     * TVSZ osztály konstruktora.
      */
-    public void setToltet() {
-        System.out.println("TVSZ -> setToltet()");
+    public TVSZ(Szoba sz, String id, int t) {
+        super(Funkcio.oktatotol_ved, id, sz, t = 3);
     }
 
+    /**
+     * A TVSZ tárgy általi megvalósítása az absztrakt setToltet() függvénynek.
+     */
+    public void setToltet(){
+        toltet--;
+    }
+
+    /**
+     * A TVSZ tárgy általi megvalósítása az absztrakt use() függvénynek.
+     */
     public void use(){
-        
+        setToltet();
     }
-
 }

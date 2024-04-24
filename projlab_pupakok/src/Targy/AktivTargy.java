@@ -2,14 +2,16 @@ package Targy;
 
 import Szoba.*;
 
-public abstract class AktivTargy extends Targy {
-    public AktivTargy(Szoba sz) {
-        super(sz, Funkcio.aktiv);
+public abstract class AktivTargy extends Targy{
+    /**
+     * Konstruktor az Aktív Tárgyakhoz
+     */
+    public AktivTargy(Szoba sz, String id) {
+        super(Funkcio.aktiv, id, sz);
     }
 
-
     /**
-     * Abstract metódus, minden leszármazott felüldefiniálja a saját használatának megfelelően.
+     * Absztrakt függvény, amely a specifikus tárgyak esetében, azok használatáért felelős.
      */
     public abstract void use();
 }

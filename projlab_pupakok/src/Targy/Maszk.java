@@ -2,20 +2,25 @@ package Targy;
 
 import Szoba.*;
 
-public class Maszk extends PasszivTargy {
-    public Maszk(Szoba sz) {
-        super(sz, Funkcio.gaztol_ved);
-        System.out.println("Maszk -> create");
+public class Maszk extends PasszivTargy{
+    /**
+     * Maszk osztály konstruktora.
+     */
+    public Maszk(Szoba sz, String id, int t) {
+        super(Funkcio.gaztol_ved, id, sz, t = 4);
     }
 
     /**
-     * Az absztrakt setToltet() függvény megvalósítása a Maszk által
+     * A Maszk tárgy általi megvalósítása az absztrakt setToltet() függvénynek.
      */
-    public void setToltet() {
-        System.out.println("Maszk -> setToltet()");
+    public void setToltet(){
+        toltet--;
     }
 
+    /**
+     * A Maszk tárgy általi megvalósítása az absztrakt use() függvénynek.
+     */
     public void use(){
-        
+        setToltet();
     }
 }
