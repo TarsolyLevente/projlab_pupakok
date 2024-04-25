@@ -17,8 +17,8 @@ public class ElatkozottSzoba extends Szoba{
     /**
      * Elatkozott szoba konstruktora
      */
-    public ElatkozottSzoba(boolean gaz, int bef){
-        super(gaz, bef);
+    public ElatkozottSzoba(boolean gaz, int bef, String string){
+        super(gaz, bef, string);
         eltuntajto = new ArrayList<>();
         System.out.println("ElatkozottSzoba -> create");
     }

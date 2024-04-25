@@ -56,7 +56,7 @@ public class Szoba {
      * @param gaz gázos-e alapértelmezetten a szoba
      * @param bef a szoba befogadóképessége
      */
-    public Szoba(boolean gaz, int bef){
+    public Szoba(boolean gaz, int bef, String s){
         System.out.println("Szoba -> create");
         palya = new Palya();
         this.gazos = gaz;
@@ -66,7 +66,7 @@ public class Szoba {
         hallgatok = new ArrayList<>();
         oktatok = new ArrayList<>();
         targyak = new ArrayList<>();
-        id = palya.getSzobak().size();
+        id = s;
     }
 
     /**
