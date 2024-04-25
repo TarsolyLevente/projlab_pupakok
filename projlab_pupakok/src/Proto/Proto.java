@@ -86,6 +86,104 @@ public class Proto {
         return output;
     }
 
+    private String connect(Palya palya, String string, String string2) {
+        for (Szoba Szoba1 : palya.getSzobak()) {
+            if(Szoba1.getid() == string){
+                for (Szoba Szoba2 : palya.getSzobak()) {
+                    if(Szoba2.getid() == string2){
+                        Szoba1.addSzomszed(Szoba2);
+                    }
+                }
+            }
+        }
+
+        for (Szoba Szoba1 : palya.getSzobak()) {
+            if(Szoba1.getid() == string){
+                for (Szoba Szobaszomszed : Szoba1.getSzomszedok()) {
+                    if(Szobaszomszed.getid()==string2){
+                        return "Szobák összekapcsolása sikeres.";
+                    }
+                }
+            }
+        }
+        return "Szobák összekapcsolása sikertelen.";
+
+    
+    }
+
+    private String split(Palya palya, String string) {
+        boolean siker;
+        for (Szoba Szoba : palya.getSzobak()) {
+            if(Szoba.getid() == string){
+                siker = Szoba.osztodik();
+            }
+        }
+        
+        if(siker){
+            return"Osztódás sikeres.";
+        }
+        else{
+            return"Osztódás sikertelen.";
+
+        }
+    
+    }
+
+    private String merge(Palya palya, String string, String string2) {
+        for (Szoba Szoba1 : palya.getSzobak()) {
+            if(Szoba1.getid() == string){
+                for (Szoba Szoba2 : palya.getSzobak()) {
+                    if(Szoba2.getid() == string2){
+                        Szoba1.egyesul(Szoba2);
+                    }
+                }
+            }
+        }
+
+        for (Szoba Szoba1 : palya.getSzobak()) {
+            if(Szoba1.getid() == string){
+                for (Szoba Szobaregi : Szoba1.getRegiszobak()) {
+                    if(Szobaregi.getid()==string2){
+                        return "Egyesülés sikeres.";
+                    }
+                }
+            }
+        }
+        return "Egyesülés sikertelen.";
+
+    }
+
+    private String create_room(Palya palya, String string, String string2, String string3, String string4) {
+        String c = string;
+            int b = Integer.parseInt(string2);
+            boolean a = Boolean.parseBoolean(string3);
+        
+        if ("0".equals(string4)) {
+            Szoba sz = new Szoba(a, b);
+            sz.setid(c);
+            
+        } else {
+            ElatkozottSzoba sz2 = new ElatkozottSzoba(a, b);
+            sz2.setid(c);
+           
+        }
+
+        for (Szoba Szoba : Palya.getSzobak()) {
+            if(Szoba.getid()==c  && Szoba.getBefogadokepesseg() == b && Szoba.isGazos() == a ){
+
+                if ((Szoba instanceof ElatkozottSzoba) && "1".equals(string4)) {
+                    return "Szoba hozzáadása sikeres.";
+                } else if (!(Szoba instanceof ElatkozottSzoba) && "0".equals(string4)) {
+                    return "Szoba hozzáadása sikeres.";
+                }
+                return "Szoba hozzáadása sikertelen.";
+            }
+
+            }
+        }
+    }
+    
+
     /**
      * A load függvény által visszaadott teszt kimenetet veti össze az elvárt kimenettel, ha a kettő 
      * megegyezik a visszatérési érték igaz.

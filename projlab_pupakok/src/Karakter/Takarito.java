@@ -34,7 +34,7 @@ public class Takarito extends Karakter {
         }
     }
 
-    //TODO VÉLETLENSÉG
+    
 
     /**
      * Takarító felvesz függvénye
