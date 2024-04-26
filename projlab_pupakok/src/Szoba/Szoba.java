@@ -42,7 +42,7 @@ public class Szoba {
     /**
      * Minden szobát egyedileg azonosít.
      */
-    protected String id;
+    protected int id;
     /*
      * A szoba ragacsosságát adja meg.
      */
