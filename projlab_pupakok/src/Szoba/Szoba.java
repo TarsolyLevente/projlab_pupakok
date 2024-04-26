@@ -66,7 +66,7 @@ public class Szoba {
      * @param bef a szoba befogadóképessége
      * @param p a pálya, amihez a szoba tartozik
      */
-    public Szoba(boolean gaz, int bef, Palya p){
+    public Szoba(int id, boolean gaz, int bef, Palya p){
         System.out.println("Szoba -> create");
         this.gazos = gaz;
         this.befogadokepesseg = bef;

@@ -4,8 +4,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import Game.Game;
 
-public interface LogarlecPropertyChangeListener 
-{
+public class LogarlecPropertyChangeListener implements PropertyChangeListener {
 	Game game;
 	/**
 	 * A feluldefinialt propertyChange függvény.
@@ -14,7 +13,6 @@ public interface LogarlecPropertyChangeListener
 		game = g;
 	}
 	public void propertyChange(PropertyChangeEvent e) {
-		System.out.println("LogarlecPropertyChangeListener -> propertyChange()");
 		game.endgame();
 	}
 	
