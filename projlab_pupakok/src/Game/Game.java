@@ -5,6 +5,8 @@ import Palya.*;
 import Szoba.*;
 import Targy.*;
 
+import javax.swing.*;
+
 
 public class Game {
     /**
@@ -14,7 +16,9 @@ public class Game {
     /**
 	 * Idő számláló
 	 */
-    private int szamlalo;
+    private int szamlalo = 0;
+
+    Timer timer = new Timer(1000, e -> {szamlalo++;});
 
     /**
      * Konstruktor
@@ -30,17 +34,17 @@ public class Game {
      * le generálja a pályát és folyton meghívja a léptet függvényt a pályán
      */
     public void start(){
-        System.out.println("Game -> start()");
+        timer.start();
         palya.general();
+        palya.jatekLeptetes();
     }
 
     /**
      * Ezt fogja a start() a végén meghívni, hogy folyamatosan futtathassa a játékot
      */
     public void jatekLeptetes() {
-        while(szamlalo!=0) {
+        while(szamlalo!=900) {
             palya.leptet();
-            szamlalo--;
         }
         endgame();
     }
@@ -49,6 +53,11 @@ public class Game {
 	 * Befejezi a játékot
 	 */
     public void endgame(){
-        System.out.println("Game -> endgame()");
+        if (szamlalo >= 900)  // 15 perc a játék
+            System.out.println("Az idő lejárt, nyomj entert a menübe lépéshez!");
+        else if (palya.getHallgatok().isEmpty())
+            System.out.println("Minden hallgató kibukott, nyomj entert a menübe lépéshez!");
+        else
+            System.out.println("Sikerült megtalálni a logarlécet! Győzelem!");
     }
 }
