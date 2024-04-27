@@ -35,6 +35,8 @@ public class Palya {
 
     Game game;
 
+    boolean toggle_random = true;
+
     /**
      * Konstruktor
      */
@@ -110,14 +112,30 @@ public class Palya {
         Random rand = new Random();
         int input;
         // hallgatók felvétele
-        System.out.println("Játékosok száma:");
-        try {
-            input = System.in.read();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (toggle_random)
+        {
+
+            System.out.println("Játékosok száma:");
+            try {
+                input = System.in.read();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            for (int i = 0; i < input; i++) {
+                hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10))));
+            }
         }
-        for (int i = 0; i < input; i++) {
-            hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10))));
+        else
+        {
+            System.out.println("Játékosok száma:");
+            try {
+                input = System.in.read();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            for (int i = 0; i < input; i++) {
+                hallgatok.add(new Hallgato(szobak.get(0)));
+            }
         }
 
 
@@ -172,48 +190,120 @@ public class Palya {
         Random rand = new Random();
 
         //lépés az oktatóval
-        for (Oktato oktato : oktatok) {
-            
-            Szoba szoba = oktato.getSzoba();
-            ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-            int randomIndex = rand.nextInt(szomszedok.size());
-            Szoba randomSzoba = szomszedok.get(randomIndex);
-            oktato.mozog(randomSzoba);
-
+        if (toggle_random)
+        {
+            for (Oktato oktato : oktatok)
+            {
+                Szoba szoba = oktato.getSzoba();
+                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                int randomIndex = rand.nextInt(szomszedok.size());
+                Szoba randomSzoba = szomszedok.get(randomIndex);
+                oktato.mozog(randomSzoba);
+            }
+        }
+        else
+        {
+            for (Oktato oktato : oktatok)
+            {
+                Szoba szoba = oktato.getSzoba();
+                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                Szoba randomSzoba = szomszedok.getFirst();
+                oktato.mozog(randomSzoba);
+            }
         }
 
         //lépés a takarítóval
-        for (Takarito takarito : takaritok) {
-            
-            Szoba szoba = takarito.getSzoba();
-            ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-            int randomIndex = rand.nextInt(szomszedok.size());
-            Szoba randomSzoba = szomszedok.get(randomIndex);
-            takarito.mozog(randomSzoba);
+        if (toggle_random)
+        {
+            for (Takarito takarito : takaritok)
+            {
 
+                Szoba szoba = takarito.getSzoba();
+                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                int randomIndex = rand.nextInt(szomszedok.size());
+                Szoba randomSzoba = szomszedok.get(randomIndex);
+                takarito.mozog(randomSzoba);
+
+            }
+        }
+        else
+        {
+            for (Takarito takarito : takaritok)
+            {
+
+                Szoba szoba = takarito.getSzoba();
+                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                Szoba randomSzoba = szomszedok.getFirst();
+                takarito.mozog(randomSzoba);
+
+            }
         }
 
         //Szobák osztódása
-        for (int i = 0; i < 3; i++)
+        if (toggle_random)
         {
-            szobak.get(rand.nextInt(szobak.size())).osztodik();
+            for (int i = 0; i < 3; i++)
+            {
+                szobak.get(rand.nextInt(szobak.size())).osztodik();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                szobak.get(i).osztodik();
+            }
         }
 
         //Szobák egyesülése
-        for (int i = 0; i < 7; i++) {
-            szobak.get(rand.nextInt(szobak.size())).egyesul(szobak.get(rand.nextInt(szobak.size())));
+        if (toggle_random) {
+            for (int i = 0; i < 7; i++)
+            {
+                szobak.get(rand.nextInt(szobak.size())).egyesul(szobak.get(rand.nextInt(szobak.size())));
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                szobak.get(i).egyesul(szobak.get(i+1));
+            }
         }
 
         // Ajtok eltunese
-        for (Szoba szoba : szobak ) { //????
-            if (szoba instanceof ElatkozottSzoba)
-                ((ElatkozottSzoba) szoba).eltunik(szoba.getSzomszedok().get(rand.nextInt(szoba.getSzomszedok().size())));
+        if (toggle_random)
+        {
+            for (Szoba szoba : szobak )
+            {
+                if (szoba instanceof ElatkozottSzoba)
+                    ((ElatkozottSzoba) szoba).eltunik(szoba.getSzomszedok().get(rand.nextInt(szoba.getSzomszedok().size())));
+            }
+        }
+        else
+        {
+            for (Szoba szoba : szobak )
+            {
+                if (szoba instanceof ElatkozottSzoba)
+                    ((ElatkozottSzoba) szoba).eltunik(szoba.getSzomszedok().getFirst());
+            }
         }
 
         // Ajtok elotuntetese
-        for (Szoba szoba : szobak) {
-            if(szoba instanceof ElatkozottSzoba)
-                ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().get(rand.nextInt(((ElatkozottSzoba) szoba).getEltuntajto().size())));
+        if (toggle_random)
+        {
+            for (Szoba szoba : szobak)
+            {
+                if(szoba instanceof ElatkozottSzoba)
+                    ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().get(rand.nextInt(((ElatkozottSzoba) szoba).getEltuntajto().size())));
+            }
+        }
+        else
+        {
+            for (Szoba szoba : szobak)
+            {
+                if(szoba instanceof ElatkozottSzoba)
+                    ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().getFirst());
+            }
         }
     }
 
