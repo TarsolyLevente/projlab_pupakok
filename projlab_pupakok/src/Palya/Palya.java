@@ -131,29 +131,32 @@ public class Palya {
         takaritok.add(new Takarito(25));
 
 
+        int id_distributor = 0;
         for (Szoba sz : szobak) {
             for (int i = 0; i < 5; i++) {
+
                 switch (rand.nextInt(1, 6)) {
                     case 1:
-                        sz.targy_elhelyezese(new Tranzisztor(sz));
+                        sz.targy_elhelyezese(new Tranzisztor(sz,String.valueOf(id_distributor)));
                         break;
                     case 2:
-                        sz.targy_elhelyezese(new Sorospohar(sz));
+                        sz.targy_elhelyezese(new Sorospohar(sz, String.valueOf(id_distributor)));
                         break;
                     case 3:
-                        sz.targy_elhelyezese(new Rongy(sz));
+                        sz.targy_elhelyezese(new Rongy(sz, String.valueOf(id_distributor)));
                         break;
                     case 4:
-                        sz.targy_elhelyezese(new Maszk(sz));
+                        sz.targy_elhelyezese(new Maszk(sz, String.valueOf(id_distributor)));
                         break;
                     case 5:
-                        sz.targy_elhelyezese(new Camembert(sz));
+                        sz.targy_elhelyezese(new Camembert(sz, String.valueOf(id_distributor)));
                         break;
                     default:
-                        sz.targy_elhelyezese(new TVSZ(sz));
+                        sz.targy_elhelyezese(new TVSZ(sz, String.valueOf(id_distributor)));
                         break;
 
                 }
+                id_distributor++;
             }
         }
 
@@ -210,8 +213,8 @@ public class Palya {
         // Ajtok elotuntetese
         for (Szoba szoba : szobak) {
             if(szoba instanceof ElatkozottSzoba)
-(                ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().get(rand.nextInt(((ElatkozottSzoba) szoba).getEltuntajto().size()))));
-)        }
+                ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().get(rand.nextInt(((ElatkozottSzoba) szoba).getEltuntajto().size())));
+        }
     }
 
     /**

@@ -36,7 +36,16 @@ public class Game {
     public void start(){
         timer.start();
         palya.general();
-        palya.jatekLeptetes();
+        jatekLeptetes();
+    }
+
+    public void smashALepo()
+    {
+
+        for (Hallgato hallgato : palya.getHallgatok())
+        {
+            if(hallgato.mozog(hallgato.getSzoba().getSzomszedok())
+        }
     }
 
     /**
@@ -44,7 +53,8 @@ public class Game {
      */
     public void jatekLeptetes() {
         while(szamlalo!=900) {
-            palya.leptet();
+            if (szamlalo % 60 == 0)
+                palya.leptet();
         }
         endgame();
     }
