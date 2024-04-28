@@ -204,7 +204,7 @@ public class Proto {
             case "rongy":
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if(szoba1.getid().equals(s3)){
-                        Rongy rongy = new Rongy(szoba1, s2, 0);
+                        Rongy rongy = new Rongy(szoba1, s2);
                         szoba1.targy_elhelyezese(rongy);
                         if (szoba1.getTargyak().contains(rongy))
                             return "Tárgy hozzáadása sikeres.";
@@ -216,7 +216,7 @@ public class Proto {
             case "sorospohar":
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if(szoba1.getid().equals(s3)){
-                        Sorospohar sorospohar = new Sorospohar(szoba1, s2, 0);
+                        Sorospohar sorospohar = new Sorospohar(szoba1, s2);
                         szoba1.targy_elhelyezese(sorospohar);
                         if (szoba1.getTargyak().contains(sorospohar))
                             return "Tárgy hozzáadása sikeres.";
@@ -228,7 +228,7 @@ public class Proto {
             case "tvsz":
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if(szoba1.getid().equals(s3)){
-                        TVSZ tvsz = new TVSZ(szoba1, s2, 3);
+                        TVSZ tvsz = new TVSZ(szoba1, s2);
                         szoba1.targy_elhelyezese(tvsz);
                         if (szoba1.getTargyak().contains(tvsz))
                             return "Tárgy hozzáadása sikeres.";
@@ -240,7 +240,7 @@ public class Proto {
             case "maszk":
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if(szoba1.getid().equals(s3)){
-                        Maszk maszk = new Maszk(szoba1, s2, 4);
+                        Maszk maszk = new Maszk(szoba1, s2);
                         szoba1.targy_elhelyezese(maszk);
                         if (szoba1.getTargyak().contains(maszk))
                             return "Tárgy hozzáadása sikeres.";

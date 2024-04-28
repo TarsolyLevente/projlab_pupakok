@@ -11,10 +11,8 @@ public class Sorospohar extends PasszivTargy{
     /**
      * Rongy osztály konstruktora.
      */
-
-    //TODO t paraméter nem kell, állíts be neki egy alapértéket (szar lesz a tárgy létrehozásánál).... ugyanez a többi t paraméternél is
-    public Sorospohar(Szoba sz, String id, int t) {
-        super(Funkcio.oktatotol_ved, id, sz, t);
+    public Sorospohar(Szoba sz, String id) {
+        super(Funkcio.oktatotol_ved, id, sz, 0);
     }
 
     /**
