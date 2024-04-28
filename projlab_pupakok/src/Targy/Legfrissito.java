@@ -13,7 +13,7 @@ public class Legfrissito extends AktivTargy {
      * A függvény meghívása után a gázos szobából, ahol a játékos tartózkodik, eltűnik a gáz.
      */
     public void use(){
-        this.getBirtokos().getSzoba().setGaz(false);
+        this.getSzoba().setGaz(false);
     }
 
     public String toString(Funkcio funkcio) {

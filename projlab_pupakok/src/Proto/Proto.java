@@ -56,7 +56,7 @@ public class Proto {
                     String s = pick(palya, str[1], str[2]);
                     output.add(s);
                 }else if(str[0].equals("throw")){
-                    String s = throw(palya, str[1], str[2]);
+                    String s = throw_item(palya, str[1], str[2]);
                     output.add(s);
                 } else if(str[0].equals("use")){
                     String s = use(palya, str[1], str[2]);
@@ -83,6 +83,244 @@ public class Proto {
         catch (Exception e) {
         }
         return output;
+    }
+
+    public String add_character(Palya palya, String s1, String s2, String s3) {
+        switch (s1){
+            case "hallgato":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Hallgato hallgato = new Hallgato(szoba1, s2);
+                        if (hallgato.getSzoba().getid().equals(s3))
+                            return "Karakter sikeresen hozzáadva.";
+                        else
+                            return "Karakter hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            case "oktato":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Oktato oktato = new Oktato(szoba1, s2);
+                        if (oktato.getSzoba().getid().equals(s3))
+                            return "Karakter sikeresen hozzáadva.";
+                        else
+                            return "Karakter hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            case "takarito":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Takarito takarito = new Takarito(szoba1, s2);
+                        if (takarito.getSzoba().getid().equals(s3))
+                            return "Karakter sikeresen hozzáadva.";
+                        else
+                            return "Karakter hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            default:
+                return "Karakter hozzáadása sikertelen.";
+            break;
+        }
+        return "Karakter hozzáadása sikertelen.";
+    }
+
+    public String move(Palya palya, String s1, String s2) {
+        for (Szoba szoba1 : palya.getSzobak()) {
+            if(szoba1.getid().equals(s2)){
+                for (Hallgato hallgato : palya.getHallgatok()) {
+                    if(hallgato.getid().equals(s1)){
+                        hallgato.mozog(szoba1);
+                        if (szoba1.getHallgatok().contains(hallgato))
+                            return "Karakter mozgása sikeres.";
+                        else
+                            return "Karakter mozgása sikertelen.";
+                    }
+                }
+                for (Oktato oktato : palya.getOktatok()) {
+                    if(oktato.getid().equals(s1)){
+                        oktato.mozog(szoba1);
+                        if (szoba1.getOktatok().contains(oktato))
+                            return "Karakter mozgása sikeres.";
+                        else
+                            return "Karakter mozgása sikertelen.";
+                    }
+                }
+                for (Takarito takarito : palya.getTakaritok()) {
+                    if(takarito.getid().equals(s1)){
+                        takarito.mozog(szoba1);
+                        if (szoba1.getTakaritok().contains(takarito))
+                            return "Karakter mozgása sikeres.";
+                        else
+                            return "Karakter mozgása sikertelen.";
+                    }
+                }
+            }
+        }
+        return "Karakter mozgása sikertelen.";
+    }
+
+    public String spawn_item(Palya palya, String s1, String s2, String s3) {
+        switch (s1){
+            case "camembert":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Camembert camembert = new Camembert(szoba1, s2);
+                        szoba1.targy_elhelyezese(camembert);
+                        if (szoba1.getTargyak().contains(camembert))
+                            return "Tárgy hozzáadása sikeres.";
+                        else
+                            return "Tárgy hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            case "legfrissito":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Legfrissito legfrissito = new Legfrissito(szoba1, s2);
+                        szoba1.targy_elhelyezese(legfrissito);
+                        if (szoba1.getTargyak().contains(legfrissito))
+                            return "Tárgy hozzáadása sikeres.";
+                        else
+                            return "Tárgy hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            case "tranzisztor":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Tranzisztor tranzisztor = new Tranzisztor(szoba1, s2);
+                        szoba1.targy_elhelyezese(tranzisztor);
+                        if (szoba1.getTargyak().contains(tranzisztor))
+                            return "Tárgy hozzáadása sikeres.";
+                        else
+                            return "Tárgy hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            case "rongy":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Rongy rongy = new Rongy(szoba1, s2);
+                        szoba1.targy_elhelyezese(rongy);
+                        if (szoba1.getTargyak().contains(rongy))
+                            return "Tárgy hozzáadása sikeres.";
+                        else
+                            return "Tárgy hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            case "sorospohar":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Sorospohar sorospohar = new Sorospohar(szoba1, s2);
+                        szoba1.targy_elhelyezese(sorospohar);
+                        if (szoba1.getTargyak().contains(sorospohar))
+                            return "Tárgy hozzáadása sikeres.";
+                        else
+                            return "Tárgy hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            case "tvsz":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        TVSZ tvsz = new TVSZ(szoba1, s2);
+                        szoba1.targy_elhelyezese(tvsz);
+                        if (szoba1.getTargyak().contains(tvsz))
+                            return "Tárgy hozzáadása sikeres.";
+                        else
+                            return "Tárgy hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            case "maszk":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if(szoba1.getid().equals(s3)){
+                        Maszk maszk = new Maszk(szoba1, s2);
+                        szoba1.targy_elhelyezese(maszk);
+                        if (szoba1.getTargyak().contains(maszk))
+                            return "Tárgy hozzáadása sikeres.";
+                        else
+                            return "Tárgy hozzáadása sikertelen.";
+                    }
+                }
+                break;
+            default:
+                return "Tárgy hozzáadása sikertelen.";
+            break;
+        }
+        return "Tárgy hozzáadása sikertelen.";
+    }
+
+    public String pick(Palya palya, String s1, String s2) {
+        for (Hallgato hallgato : palya.getHallgatok()) {
+            if(hallgato.getid().equals(s1)){
+                for (int i = 0; i < hallgato.getSzoba().getTargyak().size(); i++) {
+                    if (hallgato.getSzoba().getTargyak().get(i).getId().equals(s2)) {
+                        Targy t = hallgato.getSzoba().getTargyak().get(i);
+                        hallgato.felvesz(t);
+                        if (hallgato.getTaska().contains(t))
+                            return "A tárgy felvétele sikeres.";
+                        else
+                            return "A tárgy felvétele sikertelen.";
+                    }
+                }
+            }
+        }
+        return "A tárgy felvétele sikertelen.";
+    }
+
+    public String throw_item(Palya palya, String s1, String s2) {
+        for (Hallgato hallgato : palya.getHallgatok()) {
+            if(hallgato.getid().equals(s1)){
+                for (int i = 0; i < hallgato.getTaska().size(); i++) {
+                    if (hallgato.getTaska().get(i).getId().equals(s2)) {
+                        Targy t = hallgato.getTaska().get(i);
+                        hallgato.eldob(t);
+                        if (!(hallgato.getTaska().contains(t)))
+                            return "A tárgy sikeresen eltűnt.";
+                        else
+                            return "A tárgy eltűntetése sikertelen.";
+                    }
+                }
+            }
+        }
+        return "A tárgy eltűntetése sikertelen.";
+    }
+
+    public String use(Palya palya, String s1, String s2) {
+        for (Hallgato hallgato : palya.getHallgatok()) {
+            if(hallgato.getid().equals(s1)){
+                for (int i = 0; i < hallgato.getTaska().size(); i++) {
+                    if (hallgato.getTaska().get(i).getId().equals(s2)) {
+                        Targy t = hallgato.getTaska().get(i);
+                        t.use();
+                        if ((t instanceof Camembert)) {
+                            if (t.getSzoba().isGazos())
+                                return "A tárgy használata sikeres.";
+                            else
+                                return "A tárgy használata sikertelen.";
+                        }
+                        if ((t instanceof Legfrissito)) {
+                            if (!(t.getSzoba().isGazos()))
+                                return "A tárgy használata sikeres.";
+                            else
+                                return "A tárgy használata sikertelen.";
+                        }
+                        if ((t instanceof Tranzisztor)) {
+                            if (t.getSzoba().getTargyak().contains(t) && ((Tranzisztor) t).getAktiv()|| hallgato.getSzoba() == ((Tranzisztor) t).getTars().getSzoba())
+                                return "A tárgy használata sikeres.";
+                            else
+                                return "A tárgy használata sikertelen.";
+                        }
+                    }
+                }
+            }
+        }
+        return "A tárgy használata sikertelen.";
     }
 
     private String connect(Palya palya, String string, String string2) {

@@ -6,8 +6,8 @@ public class TVSZ extends PasszivTargy{
     /**
      * TVSZ osztály konstruktora.
      */
-    public TVSZ(Szoba sz, String id, int t) {
-        super(Funkcio.oktatotol_ved, id, sz, t = 3);
+    public TVSZ(Szoba sz, String id) {
+        super(Funkcio.oktatotol_ved, id, sz,3);
     }
 
     /**

@@ -9,8 +9,8 @@ public class Rongy extends PasszivTargy{
     /**
      * Rongy osztály konstruktora.
      */
-    public Rongy(Szoba sz, String id, int t) {
-        super(Funkcio.oktatotol_ved, id, sz, t);
+    public Rongy(Szoba sz, String id) {
+        super(Funkcio.oktatotol_ved, id, sz, 0);
     }
 
     /**

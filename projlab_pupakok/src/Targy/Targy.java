@@ -92,6 +92,13 @@ public abstract class Targy {
 	}
 
 	/**
+	 * Setter függvény a Funkcio attribútumra.
+	 */
+	public void setFunkcio(Funkcio f){
+		funkcio = f;
+	}
+
+	/**
 	 * Absztrakt függvény, amely a specifikus tárgyak esetében, azok használatáért felelős.
 	 */
 	public abstract void use();
