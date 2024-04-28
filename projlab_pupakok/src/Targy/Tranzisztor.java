@@ -71,5 +71,17 @@ public class Tranzisztor extends AktivTargy {
         return aktiv;
     }
 
-    
+    /**
+     * Getter a tranzisztor hova attribútumához
+     */
+    public Szoba getHova() {
+        return hova;
+    }
+
+    /**
+     * Setter a tranzisztor hova attribútumához
+     */
+    public void setHova(Szoba h) {
+        hova = h;
+    }
 }

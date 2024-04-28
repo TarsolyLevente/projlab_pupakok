@@ -16,6 +16,6 @@ public class Camembert extends AktivTargy{
      * A függvény meghívása után a szoba, ahol a játékos tartózkodik, gázzal töltődik meg.
      */
     public void use(){
-        this.getBirtokos().getSzoba().setGaz(true);
+        this.getSzoba().setGaz(true);
     }
 }
