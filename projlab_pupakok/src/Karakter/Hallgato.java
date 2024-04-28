@@ -1,10 +1,7 @@
 package Karakter;
 
-import Palya.*;
 import Szoba.*;
 import Targy.*;
-
-import java.util.ArrayList;
 
 
 public class Hallgato extends Karakter
@@ -108,13 +105,14 @@ public class Hallgato extends Karakter
                             ((Tranzisztor)t).setTars((Tranzisztor)targy2);
                         }     
                     }
-
-           }
+                }
+            }
             t.setBirtokos(this);
             t.setSzoba(null);
             getSzoba().targy_eltuntetese(t);
             taska.add(t);
         }
+    }
         return;
     }
 

@@ -2,7 +2,6 @@ package Targy;
 
 import Szoba.*;
 
-import java.security.cert.TrustAnchor;
 
 public class Camembert extends AktivTargy{
     /**
@@ -17,5 +16,11 @@ public class Camembert extends AktivTargy{
      */
     public void use(){
         this.getBirtokos().getSzoba().setGaz(true);
+    }
+
+    public String toString(Funkcio funkcio) {
+        if (funkcio == null || funkcio == this.funkcio)
+            return "Camembert";
+        return "";
     }
 }

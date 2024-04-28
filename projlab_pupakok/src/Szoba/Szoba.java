@@ -32,6 +32,10 @@ public class Szoba {
      */
     protected ArrayList<Oktato> oktatok;
     /**
+     * A szobában tartózkodó takarítók
+     */
+    protected ArrayList<Takarito> takaritok;
+    /**
      * A szobában levő tárgyak
      */
     protected ArrayList<Targy> targyak;
@@ -42,13 +46,11 @@ public class Szoba {
     /**
      * Minden szobát egyedileg azonosít.
      */
-    protected int id;
+    protected String id;
     /*
      * A szoba ragacsosságát adja meg.
      */
     protected int ragacs_cnt;
-
-    // TODO: takarito - get, set, add, remove, ctor
 
     /**
      * Konstruktor
@@ -65,6 +67,7 @@ public class Szoba {
         szomszedok = new ArrayList<>();
         hallgatok = new ArrayList<>();
         oktatok = new ArrayList<>();
+        takaritok = new ArrayList<>();
         targyak = new ArrayList<>();
         id = palya.getSzobak().size();
     }
@@ -76,7 +79,7 @@ public class Szoba {
      * @param bef a szoba befogadóképessége
      * @param p   a pálya, amihez a szoba tartozik
      */
-    public Szoba(int ID, boolean gaz, int bef, Palya p) {
+    public Szoba(String ID, boolean gaz, int bef, Palya p) {
         System.out.println("Szoba -> create");
         this.gazos = gaz;
         this.befogadokepesseg = bef;
@@ -304,6 +307,47 @@ public class Szoba {
                     h.kibukik();
                 }
             }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * A szobában levő oktatók gettere
+     * 
+     * @return oktatók listája
+     */
+    public ArrayList<Takarito> getTakaritok() {
+        return takaritok;
+    }
+
+    /**
+     * Setter az oktatok listára.
+     * 
+     * @param oktatok
+     */
+    public void setTakaritok(ArrayList<Takarito> takaritok) {
+        this.takaritok = takaritok;
+    }
+
+    /**
+     * A paraméterben kapott hallgatót törli a szoba hallgatói közül
+     * 
+     * @param h az hallgató, akit töröl
+     */
+    public void removeTakarito(Takarito t) {
+        takaritok.remove(t);
+    }
+
+    /**
+     * A paraméterben kapott oktatót hozzáadja a szoba oktatói közé
+     * 
+     * @param o az oktató, akit addol
+     */
+    public boolean addTakarito(Takarito t) {
+        if (befer()) {
+            takaritok.add(t);
             return true;
         } else {
             return false;

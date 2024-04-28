@@ -1,7 +1,6 @@
 package Targy;
 
 import Szoba.*;
-import Karakter.*;
 
 public class TVSZ extends PasszivTargy{
     /**
@@ -23,5 +22,11 @@ public class TVSZ extends PasszivTargy{
      */
     public void use(){
         setToltet();
+    }
+
+    public String toString(Funkcio funkcio) {
+        if (funkcio == null || funkcio == this.funkcio)
+            return "TVSZ";
+        return "";
     }
 }

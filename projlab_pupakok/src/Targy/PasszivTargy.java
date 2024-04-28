@@ -28,4 +28,6 @@ public abstract class PasszivTargy extends Targy{
     public int getToltet(){
         return toltet;
     }
+
+    public abstract String toString(Funkcio funkcio);
 }

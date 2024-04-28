@@ -26,7 +26,7 @@ public class Palya {
     /**
 	 * A játékban lévő szobák
 	 */
-    protected ArrayList<Szoba> szobak;
+    protected ArrayList<Szoba> szobak; // TODO getter, setter nékije
   
     /**
 	 * A játékban lévő takarítók
@@ -74,7 +74,7 @@ public class Palya {
         {
             String data = reader.nextLine();
             String[] attributes = data.split(",");
-            int id = Integer.parseInt(attributes[1]);
+            String id = attributes[1];
             boolean gaz = Boolean.parseBoolean(attributes[2]);
             int ferohely = Integer.parseInt(attributes[3]);
             if(attributes[0].equals("false"))
@@ -99,7 +99,7 @@ public class Palya {
                 for(Szoba sz : szobak) {
                     for (int i = 0; i < szomszedok.length; i++) {
                         for(Szoba szoba : szobak){
-                            if(szoba.getId() == szomszedok[i])
+                            if (szoba.getid() == szomszedok[i])
                                 sz.addSzomszed(szoba);
                         }
                     }

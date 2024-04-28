@@ -1,6 +1,5 @@
 package Karakter;
 
-import Palya.*;
 import Szoba.*;
 import Targy.*;
 

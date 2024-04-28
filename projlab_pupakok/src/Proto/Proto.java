@@ -4,7 +4,6 @@ import Game.Game;
 import Palya.Palya;
 import Szoba.*;
 import Karakter.*;
-import Palya.Palya;
 import Targy.*;
 
 import java.util.ArrayList;

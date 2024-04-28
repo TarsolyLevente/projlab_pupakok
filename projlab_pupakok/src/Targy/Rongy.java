@@ -1,6 +1,5 @@
 package Targy;
 
-import Karakter.Oktato;
 import Szoba.*;
 
 import java.util.Timer;
@@ -47,5 +46,11 @@ public class Rongy extends PasszivTargy{
      */
     public void use(){
         //hát így kinda nem csinál semmit
+    }
+
+    public String toString(Funkcio funkcio) {
+        if (funkcio == null || funkcio == this.funkcio)
+            return "Rongy";
+        return "";
     }
 }

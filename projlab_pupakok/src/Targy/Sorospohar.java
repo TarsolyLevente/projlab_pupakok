@@ -54,4 +54,10 @@ public class Sorospohar extends PasszivTargy{
         Hallgato h = (Hallgato) this.getBirtokos();
         h.eldob(this.getBirtokos().getTaska().get(eldob));
     }
+
+    public String toString(Funkcio funkcio) {
+        if (funkcio == null || funkcio == this.funkcio)
+            return "Söröspohár";
+        return "";
+    }
 }

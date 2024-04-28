@@ -3,7 +3,6 @@ package Targy;
 import Szoba.*;
 import Karakter.*;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -19,7 +18,7 @@ public class Logarlec extends Targy{
 	 * @param f Funkcio értéke
 	 */
 	public Logarlec(Szoba sz) {
-		super(sz, Funkcio.logarlec);
+		super(Funkcio.logarlec, "0", sz);
 		System.out.println("Logarlec -> create");
 	}
 	
@@ -45,4 +44,10 @@ public class Logarlec extends Targy{
 	 * addPropertyChangeListener
 	 */
 	public void addPropertyChangeListener(PropertyChangeListener listener) { support.addPropertyChangeListener(listener); }
+
+	public String toString(Funkcio funkcio) {
+		if (funkcio == null || funkcio == this.funkcio)
+			return "Logarléc";
+		return "";
+	}
 }

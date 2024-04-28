@@ -2,7 +2,6 @@ package Karakter;
 
 import java.util.ArrayList;
 
-import Palya.*;
 import Szoba.*;
 import Targy.*;
 
@@ -27,7 +26,7 @@ public class Takarito extends Karakter {
             for (Targy targy : taska) {
                 targy.setSzoba(sz);
             }
-            getSzoba().removeOTakarito(this);
+            getSzoba().removeTakarito(this);
             this.setSzoba(sz);
 
                  

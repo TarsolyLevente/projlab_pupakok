@@ -95,4 +95,6 @@ public abstract class Targy {
 	 * Absztrakt függvény, amely a specifikus tárgyak esetében, azok használatáért felelős.
 	 */
 	public abstract void use();
+
+	public abstract String toString(Funkcio funkcio);
 }

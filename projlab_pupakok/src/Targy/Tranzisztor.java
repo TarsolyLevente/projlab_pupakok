@@ -71,5 +71,9 @@ public class Tranzisztor extends AktivTargy {
         return aktiv;
     }
 
-    
+    public String toString(Funkcio funkcio) {
+        if (funkcio == null || (funkcio == this.funkcio && this.aktiv))
+            return "Tranzisztor";
+        return "";
+    }
 }

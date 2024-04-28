@@ -15,4 +15,10 @@ public class Legfrissito extends AktivTargy {
     public void use(){
         this.getBirtokos().getSzoba().setGaz(false);
     }
+
+    public String toString(Funkcio funkcio) {
+        if (funkcio == null || funkcio == this.funkcio)
+            return "Légfrissítő";
+        return "";
+    }
 }

@@ -1,8 +1,6 @@
 package Szoba;
 
 import Palya.*;
-import Karakter.*;
-import Targy.*;
 
 import java.util.ArrayList;
 /**
@@ -17,7 +15,7 @@ public class ElatkozottSzoba extends Szoba{
     /**
      * Elatkozott szoba konstruktora
      */
-    public ElatkozottSzoba(int id, boolean gaz, int bef ,Palya p){
+    public ElatkozottSzoba(String id, boolean gaz, int bef, Palya p) {
         super(id, gaz, bef, p);
         eltuntajto = new ArrayList<>();
     }
