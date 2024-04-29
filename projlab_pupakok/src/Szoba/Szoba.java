@@ -172,19 +172,32 @@ public class Szoba {
      * @param sz a szoba, amivel egyesül
      */
     public void egyesul(Szoba sz) {
-        regiszobak.add(sz);
-        regiszobak.add(this);
-        for (Targy targy : sz.getTargyak()) {
-            this.targy_elhelyezese(targy);
-        }
-        for (Szoba szoba : sz.getSzomszedok()) {
-            if (!this.szomszedok.contains(szoba) && szoba != this)
-                this.addSzomszed(szoba);
-            szoba.removeSzomszed(sz);
-            szoba.addSzomszed(this);
-        }
-        palya.removeSzoba(sz);
+        // Regisztrált szobák hozzáadása
+        if(this.getRegiszobak().isEmpty() && sz.getRegiszobak().isEmpty()){
+            regiszobak.add(sz);
+            regiszobak.add(this);
+        
+            // Tárgyak elhelyezése
+            for (int i = 0; i < sz.getTargyak().size(); i++) {
+                Targy targy = sz.getTargyak().get(i);
+                this.targy_elhelyezese(targy);
+            }
+        
+            // Szomszédok kezelése
+            for (int i = 0; i < sz.getSzomszedok().size(); i++) {
+                Szoba szoba = sz.getSzomszedok().get(i);
+                if (!this.szomszedok.contains(szoba) && szoba != this) {
+                    this.addSzomszed(szoba);
+                }
+                szoba.removeSzomszed(sz);
+                szoba.addSzomszed(this);
+            }
+        
+            // Szoba eltávolítása a pályáról
+            palya.removeSzoba(sz);
     }
+    }
+    
 
     
     /**
