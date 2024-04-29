@@ -136,8 +136,10 @@ public class Szoba {
         if (!regiszobak.isEmpty()) {
             Szoba regi = regiszobak.get(1);
             Szoba uj = new Szoba(regi.gazos, regi.befogadokepesseg);
-            for (Targy regitargy : regi.getTargyak()) {
-                for (Targy targy : this.getTargyak()) {
+            for (int i = 0; i < regi.getTargyak().size(); i++) {
+                Targy regitargy = regi.getTargyak().get(i);
+                for (int j = 0; j < this.getTargyak().size(); j++) {
+                    Targy targy = this.getTargyak().get(j);
                     if (regitargy == targy) {
                         this.targy_eltuntetese(targy);
                         uj.targy_elhelyezese(targy);
