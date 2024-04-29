@@ -653,6 +653,5 @@ public class Proto {
                     break;
             }
         }
-        scanner.close();
     }
 }
