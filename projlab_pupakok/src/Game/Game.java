@@ -100,6 +100,7 @@ public class Game {
                     if (data <= inventorythrowcnt)
                         hallgato.eldob(hallgato.getTaska().get(data - 1));
                     else if (data <= inventoryusecnt)
+
                         hallgato.getTaska().get(dict.get(data)).use();
                     else if (data <= targycnt)
                         hallgato.felvesz(hallgato.getSzoba().getTargyak().get(data - inventoryusecnt - 1));
