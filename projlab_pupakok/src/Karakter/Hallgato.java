@@ -38,10 +38,9 @@ public class Hallgato extends Karakter {
         if (sz.addHallgato(this)) {
             getSzoba().removeHallgato(this);
             this.setSzoba(sz);
-            if(getSzoba().getRagacs_cnt() != -1){
-                getSzoba().setRagacs_cnt(getSzoba().getRagacs_cnt()+1);
+            if (getSzoba().getRagacs_cnt() != -1) {
+                getSzoba().setRagacs_cnt(getSzoba().getRagacs_cnt() + 1);
             }
-            
 
             for (Targy targy : taska) {
                 targy.setSzoba(sz);
@@ -83,8 +82,8 @@ public class Hallgato extends Karakter {
      * 
      * @param t Ezt veszi fel
      */
-    public void felvesz(Targy t) { 
-       if(!getSzoba().isRagacsos()){ 
+    public void felvesz(Targy t) {
+        if (!getSzoba().isRagacsos()) {
             if (taska.size() < 5) {
                 if (t instanceof Tranzisztor) {
                     int tranzisztorSzam = 0;
@@ -94,6 +93,7 @@ public class Hallgato extends Karakter {
                             tranzisztorSzam++;
                         }
                         if (tranzisztorSzam >= 2) {
+                            System.out.println("Nem vehetsz fel több tranzisztort!");
                             return;
                         }
 
@@ -107,7 +107,7 @@ public class Hallgato extends Karakter {
                         }
                     }
                 }
-                if(t instanceof Rongy){
+                if (t instanceof Rongy) {
                     t.use();
                 }
                 t.setBirtokos(this);

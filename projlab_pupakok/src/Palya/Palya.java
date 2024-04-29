@@ -234,29 +234,26 @@ public class Palya {
         }
         // TODO osztodas, egyesules
         // Szobák osztódása
-        /*
-         * if (toggle_random) {
-         * for (int i = 0; i < 3; i++) {
-         * szobak.get(rand.nextInt(szobak.size())).osztodik();
-         * }
-         * } else {
-         * for (int i = 0; i < 3; i++) {
-         * szobak.get(i).osztodik();
-         * }
-         * }
-         * 
-         * // Szobák egyesülése
-         * if (toggle_random) {
-         * for (int i = 0; i < 7; i++) {
-         * szobak.get(rand.nextInt(szobak.size())).egyesul(szobak.get(rand.nextInt(
-         * szobak.size())));
-         * }
-         * } else {
-         * for (int i = 0; i < 7; i++) {
-         * szobak.get(i).egyesul(szobak.get(i + 1));
-         * }
-         * }
-         */
+        if (toggle_random) {
+            for (int i = 0; i < 3; i++) {
+                szobak.get(rand.nextInt(szobak.size())).osztodik();
+            }
+        } else {
+            for (int i = 0; i < 3; i++) {
+                szobak.get(i).osztodik();
+            }
+        }
+
+        // Szobák egyesülése
+        if (toggle_random) {
+            for (int i = 0; i < 7; i++) {
+                szobak.get(rand.nextInt(szobak.size())).egyesul(szobak.get(rand.nextInt(szobak.size())));
+            }
+        } else {
+            for (int i = 0; i < 7; i++) {
+                szobak.get(i).egyesul(szobak.get(i + 1));
+            }
+        }
 
         // Ajtok eltunese
         if (toggle_random) {

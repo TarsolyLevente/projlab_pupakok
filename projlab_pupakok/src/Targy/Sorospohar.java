@@ -6,15 +6,15 @@ import Szoba.*;
 import java.util.Random;
 import javax.swing.*;
 
+public class Sorospohar extends PasszivTargy {
+    /**
+     * Rongy osztály konstruktora.
+     */
     /**
      * Számláló a Timerhez.
      */
     private int counter = 0;
 
-public class Sorospohar extends PasszivTargy {
-    /**
-     * Rongy osztály konstruktora.
-     */
     public Sorospohar(Szoba sz, String id) {
         super(Funkcio.oktatotol_ved, id, sz, 0);
     }
@@ -24,7 +24,7 @@ public class Sorospohar extends PasszivTargy {
      */
     private Timer timer = new Timer(1000, e -> {
         counter++;
-        if(counter == 180){
+        if (counter == 180) {
             setToltet();
         }
     });;
@@ -37,7 +37,7 @@ public class Sorospohar extends PasszivTargy {
      * Ennek a Timer-nek a megfelelő nyomon követesében segít a függvény.
      * Ha lejár az idő, akkor a tárgy eltűnik a hallgató invertory-ából.
      */
-    public void tick(){
+    public void tick() {
         timer.start();
     }
 
@@ -56,10 +56,10 @@ public class Sorospohar extends PasszivTargy {
      * A Söröspohár tárgy általi megvalósítása2
      * az absztrakt use() függvénynek.
      */
-    public void use(){
-        if(this.getFunkcio() != Funkcio.hamis){
+    public void use() {
+        if (this.getFunkcio() != Funkcio.hamis) {
             tick();
-            if(this.getBirtokos().getTaska().size() > 1){
+            if (this.getBirtokos().getTaska().size() > 1) {
                 Random rand = new Random();
                 int eldob = rand.nextInt(this.getBirtokos().getTaska().size() - 1);
                 Hallgato h = (Hallgato) this.getBirtokos();
