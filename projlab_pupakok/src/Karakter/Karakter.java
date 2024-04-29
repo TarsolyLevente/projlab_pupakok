@@ -4,6 +4,7 @@ import Szoba.*;
 import Targy.*;
 
 import java.util.*;
+import javax.swing.Timer;
 
 public abstract class Karakter {
     /**
@@ -27,11 +28,25 @@ public abstract class Karakter {
     protected String id;
 
     /**
+     * Számláló a Timerhez.
+     */
+    private int counter = 0;
+
+    /**
+     * Timer az eszméletvesztéshez.
+     */
+    Timer timer = new Timer(1000, e -> {
+        counter++;
+        if (counter == 180) {
+            setEszmeletvesztett(false);
+        }
+    });
+
+    /**
      * Karakter konstruktora
      * 
      * @param sz Ebben a szobában jön létre.
      */
-
     public Karakter(Szoba sz, String i) {
         szoba = sz;
         id = i;
@@ -110,6 +125,8 @@ public abstract class Karakter {
             System.out.println("Hallgató " + id + " eszméletvesztett!");
         else if (this instanceof Oktato) // ha oktató volt
             System.out.println("Oktató " + id + " eszméletvesztett!");
+
+        timer.start();
     }
 
     /**

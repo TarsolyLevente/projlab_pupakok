@@ -196,18 +196,22 @@ public class Palya {
         // lépés az oktatóval
         if (toggle_random) {
             for (Oktato oktato : oktatok) {
-                Szoba szoba = oktato.getSzoba();
-                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                int randomIndex = rand.nextInt(szomszedok.size());
-                Szoba randomSzoba = szomszedok.get(randomIndex);
-                oktato.mozog(randomSzoba);
+                if(oktato.getEszmeletvesztett()){
+                    Szoba szoba = oktato.getSzoba();
+                    ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                    int randomIndex = rand.nextInt(szomszedok.size());
+                    Szoba randomSzoba = szomszedok.get(randomIndex);
+                    oktato.mozog(randomSzoba);
+                }
             }
         } else {
             for (Oktato oktato : oktatok) {
-                Szoba szoba = oktato.getSzoba();
-                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                Szoba randomSzoba = szomszedok.get(0);
-                oktato.mozog(randomSzoba);
+                if(oktato.getEszmeletvesztett()){
+                    Szoba szoba = oktato.getSzoba();
+                    ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                    Szoba randomSzoba = szomszedok.get(0);
+                    oktato.mozog(randomSzoba);
+                }
             }
         }
 
