@@ -260,6 +260,19 @@ public class Proto {
                     }
                 }
                 break;
+            case "camembert_hamis":
+                for (Szoba szoba1 : palya.getSzobak()) {
+                    if (szoba1.getid().equals(s3)) {
+                        Camembert camembert = new Camembert(szoba1, s2);
+                        camembert.setFunkcio(Funkcio.hamis);
+                        szoba1.targy_elhelyezese(camembert);
+                        if (szoba1.getTargyak().contains(camembert))
+                            return "Tárgy hozzáadása sikeres.";
+                        else
+                            return "Tárgy hozzáadása sikertelen.";
+                    }
+                }
+                break;
             default:
                 return "Tárgy hozzáadása sikertelen.";
         }
@@ -346,7 +359,7 @@ public class Proto {
                 }
             }
         }
-        return "A tárgy használata sikertelen.";
+        return "Tárgy használata sikertelen.";
     }
 
     private String connect(Palya palya, String string, String string2) {
@@ -555,7 +568,7 @@ public class Proto {
                 case 1000: /// Minden teszt futtatása.
                     boolean siker = true;
                     int counter = 0;
-                    for (int i = 1; i <= 28; ++i) {
+                    for (int i = 1; i <= 31; ++i) {
                         String kimenet = checkoutput("input" + i, "output" + i);
                         if (!kimenet.equals("A teszt sikeres volt.")) {
                             siker = false;
@@ -565,9 +578,9 @@ public class Proto {
                         }
                     }
                     if (siker) {
-                        System.out.println("Minden teszt sikeres volt. " + counter + "/28");
+                        System.out.println("Minden teszt sikeres volt. " + counter + "/31");
                     } else {
-                        System.out.println("Nem minden teszt sikeres. " + counter + "/28");
+                        System.out.println("Nem minden teszt sikeres. " + counter + "/31");
                     }
                     break;
                 case 1: /// 1-es teszt futtatása.
@@ -663,12 +676,9 @@ public class Proto {
                 case 31:
                     System.out.println(checkoutput("input31", "output31"));
                     break;
-                // TODO megbenul
-                // TODO kibukas masik irany
-                // TODO takker kikuldese
-                // TODO takaritas
-                // TODO hamis
-                // TODO legfrissito
+                case 33:
+                    System.out.println(checkoutput("input33", "output33"));
+                    break;
                 // TODO tranzisztor
                 // TODO logarlec
                 default:
