@@ -138,6 +138,7 @@ public class Szoba {
         if (!regiszobak.isEmpty()) {
             Szoba regi = regiszobak.get(1);
             Szoba uj = new Szoba(regi.gazos, regi.befogadokepesseg);
+            uj.id=regi.id;
             for (int i = 0; i < regi.getTargyak().size(); i++) {
                 Targy regitargy = regi.getTargyak().get(i);
                 for (int j = 0; j < this.getTargyak().size(); j++) {
@@ -178,7 +179,9 @@ public class Szoba {
             regiszobak.add(this);
         
             // Tárgyak elhelyezése
-            for (int i = 0; i < sz.getTargyak().size(); i++) {
+            int targyszam = sz.getTargyak().size();
+            for (int i = 0; i <targyszam;  i++) {
+                
                 Targy targy = sz.getTargyak().get(i);
                 this.targy_elhelyezese(targy);
             }
