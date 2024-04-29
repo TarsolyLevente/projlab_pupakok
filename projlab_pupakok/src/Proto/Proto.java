@@ -663,12 +663,11 @@ public class Proto {
                 case 31:
                     System.out.println(checkoutput("input31", "output31"));
                     break;
-                // TODO megbenul
-                // TODO kibukas masik irany
-                // TODO takker kikuldese
-                // TODO takaritas
+                case 32:
+                    System.out.println(checkoutput("input32", "output32"));
+                    break;
+                
                 // TODO hamis
-                // TODO legfrissito
                 // TODO tranzisztor
                 // TODO logarlec
                 default:
