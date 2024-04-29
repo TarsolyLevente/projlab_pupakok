@@ -568,7 +568,7 @@ public class Proto {
                 case 1000: /// Minden teszt futtatása.
                     boolean siker = true;
                     int counter = 0;
-                    for (int i = 1; i <= 31; ++i) {
+                    for (int i = 1; i <= 33; ++i) {
                         String kimenet = checkoutput("input" + i, "output" + i);
                         if (!kimenet.equals("A teszt sikeres volt.")) {
                             siker = false;
@@ -578,9 +578,9 @@ public class Proto {
                         }
                     }
                     if (siker) {
-                        System.out.println("Minden teszt sikeres volt. " + counter + "/31");
+                        System.out.println("Minden teszt sikeres volt. " + counter + "/33");
                     } else {
-                        System.out.println("Nem minden teszt sikeres. " + counter + "/31");
+                        System.out.println("Nem minden teszt sikeres. " + counter + "/33");
                     }
                     break;
                 case 1: /// 1-es teszt futtatása.
@@ -679,13 +679,9 @@ public class Proto {
                 case 32:
                     System.out.println(checkoutput("input32", "output32"));
                     break;
-                
-                // TODO hamis
                 case 33:
                     System.out.println(checkoutput("input33", "output33"));
                     break;
-                // TODO tranzisztor
-                // TODO logarlec
                 default:
                     System.out.println("Csak a menüben megadott számokat addj meg.");
                     break;

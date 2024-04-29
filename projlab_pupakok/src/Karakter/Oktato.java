@@ -77,6 +77,10 @@ public class Oktato extends Karakter {
             t.setSzoba(getSzoba());
             getSzoba().targy_eltuntetese(t);
             taska.add(t);
+
+            if((t instanceof Tranzisztor) && (((Tranzisztor)t).getTars() != null)){
+                return;
+            }
             
             if(getSzoba().getRegiszobak().size() != 0){
                 
