@@ -5,6 +5,7 @@ import Palya.*;
 import Szoba.*;
 import Targy.*;
 
+import java.io.IOException;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -45,6 +46,7 @@ public class Game {
     }
 
     public void hallgatoLep(Hallgato hallgato) {
+        System.out.println("Hallgató " + hallgato.getid() + " következik!");
 
         Scanner reader = new Scanner(System.in);
         while (reader.hasNextLine()) {
@@ -70,19 +72,28 @@ public class Game {
                 System.out.println(szomszedcnt + ". " + szoba.getid() + ". számú szobába lépés");
             }
 
-            int data = Integer.parseInt(reader.nextLine());
-            if (data > szomszedcnt)
-                System.out.println("Rossz bemenet");
-            else {
-                if (data >= inventorycnt)
-                    hallgato.getTaska().get(dict.get(data)).use();
-                else if (data >= targycnt)
-                    hallgato.felvesz(hallgato.getSzoba().getTargyak().get(data - inventorycnt));
+            int data = Integer.MAX_VALUE;
+            try {
+                data = System.in.read();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (data > szomszedcnt)
+                    System.out.println("Rossz bemenet");
                 else {
-                    hallgato.mozog(hallgato.getSzoba().getSzomszedok().get(data - targycnt));
-                    reader.close();
-                    return;
+                    if (data < inventorycnt)
+                        hallgato.getTaska().get(dict.get(data)).use();
+                    else if (data < targycnt)
+                        hallgato.felvesz(hallgato.getSzoba().getTargyak().get(data - inventorycnt));
+                    else {
+                        hallgato.mozog(hallgato.getSzoba().getSzomszedok().get(data - targycnt));
+                        reader.close();
+                        return;
+                    }
                 }
+            } catch (Exception e) {
+                System.out.println("Rossz bemenet");
             }
         }
         reader.close();
@@ -96,7 +107,7 @@ public class Game {
             for (Hallgato h : palya.getHallgatok()) {
                 hallgatoLep(h);
             }
-                palya.leptet();
+            palya.leptet();
         }
         endgame();
     }
