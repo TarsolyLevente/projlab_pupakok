@@ -69,6 +69,7 @@ public class Szoba {
         takaritok = new ArrayList<>();
         targyak = new ArrayList<>();
         id = String.valueOf(palya.getSzobak().size());
+        ragacs_cnt = -1;
     }
 
     /**
@@ -90,6 +91,7 @@ public class Szoba {
         palya = p;
         palya.addSzoba(this);
         id = ID;
+        ragacs_cnt = -1;
     }
 
     /**

@@ -10,9 +10,9 @@ public class Oktato extends Karakter {
     private boolean megbenult;
 
     /**
-     * Oktató mozog függvénye
+     * Oktató konstruktor függvénye
      * 
-     * @param sz Ide mozog át
+     * 
      */
     public Oktato(Szoba sz, String id) {
         super(sz, id);
@@ -32,10 +32,13 @@ public class Oktato extends Karakter {
             }
             getSzoba().removeOktato(this);
             this.setSzoba(sz);
+            if(getSzoba().getRagacs_cnt() != -1){
+                getSzoba().setRagacs_cnt(getSzoba().getRagacs_cnt()+1);
+            }
 
             if (sz.getHallgatok().size() != 0) {
                 for (Hallgato hallgato : sz.getHallgatok()) {
-                    hallgato.kibukik();
+                    hallgato.vedette(Vedettseg.oktatotol);
                 }
 
             }
@@ -56,9 +59,13 @@ public class Oktato extends Karakter {
      * @param t Ezt veszi fel
      */
     public void felvesz(Targy t) {
-        t.setBirtokos(this);
-        t.setSzoba(getSzoba());
-        getSzoba().targy_eltuntetese(t);
-        taska.add(t);
+        if(!getSzoba().isRagacsos()){
+            t.setBirtokos(this);
+            t.setSzoba(getSzoba());
+            getSzoba().targy_eltuntetese(t);
+            taska.add(t);
+    
+    
+        }
     }
 }

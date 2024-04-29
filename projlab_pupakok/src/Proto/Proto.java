@@ -648,6 +648,9 @@ public class Proto {
                 case 28:
                     System.out.println(checkoutput("input28", "output28"));
                     break;
+                case 30:
+                    System.out.println(checkoutput("input30", "output30"));
+                    break;
                 // TODO megbenul
                 // TODO kibukas masik irany
                 // TODO takker kikuldese

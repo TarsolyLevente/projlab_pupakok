@@ -38,6 +38,10 @@ public class Hallgato extends Karakter {
         if (sz.addHallgato(this)) {
             getSzoba().removeHallgato(this);
             this.setSzoba(sz);
+            if(getSzoba().getRagacs_cnt() != -1){
+                getSzoba().setRagacs_cnt(getSzoba().getRagacs_cnt()+1);
+            }
+            
 
             for (Targy targy : taska) {
                 targy.setSzoba(sz);
@@ -80,34 +84,36 @@ public class Hallgato extends Karakter {
      * @param t Ezt veszi fel
      */
     public void felvesz(Targy t) { // TODO ragacs
-        if (taska.size() < 5) {
-            if (t instanceof Tranzisztor) {
-                int tranzisztorSzam = 0;
-                // Számoljuk meg, hány tranzisztor van már a taskában
-                for (Targy targy : taska) {
-                    if (targy instanceof Tranzisztor) {
-                        tranzisztorSzam++;
-                    }
-                    if (tranzisztorSzam >= 2) {
-                        return;
-                    }
+       if(!getSzoba().isRagacsos()){ 
+            if (taska.size() < 5) {
+                if (t instanceof Tranzisztor) {
+                    int tranzisztorSzam = 0;
+                    // Számoljuk meg, hány tranzisztor van már a taskában
+                    for (Targy targy : taska) {
+                        if (targy instanceof Tranzisztor) {
+                            tranzisztorSzam++;
+                        }
+                        if (tranzisztorSzam >= 2) {
+                            return;
+                        }
 
-                    else {
-                        for (Targy targy2 : taska) {
-                            if (targy2 instanceof Tranzisztor) {
-                                ((Tranzisztor) targy2).setTars((Tranzisztor) t);
-                                ((Tranzisztor) t).setTars((Tranzisztor) targy2);
+                        else {
+                            for (Targy targy2 : taska) {
+                                if (targy2 instanceof Tranzisztor) {
+                                    ((Tranzisztor) targy2).setTars((Tranzisztor) t);
+                                    ((Tranzisztor) t).setTars((Tranzisztor) targy2);
+                                }
                             }
                         }
                     }
                 }
+                if(t instanceof Rongy){
+                    t.use();
+                }
+                t.setBirtokos(this);
+                getSzoba().targy_eltuntetese(t);
+                taska.add(t);
             }
-            if(t instanceof Rongy){
-                t.use();
-            }
-            t.setBirtokos(this);
-            getSzoba().targy_eltuntetese(t);
-            taska.add(t);
         }
         return;
     }
