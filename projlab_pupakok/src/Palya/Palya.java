@@ -14,6 +14,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Palya {
+    public ArrayList<Oktato> getOktatok() {
+        return oktatok;
+    }
+
+    public ArrayList<Szoba> getSzobak() {
+        return szobak;
+    }
+
+    public ArrayList<Takarito> getTakaritok() {
+        return takaritok;
+    }
+
     /**
 	 * A játékban lévő hallgatók
 	 */
@@ -34,6 +46,10 @@ public class Palya {
     protected ArrayList<Takarito> takaritok;
 
     Game game;
+
+    public void setToggle_random(boolean toggle_random) {
+        this.toggle_random = toggle_random;
+    }
 
     boolean toggle_random = true;
 
