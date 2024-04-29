@@ -84,7 +84,7 @@ public class Hallgato extends Karakter {
      * 
      * @param t Ezt veszi fel
      */
-    public void felvesz(Targy t) { // TODO regiszobakbol is ki kell venni
+    public void felvesz(Targy t) {
         if (!getSzoba().isRagacsos()) {
             if (taska.size() < 5) {
                 if (t instanceof Tranzisztor) {

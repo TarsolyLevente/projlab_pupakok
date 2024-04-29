@@ -17,4 +17,4 @@ public abstract class AktivTargy extends Targy {
     public abstract void use();
 
     public abstract String toString(Funkcio funkcio);
-} // TODO HAMIS
+}

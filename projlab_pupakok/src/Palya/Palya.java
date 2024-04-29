@@ -243,7 +243,6 @@ public class Palya {
 
             }
         }
-        // TODO osztodas, egyesules
         // Szobák osztódása
         if (toggle_random) {
             for (int i = 0; i < 3; i++) {

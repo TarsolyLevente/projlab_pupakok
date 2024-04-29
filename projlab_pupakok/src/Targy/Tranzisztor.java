@@ -98,7 +98,10 @@ public class Tranzisztor extends AktivTargy {
                 return "hamis Tranzisztor";
             else
                 return "igazi Tranzisztor";
-        } else if (funkcio == this.funkcio && tars != null)
+
+        } else if (funkcio == this.funkcio && tars != null && aktiv && this.getTars().getBirtokos() == null)
+            return id + ". Tranzisztor";
+        else if (funkcio == this.funkcio && tars != null)
             return "Tranzisztor";
         else
             return "";

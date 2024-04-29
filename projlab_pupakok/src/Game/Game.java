@@ -85,7 +85,19 @@ public class Game {
                 targycnt++;
                 System.out.println(targycnt + ". " + t.toString(null) + " felvétele");
             }
-            int szomszedcnt = targycnt;
+            int tpcnt = targycnt;
+            Dictionary<Integer, Integer> trdict = new Hashtable<>();
+            for (int i = 0; i < hallgato.getSzoba().getTargyak().size(); i++) {
+                Targy t = hallgato.getSzoba().getTargyak().get(i);
+                if (t instanceof Tranzisztor && !t.toString(Funkcio.aktiv).equals("")) {
+                    if (t.toString(Funkcio.aktiv).length() != 11) {
+                        tpcnt++;
+                        System.out.println(tpcnt + ". Teleportálás " + t.toString(Funkcio.aktiv) + "ral");
+                        dict.put(tpcnt, i);
+                    }
+                }
+            }
+            int szomszedcnt = tpcnt;
             for (Szoba szoba : hallgato.getSzoba().getSzomszedok()) {
                 szomszedcnt++;
                 System.out.println(szomszedcnt + ". " + szoba.getid() + ". számú szobába lépés");
@@ -104,6 +116,8 @@ public class Game {
                         hallgato.getTaska().get(dict.get(data)).use();
                     else if (data <= targycnt)
                         hallgato.felvesz(hallgato.getSzoba().getTargyak().get(data - inventoryusecnt - 1));
+                    else if (data <= tpcnt)
+                        hallgato.teleport((Tranzisztor) hallgato.getSzoba().getTargyak().get(dict.get(data)));
                     else {
                         hallgato.mozog(hallgato.getSzoba().getSzomszedok().get(data - targycnt - 1));
                         return;
@@ -126,7 +140,7 @@ public class Game {
     public void jatekLeptetes() {
         while (szamlalo < 900) {
             for (int i = 0; i < palya.getHallgatok().size(); ++i) {
-                if(!palya.getHallgatok().get(i).getEszmeletvesztett()){
+                if (!palya.getHallgatok().get(i).getEszmeletvesztett()) {
                     hallgatoLep(palya.getHallgatok().get(i));
                 }
             }
