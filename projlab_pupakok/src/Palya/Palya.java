@@ -253,6 +253,10 @@ public class Palya {
                 //szobak.get(rand.nextInt(szobak.size())).egyesul(szobak.get(rand.nextInt(szobak.size())));
                 int randszoba = rand.nextInt(szobak.size());
                 int randszoba2 = rand.nextInt(szobak.size());
+                while(randszoba == randszoba2){
+                    randszoba2 = rand.nextInt(szobak.size());
+                }
+               
                 //System.out.println(randszoba);
                 szobak.get(randszoba).egyesul(szobak.get(randszoba2));
             }
