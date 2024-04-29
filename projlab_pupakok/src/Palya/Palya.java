@@ -128,11 +128,8 @@ public class Palya {
         if (toggle_random) {
 
             System.out.println("Játékosok száma:");
-            try {
-                input = System.in.read() - '0';
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            Scanner reader = new Scanner(System.in);
+            input = reader.nextInt();
             for (int i = 0; i < input; i++) {
                 hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10)), String.valueOf(hallgatok.size())));
             }
@@ -196,28 +193,27 @@ public class Palya {
         // lépés az oktatóval
         if (toggle_random) {
             for (Oktato oktato : oktatok) {
-                if(!oktato.getEszmeletvesztett()) {
-                Szoba szoba = oktato.getSzoba();
-                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                int randomIndex = rand.nextInt(szomszedok.size());
-                Szoba randomSzoba = szomszedok.get(randomIndex);
-                oktato.mozog(randomSzoba);
+                if (!oktato.getEszmeletvesztett()) {
+                    Szoba szoba = oktato.getSzoba();
+                    ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                    int randomIndex = rand.nextInt(szomszedok.size());
+                    Szoba randomSzoba = szomszedok.get(randomIndex);
+                    oktato.mozog(randomSzoba);
                 }
             }
         } else {
             for (Oktato oktato : oktatok) {
-                if(!oktato.getEszmeletvesztett()) {
-                Szoba szoba = oktato.getSzoba();
-                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                Szoba randomSzoba = szomszedok.get(0);
-                oktato.mozog(randomSzoba);
+                if (!oktato.getEszmeletvesztett()) {
+                    Szoba szoba = oktato.getSzoba();
+                    ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                    Szoba randomSzoba = szomszedok.get(0);
+                    oktato.mozog(randomSzoba);
                 }
             }
         }
 
-        for (Oktato oktato : oktatok)
-        {
-            if(!oktato.getSzoba().getTargyak().isEmpty()){
+        for (Oktato oktato : oktatok) {
+            if (!oktato.getSzoba().getTargyak().isEmpty()) {
                 oktato.felvesz(oktato.getSzoba().getTargyak().get(0));
             }
         }
@@ -256,13 +252,12 @@ public class Palya {
             }
         }
 
-
         // Szobák egyesülése
         if (toggle_random) {
             for (int i = 0; i < 7; i++) {
                 int randszoba = rand.nextInt(szobak.size());
                 int randszoba2 = rand.nextInt(szobak.size());
-                while(randszoba == randszoba2){
+                while (randszoba == randszoba2) {
                     randszoba2 = rand.nextInt(szobak.size());
                 }
                 szobak.get(randszoba).egyesul(szobak.get(randszoba2));

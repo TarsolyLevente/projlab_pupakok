@@ -95,7 +95,7 @@ public class Tranzisztor extends AktivTargy {
     public String toString(Funkcio funkcio) {
         if (funkcio == null) {
             if (this.funkcio == Funkcio.hamis)
-                return "igazi Tranzisztor";
+                return "hamis Tranzisztor";
             else
                 return "igazi Tranzisztor";
         } else if (funkcio == this.funkcio && tars != null)
