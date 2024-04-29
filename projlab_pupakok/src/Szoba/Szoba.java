@@ -191,9 +191,10 @@ public class Szoba {
                 Szoba szoba = sz.getSzomszedok().get(i);
                 if (!this.szomszedok.contains(szoba) && szoba != this) {
                     this.addSzomszed(szoba);
+                    szoba.addSzomszed(this);
                 }
                 szoba.removeSzomszed(sz);
-                szoba.addSzomszed(this);
+                
             }
         
             // Szoba eltávolítása a pályáról
