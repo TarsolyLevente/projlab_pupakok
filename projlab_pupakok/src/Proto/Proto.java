@@ -78,7 +78,11 @@ public class Proto {
             }
             br.close();
         } catch (Exception e) {
+            System.err.println("EZ KUTYAFASZLETT");
+            //TODO ha kész lesz minden
         }
+
+
         return output;
     }
 
@@ -243,7 +247,7 @@ public class Proto {
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if (szoba1.getid().equals(s3)) {
                         Maszk maszk = new Maszk(szoba1, s2);
-                        szoba1.targy_elhelyezese(maszk);
+                        
                         if (szoba1.getTargyak().contains(maszk))
                             return "Tárgy hozzáadása sikeres.";
                         else
@@ -384,14 +388,15 @@ public class Proto {
     }
 
     private String merge(Palya palya, String string, String string2) {
-        for (Szoba Szoba1 : palya.getSzobak()) {
+        for (int j = 0; j < palya.getSzobak().size(); j++) {
+            Szoba Szoba1 = palya.getSzobak().get(j);
             if (Szoba1.getid().equals(string)) {
                 for (int i = 0; i < palya.getSzobak().size(); i++) {
                     Szoba Szoba2 = palya.getSzobak().get(i);
                     if (Szoba2.getid().equals(string2)) {
                         Szoba1.egyesul(Szoba2);
                         // Ha megtaláltuk a megfelelő szobát, kiléphetünk a ciklusból
-                        break;
+                        
                     }
                 }
             }
