@@ -431,6 +431,27 @@ public class Proto {
         return ret;
     }
 
+    private String general() {
+        Palya palya = new Palya();
+        palya.setToggle_random(false);
+        palya.general();
+        if(palya.getSzobak().size() == 43 && palya.getHallgatok().size() == 1 && palya.getOktatok().size() == 1)
+        {
+            return "Pálya generálása sikeres";
+        }
+        return "Pálya generálása sikertelen";
+    }
+
+    private String leptet() {
+        Palya palya = new Palya();
+        palya.setToggle_random(false);
+        palya.general();
+        palya.leptet();
+        if(palya.getOktatok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("42") && palya.getTakaritok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("24"))
+            return "A léptetés sikeres";
+        return "A léptetés sikertelen";
+    }
+
     /**
      * A load függvény által visszaadott teszt kimenetet veti össze az elvárt
      * kimenettel, ha a kettő
