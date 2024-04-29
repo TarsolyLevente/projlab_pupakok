@@ -181,7 +181,7 @@ public class Szoba {
             // Tárgyak elhelyezése
             int targyszam = sz.getTargyak().size();
             for (int i = 0; i <targyszam;  i++) {
-                System.out.println(sz.getTargyak().get(i).getId());
+                
                 Targy targy = sz.getTargyak().get(i);
                 this.targy_elhelyezese(targy);
             }
