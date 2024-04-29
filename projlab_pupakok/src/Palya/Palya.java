@@ -111,7 +111,7 @@ public class Palya {
                 for (Szoba sz : szobak) {
                     for (int i = 0; i < szomszedok.length; i++) {
                         for (Szoba szoba : szobak) {
-                            if (szoba.getid() == szomszedok[i])
+                            if (szoba.getid().equals(szomszedok[i]))
                                 sz.addSzomszed(szoba);
                         }
                     }
@@ -129,7 +129,7 @@ public class Palya {
 
             System.out.println("Játékosok száma:");
             try {
-                input = System.in.read();
+                input = System.in.read() - '0';
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
