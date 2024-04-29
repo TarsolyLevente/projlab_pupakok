@@ -65,7 +65,14 @@ public class Proto {
                 } else if (str[0].equals("connect")) {
                     String s = connect(palya, str[1], str[2]);
                     output.add(s);
-                } else {
+                } else if(str[0].equals("general")){
+                    String s = general();
+                    output.add(s);
+                } else if(str[0].equals("leptet")){
+                    String s = leptet();
+                    output.add(s);
+            }
+                else{
                     String s = "Hiba az " + linenum + ". sorban.";
                     output.add(s);
                 }
