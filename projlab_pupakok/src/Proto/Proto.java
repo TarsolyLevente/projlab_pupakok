@@ -157,7 +157,7 @@ public class Proto {
                 for (Takarito takarito : palya.getTakaritok()) {
                     if (takarito.getid().equals(s1)) {
                         takarito.mozog(szoba1);
-                        if (szoba1.getTakaritok().contains(takarito))
+                        if (szoba1.getTakaritok().contains(takarito) && szoba1.getTakaritok().size() == 1 && szoba1.getHallgatok().size() == 0 && szoba1.getOktatok().size() == 0 && szoba1.isRagacsos() == false && szoba1.isGazos() == false)
                             return "Karakter mozgása sikeres.";
                         else
                             return "Karakter mozgása sikertelen.";
@@ -654,8 +654,14 @@ public class Proto {
                 case 28:
                     System.out.println(checkoutput("input28", "output28"));
                     break;
+                case 29:
+                    System.out.println(checkoutput("input29", "output29"));
+                    break;
                 case 30:
                     System.out.println(checkoutput("input30", "output30"));
+                    break;
+                case 31:
+                    System.out.println(checkoutput("input31", "output31"));
                     break;
                 // TODO megbenul
                 // TODO kibukas masik irany

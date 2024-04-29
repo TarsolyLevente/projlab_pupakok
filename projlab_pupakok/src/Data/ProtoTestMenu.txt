@@ -27,5 +27,8 @@ TESZTEK
 26. Egy tárgyat (camembert) használ egy hallgató.
 27. Pálya generálása random nélkül.
 28. Léptetés tesztje random nélkül.
+29. Hallgató, akinél van egy rongy, belép egy szobába, ahol van oktató.
+30. Takarító kitakarítja-e a szobát, valamint fel tud-e venni egy ragacsos tárgyak a játékos.
+31. Oktató belép egy olya szobába, ahol van egy hallgató ronggyal.
 1000. Minden teszt futtatása egyszerre.
 100. Kilépés.
