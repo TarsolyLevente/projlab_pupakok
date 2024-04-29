@@ -32,7 +32,7 @@ public class Proto {
     public ArrayList<String> load(String fajlnev){
         Palya palya = new Palya();
         ArrayList<String> output = new ArrayList<String>();
-        File f = new File("src/Data/" + fajlnev);
+        File f = new File("src/Data/" + fajlnev + ".txt");
         File file = new File(f.getAbsolutePath());
         try{
             FileInputStream fis = new FileInputStream(file);
@@ -425,7 +425,7 @@ public class Proto {
      */
     String checkoutput(String bemeneti, String elvart){
         ArrayList<String> output = load(bemeneti);
-        File f = new File("src/Data/" + elvart);
+        File f = new File("src/Data/" + elvart + ".txt");
         File file = new File(f.getAbsolutePath());
         ArrayList<String> elvartfajl = new ArrayList<String>();
         try{
@@ -444,6 +444,12 @@ public class Proto {
         String sikertelen = "A teszt sikertelen volt.";
         if(elvartfajl.size() != output.size()){
             return sikertelen;
+        }
+        for(String s : elvartfajl){
+            System.out.println(s);
+        }
+        for(String s : output){
+            System.out.println(s);
         }
         for(int i = 0; i < elvartfajl.size(); ++i){
             if(!elvartfajl.get(i).equals(output.get(i))){

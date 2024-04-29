@@ -68,7 +68,7 @@ public class Szoba {
         oktatok = new ArrayList<>();
         takaritok = new ArrayList<>();
         targyak = new ArrayList<>();
-        id = palya.getSzobak().size();
+        id = String.valueOf(palya.getSzobak().size());
     }
 
     /**
