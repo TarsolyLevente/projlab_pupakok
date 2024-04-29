@@ -82,7 +82,7 @@ public class Hallgato extends Karakter {
      * 
      * @param t Ezt veszi fel
      */
-    public void felvesz(Targy t) {
+    public void felvesz(Targy t) { // TODO regiszobakbol is ki kell venni
         if (!getSzoba().isRagacsos()) {
             if (taska.size() < 5) {
                 if (t instanceof Tranzisztor) {
@@ -99,7 +99,8 @@ public class Hallgato extends Karakter {
 
                         else {
                             for (Targy targy2 : taska) {
-                                if (targy2 instanceof Tranzisztor) {
+                                if (targy2 instanceof Tranzisztor && targy2.getFunkcio() != Funkcio.hamis
+                                        && t.getFunkcio() != Funkcio.hamis) {
                                     ((Tranzisztor) targy2).setTars((Tranzisztor) t);
                                     ((Tranzisztor) t).setTars((Tranzisztor) targy2);
                                 }
@@ -113,6 +114,15 @@ public class Hallgato extends Karakter {
                 t.setBirtokos(this);
                 getSzoba().targy_eltuntetese(t);
                 taska.add(t);
+                if(szoba.getRegiszobak().size() != 0){
+                    for(int i = 0; i < szoba.getRegiszobak().size(); ++i){
+                        for(int j = 0; j < szoba.getRegiszobak().get(i).getTargyak().size(); ++j){
+                            if(szoba.getTargyak().get(j).getId().equals(t.getId())){
+                                szoba.getRegiszobak().remove(t);
+                            }
+                        }
+                    }
+                }
             }
         }
         return;
