@@ -17,25 +17,27 @@ public class Tranzisztor extends AktivTargy {
     private boolean aktiv = false;
 
     /**
-     * Megadja, hogy a tranzisztor, teleportálást követően melyik szobában fogja elhelyezni a hallgatót.
+     * Megadja, hogy a tranzisztor, teleportálást követően melyik szobában fogja
+     * elhelyezni a hallgatót.
      */
     private Szoba hova;
 
     /**
-     * Megadja, hogy az adott tranzisztor melyik másikkal van összekapcsolva a pályán.
+     * Megadja, hogy az adott tranzisztor melyik másikkal van összekapcsolva a
+     * pályán.
      */
     private Tranzisztor tars;
 
     /**
-     * A függvény meghívása után a játékos elteleportál abba a Szobába, ami az aktivált tranzisztor társát tartalmazza.
+     * A függvény meghívása után a játékos elteleportál abba a Szobába, ami az
+     * aktivált tranzisztor társát tartalmazza.
      */
-    public void use(){
-        if (this.getTars() != null){
-            if (this.getTars().getAktiv() != true){
+    public void use() {
+        if (this.getTars() != null) {
+            if (this.getTars().getAktiv() != true) {
                 this.getBirtokos().getSzoba().targy_elhelyezese(this);
                 this.setAktiv(true);
-            }
-            else{
+            } else {
                 Hallgato h = (Hallgato) this.getBirtokos();
                 h.teleport(this);
             }
@@ -43,7 +45,8 @@ public class Tranzisztor extends AktivTargy {
     }
 
     /**
-     * A függvény beállítja, hogy az adott tranzisztor melyik másikkal van összeköttetésben.
+     * A függvény beállítja, hogy az adott tranzisztor melyik másikkal van
+     * összeköttetésben.
      * Setter függvény a Tars attribútumra.
      */
     public void setTars(Tranzisztor t) {
@@ -83,9 +86,12 @@ public class Tranzisztor extends AktivTargy {
      */
     public void setHova(Szoba h) {
         hova = h;
+    }
+
     public String toString(Funkcio funkcio) {
         if (funkcio == null || (funkcio == this.funkcio && this.aktiv))
             return "Tranzisztor";
         return "";
     }
+
 }

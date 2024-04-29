@@ -447,7 +447,7 @@ public class Szoba {
      * @return ragacsosság
      */
     public boolean isRagacsos() {
-        if (ragacs_cnt >= Integer.MAX_VALUE) // TODO MENNYI
+        if (ragacs_cnt >= 5)
             return true;
         return false;
     }

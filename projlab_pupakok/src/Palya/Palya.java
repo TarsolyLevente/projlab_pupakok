@@ -5,7 +5,6 @@ import Karakter.*;
 import Szoba.*;
 import Targy.*;
 
-import java.beans.PropertyChangeListenerProxy;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -27,22 +26,22 @@ public class Palya {
     }
 
     /**
-	 * A játékban lévő hallgatók
-	 */
+     * A játékban lévő hallgatók
+     */
     protected ArrayList<Hallgato> hallgatok;
     /**
-	 * A játékban lévő oktatok
-	 */
+     * A játékban lévő oktatok
+     */
     protected ArrayList<Oktato> oktatok;
 
     /**
-	 * A játékban lévő szobák
-	 */
-    protected ArrayList<Szoba> szobak; // TODO getter, setter nékije
-  
+     * A játékban lévő szobák
+     */
+    protected ArrayList<Szoba> szobak;
+
     /**
-	 * A játékban lévő takarítók
-	 */
+     * A játékban lévő takarítók
+     */
     protected ArrayList<Takarito> takaritok;
 
     Game game;
@@ -56,12 +55,12 @@ public class Palya {
     /**
      * Konstruktor
      */
-	public Palya() {
-		hallgatok =  new ArrayList<>();
-        oktatok =  new ArrayList<>();
+    public Palya() {
+        hallgatok = new ArrayList<>();
+        oktatok = new ArrayList<>();
         szobak = new ArrayList<>();
         takaritok = new ArrayList<Takarito>();
-	}
+    }
 
     /**
      * Konstruktor
@@ -69,58 +68,56 @@ public class Palya {
      * @param g a game amihez a pálya tartozik
      */
     public Palya(Game g) {
-        hallgatok =  new ArrayList<Hallgato>();
-        oktatok =  new ArrayList<Oktato>();
+        hallgatok = new ArrayList<Hallgato>();
+        oktatok = new ArrayList<Oktato>();
         szobak = new ArrayList<Szoba>();
         takaritok = new ArrayList<Takarito>();
         game = g;
     }
 
     /**
-	 * A szobákat előre megterveztük
-	 * és ezeket létrehozza a hallgatókkal, oktatókkal és tárgyakkal együtt.
-	 */
+     * A szobákat előre megterveztük
+     * és ezeket létrehozza a hallgatókkal, oktatókkal és tárgyakkal együtt.
+     */
     public void general() {
 
-        //Szobak hozzaadasa
+        // Szobak hozzaadasa
         try {
-        File attr = new File("Szoba_attributumok.txt");
-        Scanner reader = new Scanner(attr);
-        while (reader.hasNextLine())
-        {
-            String data = reader.nextLine();
-            String[] attributes = data.split(",");
-            String id = attributes[1];
-            boolean gaz = Boolean.parseBoolean(attributes[2]);
-            int ferohely = Integer.parseInt(attributes[3]);
-            if(attributes[0].equals("false"))
-            {
-                szobak.add(new Szoba(id, gaz, ferohely, this));
+            File attr = new File("Szoba_attributumok.txt");
+            Scanner reader = new Scanner(attr);
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine();
+                String[] attributes = data.split(",");
+                String id = attributes[1];
+                boolean gaz = Boolean.parseBoolean(attributes[2]);
+                int ferohely = Integer.parseInt(attributes[3]);
+                if (attributes[0].equals("false")) {
+                    szobak.add(new Szoba(id, gaz, ferohely, this));
+                } else
+                    szobak.add(new ElatkozottSzoba(id, gaz, ferohely, this));
             }
-            else
-                szobak.add(new ElatkozottSzoba(id, gaz, ferohely, this));
-        }
+            reader.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
 
-        //Szobák összekötése
+        // Szobák összekötése
         try {
             File szomsz = new File("Szoba_szomszedok.txt");
             Scanner reader2 = new Scanner(szomsz);
-            while (reader2.hasNextLine())
-            {
+            while (reader2.hasNextLine()) {
                 String data = reader2.nextLine();
                 String[] szomszedok = data.split(",");
-                for(Szoba sz : szobak) {
+                for (Szoba sz : szobak) {
                     for (int i = 0; i < szomszedok.length; i++) {
-                        for(Szoba szoba : szobak){
+                        for (Szoba szoba : szobak) {
                             if (szoba.getid() == szomszedok[i])
                                 sz.addSzomszed(szoba);
                         }
                     }
                 }
             }
+            reader2.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -128,8 +125,7 @@ public class Palya {
         Random rand = new Random();
         int input;
         // hallgatók felvétele
-        if (toggle_random)
-        {
+        if (toggle_random) {
 
             System.out.println("Játékosok száma:");
             try {
@@ -138,11 +134,9 @@ public class Palya {
                 throw new RuntimeException(e);
             }
             for (int i = 0; i < input; i++) {
-                hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10))));
+                hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10)), String.valueOf(hallgatok.size())));
             }
-        }
-        else
-        {
+        } else {
             System.out.println("Játékosok száma:");
             try {
                 input = System.in.read();
@@ -150,20 +144,18 @@ public class Palya {
                 throw new RuntimeException(e);
             }
             for (int i = 0; i < input; i++) {
-                hallgatok.add(new Hallgato(szobak.get(0)));
+                hallgatok.add(new Hallgato(szobak.get(0), String.valueOf(hallgatok.size())));
             }
         }
-
 
         // oktatók felvétele
-        for (int i = 0; i < Math.ceil((double) hallgatok.size() /3); i++) {
+        for (int i = 0; i < Math.ceil((double) hallgatok.size() / 3); i++) {
             if (szobak.get(42).getBefogadokepesseg() > oktatok.size())
-                oktatok.add(new Oktato(szobak.get(42)));
+                oktatok.add(new Oktato(szobak.get(42), String.valueOf(oktatok.size())));
         }
 
-        //Takarito hozzaadasa
-        takaritok.add(new Takarito(25));
-
+        // Takarito hozzaadasa
+        takaritok.add(new Takarito(szobak.get(25), String.valueOf(oktatok.size())));
 
         int id_distributor = 0;
         for (Szoba sz : szobak) {
@@ -171,7 +163,7 @@ public class Palya {
 
                 switch (rand.nextInt(1, 6)) {
                     case 1:
-                        sz.targy_elhelyezese(new Tranzisztor(sz,String.valueOf(id_distributor)));
+                        sz.targy_elhelyezese(new Tranzisztor(sz, String.valueOf(id_distributor)));
                         break;
                     case 2:
                         sz.targy_elhelyezese(new Sorospohar(sz, String.valueOf(id_distributor)));
@@ -198,29 +190,23 @@ public class Palya {
         logarlec.addPropertyChangeListener(new LogarlecPropertyChangeListener(game));
     }
 
-     /**
-	 * Meghívja az oktatók mozog függvényét egy szomszédos szobába
-	 */
-    public void leptet()
-    {
+    /**
+     * Meghívja az oktatók mozog függvényét egy szomszédos szobába
+     */
+    public void leptet() {
         Random rand = new Random();
 
-        //lépés az oktatóval
-        if (toggle_random)
-        {
-            for (Oktato oktato : oktatok)
-            {
+        // lépés az oktatóval
+        if (toggle_random) {
+            for (Oktato oktato : oktatok) {
                 Szoba szoba = oktato.getSzoba();
                 ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
                 int randomIndex = rand.nextInt(szomszedok.size());
                 Szoba randomSzoba = szomszedok.get(randomIndex);
                 oktato.mozog(randomSzoba);
             }
-        }
-        else
-        {
-            for (Oktato oktato : oktatok)
-            {
+        } else {
+            for (Oktato oktato : oktatok) {
                 Szoba szoba = oktato.getSzoba();
                 ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
                 Szoba randomSzoba = szomszedok.getFirst();
@@ -228,11 +214,9 @@ public class Palya {
             }
         }
 
-        //lépés a takarítóval
-        if (toggle_random)
-        {
-            for (Takarito takarito : takaritok)
-            {
+        // lépés a takarítóval
+        if (toggle_random) {
+            for (Takarito takarito : takaritok) {
 
                 Szoba szoba = takarito.getSzoba();
                 ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
@@ -241,11 +225,8 @@ public class Palya {
                 takarito.mozog(randomSzoba);
 
             }
-        }
-        else
-        {
-            for (Takarito takarito : takaritok)
-            {
+        } else {
+            for (Takarito takarito : takaritok) {
 
                 Szoba szoba = takarito.getSzoba();
                 ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
@@ -255,69 +236,52 @@ public class Palya {
             }
         }
 
-        //Szobák osztódása
-        if (toggle_random)
-        {
-            for (int i = 0; i < 3; i++)
-            {
+        // Szobák osztódása
+        if (toggle_random) {
+            for (int i = 0; i < 3; i++) {
                 szobak.get(rand.nextInt(szobak.size())).osztodik();
             }
-        }
-        else
-        {
-            for (int i = 0; i < 3; i++)
-            {
+        } else {
+            for (int i = 0; i < 3; i++) {
                 szobak.get(i).osztodik();
             }
         }
 
-        //Szobák egyesülése
+        // Szobák egyesülése
         if (toggle_random) {
-            for (int i = 0; i < 7; i++)
-            {
+            for (int i = 0; i < 7; i++) {
                 szobak.get(rand.nextInt(szobak.size())).egyesul(szobak.get(rand.nextInt(szobak.size())));
             }
-        }
-        else
-        {
-            for (int i = 0; i < 7; i++)
-            {
-                szobak.get(i).egyesul(szobak.get(i+1));
+        } else {
+            for (int i = 0; i < 7; i++) {
+                szobak.get(i).egyesul(szobak.get(i + 1));
             }
         }
 
         // Ajtok eltunese
-        if (toggle_random)
-        {
-            for (Szoba szoba : szobak )
-            {
+        if (toggle_random) {
+            for (Szoba szoba : szobak) {
                 if (szoba instanceof ElatkozottSzoba)
-                    ((ElatkozottSzoba) szoba).eltunik(szoba.getSzomszedok().get(rand.nextInt(szoba.getSzomszedok().size())));
+                    ((ElatkozottSzoba) szoba)
+                            .eltunik(szoba.getSzomszedok().get(rand.nextInt(szoba.getSzomszedok().size())));
             }
-        }
-        else
-        {
-            for (Szoba szoba : szobak )
-            {
+        } else {
+            for (Szoba szoba : szobak) {
                 if (szoba instanceof ElatkozottSzoba)
                     ((ElatkozottSzoba) szoba).eltunik(szoba.getSzomszedok().getFirst());
             }
         }
 
         // Ajtok elotuntetese
-        if (toggle_random)
-        {
-            for (Szoba szoba : szobak)
-            {
-                if(szoba instanceof ElatkozottSzoba)
-                    ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().get(rand.nextInt(((ElatkozottSzoba) szoba).getEltuntajto().size())));
+        if (toggle_random) {
+            for (Szoba szoba : szobak) {
+                if (szoba instanceof ElatkozottSzoba)
+                    ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto()
+                            .get(rand.nextInt(((ElatkozottSzoba) szoba).getEltuntajto().size())));
             }
-        }
-        else
-        {
-            for (Szoba szoba : szobak)
-            {
-                if(szoba instanceof ElatkozottSzoba)
+        } else {
+            for (Szoba szoba : szobak) {
+                if (szoba instanceof ElatkozottSzoba)
                     ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().getFirst());
             }
         }
@@ -338,8 +302,8 @@ public class Palya {
     }
 
     /**
-	 * Oktató hozzáadása a pályához
-	 */
+     * Oktató hozzáadása a pályához
+     */
     public void addOktato(Oktato o) {
         oktatok.add(o);
     }
