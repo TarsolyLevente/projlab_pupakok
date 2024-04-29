@@ -27,11 +27,12 @@ public abstract class Targy {
 
 	/**
 	 * Paraméteres konstruktor a Targy osztályhoz
-	 * @param f - funkció paraméter
-	 * @param i - id paraméter
+	 * 
+	 * @param f  - funkció paraméter
+	 * @param i  - id paraméter
 	 * @param sz - szoba paraméter
 	 */
-	public Targy(Funkcio f, String i, Szoba sz){
+	public Targy(Funkcio f, String i, Szoba sz) {
 		funkcio = f;
 		id = i;
 		szoba = sz;
@@ -39,10 +40,12 @@ public abstract class Targy {
 	}
 
 	/**
-	 * Beállítja az adott tárgyhoz tartozó szobát, amit paraméterként kap és ahol ezek után a tárgy megtalálható lesz.
+	 * Beállítja az adott tárgyhoz tartozó szobát, amit paraméterként kap és ahol
+	 * ezek után a tárgy megtalálható lesz.
+	 * 
 	 * @param sz - Szoba, ahol a tárgy elhelyezkedik a pályán.
 	 */
-	public void setSzoba(Szoba sz){
+	public void setSzoba(Szoba sz) {
 		szoba = sz;
 	}
 
@@ -50,15 +53,17 @@ public abstract class Targy {
 	 * A szoba tagváltozó getter-e.
 	 */
 	public Szoba getSzoba() {
-		System.out.println("Targy -> getSzoba()");
 		return szoba;
 	}
 
 	/**
-	 * Beállítja az adott tárgyhoz tartozó gazda karaktert, amit paraméterként kap és akinél a tárgy megtalálható lesz, amíg valamilyen módon meg nem válik tőle.
+	 * Beállítja az adott tárgyhoz tartozó gazda karaktert, amit paraméterként kap
+	 * és akinél a tárgy megtalálható lesz, amíg valamilyen módon meg nem válik
+	 * tőle.
+	 * 
 	 * @param k - A tárgy birtokosa.
 	 */
-	public void setBirtokos(Karakter k){
+	public void setBirtokos(Karakter k) {
 		birtokos = k;
 	}
 
@@ -72,34 +77,36 @@ public abstract class Targy {
 	/**
 	 * Getter függvény az Id attribútumra.
 	 */
-	public String getId(){
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * Setter függvény az Id attribútumra.
+	 * 
 	 * @param i - Id string a setter függvényhez.
 	 */
-	public void setId(String i){
+	public void setId(String i) {
 		id = i;
 	}
 
 	/**
 	 * Getter függvény a Funkcio attribútumra.
 	 */
-	public Funkcio getFunkcio(){
+	public Funkcio getFunkcio() {
 		return funkcio;
 	}
 
 	/**
 	 * Setter függvény a Funkcio attribútumra.
 	 */
-	public void setFunkcio(Funkcio f){
+	public void setFunkcio(Funkcio f) {
 		funkcio = f;
 	}
 
 	/**
-	 * Absztrakt függvény, amely a specifikus tárgyak esetében, azok használatáért felelős.
+	 * Absztrakt függvény, amely a specifikus tárgyak esetében, azok használatáért
+	 * felelős.
 	 */
 	public abstract void use();
 

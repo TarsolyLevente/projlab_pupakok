@@ -100,7 +100,6 @@ public class Hallgato extends Karakter {
                 }
             }
             t.setBirtokos(this);
-            t.setSzoba(null);
             getSzoba().targy_eltuntetese(t);
             taska.add(t);
         }
