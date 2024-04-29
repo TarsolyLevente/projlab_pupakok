@@ -63,7 +63,7 @@ public class Oktato extends Karakter {
             public void run() {
                 megbenult = false;
             }
-        }, 60000);
+        }, 30000);
     }
 
     /**
