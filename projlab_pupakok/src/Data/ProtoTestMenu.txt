@@ -27,3 +27,5 @@ TESZTEK
 26. Egy tárgyat használ egy hallgató.
 27. Pálya generálása random nélkül.
 28. Léptetés tesztje random nélkül.
+1000. Minden teszt futtatása egyszerre.
+100. Kilépés.

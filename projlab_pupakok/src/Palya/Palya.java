@@ -203,7 +203,7 @@ public class Palya {
             for (Oktato oktato : oktatok) {
                 Szoba szoba = oktato.getSzoba();
                 ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                Szoba randomSzoba = szomszedok.getFirst();
+                Szoba randomSzoba = szomszedok.get(0);
                 oktato.mozog(randomSzoba);
             }
         }
@@ -224,7 +224,7 @@ public class Palya {
 
                 Szoba szoba = takarito.getSzoba();
                 ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                Szoba randomSzoba = szomszedok.getFirst();
+                Szoba randomSzoba = szomszedok.get(0);
                 takarito.mozog(randomSzoba);
 
             }
@@ -262,7 +262,7 @@ public class Palya {
         } else {
             for (Szoba szoba : szobak) {
                 if (szoba instanceof ElatkozottSzoba)
-                    ((ElatkozottSzoba) szoba).eltunik(szoba.getSzomszedok().getFirst());
+                    ((ElatkozottSzoba) szoba).eltunik(szoba.getSzomszedok().get(0));
             }
         }
 
@@ -276,7 +276,7 @@ public class Palya {
         } else {
             for (Szoba szoba : szobak) {
                 if (szoba instanceof ElatkozottSzoba)
-                    ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().getFirst());
+                    ((ElatkozottSzoba) szoba).elotunik(((ElatkozottSzoba) szoba).getEltuntajto().get(0));
             }
         }
     }

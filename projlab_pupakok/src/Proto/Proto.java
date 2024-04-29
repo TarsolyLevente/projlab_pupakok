@@ -451,7 +451,7 @@ public class Proto {
         palya.setToggle_random(false);
         palya.general();
         palya.leptet();
-        if(palya.getOktatok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("42") && palya.getTakaritok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("24"))
+        if(palya.getOktatok().get(0).getSzoba().getSzomszedok().get(0).getid().equals("42") && palya.getTakaritok().get(0).getSzoba().getSzomszedok().get(0).getid().equals("24"))
             return "A léptetés sikeres";
         return "A léptetés sikertelen";
     }
