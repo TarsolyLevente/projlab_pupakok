@@ -125,6 +125,11 @@ public class Hallgato extends Karakter {
                         }
                     }
                 }
+                for(int j = 0; j < getSzoba().getRegiszobak().get(0).getTargyak().size(); ++j){
+                    if(getSzoba().getRegiszobak().get(0).getTargyak().get(0).getId().equals(t.getId())){
+                        getSzoba().getRegiszobak().get(0).getTargyak().remove(t);
+                    }
+                }
             }
         }
         return;
