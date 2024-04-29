@@ -125,7 +125,7 @@ public class Game {
     public void jatekLeptetes() {
         while (szamlalo < 900) {
             for (Hallgato h : palya.getHallgatok()) {
-                if(h.getEszmeletvesztett()){
+                if(!h.getEszmeletvesztett()){
                     hallgatoLep(h);
                 }
             }

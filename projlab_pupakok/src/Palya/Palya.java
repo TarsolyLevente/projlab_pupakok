@@ -196,7 +196,7 @@ public class Palya {
         // lépés az oktatóval
         if (toggle_random) {
             for (Oktato oktato : oktatok) {
-                if(oktato.getEszmeletvesztett()){
+                if(!oktato.getEszmeletvesztett()){
                     Szoba szoba = oktato.getSzoba();
                     ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
                     int randomIndex = rand.nextInt(szomszedok.size());
@@ -206,7 +206,7 @@ public class Palya {
             }
         } else {
             for (Oktato oktato : oktatok) {
-                if(oktato.getEszmeletvesztett()){
+                if(!oktato.getEszmeletvesztett()){
                     Szoba szoba = oktato.getSzoba();
                     ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
                     Szoba randomSzoba = szomszedok.get(0);
