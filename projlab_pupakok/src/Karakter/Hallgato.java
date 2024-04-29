@@ -55,8 +55,8 @@ public class Hallgato extends Karakter {
             targy.setSzoba(null);
             targy.setBirtokos(null);
         }
-        this.getSzoba().deleteHallgato(this);
         System.out.println("Hallgató " + id + " kibukott!");
+        this.getSzoba().deleteHallgato(this);
     }
 
     /**

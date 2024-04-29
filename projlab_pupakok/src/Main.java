@@ -20,7 +20,7 @@ public class Main {
         }
         while (!"3".equals(val)) {
             Proto p = new Proto();
-            Game g = new Game(10);
+            Game g = new Game();
             switch (val) {
                 case "1":
                     g.start();

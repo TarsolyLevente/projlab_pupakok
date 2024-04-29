@@ -31,9 +31,9 @@ public class Game {
      * 
      * @param sz az itőt reprezentáló számláló
      */
-    public Game(int sz) {
+    public Game() {
         palya = new Palya(this);
-        szamlalo = sz;
+        szamlalo = 0;
     }
 
     /**
@@ -47,6 +47,14 @@ public class Game {
 
     public void hallgatoLep(Hallgato hallgato) {
         System.out.println("Hallgató " + hallgato.getid() + " következik!");
+        System.out.println("Jelenlegi szoba: " + hallgato.getSzoba().getid());
+        if (hallgato.getTaska().size() != 0) {
+            System.out.println("Tárgyak a taskádban:");
+            for (Targy t : hallgato.getTaska()) {
+                System.out.println(t.toString(null));
+            }
+        }
+        System.out.println("");
 
         Scanner reader = new Scanner(System.in);
         while (true) {
@@ -97,7 +105,7 @@ public class Game {
      * Ezt fogja a start() a végén meghívni, hogy folyamatosan futtathassa a játékot
      */
     public void jatekLeptetes() {
-        while (szamlalo != 900) {
+        while (szamlalo < 900) {
             for (Hallgato h : palya.getHallgatok()) {
                 hallgatoLep(h);
             }
@@ -111,9 +119,9 @@ public class Game {
      */
     public void endgame() {
         if (szamlalo >= 900) // 15 perc a játék
-            System.out.println("Az idő lejárt, nyomj entert a menübe lépéshez!");
+            System.out.println("Az idő lejárt!");
         else if (palya.getHallgatok().isEmpty())
-            System.out.println("Minden hallgató kibukott, nyomj entert a menübe lépéshez!");
+            System.out.println("Minden hallgató kibukott!");
         else
             System.out.println("Sikerült megtalálni a logarlécet! Győzelem!");
         System.exit(0);
