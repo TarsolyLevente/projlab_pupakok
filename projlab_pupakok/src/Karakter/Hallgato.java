@@ -89,6 +89,9 @@ public class Hallgato extends Karakter {
             if (taska.size() < 5) {
                 if (t instanceof Tranzisztor) {
                     int tranzisztorSzam = 0;
+                    if((((Tranzisztor)t).getTars() != null)){
+                        return;
+                    }
                     // Számoljuk meg, hány tranzisztor van már a taskában
                     for (Targy targy : taska) {
                         if (targy instanceof Tranzisztor) {
