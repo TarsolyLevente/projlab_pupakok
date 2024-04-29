@@ -448,8 +448,8 @@ public class Proto {
         palya.setToggle_random(false);
         palya.general();
         palya.leptet();
-        if (palya.getOktatok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("42")
-                && palya.getTakaritok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("24"))
+        if (palya.getOktatok().get(0).getSzoba().getSzomszedok().get(0).getid().equals("42")
+                && palya.getTakaritok().get(0).getSzoba().getSzomszedok().get(0).getid().equals("24"))
             return "A léptetés sikeres";
         return "A léptetés sikertelen";
     }
@@ -550,16 +550,19 @@ public class Proto {
                     return;
                 case 1000: /// Minden teszt futtatása.
                     boolean siker = true;
+                    int counter = 0;
                     for (int i = 1; i < 26; ++i) {
                         String kimenet = checkoutput("input" + i, "output" + i);
                         if (!kimenet.equals("A teszt sikeres volt.")) {
                             siker = false;
+                        } else {
+                            counter++;
                         }
                     }
                     if (siker) {
-                        System.out.println("Minden teszt sikeres volt.");
+                        System.out.println("Minden teszt sikeres volt. " + counter + "/28");
                     } else {
-                        System.out.println("Nem minden teszt sikeres.");
+                        System.out.println("Nem minden teszt sikeres. " + counter + "/28");
                     }
                     break;
                 case 1: /// 1-es teszt futtatása.
