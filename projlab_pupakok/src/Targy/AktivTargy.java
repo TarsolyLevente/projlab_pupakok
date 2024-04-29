@@ -2,7 +2,7 @@ package Targy;
 
 import Szoba.*;
 
-public abstract class AktivTargy extends Targy{
+public abstract class AktivTargy extends Targy {
     /**
      * Konstruktor az Aktív Tárgyakhoz
      */
@@ -11,9 +11,10 @@ public abstract class AktivTargy extends Targy{
     }
 
     /**
-     * Absztrakt függvény, amely a specifikus tárgyak esetében, azok használatáért felelős.
+     * Absztrakt függvény, amely a specifikus tárgyak esetében, azok használatáért
+     * felelős.
      */
     public abstract void use();
 
     public abstract String toString(Funkcio funkcio);
-}
+} // TODO HAMIS

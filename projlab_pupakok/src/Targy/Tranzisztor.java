@@ -94,4 +94,4 @@ public class Tranzisztor extends AktivTargy {
         return "";
     }
 
-}
+}// TODO tranzisztor

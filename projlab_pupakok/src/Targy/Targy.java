@@ -37,7 +37,7 @@ public abstract class Targy {
 		id = i;
 		szoba = sz;
 		sz.targy_elhelyezese(this);
-	}
+	}// TODO hamis
 
 	/**
 	 * Beállítja az adott tárgyhoz tartozó szobát, amit paraméterként kap és ahol

@@ -21,7 +21,7 @@ public class Logarlec extends Targy {
 	 */
 	public Logarlec(Szoba sz) {
 		super(Funkcio.logarlec, "0", sz);
-	}
+	}// TODO hamis
 
 	/**
 	 * Logarlec setBirtokos függvénye, benne a propertyChange-hez szükséges

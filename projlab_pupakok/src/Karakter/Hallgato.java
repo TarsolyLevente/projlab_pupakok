@@ -79,7 +79,7 @@ public class Hallgato extends Karakter {
      * 
      * @param t Ezt veszi fel
      */
-    public void felvesz(Targy t) {
+    public void felvesz(Targy t) { // TODO ragacs
         if (taska.size() < 5) {
             if (t instanceof Tranzisztor) {
                 int tranzisztorSzam = 0;
