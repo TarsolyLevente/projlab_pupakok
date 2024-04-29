@@ -1,0 +1,5 @@
+Szoba hozzáadása sikeres.
+Tárgy hozzáadása sikeres.
+Karakter sikeresen hozzáadva.
+A tárgy felvétele sikeres.
+A tárgy sikeresen eltűnt.

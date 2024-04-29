@@ -1,0 +1,4 @@
+create_room;1;2;0;0;
+spawn_item;sorospohar;1;1;
+add_character;hallgato;1;1;
+pick;1;1;
