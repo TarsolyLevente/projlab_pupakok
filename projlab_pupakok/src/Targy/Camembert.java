@@ -15,8 +15,10 @@ public class Camembert extends AktivTargy {
      * töltődik meg.
      */
     public void use() {
-        this.getSzoba().setGaz(true);
-        this.getBirtokos().getTaska().remove(this);
+        if(this.getFunkcio() != Funkcio.hamis){
+            this.getSzoba().setGaz(true);
+            this.getBirtokos().getTaska().remove(this);
+        }
     }
 
     public String toString(Funkcio funkcio) {

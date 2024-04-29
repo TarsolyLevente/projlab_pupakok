@@ -174,6 +174,7 @@ public class Proto {
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if (szoba1.getid().equals(s3)) {
                         Camembert camembert = new Camembert(szoba1, s2);
+                        camembert.setFunkcio(Funkcio.aktiv);
                         szoba1.targy_elhelyezese(camembert);
                         if (szoba1.getTargyak().contains(camembert))
                             return "Tárgy hozzáadása sikeres.";
@@ -186,6 +187,7 @@ public class Proto {
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if (szoba1.getid().equals(s3)) {
                         Legfrissito legfrissito = new Legfrissito(szoba1, s2);
+                        legfrissito.setFunkcio(Funkcio.aktiv);
                         szoba1.targy_elhelyezese(legfrissito);
                         if (szoba1.getTargyak().contains(legfrissito))
                             return "Tárgy hozzáadása sikeres.";
@@ -198,6 +200,7 @@ public class Proto {
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if (szoba1.getid().equals(s3)) {
                         Tranzisztor tranzisztor = new Tranzisztor(szoba1, s2);
+                        tranzisztor.setFunkcio(Funkcio.aktiv);
                         szoba1.targy_elhelyezese(tranzisztor);
                         if (szoba1.getTargyak().contains(tranzisztor))
                             return "Tárgy hozzáadása sikeres.";
@@ -210,6 +213,7 @@ public class Proto {
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if (szoba1.getid().equals(s3)) {
                         Rongy rongy = new Rongy(szoba1, s2);
+                        rongy.setFunkcio(Funkcio.oktatotol_ved);
                         szoba1.targy_elhelyezese(rongy);
                         if (szoba1.getTargyak().contains(rongy))
                             return "Tárgy hozzáadása sikeres.";
@@ -222,6 +226,7 @@ public class Proto {
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if (szoba1.getid().equals(s3)) {
                         Sorospohar sorospohar = new Sorospohar(szoba1, s2);
+                        sorospohar.setFunkcio(Funkcio.oktatotol_ved);
                         szoba1.targy_elhelyezese(sorospohar);
                         if (szoba1.getTargyak().contains(sorospohar))
                             return "Tárgy hozzáadása sikeres.";
@@ -234,6 +239,7 @@ public class Proto {
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if (szoba1.getid().equals(s3)) {
                         TVSZ tvsz = new TVSZ(szoba1, s2);
+                        tvsz.setFunkcio(Funkcio.oktatotol_ved);
                         szoba1.targy_elhelyezese(tvsz);
                         if (szoba1.getTargyak().contains(tvsz))
                             return "Tárgy hozzáadása sikeres.";
@@ -246,7 +252,7 @@ public class Proto {
                 for (Szoba szoba1 : palya.getSzobak()) {
                     if (szoba1.getid().equals(s3)) {
                         Maszk maszk = new Maszk(szoba1, s2);
-
+                        maszk.setFunkcio(Funkcio.gaztol_ved);
                         if (szoba1.getTargyak().contains(maszk))
                             return "Tárgy hozzáadása sikeres.";
                         else

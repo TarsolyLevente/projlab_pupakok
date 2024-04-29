@@ -3,6 +3,8 @@ package Targy;
 import Szoba.*;
 import Karakter.*;
 
+import java.util.Random;
+
 public abstract class Targy {
 	/**
 	 * Az adott tárgy funkciójának megfelelő enumerációs attribútum.
@@ -33,11 +35,16 @@ public abstract class Targy {
 	 * @param sz - szoba paraméter
 	 */
 	public Targy(Funkcio f, String i, Szoba sz) {
-		funkcio = f;
 		id = i;
 		szoba = sz;
 		sz.targy_elhelyezese(this);
-	}// TODO hamis
+		Random rand = new Random();
+		if(rand.nextInt() % 2 == 0){
+			funkcio = f;
+		} else {
+			funkcio = Funkcio.hamis;
+		}
+	}
 
 	/**
 	 * Beállítja az adott tárgyhoz tartozó szobát, amit paraméterként kap és ahol

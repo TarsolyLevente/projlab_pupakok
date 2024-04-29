@@ -15,8 +15,10 @@ public class Legfrissito extends AktivTargy {
      * eltűnik a gáz.
      */
     public void use() {
-        this.getSzoba().setGaz(false);
-        this.getBirtokos().getTaska().remove(this);
+        if(this.getFunkcio() != Funkcio.hamis){
+            this.getSzoba().setGaz(false);
+            this.getBirtokos().getTaska().remove(this);
+        }
     }
 
     public String toString(Funkcio funkcio) {

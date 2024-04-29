@@ -25,7 +25,9 @@ public class Maszk extends PasszivTargy{
      * A Maszk tárgy általi megvalósítása az absztrakt use() függvénynek.
      */
     public void use(){
-        setToltet();
+        if(this.getFunkcio() != Funkcio.hamis){
+            setToltet();
+        }
     }
 
     public String toString(Funkcio funkcio) {

@@ -22,7 +22,7 @@ public class Rongy extends PasszivTargy{
      */
     Timer t = new Timer(1000, e -> {
         counter++;
-        if(counter == 5){
+        if(counter == 180){
             setToltet();
         }
     });
@@ -48,7 +48,9 @@ public class Rongy extends PasszivTargy{
      * A Rongy tárgy általi megvalósítása az absztrakt use() függvénynek.
      */
     public void use(){
-        tick();
+        if(this.getFunkcio() != Funkcio.hamis){
+            tick();
+        }
     }
 
     public String toString(Funkcio funkcio) {
