@@ -484,12 +484,6 @@ public class Proto {
         if (elvartfajl.size() != output.size()) {
             return sikertelen;
         }
-        for (String s : elvartfajl) {
-            System.out.println(s);
-        }
-        for (String s : output) {
-            System.out.println(s);
-        }
         for (int i = 0; i < elvartfajl.size(); ++i) {
             if (!elvartfajl.get(i).equals(output.get(i))) {
                 return sikertelen;
@@ -551,10 +545,11 @@ public class Proto {
                 case 1000: /// Minden teszt futtatása.
                     boolean siker = true;
                     int counter = 0;
-                    for (int i = 1; i < 26; ++i) {
+                    for (int i = 1; i <= 28; ++i) {
                         String kimenet = checkoutput("input" + i, "output" + i);
                         if (!kimenet.equals("A teszt sikeres volt.")) {
                             siker = false;
+                            System.out.println(i + ". teszt sikertelen.");
                         } else {
                             counter++;
                         }

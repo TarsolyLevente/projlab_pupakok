@@ -3,4 +3,5 @@ Szoba hozzáadása sikeres.
 Szobák összekapcsolása sikeres.
 Karakter sikeresen hozzáadva.
 Karakter sikeresen hozzáadva.
+Karakter sikeresen hozzáadva.
 Karakter mozgása sikeres.
