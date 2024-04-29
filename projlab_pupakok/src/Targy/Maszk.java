@@ -14,7 +14,11 @@ public class Maszk extends PasszivTargy{
      * A Maszk tárgy általi megvalósítása az absztrakt setToltet() függvénynek.
      */
     public void setToltet(){
-        toltet--;
+        if(toltet > 0){
+            toltet--;
+        } else{
+            getBirtokos().getTaska().remove(this);
+        }
     }
 
     /**
