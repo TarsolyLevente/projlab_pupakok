@@ -1,15 +1,9 @@
-package Proto;
 
-import Palya.Palya;
-import Szoba.*;
-import Karakter.*;
-import Targy.*;
-
-import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Proto {
@@ -24,7 +18,7 @@ public class Proto {
     public ArrayList<String> load(String fajlnev) {
         Palya palya = new Palya();
         ArrayList<String> output = new ArrayList<String>();
-        File f = new File("Data/" + fajlnev + ".txt");
+        File f = new File(fajlnev + ".txt");
         File file = new File(f.getAbsolutePath());
         try {
             FileInputStream fis = new FileInputStream(file);
@@ -78,8 +72,6 @@ public class Proto {
             }
             br.close();
         } catch (Exception e) {
-            System.err.println("EZ KUTYAFASZLETT");
-            // TODO ha kész lesz minden
             throw new RuntimeException(e);
         }
 
@@ -491,7 +483,7 @@ public class Proto {
      */
     String checkoutput(String bemeneti, String elvart) {
         ArrayList<String> output = load(bemeneti);
-        File f = new File("Data/" + elvart + ".txt");
+        File f = new File(elvart + ".txt");
         File file = new File(f.getAbsolutePath());
         ArrayList<String> elvartfajl = new ArrayList<String>();
         try {
@@ -524,7 +516,7 @@ public class Proto {
      * @return a beolvasott szövegfájl
      */
     private ArrayList<String> readMenu() {
-        File f = new File("Data/ProtoTestMenu.txt");
+        File f = new File("ProtoTestMenu.txt");
         File file = new File(f.getAbsolutePath());
         ArrayList<String> lines = new ArrayList<>();
         try {

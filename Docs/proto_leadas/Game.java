@@ -1,9 +1,3 @@
-package Game;
-
-import Karakter.*;
-import Palya.*;
-import Szoba.*;
-import Targy.*;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -11,7 +5,6 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-//TODO tranzisztor
 public class Game {
     /**
      * A játékba lévő pálya

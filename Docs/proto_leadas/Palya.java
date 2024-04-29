@@ -1,15 +1,7 @@
-package Palya;
-
-import Game.Game;
-import Karakter.*;
-import Szoba.*;
-import Targy.*;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
@@ -85,7 +77,7 @@ public class Palya {
     public void general() {
 
         // Szobak hozzaadasa
-        File f = new File("Data/Szoba_attributumok.txt");
+        File f = new File("Szoba_attributumok.txt");
         File attr = new File(f.getAbsolutePath());
 
         try {
@@ -107,7 +99,7 @@ public class Palya {
         } catch (Exception e) {
         }
 
-        f = new File("Data/Szoba_szomszedok.txt");
+        f = new File("Szoba_szomszedok.txt");
         File szomsz = new File(f.getAbsolutePath());
 
         try {

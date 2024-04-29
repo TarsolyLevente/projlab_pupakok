@@ -1,0 +1,8 @@
+create_room;szoba1;5;0;0
+create_room;szoba2;4;0;0
+connect;szoba1;szoba2
+add_character;hallgato;hallgato1;szoba1
+add_character;oktato;oktato1;szoba2
+spawn_item;rongy;rongy1;szoba1
+pick;hallgato1;rongy1
+move;hallgato1;szoba2
