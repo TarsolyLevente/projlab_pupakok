@@ -24,7 +24,7 @@ public class Proto {
     public ArrayList<String> load(String fajlnev) {
         Palya palya = new Palya();
         ArrayList<String> output = new ArrayList<String>();
-        File f = new File("src/Data/" + fajlnev + ".txt");
+        File f = new File("projlab_pupakok/src/Data/" + fajlnev + ".txt");
         File file = new File(f.getAbsolutePath());
         try {
             FileInputStream fis = new FileInputStream(file);
@@ -467,7 +467,7 @@ public class Proto {
      */
     String checkoutput(String bemeneti, String elvart) {
         ArrayList<String> output = load(bemeneti);
-        File f = new File("src/Data/" + elvart + ".txt");
+        File f = new File("projlab_pupakok/src/Data/" + elvart + ".txt");
         File file = new File(f.getAbsolutePath());
         ArrayList<String> elvartfajl = new ArrayList<String>();
         try {
@@ -506,7 +506,7 @@ public class Proto {
      * @return a beolvasott szövegfájl
      */
     private ArrayList<String> readMenu() {
-        File f = new File("src/Data/ProtoTestMenu.txt");
+        File f = new File("projlab_pupakok/src/Data/ProtoTestMenu.txt");
         File file = new File(f.getAbsolutePath());
         ArrayList<String> lines = new ArrayList<>();
         try {

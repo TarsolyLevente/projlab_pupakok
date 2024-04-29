@@ -144,6 +144,7 @@ public class Szoba {
                     }
                 }
             }
+            this.regiszobak = new ArrayList<Szoba>();
             ArrayList<Szoba> regiszomszedok = regi.getSzomszedok();
             ArrayList<Szoba> szomszedok = this.getSzomszedok();
             for (int i = 0; i < regiszomszedok.size(); i++) {
