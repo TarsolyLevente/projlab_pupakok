@@ -312,7 +312,6 @@ public class Proto {
     public String use(Palya palya, String s1, String s2) {
         for (Hallgato hallgato : palya.getHallgatok()) {
             if (hallgato.getid().equals(s1)) {
-                System.out.println(hallgato.getTaska().size());
                 for (int i = 0; i < hallgato.getTaska().size(); i++) {
                     if (hallgato.getTaska().get(i).getId().equals(s2)) {
                         Targy t = hallgato.getTaska().get(i);
@@ -637,6 +636,12 @@ public class Proto {
                     break;
                 case 26:
                     System.out.println(checkoutput("input26", "output26"));
+                    break;
+                case 27:
+                    System.out.println(checkoutput("input27", "output27"));
+                    break;
+                case 28:
+                    System.out.println(checkoutput("input28", "output28"));
                     break;
                 default:
                     System.out.println("Csak a menüben megadott számokat addj meg.");
