@@ -1,0 +1,5 @@
+create_room;szoba1;5;0;0
+create_room gazosszoba1;5;1;0
+connect;szoba1;gazosszoba1
+add_character;oktato;oktato1;szoba1
+move;oktato1;gazosszoba1
