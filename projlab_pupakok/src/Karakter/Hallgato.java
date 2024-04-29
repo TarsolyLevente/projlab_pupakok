@@ -89,7 +89,8 @@ public class Hallgato extends Karakter {
             if (taska.size() < 5) {
                 if (t instanceof Tranzisztor) {
                     int tranzisztorSzam = 0;
-                    if((((Tranzisztor)t).getTars() != null)){
+                    if ((((Tranzisztor) t).getTars() != null)) {
+                        System.out.println("Ez a tranzisztor már aktív!");
                         return;
                     }
                     // Számoljuk meg, hány tranzisztor van már a taskában
@@ -120,13 +121,13 @@ public class Hallgato extends Karakter {
                 getSzoba().targy_eltuntetese(t);
                 taska.add(t);
                 if (szoba.getRegiszobak().size() != 0) {
-                                
-                for(int j = 0; j < getSzoba().getRegiszobak().get(0).getTargyak().size(); ++j){
-                    if(getSzoba().getRegiszobak().get(0).getTargyak().get(0).getId().equals(t.getId())){
-                        getSzoba().getRegiszobak().get(0).getTargyak().remove(t);
+
+                    for (int j = 0; j < getSzoba().getRegiszobak().get(0).getTargyak().size(); ++j) {
+                        if (getSzoba().getRegiszobak().get(0).getTargyak().get(0).getId().equals(t.getId())) {
+                            getSzoba().getRegiszobak().get(0).getTargyak().remove(t);
+                        }
                     }
                 }
-            }
             }
         }
         return;

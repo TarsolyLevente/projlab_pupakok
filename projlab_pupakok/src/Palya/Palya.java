@@ -130,8 +130,12 @@ public class Palya {
             System.out.println("Játékosok száma:");
             Scanner reader = new Scanner(System.in);
             input = reader.nextInt();
-            for (int i = 0; i < input; i++) {
+            if (input == 10)
                 hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10)), String.valueOf(hallgatok.size())));
+            else {
+                for (int i = 0; i < input; i++) {
+                    hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10)), String.valueOf(hallgatok.size())));
+                }
             }
         } else {
             for (int i = 0; i < 1; i++) {
