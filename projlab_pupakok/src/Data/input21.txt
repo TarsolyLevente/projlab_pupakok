@@ -1,0 +1,4 @@
+create_room;1;2;0;0;
+create_room;2;5;0;1;
+merge;1;2;
+split;1;
