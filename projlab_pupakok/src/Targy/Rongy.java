@@ -4,7 +4,7 @@ import Szoba.*;
 
 import javax.swing.*;
 
-public class Rongy extends PasszivTargy{
+public class Rongy extends PasszivTargy {
     /**
      * Rongy osztály konstruktora.
      */
@@ -22,32 +22,38 @@ public class Rongy extends PasszivTargy{
      */
     Timer t = new Timer(1000, e -> {
         counter++;
-        if(counter == 5){
+        if (counter == 180) {
             setToltet();
         }
     });
 
     /**
-     * Segít eldönteni, hogy pontosan meddig védi meg a játékost a Rongy az oktatók ellen.
-     * Amint a tárgyat magához veszi a hallgató, elindul egy Timer, ami idő alatt a tárgy használható.
+     * Segít eldönteni, hogy pontosan meddig védi meg a játékost a Rongy az oktatók
+     * ellen.
+     * Amint a tárgyat magához veszi a hallgató, elindul egy Timer, ami idő alatt a
+     * tárgy használható.
      * Ennek a Timer-nek a megfelelő nyomon követesében segít a függvény.
      * Ha lejár az idő, akkor a tárgy eltűnik a hallgató invertory-ából.
      */
-    public void tick(){
+    public void tick() {
         t.start();
     }
 
     /**
      * A Rongy tárgy általi megvalósítása az absztrakt setToltet() függvénynek.
      */
-    public void setToltet(){
-        this.getBirtokos().getTaska().remove(this);
+    public void setToltet() {
+        if (this.getBirtokos() != null)
+            this.getBirtokos().getTaska().remove(this);
+        else {
+            this.getSzoba().getTargyak().remove(this);
+        }
     }
 
     /**
      * A Rongy tárgy általi megvalósítása az absztrakt use() függvénynek.
      */
-    public void use(){
+    public void use() {
         tick();
     }
 

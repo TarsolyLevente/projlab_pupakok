@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Sorospohar extends PasszivTargy{
+public class Sorospohar extends PasszivTargy {
     /**
      * Rongy osztály konstruktora.
      */
@@ -21,12 +21,14 @@ public class Sorospohar extends PasszivTargy{
     private Timer timer;
 
     /**
-     * Segít eldönteni, hogy pontosan meddig védi meg a játékost a Rongy az oktatók ellen.
-     * Amint a tárgyat magához veszi a hallgató, elindul egy Timer, ami idő alatt a tárgy használható.
+     * Segít eldönteni, hogy pontosan meddig védi meg a játékost a Rongy az oktatók
+     * ellen.
+     * Amint a tárgyat magához veszi a hallgató, elindul egy Timer, ami idő alatt a
+     * tárgy használható.
      * Ennek a Timer-nek a megfelelő nyomon követesében segít a függvény.
      * Ha lejár az idő, akkor a tárgy eltűnik a hallgató invertory-ából.
      */
-    public void tick(){
+    public void tick() {
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -39,20 +41,24 @@ public class Sorospohar extends PasszivTargy{
     /**
      * A Söröspohár tárgy általi megvalósítása az absztrakt setToltet() függvénynek.
      */
-    public void setToltet(){
-        this.getBirtokos().getTaska().remove(this);
+    public void setToltet() {
+        if (this.getBirtokos() != null)
+            this.getBirtokos().getTaska().remove(this);
+        else {
+            this.getSzoba().getTargyak().remove(this);
+        }
     }
 
     /**
      * A Söröspohár tárgy általi megvalósítása2
      * az absztrakt use() függvénynek.
      */
-    public void use(){
-        if(this.getBirtokos().getTaska().size() > 1){
-        Random rand = new Random();
-        int eldob = rand.nextInt(this.getBirtokos().getTaska().size() - 1);
-        Hallgato h = (Hallgato) this.getBirtokos();
-        h.eldob(this.getBirtokos().getTaska().get(eldob));
+    public void use() {
+        if (this.getBirtokos().getTaska().size() > 1) {
+            Random rand = new Random();
+            int eldob = rand.nextInt(this.getBirtokos().getTaska().size() - 1);
+            Hallgato h = (Hallgato) this.getBirtokos();
+            h.eldob(this.getBirtokos().getTaska().get(eldob));
         }
     }
 

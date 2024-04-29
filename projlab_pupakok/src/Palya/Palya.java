@@ -229,7 +229,7 @@ public class Palya {
 
             }
         }
-
+        // TODO osztodas, egyesules
         // Szobák osztódása
         /*
          * if (toggle_random) {
