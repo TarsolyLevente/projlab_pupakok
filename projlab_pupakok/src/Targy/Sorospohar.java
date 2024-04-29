@@ -44,13 +44,16 @@ public class Sorospohar extends PasszivTargy{
     }
 
     /**
-     * A Söröspohár tárgy általi megvalósítása az absztrakt use() függvénynek.
+     * A Söröspohár tárgy általi megvalósítása2
+     * az absztrakt use() függvénynek.
      */
     public void use(){
+        if(this.getBirtokos().getTaska().size() > 1){
         Random rand = new Random();
         int eldob = rand.nextInt(this.getBirtokos().getTaska().size() - 1);
         Hallgato h = (Hallgato) this.getBirtokos();
         h.eldob(this.getBirtokos().getTaska().get(eldob));
+        }
     }
 
     public String toString(Funkcio funkcio) {
