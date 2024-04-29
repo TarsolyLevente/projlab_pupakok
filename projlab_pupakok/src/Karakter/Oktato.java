@@ -1,5 +1,8 @@
 package Karakter;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import Szoba.*;
 import Targy.*;
 
@@ -51,6 +54,16 @@ public class Oktato extends Karakter {
     public void megbenul() {
         megbenult = true;
         System.out.println("Oktató " + getid() + " megbénult!");
+
+        Timer timer = new Timer();
+            
+        // Schedule the task to be executed after 1 minute
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                megbenult = false;
+            }
+        }, 60000);
     }
 
     /**
