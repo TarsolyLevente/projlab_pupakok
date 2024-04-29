@@ -13,7 +13,6 @@ public class Takarito extends Karakter {
      */
     public Takarito(Szoba sz, String id){
         super(sz, id);
-        sz.addTakarito(this);
     }
 
     /**

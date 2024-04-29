@@ -16,7 +16,6 @@ public class Oktato extends Karakter
      */
     public Oktato(Szoba sz, String id){
         super(sz, id);
-        sz.addOktato(this);
     }
 
     /**
@@ -58,5 +57,6 @@ public class Oktato extends Karakter
         t.setBirtokos(this);
         t.setSzoba(getSzoba());
         getSzoba().targy_eltuntetese(t);
+        taska.add(t);
     }
 }

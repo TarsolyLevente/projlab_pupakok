@@ -25,3 +25,5 @@ TESZTEK
 24. Egy tárgyat felvesz egy hallgató.
 25. Egy tárgyat eldob egy hallgató.
 26. Egy tárgyat használ egy hallgató.
+27. Pálya generálása random nélkül.
+28. Léptetés tesztje random nélkül.

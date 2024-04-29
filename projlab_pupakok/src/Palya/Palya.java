@@ -137,13 +137,7 @@ public class Palya {
                 hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10)), String.valueOf(hallgatok.size())));
             }
         } else {
-            System.out.println("Játékosok száma:");
-            try {
-                input = System.in.read();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            for (int i = 0; i < input; i++) {
+            for (int i = 0; i < 1; i++) {
                 hallgatok.add(new Hallgato(szobak.get(0), String.valueOf(hallgatok.size())));
             }
         }
