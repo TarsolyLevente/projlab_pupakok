@@ -102,6 +102,9 @@ public class Hallgato extends Karakter {
                     }
                 }
             }
+            if(t instanceof Rongy){
+                t.use();
+            }
             t.setBirtokos(this);
             getSzoba().targy_eltuntetese(t);
             taska.add(t);
