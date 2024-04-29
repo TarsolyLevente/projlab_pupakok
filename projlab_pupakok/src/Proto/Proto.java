@@ -676,6 +676,11 @@ public class Proto {
                 case 31:
                     System.out.println(checkoutput("input31", "output31"));
                     break;
+                case 32:
+                    System.out.println(checkoutput("input32", "output32"));
+                    break;
+                
+                // TODO hamis
                 case 33:
                     System.out.println(checkoutput("input33", "output33"));
                     break;

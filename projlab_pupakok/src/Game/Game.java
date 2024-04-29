@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-//TODO eldobas
+
 //TODO tranzisztor
 public class Game {
     /**
