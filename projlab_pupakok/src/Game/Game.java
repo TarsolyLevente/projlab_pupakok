@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-
 //TODO tranzisztor
 public class Game {
     /**
@@ -52,7 +51,10 @@ public class Game {
         if (hallgato.getTaska().size() != 0) {
             System.out.println("Tárgyak a taskádban:");
             for (Targy t : hallgato.getTaska()) {
-                System.out.println(t.toString(null));
+                if (t.getFunkcio() == Funkcio.hamis)
+                    System.out.println("hamis " + t.toString(null));
+                else
+                    System.out.println("igaz " + t.toString(null));
             }
         }
         System.out.println("");
@@ -107,7 +109,12 @@ public class Game {
                     }
                 }
             } catch (Exception e) {
-                System.out.println("Rossz bemenet");
+                String feladja = reader.next();
+                if (feladja.equals("feladom")) {
+                    System.out.println("Megnyerted a játékot!");
+                    System.exit(0);
+                } else
+                    System.out.println("Rossz bemenet");
             }
         }
     }
@@ -118,7 +125,9 @@ public class Game {
     public void jatekLeptetes() {
         while (szamlalo < 900) {
             for (Hallgato h : palya.getHallgatok()) {
-                hallgatoLep(h);
+                if(!h.getEszmeletvesztett()){
+                    hallgatoLep(h);
+                }
             }
             palya.leptet();
         }

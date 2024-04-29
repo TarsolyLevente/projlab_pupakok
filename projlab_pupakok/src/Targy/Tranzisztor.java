@@ -33,7 +33,8 @@ public class Tranzisztor extends AktivTargy {
      * aktivált tranzisztor társát tartalmazza.
      */
     public void use() {
-        if (this.getTars() != null && this.getTars().getFunkcio() != Funkcio.hamis && this.getFunkcio() != Funkcio.hamis) {
+        if (this.getTars() != null && this.getTars().getFunkcio() != Funkcio.hamis
+                && this.getFunkcio() != Funkcio.hamis) {
             if (this.getTars().getAktiv() != true) {
                 this.getBirtokos().getSzoba().targy_elhelyezese(this);
                 this.setAktiv(true);
@@ -89,8 +90,11 @@ public class Tranzisztor extends AktivTargy {
     }
 
     public String toString(Funkcio funkcio) {
-        if (funkcio == null || (funkcio == this.funkcio && this.aktiv))
-            return "Tranzisztor";
+        if (funkcio == null || funkcio == this.funkcio)
+            if (funkcio == Funkcio.hamis)
+                return " hamis Tranzisztor";
+            else
+                return "igazi Tranzisztor";
         return "";
     }
 

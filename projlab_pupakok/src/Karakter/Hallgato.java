@@ -82,7 +82,7 @@ public class Hallgato extends Karakter {
      * 
      * @param t Ezt veszi fel
      */
-    public void felvesz(Targy t) {
+    public void felvesz(Targy t) { // TODO regiszobakbol is ki kell venni
         if (!getSzoba().isRagacsos()) {
             if (taska.size() < 5) {
                 if (t instanceof Tranzisztor) {
@@ -99,7 +99,8 @@ public class Hallgato extends Karakter {
 
                         else {
                             for (Targy targy2 : taska) {
-                                if (targy2 instanceof Tranzisztor) {
+                                if (targy2 instanceof Tranzisztor && targy2.getFunkcio() != Funkcio.hamis
+                                        && t.getFunkcio() != Funkcio.hamis) {
                                     ((Tranzisztor) targy2).setTars((Tranzisztor) t);
                                     ((Tranzisztor) t).setTars((Tranzisztor) targy2);
                                 }
