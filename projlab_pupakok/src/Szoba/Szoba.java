@@ -460,8 +460,8 @@ public class Szoba {
      */
     private boolean befer() {
         if (befogadokepesseg - (hallgatok.size() + oktatok.size() + takaritok.size()) >= 1)
-            return false;
-        return true;
+            return true;
+        return false;
     }
 
     /**

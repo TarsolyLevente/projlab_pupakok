@@ -3,13 +3,14 @@ package Szoba;
 import Palya.*;
 
 import java.util.ArrayList;
+
 /**
-* Olyan szoba, amely ajtajai képesek eltűnni és előtűnni
-*/
-public class ElatkozottSzoba extends Szoba{
+ * Olyan szoba, amely ajtajai képesek eltűnni és előtűnni
+ */
+public class ElatkozottSzoba extends Szoba {
     /**
-	 * Az eltűnt ajtók listája
-	 */
+     * Az eltűnt ajtók listája
+     */
     private ArrayList<Szoba> eltuntajto;
 
     /**
@@ -21,21 +22,22 @@ public class ElatkozottSzoba extends Szoba{
     }
 
     /**
-	 * Ajtó eltűnésének függvénye
-	 * @param sz Eltűnő szomszéd
-	 */
-    public void eltunik(Szoba sz){
-        System.out.println("ElatkozottSzoba -> eltunik()");
+     * Ajtó eltűnésének függvénye
+     * 
+     * @param sz Eltűnő szomszéd
+     */
+    public void eltunik(Szoba sz) {
         eltuntajto.add(sz);
         sz.removeSzomszed(this);
         removeSzomszed(sz);
     }
+
     /**
-	 * Ajtó előtűnésének függvénye
-	 * @param sz Előtűnő szomszéd
-	 */
-    public void elotunik(Szoba sz){
-        System.out.println("ElatkozottSzoba -> elotunik()");
+     * Ajtó előtűnésének függvénye
+     * 
+     * @param sz Előtűnő szomszéd
+     */
+    public void elotunik(Szoba sz) {
         szomszedok.add(sz);
         sz.addSzomszed(this);
         eltuntajto.remove(sz);
@@ -43,33 +45,37 @@ public class ElatkozottSzoba extends Szoba{
 
     /**
      * Visszaadja az eltuntajto listát.
+     * 
      * @return
      */
-    public ArrayList<Szoba> getEltuntajto(){
+    public ArrayList<Szoba> getEltuntajto() {
         return eltuntajto;
     }
 
     /**
      * Setter az eltuntajto attribútumra.
+     * 
      * @param e
      */
-    public void setEltuntajto(ArrayList<Szoba> e){
+    public void setEltuntajto(ArrayList<Szoba> e) {
         eltuntajto = e;
     }
 
     /**
      * Hozzáadja a paraméterben kapott szobát az eltuntajto listához.
+     * 
      * @param sz
      */
-    public void addEltuntajto(Szoba sz){
+    public void addEltuntajto(Szoba sz) {
         eltuntajto.add(sz);
     }
 
     /**
      * Eltávolítja a paraméterben kapott szobát az eltuntajto listából.
+     * 
      * @param sz
      */
-    public void removeEltuntajto(Szoba sz){
+    public void removeEltuntajto(Szoba sz) {
         eltuntajto.remove(sz);
     }
 }

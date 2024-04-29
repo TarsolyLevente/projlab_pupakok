@@ -105,17 +105,17 @@ public class Palya {
         try {
             File szomsz = new File("projlab_pupakok/src/Data/Szoba_szomszedok.txt");
             Scanner reader2 = new Scanner(szomsz);
+            int sz = 0;
             while (reader2.hasNextLine()) {
                 String data = reader2.nextLine();
                 String[] szomszedok = data.split(",");
-                for (Szoba sz : szobak) {
-                    for (int i = 0; i < szomszedok.length; i++) {
-                        for (Szoba szoba : szobak) {
-                            if (szoba.getid().equals(szomszedok[i]))
-                                sz.addSzomszed(szoba);
-                        }
+                for (int i = 0; i < szomszedok.length; i++) {
+                    for (Szoba szoba : szobak) {
+                        if (szoba.getid().equals(szomszedok[i]))
+                            szobak.get(sz).addSzomszed(szoba);
                     }
                 }
+                sz++;
             }
             reader2.close();
         } catch (FileNotFoundException e) {

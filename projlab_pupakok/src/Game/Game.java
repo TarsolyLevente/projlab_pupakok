@@ -49,7 +49,7 @@ public class Game {
         System.out.println("Hallgató " + hallgato.getid() + " következik!");
 
         Scanner reader = new Scanner(System.in);
-        while (reader.hasNextLine()) {
+        while (true) {
             int inventorycnt = 0;
             Dictionary<Integer, Integer> dict = new Hashtable<>();
             for (int i = 0; i < hallgato.getTaska().size(); i++) {
@@ -74,25 +74,23 @@ public class Game {
 
             int data = 0;
             try {
-                data = System.in.read() - '0';
+                data = reader.nextInt();
                 if (data > szomszedcnt)
                     System.out.println("Rossz bemenet");
                 else {
-                    if (data < inventorycnt)
+                    if (data <= inventorycnt)
                         hallgato.getTaska().get(dict.get(data)).use();
-                    else if (data < targycnt)
+                    else if (data <= targycnt)
                         hallgato.felvesz(hallgato.getSzoba().getTargyak().get(data - inventorycnt - 1));
                     else {
                         hallgato.mozog(hallgato.getSzoba().getSzomszedok().get(data - targycnt - 1));
-                        reader.close();
                         return;
                     }
                 }
-            } catch (IOException e) {
+            } catch (Exception e) {
                 System.out.println("Rossz bemenet");
             }
         }
-        reader.close();
     }
 
     /**
