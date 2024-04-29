@@ -1,0 +1,5 @@
+create_room;szoba1;5;0;0;
+create_room;szoba2;5;0;0;
+connect;szoba1;szoba2;
+add_character;takarito;t1;szoba1;
+move;t1;szoba2;

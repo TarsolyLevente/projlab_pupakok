@@ -520,23 +520,83 @@ public class Proto {
                     }
                     break;
                 case 1:     ///1-es teszt futtatása.
-                    System.out.println(checkoutput("input" + 1, "output" + 1));
+                    System.out.println(checkoutput("input1", "output1"));
                     break;
                 case 2:
-                    System.out.println(checkoutput("input" + 2, "output" + 2));
+                    System.out.println(checkoutput("input2", "output2"));
                     break;
                 case 3:
-                    System.out.println(checkoutput("input" + 3, "output" + 3));
+                    System.out.println(checkoutput("input3", "output3"));
                     break;
                 case 4:
-                    System.out.println(checkoutput("input" + 4, "output" + 4));
+                    System.out.println(checkoutput("input4", "output4"));
                     break;
                 case 5:
-                    System.out.println(checkoutput("input" + 5, "output" + 5));
+                    System.out.println(checkoutput("input5", "output5"));
                     break;
-                
-                //TODO
-
+                case 6:
+                    System.out.println(checkoutput("input6", "output6"));
+                    break;
+                case 7:
+                    System.out.println(checkoutput("input7", "output7"));
+                    break;
+                case 8:
+                    System.out.println(checkoutput("input8", "output8"));
+                    break;
+                case 9:
+                    System.out.println(checkoutput("input9", "output9"));
+                    break;
+                case 10:
+                    System.out.println(checkoutput("input10", "output10"));
+                    break;
+                case 11:
+                    System.out.println(checkoutput("input11", "output11"));
+                    break;
+                case 12:
+                    System.out.println(checkoutput("input12", "output12"));
+                    break;
+                case 13:
+                    System.out.println(checkoutput("input13", "output13"));
+                    break;
+                case 14:
+                    System.out.println(checkoutput("input14", "output14"));
+                    break;
+                case 15:
+                    System.out.println(checkoutput("input15", "output15"));
+                    break;
+                case 16:
+                    System.out.println(checkoutput("input16", "output16"));
+                    break;
+                case 17:
+                    System.out.println(checkoutput("input17", "output17"));
+                    break;
+                case 18:
+                    System.out.println(checkoutput("input18", "output18"));
+                    break;
+                case 19:
+                    System.out.println(checkoutput("input19", "output19"));
+                    break;
+                case 20:
+                    System.out.println(checkoutput("input20", "output20"));
+                    break;
+                case 21:
+                    System.out.println(checkoutput("input21", "output21"));
+                    break;
+                case 22:
+                    System.out.println(checkoutput("input22", "output22"));
+                    break;
+                case 23:
+                    System.out.println(checkoutput("input23", "output23"));
+                    break;
+                case 24:
+                    System.out.println(checkoutput("input24", "output24"));
+                    break;
+                case 25:
+                    System.out.println(checkoutput("input25", "output25"));
+                    break;
+                case 26:
+                    System.out.println(checkoutput("input26", "output26"));
+                    break;
                 default:
                     System.out.println("Csak a menüben megadott számokat addj meg.");
                     break;
