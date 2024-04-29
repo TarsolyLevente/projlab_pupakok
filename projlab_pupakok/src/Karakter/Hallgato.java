@@ -12,6 +12,7 @@ public class Hallgato extends Karakter {
      */
     public Hallgato(Szoba sz, String id) {
         super(sz, id);
+        sz.getHallgatok().add(this);
     }
 
     /**
