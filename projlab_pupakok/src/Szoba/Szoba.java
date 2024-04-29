@@ -136,14 +136,14 @@ public class Szoba {
      */
     public boolean osztodik() {
         if (!regiszobak.isEmpty()) {
-            Szoba regi = regiszobak.get(1);
+            Szoba regi = regiszobak.get(0);
             Szoba uj = new Szoba(regi.gazos, regi.befogadokepesseg);
             uj.id=regi.id;
             for (int i = 0; i < regi.getTargyak().size(); i++) {
                 Targy regitargy = regi.getTargyak().get(i);
                 for (int j = 0; j < this.getTargyak().size(); j++) {
                     Targy targy = this.getTargyak().get(j);
-                    if (regitargy == targy) {
+                    if (regitargy.equals(targy)) {
                         this.targy_eltuntetese(targy);
                         uj.targy_elhelyezese(targy);
                     }
@@ -154,7 +154,7 @@ public class Szoba {
             ArrayList<Szoba> szomszedok = this.getSzomszedok();
             for (int i = 0; i < regiszomszedok.size(); i++) {
                 for (int j = 0; j < szomszedok.size(); j++) {
-                    if (regiszomszedok.get(i) == szomszedok.get(j)) {
+                    if (regiszomszedok.get(i).equals(szomszedok.get(j))) {
                         uj.addSzomszed(szomszedok.get(j));
                         this.removeSzomszed(szomszedok.get(j));
                     }
