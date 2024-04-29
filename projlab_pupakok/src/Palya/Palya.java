@@ -217,7 +217,9 @@ public class Palya {
 
         for (Oktato oktato : oktatok)
         {
-            oktato.felvesz(oktato.getSzoba().getTargyak().get(0));
+            if(!oktato.getSzoba().getTargyak().isEmpty()){
+                oktato.felvesz(oktato.getSzoba().getTargyak().get(0));
+            }
         }
 
         // lépés a takarítóval

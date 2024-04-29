@@ -65,11 +65,11 @@ public class Oktato extends Karakter {
             getSzoba().targy_eltuntetese(t);
             taska.add(t);
             
-            if(szoba.getRegiszobak().size() != 0){
-                for(int i = 0; i < szoba.getRegiszobak().size(); ++i){
-                    for(int j = 0; j < szoba.getRegiszobak().get(i).getTargyak().size(); ++j){
-                        if(szoba.getTargyak().get(j).getId().equals(t.getId())){
-                            szoba.getRegiszobak().remove(t);
+            if(getSzoba().getRegiszobak().size() != 0){
+                for(int i = 0; i < getSzoba().getRegiszobak().size(); ++i){
+                    for(int j = 0; j < getSzoba().getRegiszobak().get(i).getTargyak().size(); ++j){
+                        if(getSzoba().getTargyak().get(j).getId().equals(t.getId())){
+                            getSzoba().getRegiszobak().remove(t);
                         }
                     }
                 }
