@@ -196,21 +196,21 @@ public class Palya {
         // lépés az oktatóval
         if (toggle_random) {
             for (Oktato oktato : oktatok) {
-                if(!oktato.getEszmeletvesztett()){
-                    Szoba szoba = oktato.getSzoba();
-                    ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                    int randomIndex = rand.nextInt(szomszedok.size());
-                    Szoba randomSzoba = szomszedok.get(randomIndex);
-                    oktato.mozog(randomSzoba);
+                if(!oktato.getEszmeletvesztett()) {
+                Szoba szoba = oktato.getSzoba();
+                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                int randomIndex = rand.nextInt(szomszedok.size());
+                Szoba randomSzoba = szomszedok.get(randomIndex);
+                oktato.mozog(randomSzoba);
                 }
             }
         } else {
             for (Oktato oktato : oktatok) {
-                if(!oktato.getEszmeletvesztett()){
-                    Szoba szoba = oktato.getSzoba();
-                    ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                    Szoba randomSzoba = szomszedok.get(0);
-                    oktato.mozog(randomSzoba);
+                if(!oktato.getEszmeletvesztett()) {
+                Szoba szoba = oktato.getSzoba();
+                ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
+                Szoba randomSzoba = szomszedok.get(0);
+                oktato.mozog(randomSzoba);
                 }
             }
         }
@@ -248,7 +248,6 @@ public class Palya {
         if (toggle_random) {
             for (int i = 0; i < 3; i++) {
                 int randszoba = rand.nextInt(szobak.size());
-                //System.out.println(randszoba);
                 szobak.get(randszoba).osztodik();
             }
         } else {
@@ -261,14 +260,11 @@ public class Palya {
         // Szobák egyesülése
         if (toggle_random) {
             for (int i = 0; i < 7; i++) {
-                //szobak.get(rand.nextInt(szobak.size())).egyesul(szobak.get(rand.nextInt(szobak.size())));
                 int randszoba = rand.nextInt(szobak.size());
                 int randszoba2 = rand.nextInt(szobak.size());
                 while(randszoba == randszoba2){
                     randszoba2 = rand.nextInt(szobak.size());
                 }
-               
-                //System.out.println(randszoba);
                 szobak.get(randszoba).egyesul(szobak.get(randszoba2));
             }
         } else {
