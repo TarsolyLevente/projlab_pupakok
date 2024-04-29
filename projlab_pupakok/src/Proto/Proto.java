@@ -366,9 +366,11 @@ public class Proto {
 
     private String split(Palya palya, String string) {
         boolean siker = false;
-        for (Szoba Szoba : palya.getSzobak()) {
+        for (int i = 0; i < palya.getSzobak().size(); i++) {
+            Szoba Szoba = palya.getSzobak().get(i);
             if (Szoba.getid().equals(string)) {
                 siker = Szoba.osztodik();
+                break; // Ha megtaláltuk a megfelelő szobát, kilépünk a ciklusból
             }
         }
 
@@ -384,9 +386,12 @@ public class Proto {
     private String merge(Palya palya, String string, String string2) {
         for (Szoba Szoba1 : palya.getSzobak()) {
             if (Szoba1.getid().equals(string)) {
-                for (Szoba Szoba2 : palya.getSzobak()) {
+                for (int i = 0; i < palya.getSzobak().size(); i++) {
+                    Szoba Szoba2 = palya.getSzobak().get(i);
                     if (Szoba2.getid().equals(string2)) {
                         Szoba1.egyesul(Szoba2);
+                        // Ha megtaláltuk a megfelelő szobát, kiléphetünk a ciklusból
+                        break;
                     }
                 }
             }
@@ -646,6 +651,5 @@ public class Proto {
                     break;
             }
         }
-        scanner.close();
     }
 }
