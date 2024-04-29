@@ -36,10 +36,13 @@ public class Tranzisztor extends AktivTargy {
         if (this.getTars() != null && this.getTars().getFunkcio() != Funkcio.hamis
                 && this.getFunkcio() != Funkcio.hamis) {
             if (this.getTars().getAktiv() != true) {
-                this.getBirtokos().getSzoba().targy_elhelyezese(this);
+                ((Hallgato) getBirtokos()).eldob(this);
                 this.setAktiv(true);
+                System.out.println("Az 1. tranzisztor aktiválva lett.");
             } else {
                 Hallgato h = (Hallgato) this.getBirtokos();
+                h.eldob(this);
+                this.setAktiv(true);
                 h.teleport(this);
             }
         }
@@ -90,12 +93,15 @@ public class Tranzisztor extends AktivTargy {
     }
 
     public String toString(Funkcio funkcio) {
-        if (funkcio == null || funkcio == this.funkcio)
-            if (funkcio == Funkcio.hamis)
-                return " hamis Tranzisztor";
+        if (funkcio == null) {
+            if (this.funkcio == Funkcio.hamis)
+                return "igazi Tranzisztor";
             else
                 return "igazi Tranzisztor";
-        return "";
+        } else if (funkcio == this.funkcio && tars != null)
+            return "Tranzisztor";
+        else
+            return "";
     }
 
 }// TODO tranzisztor
