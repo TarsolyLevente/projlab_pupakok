@@ -16,7 +16,6 @@ public class Oktato extends Karakter
      */
     public Oktato(Szoba sz, String id){
         super(sz, id);
-        sz.addOktato(this);
     }
 
     /**
