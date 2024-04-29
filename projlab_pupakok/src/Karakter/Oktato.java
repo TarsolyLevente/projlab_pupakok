@@ -3,8 +3,7 @@ package Karakter;
 import Szoba.*;
 import Targy.*;
 
-public class Oktato extends Karakter
-{
+public class Oktato extends Karakter {
     /**
      * Megbénult-e tárgy hatására.
      */
@@ -12,19 +11,21 @@ public class Oktato extends Karakter
 
     /**
      * Oktató mozog függvénye
+     * 
      * @param sz Ide mozog át
      */
-    public Oktato(Szoba sz, String id){
+    public Oktato(Szoba sz, String id) {
         super(sz, id);
     }
 
     /**
      * OKtató mozgásért felelős függvénye
+     * 
      * @param sz Ebbe a szobába mozog át.
      */
-    public void mozog(Szoba sz){
-        
-        if(sz.addOktato(this)){
+    public void mozog(Szoba sz) {
+
+        if (sz.addOktato(this)) {
             for (Targy targy : taska) {
                 targy.setSzoba(sz);
             }
@@ -32,28 +33,28 @@ public class Oktato extends Karakter
             this.setSzoba(sz);
 
             if (sz.getHallgatok().size() != 0) {
-                    for (Hallgato hallgato : sz.getHallgatok()) {
-                        hallgato.kibukik();
-                    }     
-                
-                 }
+                for (Hallgato hallgato : sz.getHallgatok()) {
+                    hallgato.kibukik();
+                }
+
+            }
         }
     }
 
     /**
      * Oktató megbénul függvénye
      */
-    public void megbenul() 
-    {
-        megbenult=true;
+    public void megbenul() {
+        megbenult = true;
+        System.out.println("Oktató " + getid() + " megbénult!");
     }
 
     /**
      * Oktató felvesz függvénye
+     * 
      * @param t Ezt veszi fel
      */
-    public void felvesz(Targy t)
-    {
+    public void felvesz(Targy t) {
         t.setBirtokos(this);
         t.setSzoba(getSzoba());
         getSzoba().targy_eltuntetese(t);

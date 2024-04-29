@@ -24,7 +24,7 @@ public class Proto {
     public ArrayList<String> load(String fajlnev) {
         Palya palya = new Palya();
         ArrayList<String> output = new ArrayList<String>();
-        File f = new File("src/Data/" + fajlnev + ".txt");
+        File f = new File("projlab_pupakok/src/Data/" + fajlnev + ".txt");
         File file = new File(f.getAbsolutePath());
         try {
             FileInputStream fis = new FileInputStream(file);
@@ -47,7 +47,7 @@ public class Proto {
                 } else if (str[0].equals("pick")) {
                     String s = pick(palya, str[1], str[2]);
                     output.add(s);
-                }else if(str[0].equals("throw_item")){
+                } else if (str[0].equals("throw_item")) {
                     String s = throw_item(palya, str[1], str[2]);
                     output.add(s);
                 } else if (str[0].equals("use")) {
@@ -65,14 +65,13 @@ public class Proto {
                 } else if (str[0].equals("connect")) {
                     String s = connect(palya, str[1], str[2]);
                     output.add(s);
-                } else if(str[0].equals("general")){
+                } else if (str[0].equals("general")) {
                     String s = general();
                     output.add(s);
-                } else if(str[0].equals("leptet")){
+                } else if (str[0].equals("leptet")) {
                     String s = leptet();
                     output.add(s);
-            }
-                else{
+                } else {
                     String s = "Hiba az " + linenum + ". sorban.";
                     output.add(s);
                 }
@@ -102,15 +101,14 @@ public class Proto {
                     if (szoba1.getid().equals(s3)) {
                         Oktato oktato = new Oktato(szoba1, s2);
                         palya.addOktato(oktato);
-                        if (oktato.getSzoba().getid().equals(s3)){
-                            
+                        if (oktato.getSzoba().getid().equals(s3)) {
+
                             return "Karakter sikeresen hozzáadva.";
-                        }
-                        else{
-                            
+                        } else {
+
                             return "Karakter hozzáadása sikertelen.";
                         }
-                            
+
                     }
                 }
                 break;
@@ -344,9 +342,9 @@ public class Proto {
 
     private String connect(Palya palya, String string, String string2) {
         for (Szoba Szoba1 : palya.getSzobak()) {
-            if(Szoba1.getid().equals(string)){
+            if (Szoba1.getid().equals(string)) {
                 for (Szoba Szoba2 : palya.getSzobak()) {
-                    if(Szoba2.getid().equals(string2)){
+                    if (Szoba2.getid().equals(string2)) {
                         Szoba1.addSzomszed(Szoba2);
                     }
                 }
@@ -354,9 +352,9 @@ public class Proto {
         }
 
         for (Szoba Szoba1 : palya.getSzobak()) {
-            if(Szoba1.getid().equals(string)){
+            if (Szoba1.getid().equals(string)) {
                 for (Szoba Szobaszomszed : Szoba1.getSzomszedok()) {
-                    if(Szobaszomszed.getid().equals(string2)){
+                    if (Szobaszomszed.getid().equals(string2)) {
                         return "Szobák összekapcsolása sikeres.";
                     }
                 }
@@ -370,7 +368,7 @@ public class Proto {
         boolean siker = false;
         for (Szoba Szoba : palya.getSzobak()) {
             if (Szoba.getid().equals(string)) {
-                siker = Szoba.osztodik2();
+                siker = Szoba.osztodik();
             }
         }
 
@@ -388,7 +386,7 @@ public class Proto {
             if (Szoba1.getid().equals(string)) {
                 for (Szoba Szoba2 : palya.getSzobak()) {
                     if (Szoba2.getid().equals(string2)) {
-                        Szoba1.egyesul2(Szoba2, palya);
+                        Szoba1.egyesul(Szoba2);
                     }
                 }
             }
@@ -412,7 +410,7 @@ public class Proto {
         boolean a = Boolean.parseBoolean(string3);
         String ret = "Szoba hozzáadása sikertelen.";
         if ("0".equals(string4)) {
-            Szoba sz = new Szoba(c, a, b, palya);   
+            Szoba sz = new Szoba(c, a, b, palya);
         } else {
             ElatkozottSzoba sz2 = new ElatkozottSzoba(c, a, b, palya);
         }
@@ -434,8 +432,7 @@ public class Proto {
         Palya palya = new Palya();
         palya.setToggle_random(false);
         palya.general();
-        if(palya.getSzobak().size() == 43 && palya.getHallgatok().size() == 1 && palya.getOktatok().size() == 1)
-        {
+        if (palya.getSzobak().size() == 43 && palya.getHallgatok().size() == 1 && palya.getOktatok().size() == 1) {
             return "Pálya generálása sikeres";
         }
         return "Pálya generálása sikertelen";
@@ -446,7 +443,8 @@ public class Proto {
         palya.setToggle_random(false);
         palya.general();
         palya.leptet();
-        if(palya.getOktatok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("42") && palya.getTakaritok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("24"))
+        if (palya.getOktatok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("42")
+                && palya.getTakaritok().getFirst().getSzoba().getSzomszedok().getFirst().getid().equals("24"))
             return "A léptetés sikeres";
         return "A léptetés sikertelen";
     }
@@ -462,7 +460,7 @@ public class Proto {
      */
     String checkoutput(String bemeneti, String elvart) {
         ArrayList<String> output = load(bemeneti);
-        File f = new File("src/Data/" + elvart + ".txt");
+        File f = new File("projlab_pupakok/src/Data/" + elvart + ".txt");
         File file = new File(f.getAbsolutePath());
         ArrayList<String> elvartfajl = new ArrayList<String>();
         try {
@@ -501,7 +499,7 @@ public class Proto {
      * @return a beolvasott szövegfájl
      */
     private ArrayList<String> readMenu() {
-        File f = new File("src/Data/ProtoTestMenu.txt");
+        File f = new File("projlab_pupakok/src/Data/ProtoTestMenu.txt");
         File file = new File(f.getAbsolutePath());
         ArrayList<String> lines = new ArrayList<>();
         try {

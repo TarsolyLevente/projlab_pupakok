@@ -32,7 +32,7 @@ public class Game {
      * @param sz az itőt reprezentáló számláló
      */
     public Game(int sz) {
-        palya = new Palya();
+        palya = new Palya(this);
         szamlalo = sz;
     }
 
@@ -116,5 +116,6 @@ public class Game {
             System.out.println("Minden hallgató kibukott, nyomj entert a menübe lépéshez!");
         else
             System.out.println("Sikerült megtalálni a logarlécet! Győzelem!");
+        System.exit(0);
     }
 }

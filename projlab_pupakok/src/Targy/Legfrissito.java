@@ -1,6 +1,7 @@
 package Targy;
 
 import Szoba.*;
+
 public class Legfrissito extends AktivTargy {
     /**
      * Legfrissito osztály konstruktora.
@@ -10,10 +11,12 @@ public class Legfrissito extends AktivTargy {
     }
 
     /**
-     * A függvény meghívása után a gázos szobából, ahol a játékos tartózkodik, eltűnik a gáz.
+     * A függvény meghívása után a gázos szobából, ahol a játékos tartózkodik,
+     * eltűnik a gáz.
      */
-    public void use(){
+    public void use() {
         this.getSzoba().setGaz(false);
+        this.getBirtokos().getTaska().remove(this);
     }
 
     public String toString(Funkcio funkcio) {

@@ -2,8 +2,7 @@ package Targy;
 
 import Szoba.*;
 
-
-public class Camembert extends AktivTargy{
+public class Camembert extends AktivTargy {
     /**
      * Camembert osztály konstruktora.
      */
@@ -12,10 +11,12 @@ public class Camembert extends AktivTargy{
     }
 
     /**
-     * A függvény meghívása után a szoba, ahol a játékos tartózkodik, gázzal töltődik meg.
+     * A függvény meghívása után a szoba, ahol a játékos tartózkodik, gázzal
+     * töltődik meg.
      */
-    public void use(){
+    public void use() {
         this.getSzoba().setGaz(true);
+        this.getBirtokos().getTaska().remove(this);
     }
 
     public String toString(Funkcio funkcio) {
