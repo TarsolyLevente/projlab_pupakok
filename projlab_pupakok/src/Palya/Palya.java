@@ -246,7 +246,6 @@ public class Palya {
         if (toggle_random) {
             for (int i = 0; i < 3; i++) {
                 int randszoba = rand.nextInt(szobak.size());
-                //System.out.println(randszoba);
                 szobak.get(randszoba).osztodik();
             }
         } else {
@@ -259,10 +258,11 @@ public class Palya {
         // Szobák egyesülése
         if (toggle_random) {
             for (int i = 0; i < 7; i++) {
-                //szobak.get(rand.nextInt(szobak.size())).egyesul(szobak.get(rand.nextInt(szobak.size())));
                 int randszoba = rand.nextInt(szobak.size());
                 int randszoba2 = rand.nextInt(szobak.size());
-                //System.out.println(randszoba);
+                while(randszoba == randszoba2){
+                    randszoba2 = rand.nextInt(szobak.size());
+                }
                 szobak.get(randszoba).egyesul(szobak.get(randszoba2));
             }
         } else {
