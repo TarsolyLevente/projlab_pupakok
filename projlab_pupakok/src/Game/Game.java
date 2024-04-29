@@ -47,6 +47,7 @@ public class Game {
 
     public void hallgatoLep(Hallgato hallgato) {
         System.out.println("Hallgató " + hallgato.getid() + " következik!");
+        
 
         Scanner reader = new Scanner(System.in);
         while (true) {
