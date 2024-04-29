@@ -21,7 +21,9 @@ public class TVSZ extends PasszivTargy{
      * A TVSZ tárgy általi megvalósítása az absztrakt use() függvénynek.
      */
     public void use(){
-        setToltet();
+        if(this.getFunkcio() != Funkcio.hamis){
+            setToltet();
+        }
     }
 
     public String toString(Funkcio funkcio) {

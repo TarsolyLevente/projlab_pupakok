@@ -155,7 +155,7 @@ public class Palya {
         for (Szoba sz : szobak) {
             for (int i = 0; i < 5; i++) {
 
-                switch (rand.nextInt(1, 6)) {
+                switch (rand.nextInt(1, 7)) {
                     case 1:
                         new Tranzisztor(sz, String.valueOf(id_distributor));
                         break;
@@ -171,6 +171,9 @@ public class Palya {
                     case 5:
                         new Camembert(sz, String.valueOf(id_distributor));
                         break;
+                    case 6:
+                        new Logarlec(Funkcio.hamis, sz, String.valueOf(id_distributor));
+                        break;
                     default:
                         new TVSZ(sz, String.valueOf(id_distributor));
                         break;
@@ -180,7 +183,7 @@ public class Palya {
             }
         }
 
-        Logarlec logarlec = new Logarlec(szobak.get(12));
+        Logarlec logarlec = new Logarlec(Funkcio.logarlec, szobak.get(12), "igazilogarlec");
         logarlec.addPropertyChangeListener(new LogarlecPropertyChangeListener(game));
     }
 

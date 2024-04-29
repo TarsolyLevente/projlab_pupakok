@@ -53,8 +53,10 @@ public class Rongy extends PasszivTargy {
     /**
      * A Rongy tárgy általi megvalósítása az absztrakt use() függvénynek.
      */
-    public void use() {
-        tick();
+    public void use(){
+        if(this.getFunkcio() != Funkcio.hamis){
+            tick();
+        }
     }
 
     public String toString(Funkcio funkcio) {

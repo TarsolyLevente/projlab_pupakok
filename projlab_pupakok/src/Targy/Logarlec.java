@@ -19,9 +19,9 @@ public class Logarlec extends Targy {
 	 * @param k  Birtokos értéke
 	 * @param f  Funkcio értéke
 	 */
-	public Logarlec(Szoba sz) {
-		super(Funkcio.logarlec, "0", sz);
-	}// TODO hamis
+	public Logarlec(Funkcio f, Szoba sz, String id) {
+		super(f, id, sz);
+	}
 
 	/**
 	 * Logarlec setBirtokos függvénye, benne a propertyChange-hez szükséges
@@ -39,7 +39,6 @@ public class Logarlec extends Targy {
 	 * Logarléc use függvénye.
 	 */
 	public void use() {
-		System.out.println("Logarlec -> use()");
 	}
 
 	/**

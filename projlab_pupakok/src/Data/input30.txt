@@ -16,4 +16,3 @@ move;h1;szoba1;
 move;h1;szoba2;
 spawn_item;sorospohar;sorospohar1;szoba2;
 pick;h1;sorospohar1;
-
