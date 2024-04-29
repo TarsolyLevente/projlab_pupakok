@@ -25,10 +25,12 @@ public class Takarito extends Karakter {
         if(sz.addTakarito(this)){
             for (Targy targy : taska) {
                 targy.setSzoba(sz);
+                
             }
+            
             getSzoba().removeTakarito(this);
             this.setSzoba(sz);
-
+            takarit();
                  
         }
     }
@@ -41,9 +43,11 @@ public class Takarito extends Karakter {
      */
     public void felvesz(Targy t)
     {
-        t.setBirtokos(this);
-        t.setSzoba(getSzoba());
-        getSzoba().targy_eltuntetese(t);
+        if(!getSzoba().isRagacsos()){
+            t.setBirtokos(this);
+            t.setSzoba(getSzoba());
+            getSzoba().targy_eltuntetese(t);
+        }
     }
 
        
