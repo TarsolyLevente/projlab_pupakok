@@ -21,10 +21,6 @@ public class Main {
         while (!"3".equals(val)) {
             Proto p = new Proto();
             Game g = new Game(10);
-            System.out.flush();
-            System.out.println("1: Játék indítása");
-            System.out.println("2: Tesztek indítása");
-            System.out.println("3: Kilépés");
             switch (val) {
                 case "1":
                     g.start();
@@ -36,6 +32,10 @@ public class Main {
                     System.out.println("Rossz bemenet");
                     break;
             }
+            System.out.flush();
+            System.out.println("1: Játék indítása");
+            System.out.println("2: Tesztek indítása");
+            System.out.println("3: Kilépés");
             try {
                 val = br.readLine();
             } catch (IOException e) {

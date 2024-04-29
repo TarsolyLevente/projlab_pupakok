@@ -83,7 +83,7 @@ public class Palya {
 
         // Szobak hozzaadasa
         try {
-            File attr = new File("Szoba_attributumok.txt");
+            File attr = new File("projlab_pupakok/src/Data/Szoba_attributumok.txt");
             Scanner reader = new Scanner(attr);
             while (reader.hasNextLine()) {
                 String data = reader.nextLine();
@@ -92,9 +92,9 @@ public class Palya {
                 boolean gaz = Boolean.parseBoolean(attributes[2]);
                 int ferohely = Integer.parseInt(attributes[3]);
                 if (attributes[0].equals("false")) {
-                    szobak.add(new Szoba(id, gaz, ferohely, this));
+                    new Szoba(id, gaz, ferohely, this);
                 } else
-                    szobak.add(new ElatkozottSzoba(id, gaz, ferohely, this));
+                    new ElatkozottSzoba(id, gaz, ferohely, this);
             }
             reader.close();
         } catch (FileNotFoundException e) {
@@ -103,7 +103,7 @@ public class Palya {
 
         // Szobák összekötése
         try {
-            File szomsz = new File("Szoba_szomszedok.txt");
+            File szomsz = new File("projlab_pupakok/src/Data/Szoba_szomszedok.txt");
             Scanner reader2 = new Scanner(szomsz);
             while (reader2.hasNextLine()) {
                 String data = reader2.nextLine();
@@ -111,7 +111,7 @@ public class Palya {
                 for (Szoba sz : szobak) {
                     for (int i = 0; i < szomszedok.length; i++) {
                         for (Szoba szoba : szobak) {
-                            if (szoba.getid() == szomszedok[i])
+                            if (szoba.getid().equals(szomszedok[i]))
                                 sz.addSzomszed(szoba);
                         }
                     }
@@ -129,7 +129,7 @@ public class Palya {
 
             System.out.println("Játékosok száma:");
             try {
-                input = System.in.read();
+                input = System.in.read() - '0';
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -157,22 +157,22 @@ public class Palya {
 
                 switch (rand.nextInt(1, 6)) {
                     case 1:
-                        sz.targy_elhelyezese(new Tranzisztor(sz, String.valueOf(id_distributor)));
+                        new Tranzisztor(sz, String.valueOf(id_distributor));
                         break;
                     case 2:
-                        sz.targy_elhelyezese(new Sorospohar(sz, String.valueOf(id_distributor)));
+                        new Sorospohar(sz, String.valueOf(id_distributor));
                         break;
                     case 3:
-                        sz.targy_elhelyezese(new Rongy(sz, String.valueOf(id_distributor)));
+                        new Rongy(sz, String.valueOf(id_distributor));
                         break;
                     case 4:
-                        sz.targy_elhelyezese(new Maszk(sz, String.valueOf(id_distributor)));
+                        new Maszk(sz, String.valueOf(id_distributor));
                         break;
                     case 5:
-                        sz.targy_elhelyezese(new Camembert(sz, String.valueOf(id_distributor)));
+                        new Camembert(sz, String.valueOf(id_distributor));
                         break;
                     default:
-                        sz.targy_elhelyezese(new TVSZ(sz, String.valueOf(id_distributor)));
+                        new TVSZ(sz, String.valueOf(id_distributor));
                         break;
 
                 }

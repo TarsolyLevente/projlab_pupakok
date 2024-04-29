@@ -85,6 +85,7 @@ public class Szoba {
         szomszedok = new ArrayList<>();
         hallgatok = new ArrayList<>();
         oktatok = new ArrayList<>();
+        takaritok = new ArrayList<>();
         targyak = new ArrayList<>();
         palya = p;
         palya.addSzoba(this);
