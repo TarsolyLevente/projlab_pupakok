@@ -122,7 +122,6 @@ public class Proto {
                 break;
             default:
                 return "Karakter hozzáadása sikertelen.";
-            break;
         }
         return "Karakter hozzáadása sikertelen.";
     }
@@ -250,7 +249,6 @@ public class Proto {
                 break;
             default:
                 return "Tárgy hozzáadása sikertelen.";
-            break;
         }
         return "Tárgy hozzáadása sikertelen.";
     }
@@ -349,7 +347,7 @@ public class Proto {
     }
 
     private String split(Palya palya, String string) {
-        boolean siker;
+        boolean siker = false;
         for (Szoba Szoba : palya.getSzobak()) {
             if(Szoba.getid() == string){
                 siker = Szoba.osztodik();
@@ -394,30 +392,27 @@ public class Proto {
         String c = string;
             int b = Integer.parseInt(string2);
             boolean a = Boolean.parseBoolean(string3);
-        
+        String ret = "Szoba hozzáadása sikertelen.";
         if ("0".equals(string4)) {
             Szoba sz = new Szoba(a, b);
             sz.setid(c);
             
         } else {
-            ElatkozottSzoba sz2 = new ElatkozottSzoba(a, b);
-            sz2.setid(c);
-           
+            ElatkozottSzoba sz2 = new ElatkozottSzoba(c, a, b, palya);
         }
 
-        for (Szoba Szoba : Palya.getSzobak()) {
+        for (Szoba Szoba : palya.getSzobak()) {
             if(Szoba.getid()==c  && Szoba.getBefogadokepesseg() == b && Szoba.isGazos() == a ){
 
                 if ((Szoba instanceof ElatkozottSzoba) && "1".equals(string4)) {
-                    return "Szoba hozzáadása sikeres.";
+                    ret = "Szoba hozzáadása sikeres.";
                 } else if (!(Szoba instanceof ElatkozottSzoba) && "0".equals(string4)) {
-                    return "Szoba hozzáadása sikeres.";
+                    ret = "Szoba hozzáadása sikeres.";
                 }
-                return "Szoba hozzáadása sikertelen.";
-            }
-
+                ret = "Szoba hozzáadása sikertelen.";
             }
         }
+        return ret;
     }
     
 
@@ -604,3 +599,5 @@ public class Proto {
         }
     }
 }
+
+
