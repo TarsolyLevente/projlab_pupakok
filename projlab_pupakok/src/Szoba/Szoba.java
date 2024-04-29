@@ -59,7 +59,6 @@ public class Szoba {
      * @param bef a szoba befogadóképessége
      */
     public Szoba(boolean gaz, int bef) {
-        System.out.println("Szoba -> create");
         palya = new Palya();
         this.gazos = gaz;
         this.befogadokepesseg = bef;
@@ -80,7 +79,6 @@ public class Szoba {
      * @param p   a pálya, amihez a szoba tartozik
      */
     public Szoba(String ID, boolean gaz, int bef, Palya p) {
-        System.out.println("Szoba -> create");
         this.gazos = gaz;
         this.befogadokepesseg = bef;
         regiszobak = new ArrayList<>();
@@ -99,7 +97,6 @@ public class Szoba {
      * @param t a tárgy, amit letesz a szobába
      */
     public void targy_elhelyezese(Targy t) {
-        System.out.println("Szoba -> targy_elhelyezese()");
         t.setSzoba(this);
         targyak.add(t);
     }
@@ -110,7 +107,6 @@ public class Szoba {
      * @param t a tárgy, amit kivesz a szobából
      */
     public void targy_eltuntetese(Targy t) {
-        System.out.println("Szoba -> targy_eltuntetese()");
         targyak.remove(t);
     }
 
@@ -137,7 +133,6 @@ public class Szoba {
      */
     public boolean osztodik() {
         if (!regiszobak.isEmpty()) {
-            System.out.println("Szoba -> osztodik()");
             Szoba regi = regiszobak.get(1);
             Szoba uj = new Szoba(regi.gazos, regi.befogadokepesseg);
             for (Targy regitargy : regi.getTargyak()) {
@@ -170,7 +165,6 @@ public class Szoba {
      * @param sz a szoba, amivel egyesül
      */
     public void egyesul(Szoba sz) {
-        System.out.println("Szoba -> egyesul()");
         regiszobak.add(sz);
         regiszobak.add(this);
         for (Targy targy : sz.getTargyak()) {
@@ -191,7 +185,6 @@ public class Szoba {
      * @return gázos-e a szoba
      */
     public boolean isGazos() {
-        System.out.println("Szoba -> isGazos()");
         return gazos;
     }
 
@@ -201,7 +194,6 @@ public class Szoba {
      * @param gaz gázosság
      */
     public void setGaz(boolean gaz) {
-        System.out.println("Szoba -> setGaz()");
         this.gazos = gaz;
     }
 
@@ -211,7 +203,6 @@ public class Szoba {
      * @return oktatók listája
      */
     public ArrayList<Oktato> getOktatok() {
-        System.out.println("Szoba -> getOktatok()");
         return oktatok;
     }
 
@@ -230,7 +221,6 @@ public class Szoba {
      * @return hallgatók listája
      */
     public ArrayList<Hallgato> getHallgatok() {
-        System.out.println("Szoba -> getHallgatok()");
         return hallgatok;
     }
 
@@ -249,7 +239,6 @@ public class Szoba {
      * @param o az oktató, akit töröl
      */
     public void removeOktato(Oktato o) {
-        System.out.println("Szoba -> removeOktato()");
         oktatok.remove(o);
     }
 
@@ -259,7 +248,6 @@ public class Szoba {
      * @param h az hallgató, akit töröl
      */
     public void removeHallgato(Hallgato h) {
-        System.out.println("Szoba -> removeHallgato()");
         hallgatok.remove(h);
     }
 
@@ -269,7 +257,6 @@ public class Szoba {
      * @param o az oktató, akit addol
      */
     public boolean addOktato(Oktato o) {
-        System.out.println("Szoba -> addOktato()");
         if (befer()) {
             oktatok.add(o);
             if (isGazos()) {
@@ -294,7 +281,6 @@ public class Szoba {
      * @param h az hallgató, akit addol
      */
     public boolean addHallgato(Hallgato h) {
-        System.out.println("Szoba -> addHallgato()");
         if (befer()) {
             hallgatok.add(h);
             if (isGazos()) {
@@ -360,7 +346,6 @@ public class Szoba {
      * @return Szomszédok listája
      */
     public ArrayList<Szoba> getSzomszedok() {
-        System.out.println("Szoba -> getSzomszedok()");
         return szomszedok;
     }
 
@@ -370,7 +355,6 @@ public class Szoba {
      * @param szomszedok
      */
     public void setSzomszedok(ArrayList<Szoba> szomszedok) {
-        System.out.println("Szoba -> setSzomszedok()");
         this.szomszedok = szomszedok;
     }
 
@@ -381,7 +365,6 @@ public class Szoba {
      */
     public void deleteHallgato(Hallgato h) {
         palya.removeHallgato(h);
-        System.out.println("Palya -> hallgatok.remove(Hallgato)");
         if (palya.getHallgatok().size() == 0)
             palya.getGame().endgame();
     }
@@ -392,7 +375,6 @@ public class Szoba {
      * @param sz új szomszéd
      */
     public void addSzomszed(Szoba sz) {
-        System.out.println("Szoba -> addSzomszed()");
         szomszedok.add(sz);
     }
 
@@ -402,7 +384,6 @@ public class Szoba {
      * @param sz törlendő szomszéd
      */
     public void removeSzomszed(Szoba sz) {
-        System.out.println("Szoba -> removeSzomszed()");
         szomszedok.remove(sz);
     }
 
@@ -412,7 +393,6 @@ public class Szoba {
      * @return befogadóképesség
      */
     public int getBefogadokepesseg() {
-        System.out.println("Szoba -> getBefogadokepesseg()");
         return befogadokepesseg;
     }
 

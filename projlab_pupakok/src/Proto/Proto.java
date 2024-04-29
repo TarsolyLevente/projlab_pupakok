@@ -507,13 +507,13 @@ public class Proto {
                     return;
                 case 1000:  ///Minden teszt futtatása.
                     boolean siker = true;
-                    for(int i = 0; i < /*Mennyi teszt lesz???????? */; ++i){
+                    for(int i = 1; i < 26; ++i){
                         String kimenet = checkoutput("input" + i, "output" + i);
                         if(!kimenet.equals("A teszt sikeres volt.")){
                             siker = false;
                         }
                     }
-                    if(sikrer){
+                    if(siker){
                         System.out.println("Minden teszt sikeres volt.");
                     } else{
                         System.out.println("Nem minden teszt sikeres.");

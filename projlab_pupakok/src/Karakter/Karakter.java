@@ -57,6 +57,20 @@ public abstract class Karakter
         this.eszmeletvesztett = eszmeletvesztett;
     }
 
+    /*
+     * Setter az id-ra.
+     */
+    public void setid(String s){
+        id = s;
+    }
+
+    /*
+     * Getter az id-ra.
+     */
+    public String getid(){
+        return id;
+    }
+
     /**
      * szoba gettere
      */
@@ -108,7 +122,6 @@ public abstract class Karakter
 
     public boolean vedette(Vedettseg v)
     {
-        System.out.println("Karakter ->vedette()");
         if (v == Vedettseg.oktatotol) {
             for (int i = 0; i < taska.size(); i++) {
                 if (taska.get(i).getFunkcio() == Funkcio.oktatot_tamad) {
