@@ -66,11 +66,11 @@ public class Proto {
                     String s = connect(palya, str[1], str[2]);
                     output.add(s);
                 } else if(str[0].equals("general")){
-                    //String s = general();
-                    //output.add(s);
+                    String s = general();
+                    output.add(s);
                 } else if(str[0].equals("leptet")){
-                    //String s = leptet();
-                    //output.add(s);
+                    String s = leptet();
+                    output.add(s);
             }
                 else{
                     String s = "Hiba az " + linenum + ". sorban.";
