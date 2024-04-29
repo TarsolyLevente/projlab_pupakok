@@ -174,7 +174,7 @@ public class Szoba {
             this.targy_elhelyezese(targy);
         }
         for (Szoba szoba : sz.getSzomszedok()) {
-            if (!this.szomszedok.contains(szoba))
+            if (!this.szomszedok.contains(szoba) && szoba != this)
                 this.addSzomszed(szoba);
             szoba.removeSzomszed(sz);
             szoba.addSzomszed(this);
