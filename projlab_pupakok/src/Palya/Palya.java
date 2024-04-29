@@ -211,6 +211,11 @@ public class Palya {
             }
         }
 
+        for (Oktato oktato : oktatok)
+        {
+            oktato.felvesz(oktato.getSzoba().getTargyak().get(0));
+        }
+
         // lépés a takarítóval
         if (toggle_random) {
             for (Takarito takarito : takaritok) {
