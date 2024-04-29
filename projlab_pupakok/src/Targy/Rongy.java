@@ -2,8 +2,7 @@ package Targy;
 
 import Szoba.*;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import javax.swing.*;
 
 public class Rongy extends PasszivTargy{
     /**
@@ -14,9 +13,19 @@ public class Rongy extends PasszivTargy{
     }
 
     /**
+     * Számláló a Timerhez.
+     */
+    private int counter = 0;
+
+    /**
      * Meghatározza, hogy mennyi ideig használható még a Rongy tárgy.
      */
-    private Timer timer;
+    Timer t = new Timer(1000, e -> {
+        counter++;
+        if(counter == 5){
+            setToltet();
+        }
+    });
 
     /**
      * Segít eldönteni, hogy pontosan meddig védi meg a játékost a Rongy az oktatók ellen.
@@ -25,13 +34,7 @@ public class Rongy extends PasszivTargy{
      * Ha lejár az idő, akkor a tárgy eltűnik a hallgató invertory-ából.
      */
     public void tick(){
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                setToltet();
-            }
-        }, 5 * 60 * 1000);
+        t.start();
     }
 
     /**
@@ -45,7 +48,7 @@ public class Rongy extends PasszivTargy{
      * A Rongy tárgy általi megvalósítása az absztrakt use() függvénynek.
      */
     public void use(){
-        //hát így kinda nem csinál semmit
+        tick();
     }
 
     public String toString(Funkcio funkcio) {
