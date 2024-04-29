@@ -160,6 +160,37 @@ public class Szoba {
         return false;
     }
 
+        /**
+     * Egy szoba a két eredeti szobájává osztódik (A tesztekhez).
+     */
+    public boolean osztodik2() {
+        if (!regiszobak.isEmpty()) {
+            Szoba regi = regiszobak.get(1);
+            Szoba uj = new Szoba(regi.gazos, regi.befogadokepesseg);
+            for (Targy regitargy : regi.getTargyak()) {
+                for (Targy targy : this.getTargyak()) {
+                    if (regitargy == targy) {
+                        this.targy_eltuntetese(targy);
+                        uj.targy_elhelyezese(targy);
+                    }
+                }
+            }
+            regiszobak = new ArrayList<Szoba>();
+            ArrayList<Szoba> regiszomszedok = regi.getSzomszedok();
+            ArrayList<Szoba> szomszedok = this.getSzomszedok();
+            for (int i = 0; i < regiszomszedok.size(); i++) {
+                for (int j = 0; j < szomszedok.size(); j++) {
+                    if (regiszomszedok.get(i) == szomszedok.get(j)) {
+                        uj.addSzomszed(szomszedok.get(j));
+                        this.removeSzomszed(szomszedok.get(j));
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
     /**
      * A szoba egyesül a paraméterben kapott szobával
      * 
@@ -178,6 +209,25 @@ public class Szoba {
             szoba.addSzomszed(this);
         }
         palya.removeSzoba(sz);
+    }
+
+        /**
+     * A szoba egyesül a paraméterben kapott szobával
+     * 
+     * @param sz a szoba, amivel egyesül
+     */
+    public void egyesul2(Szoba sz, Palya p) {
+        regiszobak.add(sz);
+        regiszobak.add(this);
+        for (Targy targy : sz.getTargyak()) {
+            this.targy_elhelyezese(targy);
+        }
+       for (Szoba szoba : sz.getSzomszedok()) {
+            if (!this.szomszedok.contains(szoba))
+               this.addSzomszed(szoba);
+           szoba.removeSzomszed(sz);
+           szoba.addSzomszed(this);
+        }
     }
 
     /**
@@ -460,8 +510,8 @@ public class Szoba {
      */
     private boolean befer() {
         if (befogadokepesseg - (hallgatok.size() + oktatok.size() + takaritok.size()) >= 1)
-            return false;
-        return true;
+            return true;
+        return false;
     }
 
     /**

@@ -66,11 +66,11 @@ public class Proto {
                     String s = connect(palya, str[1], str[2]);
                     output.add(s);
                 } else if(str[0].equals("general")){
-                    String s = general();
-                    output.add(s);
+                    //String s = general();
+                    //output.add(s);
                 } else if(str[0].equals("leptet")){
-                    String s = leptet();
-                    output.add(s);
+                    //String s = leptet();
+                    //output.add(s);
             }
                 else{
                     String s = "Hiba az " + linenum + ". sorban.";
@@ -267,14 +267,28 @@ public class Proto {
                         Targy t = hallgato.getSzoba().getTargyak().get(i);
                         hallgato.felvesz(t);
                         if (hallgato.getTaska().contains(t))
-                            return "A tárgy felvétele sikeres.";
+                            return "Tárgy felvétele sikeres.";
                         else
-                            return "A tárgy felvétele sikertelen.";
+                            return "Tárgy felvétele sikertelen.";
                     }
                 }
             }
         }
-        return "A tárgy felvétele sikertelen.";
+        for (Oktato oktato : palya.getOktatok()) {
+            if (oktato.getid().equals(s1)) {
+                for (int i = 0; i < oktato.getSzoba().getTargyak().size(); i++) {
+                    if (oktato.getSzoba().getTargyak().get(i).getId().equals(s2)) {
+                        Targy t = oktato.getSzoba().getTargyak().get(i);
+                        oktato.felvesz(t);
+                        if (oktato.getTaska().contains(t))
+                            return "Tárgy felvétele sikeres.";
+                        else
+                            return "Tárgy felvétele sikertelen.";
+                    }
+                }
+            }
+        }
+        return "Tárgy felvétele sikertelen.";
     }
 
     public String throw_item(Palya palya, String s1, String s2) {
@@ -285,41 +299,42 @@ public class Proto {
                         Targy t = hallgato.getTaska().get(i);
                         hallgato.eldob(t);
                         if (!(hallgato.getTaska().contains(t)))
-                            return "A tárgy sikeresen eltűnt.";
+                            return "Tárgy sikeresen eltűnt.";
                         else
-                            return "A tárgy eltűntetése sikertelen.";
+                            return "Tárgy eltűntetése sikertelen.";
                     }
                 }
             }
         }
-        return "A tárgy eltűntetése sikertelen.";
+        return "Tárgy eltűntetése sikertelen.";
     }
 
     public String use(Palya palya, String s1, String s2) {
         for (Hallgato hallgato : palya.getHallgatok()) {
             if (hallgato.getid().equals(s1)) {
+                System.out.println(hallgato.getTaska().size());
                 for (int i = 0; i < hallgato.getTaska().size(); i++) {
                     if (hallgato.getTaska().get(i).getId().equals(s2)) {
                         Targy t = hallgato.getTaska().get(i);
                         t.use();
                         if ((t instanceof Camembert)) {
                             if (t.getSzoba().isGazos())
-                                return "A tárgy használata sikeres.";
+                                return "Tárgy használata sikeres.";
                             else
-                                return "A tárgy használata sikertelen.";
+                                return "Tárgy használata sikertelen.";
                         }
                         if ((t instanceof Legfrissito)) {
                             if (!(t.getSzoba().isGazos()))
-                                return "A tárgy használata sikeres.";
+                                return "Tárgy használata sikeres.";
                             else
-                                return "A tárgy használata sikertelen.";
+                                return "Tárgy használata sikertelen.";
                         }
                         if ((t instanceof Tranzisztor)) {
                             if (t.getSzoba().getTargyak().contains(t) && ((Tranzisztor) t).getAktiv()
                                     || hallgato.getSzoba() == ((Tranzisztor) t).getTars().getSzoba())
-                                return "A tárgy használata sikeres.";
+                                return "Tárgy használata sikeres.";
                             else
-                                return "A tárgy használata sikertelen.";
+                                return "Tárgy használata sikertelen.";
                         }
                     }
                 }
@@ -355,8 +370,8 @@ public class Proto {
     private String split(Palya palya, String string) {
         boolean siker = false;
         for (Szoba Szoba : palya.getSzobak()) {
-            if (Szoba.getid() == string) {
-                siker = Szoba.osztodik();
+            if (Szoba.getid().equals(string)) {
+                siker = Szoba.osztodik2();
             }
         }
 
@@ -371,19 +386,18 @@ public class Proto {
 
     private String merge(Palya palya, String string, String string2) {
         for (Szoba Szoba1 : palya.getSzobak()) {
-            if (Szoba1.getid() == string) {
+            if (Szoba1.getid().equals(string)) {
                 for (Szoba Szoba2 : palya.getSzobak()) {
-                    if (Szoba2.getid() == string2) {
-                        Szoba1.egyesul(Szoba2);
+                    if (Szoba2.getid().equals(string2)) {
+                        Szoba1.egyesul2(Szoba2, palya);
                     }
                 }
             }
         }
-
         for (Szoba Szoba1 : palya.getSzobak()) {
-            if (Szoba1.getid() == string) {
+            if (Szoba1.getid().equals(string)) {
                 for (Szoba Szobaregi : Szoba1.getRegiszobak()) {
-                    if (Szobaregi.getid() == string2) {
+                    if (Szobaregi.getid().equals(string2)) {
                         return "Egyesülés sikeres.";
                     }
                 }
@@ -403,13 +417,11 @@ public class Proto {
         } else {
             ElatkozottSzoba sz2 = new ElatkozottSzoba(c, a, b, palya);
         }
+
         for (Szoba szoba : palya.getSzobak()) {
-            if(szoba.getid() == c  && szoba.getBefogadokepesseg() == b && szoba.isGazos() == a ){
+            if (szoba.getid() == c && szoba.getBefogadokepesseg() == b && szoba.isGazos() == a) {
 
-        for (Szoba Szoba : palya.getSzobak()) {
-            if (Szoba.getid() == c && Szoba.getBefogadokepesseg() == b && Szoba.isGazos() == a) {
-
-                if ((Szoba instanceof ElatkozottSzoba) && "1".equals(string4)) {
+                if ((szoba instanceof ElatkozottSzoba) && "1".equals(string4)) {
                     ret = "Szoba hozzáadása sikeres.";
                 } else if (!(szoba instanceof ElatkozottSzoba) && "0".equals(string4)) {
                     ret = "Szoba hozzáadása sikeres.";

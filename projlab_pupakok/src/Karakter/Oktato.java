@@ -57,5 +57,6 @@ public class Oktato extends Karakter
         t.setBirtokos(this);
         t.setSzoba(getSzoba());
         getSzoba().targy_eltuntetese(t);
+        taska.add(t);
     }
 }

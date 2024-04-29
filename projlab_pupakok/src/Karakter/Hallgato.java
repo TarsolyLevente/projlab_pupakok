@@ -23,6 +23,7 @@ public class Hallgato extends Karakter {
     public void eldob(Targy t) {
         szoba.targy_elhelyezese(t);
         t.setBirtokos(null);
+        taska.remove(t);
     }
 
     /**
@@ -100,7 +101,7 @@ public class Hallgato extends Karakter {
                 }
             }
             t.setBirtokos(this);
-            t.setSzoba(null);
+            t.setSzoba(getSzoba());
             getSzoba().targy_eltuntetese(t);
             taska.add(t);
         }

@@ -50,7 +50,6 @@ public abstract class Targy {
 	 * A szoba tagváltozó getter-e.
 	 */
 	public Szoba getSzoba() {
-		System.out.println("Targy -> getSzoba()");
 		return szoba;
 	}
 
