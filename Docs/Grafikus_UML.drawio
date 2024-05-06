@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-05-06T10:05:45.805Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="dY0tRYVEfICnYcuoq_hG" version="24.3.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-06T10:19:18.917Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="tlJfdoyJT6IyaUJIHe29" version="24.3.1" type="device">
   <diagram name="1 oldal" id="tLw0tidtxDqz3gJugivi">
     <mxGraphModel dx="671" dy="745" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -16,7 +16,7 @@
         <mxCell id="gNYeDvKaOy3cOVmPAeON-14" value="RoomFrame" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="414" y="30" width="176" height="148" as="geometry" />
         </mxCell>
-        <mxCell id="gNYeDvKaOy3cOVmPAeON-15" value="&lt;div&gt;- szobak : ArraylList&amp;lt;Szoba&amp;gt;&lt;/div&gt;&lt;div&gt;- panel: JPanel&lt;/div&gt;&lt;div&gt;- JScrollPane scrollPane&lt;/div&gt;&lt;div&gt;- roomlist: JList&lt;/div&gt;&lt;div&gt;- movebutton: JButton&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="gNYeDvKaOy3cOVmPAeON-14" vertex="1">
+        <mxCell id="gNYeDvKaOy3cOVmPAeON-15" value="&lt;div&gt;- hallgato: Hallgato&lt;/div&gt;&lt;div&gt;- panel: JPanel&lt;/div&gt;&lt;div&gt;- JScrollPane scrollPane&lt;/div&gt;&lt;div&gt;- roomlist: JList&lt;/div&gt;&lt;div&gt;- movebutton: JButton&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="gNYeDvKaOy3cOVmPAeON-14" vertex="1">
           <mxGeometry y="26" width="176" height="114" as="geometry" />
         </mxCell>
         <mxCell id="gNYeDvKaOy3cOVmPAeON-16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="gNYeDvKaOy3cOVmPAeON-14" vertex="1">
@@ -25,7 +25,7 @@
         <mxCell id="gNYeDvKaOy3cOVmPAeON-18" value="ItemFrame" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="180" y="100" width="160" height="148" as="geometry" />
         </mxCell>
-        <mxCell id="gNYeDvKaOy3cOVmPAeON-19" value="&lt;div&gt;- targyak : ArrayList&amp;lt;Targy&amp;gt;&lt;/div&gt;&lt;div&gt;- panel: JPanel&lt;/div&gt;&lt;div&gt;- JScrollPane scrollPane&lt;/div&gt;&lt;div&gt;- itemlist: JList&lt;/div&gt;&lt;div&gt;- pickupbutton: JButton&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="gNYeDvKaOy3cOVmPAeON-18" vertex="1">
+        <mxCell id="gNYeDvKaOy3cOVmPAeON-19" value="&lt;div&gt;- hallgato: Hallgato&lt;/div&gt;&lt;div&gt;- panel: JPanel&lt;/div&gt;&lt;div&gt;- JScrollPane scrollPane&lt;/div&gt;&lt;div&gt;- itemlist: JList&lt;/div&gt;&lt;div&gt;- pickupbutton: JButton&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="gNYeDvKaOy3cOVmPAeON-18" vertex="1">
           <mxGeometry y="26" width="160" height="114" as="geometry" />
         </mxCell>
         <mxCell id="gNYeDvKaOy3cOVmPAeON-20" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="gNYeDvKaOy3cOVmPAeON-18" vertex="1">
@@ -34,7 +34,7 @@
         <mxCell id="gNYeDvKaOy3cOVmPAeON-30" value="MenuPanel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="600" y="560" width="160" height="108" as="geometry" />
         </mxCell>
-        <mxCell id="gNYeDvKaOy3cOVmPAeON-31" value="-timeLabel: JLabel&lt;div&gt;-playerLabel: JLabel&lt;/div&gt;&lt;div&gt;-roomLabel: JLabel&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="gNYeDvKaOy3cOVmPAeON-30" vertex="1">
+        <mxCell id="gNYeDvKaOy3cOVmPAeON-31" value="&lt;div&gt;- hallgato: Hallgato&lt;/div&gt;-timeLabel: JLabel&lt;div&gt;-playerLabel: JLabel&lt;/div&gt;&lt;div&gt;-roomLabel: JLabel&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="gNYeDvKaOy3cOVmPAeON-30" vertex="1">
           <mxGeometry y="26" width="160" height="74" as="geometry" />
         </mxCell>
         <mxCell id="gNYeDvKaOy3cOVmPAeON-32" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="gNYeDvKaOy3cOVmPAeON-30" vertex="1">
