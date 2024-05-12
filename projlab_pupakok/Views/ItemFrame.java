@@ -1,3 +1,4 @@
+package Views;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -5,7 +6,7 @@ import java.util.ArrayList;
 
 //TODO
 //Hogyan adjuk át neki a szobát.
-public class RoomFrame extends JFrame{
+public class ItemFrame extends JFrame{
     //Ablak mérete statikus tagváltozókban.
     private final int height = 500;
     private final int width = 315;
@@ -13,14 +14,11 @@ public class RoomFrame extends JFrame{
     //Az ablakot felépítő panel, lista és gomb.
     private JPanel panel = new JPanel();
     private JScrollPane scrollpane;
-    private JList<ImageIcon> roomlist;
-    private JButton movebutton = new JButton("Move");
+    private JList<ImageIcon> itemlist;
+    private JButton pickupbutton = new JButton("Felvesz");
 
-    /*
-     * A Frame konstruktora.
-     */
-    public RoomFrame(){
-        super("Room " + room_id + " szomszedjai");
+    public ItemFrame(){
+        super("Room " + room_id + " targyai");
         setSize(height, width);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -28,26 +26,27 @@ public class RoomFrame extends JFrame{
     }
 
     /*
-     * A Framet inicializáló függvény.
-     */
+    * A Framet inicializáló függvény.
+    */
     private void initComponents(){
         this.setLayout(new BorderLayout());
         panel.setLayout(new BorderLayout());
 
+
         //TODO
         //Elő kell állítani a megjelenítendő ImageIcon tömböt.
-        roomlist = new JList<>();
-        roomlist.setCellRenderer(new ImageListCellRenderer());
+        itemlist = new JList<>();
+        itemlist.setCellRenderer(new ImageListCellRenderer());
 
 
-        scrollpane = new JScrollPane(roomlist);
+        scrollpane = new JScrollPane(itemlist);
 
-        movebutton.addActionListener(e -> {
+        pickupbutton.addActionListener(e -> {
             //TODO
         });
 
         panel.add(scrollpane, BorderLayout.EAST);
-        panel.add(movebutton, BorderLayout.WEST);
+        panel.add(pickupbutton, BorderLayout.WEST);
         add(panel);
     }
 
@@ -72,3 +71,4 @@ public class RoomFrame extends JFrame{
         }
     }
 }
+
