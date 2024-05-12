@@ -1,5 +1,4 @@
 package Views;
-import Game;
 
 import javax.swing.*;
 
