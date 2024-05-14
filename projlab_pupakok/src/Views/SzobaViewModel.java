@@ -46,7 +46,7 @@ public class SzobaViewModel{
     /*
      * Visszaadja a szoba háttérszínét annak függvényében, hogy a szoba gázos-e vagy nem.
      */
-    public Color setSzobaBackgroundColor(){
+    public Color giveSzobaBackgroundColor(){
         Color green = Color.GREEN;
         Color defa = UIManager.getColor("Panel.background");
         if(szoba.isGazos()){
@@ -59,7 +59,7 @@ public class SzobaViewModel{
     /*
      * Visszaadja a szoba keretének a színét annak függvényében, hogy a szoba elátkozott-e vagy nem.
      */
-    public Color setSzobaFrameColor(){
+    public Color giveSzobaFrameColor(){
         Color pink = Color.PINK;
         Color defa = UIManager.getColor("Panel.background");
         if(szoba instanceof ElatkozottSzoba){
