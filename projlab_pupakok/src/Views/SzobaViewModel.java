@@ -31,6 +31,28 @@ public class SzobaViewModel{
         }
         return images;
     }
+
+    /*
+     *Visszaadja egy tömbben az adott szobában található karakterek képeit.
+     */
+    public ImageIcon[] getCharactersPictures(){
+        int h = szoba.getHallgatok().size();
+        int o = szoba.getOktatok().size();
+        int t = szoba.getTakaritok().size();
+        int n = h + o + t;
+        ImageIcon[] images = new ImageIcon[n];
+        for(int i = 0; i < h; ++i){
+            images[i] = // TODO
+        }
+        for(int i = 0; i < o; ++i){
+            images[h + i] = //TODO
+        }
+        for(int i = 0; i < t; ++i){
+            images[h + o + i] = //TODO
+        }
+        return images;
+    }
+
     /*
      * Visszaadja a szomszédos szobák 
      */

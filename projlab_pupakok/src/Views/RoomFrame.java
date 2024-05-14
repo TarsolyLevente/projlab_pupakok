@@ -1,5 +1,8 @@
 package Views;
 import javax.swing.*;
+
+import Szoba.Szoba;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -38,7 +41,6 @@ public class RoomFrame extends JFrame{
         //TODO
         //Elő kell állítani a megjelenítendő ImageIcon tömböt.
         roomlist = new JList<>();
-        roomlist.setCellRenderer(new ImageListCellRenderer());
 
 
         scrollpane = new JScrollPane(roomlist);
@@ -50,26 +52,5 @@ public class RoomFrame extends JFrame{
         panel.add(scrollpane, BorderLayout.EAST);
         panel.add(movebutton, BorderLayout.WEST);
         add(panel);
-    }
-
-    private class ImageListCellRenderer extends JLabel implements ListCellRenderer<ImageIcon> {
-        public ImageListCellRenderer() {
-            setOpaque(true);
-            setHorizontalAlignment(CENTER);
-            setVerticalAlignment(CENTER);
-        }
-
-        @Override
-        public Component getListCellRendererComponent(JList<? extends ImageIcon> list, ImageIcon value, int index, boolean isSelected, boolean cellHasFocus) {
-            setIcon(value);
-            if (isSelected) {
-                setBackground(list.getSelectionBackground());
-                setForeground(list.getSelectionForeground());
-            } else {
-                setBackground(list.getBackground());
-                setForeground(list.getForeground());
-            }
-            return this;
-        }
     }
 }
