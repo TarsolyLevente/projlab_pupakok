@@ -4,9 +4,11 @@ import java.io.InputStreamReader;
 
 import Game.Game;
 import Proto.Proto;
+import Views.HomeFrame;
 
 public class Main {
     public static void main(String[] args) {
+        HomeFrame test = new HomeFrame();
         InputStreamReader str = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(str);
         String val = "";

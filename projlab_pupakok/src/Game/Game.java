@@ -174,4 +174,7 @@ public class Game {
             System.out.println("Sikerült megtalálni a logarlécet! Győzelem!");
         System.exit(0);
     }
+
+    public Palya getPalya() {return palya;}
+
 }
