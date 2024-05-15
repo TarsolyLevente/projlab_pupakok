@@ -1,4 +1,4 @@
-package Views;
+package ViewModels;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -7,7 +7,7 @@ import java.awt.Color;
 
 import Szoba.*;
 
-public class SzobaViewModel{
+public class SzobaViewModel {
     /*
      * Az adott szoba osztály elérése a modellben.
      */
@@ -16,7 +16,7 @@ public class SzobaViewModel{
     /*
      * SzobaViewModel konstruktora, paraméterben az aktuális szoba.
      */
-    public SzobaViewModel(Szoba sz){
+    public SzobaViewModel(Szoba sz) {
         szoba = sz;
     }
 
@@ -33,62 +33,64 @@ public class SzobaViewModel{
     }
 
     /*
-     *Visszaadja egy tömbben az adott szobában található karakterek képeit.
+     * Visszaadja egy tömbben az adott szobában található karakterek képeit.
      */
-    public ImageIcon[] getCharactersPictures(){
+    public ImageIcon[] getCharactersPictures() {
         int h = szoba.getHallgatok().size();
         int o = szoba.getOktatok().size();
         int t = szoba.getTakaritok().size();
         int n = h + o + t;
         ImageIcon[] images = new ImageIcon[n];
-        for(int i = 0; i < h; ++i){     //hallgatok
+        for (int i = 0; i < h; ++i) { // hallgatok
             images[i] = new ImageIcon("resources/student.png");
         }
-        for(int i = 0; i < o; ++i){     //oktatok
+        for (int i = 0; i < o; ++i) { // oktatok
             images[h + i] = new ImageIcon("resources/teacher.png");
         }
-        for(int i = 0; i < t; ++i){     //takaritok
+        for (int i = 0; i < t; ++i) { // takaritok
             images[h + o + i] = new ImageIcon("resources/janitor.png");
         }
         return images;
     }
 
     /*
-     * Visszaadja a szomszédos szobák 
+     * Visszaadja a szomszédos szobák
      */
-    public String[] getNeighbouringRoomsNames(){
+    public String[] getNeighbouringRoomsNames() {
         int n = szoba.getSzomszedok().size();
         String[] szomszedokneve = new String[n];
-        for(int i = 0; i < n; ++i){
+        for (int i = 0; i < n; ++i) {
             szomszedokneve[i] = "Szoba " + szoba.getSzomszedok().get(0).getid();
         }
         return szomszedokneve;
     }
 
     /*
-     * Visszaadja a szoba háttérszínét annak függvényében, hogy a szoba gázos-e vagy nem.
+     * Visszaadja a szoba háttérszínét annak függvényében, hogy a szoba gázos-e vagy
+     * nem.
      */
-    public Color giveSzobaBackgroundColor(){
+    public Color giveSzobaBackgroundColor() {
         Color green = Color.GREEN;
         Color defa = UIManager.getColor("Panel.background");
-        if(szoba.isGazos()){
+        if (szoba.isGazos()) {
             return green;
-        } else{
+        } else {
             return defa;
         }
     }
 
     /*
-     * Visszaadja a szoba keretének a színét annak függvényében, hogy a szoba elátkozott-e vagy nem.
+     * Visszaadja a szoba keretének a színét annak függvényében, hogy a szoba
+     * elátkozott-e vagy nem.
      */
-    public Color giveSzobaFrameColor(){
+    public Color giveSzobaFrameColor() {
         Color pink = Color.PINK;
         Color defa = UIManager.getColor("Panel.background");
-        if(szoba instanceof ElatkozottSzoba){
+        if (szoba instanceof ElatkozottSzoba) {
             return pink;
-        } else{
+        } else {
             return defa;
         }
     }
-    
+
 }
