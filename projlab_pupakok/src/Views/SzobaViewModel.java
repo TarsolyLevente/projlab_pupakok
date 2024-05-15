@@ -41,14 +41,14 @@ public class SzobaViewModel{
         int t = szoba.getTakaritok().size();
         int n = h + o + t;
         ImageIcon[] images = new ImageIcon[n];
-        for(int i = 0; i < h; ++i){
-            images[i] = // TODO
+        for(int i = 0; i < h; ++i){     //hallgatok
+            images[i] = new ImageIcon("resources/student.png");
         }
-        for(int i = 0; i < o; ++i){
-            images[h + i] = //TODO
+        for(int i = 0; i < o; ++i){     //oktatok
+            images[h + i] = new ImageIcon("resources/teacher.png");
         }
-        for(int i = 0; i < t; ++i){
-            images[h + o + i] = //TODO
+        for(int i = 0; i < t; ++i){     //takaritok
+            images[h + o + i] = new ImageIcon("resources/janitor.png");
         }
         return images;
     }
