@@ -2,6 +2,8 @@ package Views;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -11,6 +13,8 @@ import Karakter.Hallgato;
 
 public class GameFrame extends JFrame
 {
+    private GameViewModel viewModel= new GameViewModel(new Game());
+    private UserPanel userPanel = new UserPanel();
     private final int height = 500;
     private final int width = 315;
     private JPanel gamePanel = new JPanel();
@@ -39,9 +43,21 @@ public class GameFrame extends JFrame
             characterLabels.add(new JLabel("" + hallgato.getid()));
             //Mit mutasson épp?
         }
-        gamePanel.add(rootPane);
+        
+
+        chestButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ItemFrame();
+            }
+        });
+
+        //viewModel.start();
+        this.add(gamePanel, BorderLayout.SOUTH);
+        this.add(userPanel, BorderLayout.EAST);
         this.setVisible(true);
         //TODO aktiv tranzisztorok?
-    }
 
+        
+    }
 }
