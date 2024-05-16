@@ -1,4 +1,4 @@
-package Views;
+package ViewModels;
 import Palya.Palya;
 
 public class MapViewModel {

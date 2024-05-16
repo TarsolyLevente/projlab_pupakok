@@ -1,4 +1,4 @@
-package Views;
+package ViewModels;
 
 import Game.Game;
 import Karakter.Hallgato;

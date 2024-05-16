@@ -10,11 +10,15 @@ import javax.swing.*;
 
 import Game.Game;
 import Karakter.Hallgato;
+import Szoba.Szoba;
+import ViewModels.GameViewModel;
+import ViewModels.HallgatoViewModel;
+import ViewModels.SzobaViewModel;
 
 public class GameFrame extends JFrame
 {
     private GameViewModel viewModel= new GameViewModel(new Game());
-    private UserPanel userPanel = new UserPanel();
+    private UserPanel userPanel = new UserPanel(new HallgatoViewModel());
     private final int height = 500;
     private final int width = 315;
     private JPanel gamePanel = new JPanel();
@@ -29,6 +33,7 @@ public class GameFrame extends JFrame
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setExtendedState(this.MAXIMIZED_BOTH);
         initComponents();
     };
 
@@ -48,7 +53,7 @@ public class GameFrame extends JFrame
         chestButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ItemFrame();
+      //          new ItemFrame(new SzobaViewModel(new Szoba(true, 2), ));
             }
         });
 
