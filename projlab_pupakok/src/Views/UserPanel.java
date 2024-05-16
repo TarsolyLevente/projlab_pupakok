@@ -1,6 +1,9 @@
 package Views;
 
 import javax.swing.*;
+
+import ViewModels.HallgatoViewModel;
+
 import java.awt.Image; // Import the Image class from java.awt
 import javax.imageio.ImageIO; // Import the ImageIO class from javax.imageio
 import java.awt.BorderLayout; // Import the BorderLayout class from java.awt
@@ -11,15 +14,17 @@ public class UserPanel extends JPanel {
     private JButton useButton = new JButton("Használ");
     private JButton throwButton = new JButton("Eldob");
     private JButton roomButton = new JButton("Mozog");
+    private HallgatoViewModel hVM;
 
-    public UserPanel() {
+    public UserPanel(HallgatoViewModel viewModel) {
+        hVM = viewModel;
         initComponents();
     }
 
     private void initComponents() {
         setLayout(new BorderLayout());
         scrollpane = new JScrollPane(targyLista);
-        // TODO init targyLista
+
 
         try {
             Image img = ImageIO.read(getClass().getResource("resources/move.png"));
@@ -29,13 +34,13 @@ public class UserPanel extends JPanel {
         }
 
         useButton.addActionListener(e -> {
-            // TODO
+            hVM.hasznal(targyLista.getSelectedIndex());
         });
         throwButton.addActionListener(e -> {
-            // TODO
+            hVM.hasznal(targyLista.getSelectedIndex());
         });
         roomButton.addActionListener(e -> {
-            // TODO
+            hVM.mozgas();
         });
 
         add(scrollpane, BorderLayout.NORTH);

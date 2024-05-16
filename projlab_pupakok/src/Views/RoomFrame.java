@@ -2,6 +2,7 @@ package Views;
 import javax.swing.*;
 
 import Szoba.Szoba;
+import ViewModels.HallgatoViewModel;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -23,7 +24,7 @@ public class RoomFrame extends JFrame{
     /*
      * A Frame konstruktora.
      */
-    public RoomFrame(){
+    public RoomFrame(HallgatoViewModel hvm) {
         super("Room " + room_id + " szomszedjai");
         setSize(height, width);
         setResizable(false);

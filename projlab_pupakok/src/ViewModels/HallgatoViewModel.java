@@ -4,6 +4,7 @@ import Karakter.Hallgato;
 import Szoba.Szoba;
 import Targy.Targy;
 import Targy.Tranzisztor;
+import Views.RoomFrame;
 
 public class HallgatoViewModel {
     private Hallgato hallgato;
@@ -31,8 +32,8 @@ public class HallgatoViewModel {
      * 
      * @param szoba A Szoba objektum, amelybe mozgatni kell.
      */
-    public void mozgas(Szoba szoba) {
-        hallgato.mozog(szoba);
+    public void mozgas() {
+        RoomFrame rf = new RoomFrame(this);
     }
 
     /**
@@ -40,8 +41,8 @@ public class HallgatoViewModel {
      * 
      * @param targy A használandó Targy objektum.
      */
-    public void hasznal(Targy targy) {
-        targy.use();
+    public void hasznal(int i) {
+        hallgato.getTaska().get(i).use();
     }
 
     /**
@@ -49,8 +50,8 @@ public class HallgatoViewModel {
      * 
      * @param targy Az eldobandó Targy objektum.
      */
-    public void eldob(Targy targy) {
-        hallgato.eldob(targy);
+    public void eldob(int i) {
+        hallgato.eldob(hallgato.getTaska().get(i));
     }
 
     /**
