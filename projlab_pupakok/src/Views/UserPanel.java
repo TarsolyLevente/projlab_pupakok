@@ -10,7 +10,7 @@ public class UserPanel extends JPanel {
     private JList<ImageIcon> targyLista;
     private JButton useButton = new JButton("Használ");
     private JButton throwButton = new JButton("Eldob");
-    private JButton roomButton = new JButton("Használ");
+    private JButton roomButton = new JButton("Mozog");
 
     public UserPanel() {
         initComponents();
