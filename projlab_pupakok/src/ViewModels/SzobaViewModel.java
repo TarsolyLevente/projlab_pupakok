@@ -32,6 +32,13 @@ public class SzobaViewModel {
         return images;
     }
 
+
+    /*
+     * Aktív tranzisztorok képeinek visszaadása.
+     */
+    //TODO
+
+
     /*
      * Visszaadja egy tömbben az adott szobában található karakterek képeit.
      */
@@ -93,4 +100,10 @@ public class SzobaViewModel {
         }
     }
 
+    /*
+     * getter a szoba attribútumra
+     */
+    public Szoba getSzoba(){
+        return szoba;
+    }
 }

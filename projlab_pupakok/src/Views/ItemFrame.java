@@ -1,5 +1,9 @@
 package Views;
 import javax.swing.*;
+
+import ViewModels.HallgatoViewModel;
+import ViewModels.SzobaViewModel;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -17,25 +21,22 @@ public class ItemFrame extends JFrame{
     private JList<ImageIcon> itemlist;
     private JButton pickupbutton = new JButton("Felvesz");
 
-    public ItemFrame(){
-        super("Room " + room_id + " targyai");
+    public ItemFrame(SzobaViewModel szvm, HallgatoViewModel hvm){
+        super("Room " + szvm.getSzoba().getid() + " targyai");
         setSize(height, width);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        initComponents();
+        initComponents(szvm, hvm);
     }
 
     /*
     * A Framet inicializáló függvény.
     */
-    private void initComponents(){
+    private void initComponents(SzobaViewModel szvm, HallgatoViewModel hvm){
         this.setLayout(new BorderLayout());
         panel.setLayout(new BorderLayout());
 
-
-        //TODO
-        //Elő kell állítani a megjelenítendő ImageIcon tömböt.
-        itemlist = new JList<>();
+        itemlist = new JList<>(szvm.getItemsPictures());
         itemlist.setCellRenderer(new ImageListCellRenderer());
 
 
@@ -43,6 +44,8 @@ public class ItemFrame extends JFrame{
 
         pickupbutton.addActionListener(e -> {
             //TODO
+            // Hogyan rendeljük össze a képet a tárggyal??
+            hvm.felvesz();
         });
 
         panel.add(scrollpane, BorderLayout.EAST);

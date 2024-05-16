@@ -25,17 +25,17 @@ public class RoomFrame extends JFrame{
      * A Frame konstruktora.
      */
     public RoomFrame(HallgatoViewModel hvm) {
-        super("Room " + room_id + " szomszedjai");
+        super("Room " + hvm.getHallgato().getSzoba().getid() + " szomszedjai");
         setSize(height, width);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        initComponents();
+        initComponents(hvm);
     }
 
     /*
      * A Framet inicializáló függvény.
      */
-    private void initComponents(){
+    private void initComponents(HallgatoViewModel hvm){
         this.setLayout(new BorderLayout());
         panel.setLayout(new BorderLayout());
 
@@ -47,7 +47,7 @@ public class RoomFrame extends JFrame{
         scrollpane = new JScrollPane(roomlist);
 
         movebutton.addActionListener(e -> {
-            //TODO
+            hvm.mozgas();
         });
 
         panel.add(scrollpane, BorderLayout.EAST);
