@@ -43,9 +43,8 @@ public class ItemFrame extends JFrame{
         scrollpane = new JScrollPane(itemlist);
 
         pickupbutton.addActionListener(e -> {
-            //TODO
-            // Hogyan rendeljük össze a képet a tárggyal??
-            hvm.felvesz();
+            //összerendeljük a képet a tárggyal
+            hvm.felvesz(szvm.getSzoba().getTargyak().get(itemlist.getSelectedIndex()));
         });
 
         panel.add(scrollpane, BorderLayout.EAST);
