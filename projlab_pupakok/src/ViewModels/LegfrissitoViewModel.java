@@ -25,7 +25,7 @@ public class LegfrissitoViewModel extends ItemViewModel{
     /**
      * Getter függvény a Légfrissítő attribútumhoz.
      */
-    public Targy getLegfrissito() {
+    public Legfrissito getLegfrissito() {
         return legfrissito;
     }
 

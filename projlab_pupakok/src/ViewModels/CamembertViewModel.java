@@ -25,7 +25,7 @@ public class CamembertViewModel extends ItemViewModel{
     /**
      * Getter függvény a Camembert attribútumhoz.
      */
-    public Targy getCamembert() {
+    public Camembert getCamembert() {
         return camembert;
     }
 

@@ -25,7 +25,7 @@ public class TranzisztorViewModel extends ItemViewModel{
     /**
      * Getter függvény a Tranzisztor attribútumhoz.
      */
-    public Targy getTranzisztor() {
+    public Tranzisztor getTranzisztor() {
         return tranzisztor;
     }
 
