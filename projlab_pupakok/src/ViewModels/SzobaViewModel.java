@@ -54,10 +54,21 @@ public class SzobaViewModel {
      * visszaadja egy tömbben az adott szobában található tárgyak képeit.
      */
     public ImageIcon[] getItemsPictures(){
-        int n = szoba.getTargyak().size();
-        ImageIcon[] images = new ImageIcon[n];
-        for(int i = 0; i < n; ++i){
-            images[i] = //TODO
+        int itemcount = itemviewmodels.size();
+        int inactivtransistorcount = 0;
+        for(int i = 0; i < tranzisztorviewmodels.size(); ++i){
+            if(!tranzisztorviewmodels.get(i).getTranzisztor().getAktiv()){
+                inactivtransistorcount++;
+            }
+        }
+        ImageIcon[] images = new ImageIcon[inactivtransistorcount + itemcount];
+        for(int i = 0; i < itemcount; ++i){
+            images[i] = itemviewmodels.get(i).getItemImage();
+        }
+        for(int i = 0; i < tranzisztorviewmodels.size(); ++i){
+            if(!tranzisztorviewmodels.get(i).getTranzisztor().getAktiv()){
+                images[itemcount + i] = tranzisztorviewmodels.get(i).getItemImage(); 
+            }
         }
         return images;
     }
