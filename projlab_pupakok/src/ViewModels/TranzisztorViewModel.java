@@ -10,6 +10,10 @@ public class TranzisztorViewModel extends ItemViewModel{
      */
     private Tranzisztor tranzisztor;
 
+    public TranzisztorViewModel(Tranzisztor t){
+        tranzisztor = t;
+    }
+
     /**
      * Setter függvény a Tranzisztor attribútumhoz.
      * @param t - A beállítandó tárgy.

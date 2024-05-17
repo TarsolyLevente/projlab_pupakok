@@ -10,6 +10,10 @@ public class CamembertViewModel extends ItemViewModel{
      */
     private Camembert camembert;
 
+    public CamembertViewModel(Camembert c){
+        camembert = c;
+    }
+
     /**
      * Setter függvény a Camembert attribútumhoz.
      * @param c - A beállítandó tárgy.

@@ -6,18 +6,41 @@ import javax.swing.UIManager;
 import java.awt.Color;
 
 import Szoba.*;
+import Targy.Camembert;
+import Targy.Legfrissito;
+import Targy.Logarlec;
+import Targy.Maszk;
+import Targy.Rongy;
+import Targy.Sorospohar;
+import Targy.TVSZ;
+import Targy.Tranzisztor;
 
 public class SzobaViewModel {
     /*
      * Az adott szoba osztály elérése a modellben.
      */
-    protected Szoba szoba;
+    private Szoba szoba;
+
+    /*
+     * A szobában található tárgyak viewmodellei
+     */
+    private ArrayList<ItemViewModel> itemviewmodels;
 
     /*
      * SzobaViewModel konstruktora, paraméterben az aktuális szoba.
      */
     public SzobaViewModel(Szoba sz) {
         szoba = sz;
+        for(int i = 0; i < sz.getTargyak().size(); ++i){
+            if(sz.getTargyak().get(i) instanceof Camembert) itemviewmodels.add(new CamembertViewModel((Camembert)sz.getTargyak().get(i)));
+            if(sz.getTargyak().get(i) instanceof Legfrissito) itemviewmodels.add(new LegfrissitoViewModel((Legfrissito)sz.getTargyak().get(i)));
+            if(sz.getTargyak().get(i) instanceof Maszk) itemviewmodels.add(new MaszkViewModel((Maszk)sz.getTargyak().get(i)));
+            if(sz.getTargyak().get(i) instanceof Rongy) itemviewmodels.add(new RongyViewModel((Rongy)sz.getTargyak().get(i)));
+            if(sz.getTargyak().get(i) instanceof Sorospohar) itemviewmodels.add(new SorospoharViewModel((Sorospohar)sz.getTargyak().get(i)));
+            if(sz.getTargyak().get(i) instanceof Tranzisztor) itemviewmodels.add(new TranzisztorViewModel((Tranzisztor)sz.getTargyak().get(i)));
+            if(sz.getTargyak().get(i) instanceof Logarlec) itemviewmodels.add(new LogarlecViewModel((Logarlec)sz.getTargyak().get(i)));
+            if(sz.getTargyak().get(i) instanceof TVSZ) itemviewmodels.add(new TVSZViewModel((TVSZ)sz.getTargyak().get(i)));
+        }
     }
 
     /*
@@ -34,9 +57,11 @@ public class SzobaViewModel {
 
 
     /*
-     * Aktív tranzisztorok képeinek visszaadása.
+     * Aktív tranzisztorok viewmodelleinek visszaadása.
      */
-    //TODO
+    public ArrayList<TranzisztorViewModel> getActiveTransistorViewModels(){
+        
+    }
 
 
     /*

@@ -10,6 +10,10 @@ public class LegfrissitoViewModel extends ItemViewModel{
      */
     private Legfrissito legfrissito;
 
+    public LegfrissitoViewModel(Legfrissito l){
+        legfrissito = l;
+    }
+
     /**
      * Setter függvény a Légfrissítő attribútumhoz.
      * @param l - A beállítandó tárgy.
