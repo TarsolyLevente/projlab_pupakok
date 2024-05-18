@@ -22,7 +22,7 @@ public class UserPanel extends JPanel {
     }
 
     private void initComponents() {
-        setLayout(new BorderLayout());
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         scrollpane = new JScrollPane(targyLista);
 
 
@@ -43,9 +43,9 @@ public class UserPanel extends JPanel {
             hVM.mozgas();
         });
 
-        add(scrollpane, BorderLayout.NORTH);
-        add(useButton, BorderLayout.CENTER);
-        add(throwButton, BorderLayout.CENTER);
-        add(roomButton, BorderLayout.SOUTH);
+        add(scrollpane);
+        add(useButton);
+        add(throwButton);
+        add(roomButton);
     }
 }

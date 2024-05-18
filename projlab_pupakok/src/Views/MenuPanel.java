@@ -11,16 +11,16 @@ public class MenuPanel extends JPanel {
 
     public MenuPanel() {
         // Panel inicializálása és elrendezése
-        setLayout(new BorderLayout());
+        setLayout(new GridLayout());
         timeLabel = new JLabel("Idő: ");
         playerLabel = new JLabel("Játékos: ");
         roomLabel = new JLabel("Szoba: ");
 
 
         // Panel elemeinek hozzáadása a panelhez
-        add(timeLabel, BorderLayout.WEST);
-        add(playerLabel, BorderLayout.WEST);
-        add(roomLabel, BorderLayout.WEST);
+        add(timeLabel);
+        add(playerLabel);
+        add(roomLabel);
         
     }
 

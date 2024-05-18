@@ -1,12 +1,16 @@
 package Views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
 
 import Game.Game;
 import Karakter.Hallgato;
@@ -19,47 +23,41 @@ public class GameFrame extends JFrame
 {
     private GameViewModel viewModel= new GameViewModel(new Game());
     private UserPanel userPanel = new UserPanel(new HallgatoViewModel());
-    private final int height = 500;
-    private final int width = 315;
-    private JPanel gamePanel = new JPanel();
+    private MenuPanel menuPanel = new MenuPanel();
+    private final int height = 600;
+    private final int width = 600;
+    private GamePanel gamePanel = new GamePanel();
     public Game game = new Game();
-    private JButton chestButton = new JButton("Chest");
+    
     private ArrayList<JLabel> characterLabels = new ArrayList<JLabel>();
     private ArrayList<JButton> transistorButtons = new ArrayList<JButton>();
+    
+        
 
 
     public GameFrame() {
-        setSize(height, width);
+        setLayout(new BorderLayout());
+        setSize(width, height);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setExtendedState(this.MAXIMIZED_BOTH);
+        this.setResizable(true);
         initComponents();
     };
 
     public void initComponents() 
     {
-        this.setLayout(new GridLayout());
-        gamePanel.setLayout(new GridLayout());
-
-        gamePanel.add(chestButton);
         for (Hallgato hallgato: game.getPalya().getHallgatok()) 
         {
             characterLabels.add(new JLabel("" + hallgato.getid()));
             //Mit mutasson épp?
         }
-        
-
-        chestButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-      //          new ItemFrame(new SzobaViewModel(new Szoba(true, 2), ));
-            }
-        });
-
-        //viewModel.start();
-        this.add(gamePanel, BorderLayout.SOUTH);
+        menuPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        userPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        gamePanel.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+        this.add(menuPanel, BorderLayout.NORTH);
         this.add(userPanel, BorderLayout.EAST);
+        this.add(gamePanel, BorderLayout.CENTER);
         this.setVisible(true);
         //TODO aktiv tranzisztorok?
 
