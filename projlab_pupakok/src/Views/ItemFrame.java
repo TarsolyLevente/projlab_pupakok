@@ -45,6 +45,7 @@ public class ItemFrame extends JFrame{
         pickupbutton.addActionListener(e -> {
             //összerendeljük a képet a tárggyal
             hvm.felvesz(szvm.getSzoba().getTargyak().get(itemlist.getSelectedIndex()));
+            
         });
 
         panel.add(scrollpane, BorderLayout.EAST);

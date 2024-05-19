@@ -21,13 +21,12 @@ import ViewModels.SzobaViewModel;
 
 public class GameFrame extends JFrame
 {
-    private GameViewModel viewModel= new GameViewModel(new Game());
-    private UserPanel userPanel = new UserPanel(new HallgatoViewModel());
-    private MenuPanel menuPanel = new MenuPanel();
+    private GameViewModel gameviewmodel= new GameViewModel(new Game());
+    private UserPanel userPanel;
+    private MenuPanel menuPanel;
     private final int height = 600;
     private final int width = 600;
-    private GamePanel gamePanel = new GamePanel();
-    public Game game = new Game();
+    private GamePanel gamePanel;
     
     private ArrayList<JLabel> characterLabels = new ArrayList<JLabel>();
     private ArrayList<JButton> transistorButtons = new ArrayList<JButton>();
@@ -47,11 +46,18 @@ public class GameFrame extends JFrame
 
     public void initComponents() 
     {
-        for (Hallgato hallgato: game.getPalya().getHallgatok()) 
+        gamePanel =  new GamePanel(/* Aktualis szoba viewmodeljét kell átadni */);
+        userPanel = new UserPanel(/*Aktuális hallgató viewmodell átadása */);
+        menuPanel = new MenuPanel(gameviewmodel);
+
+
+        for (Hallgato hallgato: gameviewmodel.getMapViewModel().getPalya().getHallgatok()) 
         {
             characterLabels.add(new JLabel("" + hallgato.getid()));
             //Mit mutasson épp?
         }
+
+
         menuPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
         userPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
         gamePanel.setBorder(BorderFactory.createLineBorder(Color.red, 5));

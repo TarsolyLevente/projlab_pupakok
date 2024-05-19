@@ -1,7 +1,9 @@
 package Views;
-import java.awt.*;
 
+import java.awt.*;
 import javax.swing.*;
+
+import ViewModels.SzobaViewModel;
 
 public class GamePanel extends JPanel{
     private Container cp = new Container();
@@ -10,13 +12,13 @@ public class GamePanel extends JPanel{
     private JButton chestButton = new JButton("Chest");
 
 
-    public GamePanel()
+    public GamePanel(SzobaViewModel szvm)
     {
         
-        initComponents();
+        initComponents(szvm);
     }
     
-    public void initComponents()
+    public void initComponents(SzobaViewModel szvm)
     {
         setLayout(new BorderLayout());
         cp.setLayout(new GridLayout(GRID_SIZE, GRID_SIZE));
@@ -30,7 +32,7 @@ public class GamePanel extends JPanel{
                 else{
                 cells[row][col] = new JTextField();
                 
-                cells[row][col].setBackground(Color.YELLOW); //TODO Hatter gazostol fuggoen
+                cells[row][col].setBackground(Color.YELLOW); //TODO Hatter gazostol fuggoen, aktualis szobaviewmodel.giveSzobaBackgroundColor()
                 cp.add(cells[row][col]);
                 //TODO Lehet fel lehet használni ezért itt hagyom
                 //cells[row][col].setHorizontalAlignment(JTextField.CENTER);

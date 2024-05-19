@@ -4,10 +4,17 @@ import Game.Game;
 import Karakter.Hallgato;
 
 public class GameViewModel {
-    public Game game = new Game();
+    private Game game;
+
+    private MapViewModel mapviewmodel;
 
     public GameViewModel(Game g){
         game = g;
+        mapviewmodel = new MapViewModel(game.getPalya());
+    }
+
+    public MapViewModel getMapViewModel(){
+        return mapviewmodel;
     }
 
     public void start(){

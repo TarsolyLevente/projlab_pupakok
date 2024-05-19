@@ -1,13 +1,16 @@
 package ViewModels;
 
 import Karakter.Hallgato;
-import Szoba.Szoba;
 import Targy.Targy;
 import Targy.Tranzisztor;
 import Views.RoomFrame;
 
 public class HallgatoViewModel {
     private Hallgato hallgato;
+
+    public HallgatoViewModel(Hallgato h){
+        hallgato = h;
+    }
 
     /**
      * Visszaadja a Hallgato objektumot.
