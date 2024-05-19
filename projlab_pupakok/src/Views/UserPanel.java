@@ -16,8 +16,7 @@ public class UserPanel extends JPanel {
     private JButton roomButton = new JButton("Mozog");
     private HallgatoViewModel hVM;
 
-    public UserPanel(HallgatoViewModel viewModel) {
-        hVM = viewModel;
+    public UserPanel() {
         initComponents();
     }
 
@@ -47,5 +46,18 @@ public class UserPanel extends JPanel {
         add(useButton);
         add(throwButton);
         add(roomButton);
+    }
+
+    public void update(HallgatoViewModel hVM) {
+        /*
+         * DefaultListModel<ImageIcon> listModel = new DefaultListModel<>();
+         * 
+         * for (int i = 0; i < hVM.getHallgato().getTargyak().size(); i++) {
+         * listModel.addElement(new
+         * ImageIcon(hVM.getHallgato().getTargyak().get(i).getKep()));
+         * }
+         * targyLista = new JList<>(listModel);
+         * scrollpane.setViewportView(targyLista);
+         */
     }
 }
