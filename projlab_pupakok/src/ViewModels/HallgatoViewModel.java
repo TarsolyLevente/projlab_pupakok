@@ -1,6 +1,7 @@
 package ViewModels;
 
 import Karakter.Hallgato;
+import Szoba.Szoba;
 import Targy.Targy;
 import Targy.Tranzisztor;
 import Views.RoomFrame;
@@ -75,5 +76,14 @@ public class HallgatoViewModel {
      */
     public void teleportal(Tranzisztor t) {
         hallgato.teleport(t);
+    }
+
+    public String getSzobaID(){
+        return hallgato.getSzoba().getid();
+
+    }
+    public String getHallgatoID(){
+        return hallgato.getid();
+
     }
 }
