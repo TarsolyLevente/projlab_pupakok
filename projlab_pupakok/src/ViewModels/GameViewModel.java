@@ -7,19 +7,20 @@ import Views.GameFrame;
 public class GameViewModel {
     private Game game;
 
-    private MapViewModel mapviewmodel;
+    private MapViewModel mapViewModel;
     private GameFrame gameFrame;
 
     public GameViewModel(int jatekosokszama){
         
         game = new Game();
-        mapviewmodel = new MapViewModel(game.getPalya());
+        mapViewModel = new MapViewModel(game.getPalya());
         gameFrame = new GameFrame();
         start(jatekosokszama);
+        jatekLeptetes();
     }
 
     public MapViewModel getMapViewModel(){
-        return mapviewmodel;
+        return mapViewModel;
     }
 
     /**
@@ -54,7 +55,7 @@ public class GameViewModel {
         while (game.getSzamlalo() < 900) {
             for (int i = 0; i < game.getPalya().getHallgatok().size(); ++i) {
                 if (!game.getPalya().getHallgatok().get(i).getEszmeletvesztett()) {
-                    //hallgatoLep(game.getPalya().getHallgatok().get(i));
+                    update(game.getPalya().getHallgatok().get(i));
                 }
             }
             boolean esz = true;
@@ -73,6 +74,14 @@ public class GameViewModel {
             game.getPalya().leptet();
         }
         endgame();
+    }
+
+    public void update(Hallgato h){
+        SzobaViewModel szVW = new SzobaViewModel(h.getSzoba());
+        HallgatoViewModel hVM = new HallgatoViewModel(h);
+        gameFrame.updateGamePanel(szVW);
+        gameFrame.updateMenuPanel(hVM);
+        gameFrame.updateUserPanel(hVM);
     }
 
 

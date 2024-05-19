@@ -24,9 +24,9 @@ public class GameFrame extends JFrame
     private GameViewModel gameviewmodel;
     private UserPanel userPanel;
     private MenuPanel menuPanel;
+    private GamePanel gamePanel;
     private final int height = 600;
     private final int width = 600;
-    private GamePanel gamePanel;
     
     private ArrayList<JLabel> characterLabels = new ArrayList<JLabel>();
     private ArrayList<JButton> transistorButtons = new ArrayList<JButton>();
@@ -52,12 +52,11 @@ public class GameFrame extends JFrame
         userPanel = new UserPanel();
         menuPanel = new MenuPanel();
 
-        // menuPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-        // userPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-        // gamePanel.setBorder(BorderFactory.createLineBorder(Color.red, 5));
-        // this.add(menuPanel, BorderLayout.NORTH);
-        // this.add(userPanel, BorderLayout.EAST);
-        // this.add(gamePanel, BorderLayout.CENTER);
+         menuPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+         userPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+         this.add(menuPanel, BorderLayout.NORTH);
+         this.add(userPanel, BorderLayout.EAST);
+         this.add(gamePanel, BorderLayout.CENTER);
         this.setVisible(true);
         //TODO aktiv tranzisztorok? 
     }

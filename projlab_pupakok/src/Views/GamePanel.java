@@ -35,6 +35,8 @@ public class GamePanel extends JPanel{
 
     public void update(SzobaViewModel szVM){
 
+        setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
+
         for (int row = 0; row < GRID_SIZE; ++row) {
             for (int col = 0; col < GRID_SIZE; ++col) {
                 if((row  == (GRID_SIZE-1)) && (col == (GRID_SIZE-1)))
