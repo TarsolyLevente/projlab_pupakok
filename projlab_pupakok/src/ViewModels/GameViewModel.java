@@ -17,8 +17,8 @@ public class GameViewModel {
         return mapviewmodel;
     }
 
-    public void start(){
-        game.start();
+    public void start(int jatekosokszama){
+        game.start(jatekosokszama);
     }
 
     public void hallgatoLep(Hallgato hallgato){

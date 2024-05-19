@@ -39,9 +39,9 @@ public class Game {
     /**
      * le generálja a pályát és folyton meghívja a léptet függvényt a pályán
      */
-    public void start() {
+    public void start(int jatekosokszama) {
         timer.start();
-        palya.general();
+        palya.general(jatekosokszama);
         jatekLeptetes();
     }
 

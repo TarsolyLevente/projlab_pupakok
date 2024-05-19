@@ -33,7 +33,11 @@ public class HomeFrame extends JFrame {
 
         panel.add(nameLabel, gbc);
 
-        startButton.addActionListener(e -> {showHallgatoCountDialog();this.setVisible(false); new GameFrame();});
+        startButton.addActionListener(e -> {
+            int jatekosokszama = showHallgatoCountDialog();
+            this.setVisible(false);
+            new GameFrame(jatekosokszama);});
+        
         panel.add(startButton, gbc);
 
         exitButton.addActionListener(e -> System.exit(0));
@@ -45,9 +49,10 @@ public class HomeFrame extends JFrame {
     
     }
 
-    private void showHallgatoCountDialog() {
+    private int showHallgatoCountDialog() {
         String temp = JOptionPane.showInputDialog(this, "Hallgatók száma:");
         hallagatocnt = Integer.valueOf(temp);
+        return hallagatocnt;
     }
 
 }

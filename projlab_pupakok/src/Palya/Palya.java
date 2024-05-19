@@ -82,7 +82,7 @@ public class Palya {
      * A szobákat előre megterveztük
      * és ezeket létrehozza a hallgatókkal, oktatókkal és tárgyakkal együtt.
      */
-    public void general() {
+    public void general(int jatekosokszama) {
 
         // Szobak hozzaadasa
         File f = new File("Data/Szoba_attributumok.txt");
@@ -137,7 +137,8 @@ public class Palya {
 
             System.out.println("Játékosok száma:");
             Scanner reader = new Scanner(System.in);
-            input = reader.nextInt();
+            //input = reader.nextInt();
+            input = jatekosokszama;
             if (input == 10)
                 hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10)), String.valueOf(hallgatok.size())));
             else {

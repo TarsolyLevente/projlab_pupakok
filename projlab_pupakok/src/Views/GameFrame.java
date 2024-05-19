@@ -21,7 +21,7 @@ import ViewModels.SzobaViewModel;
 
 public class GameFrame extends JFrame
 {
-    private GameViewModel gameviewmodel= new GameViewModel(new Game());
+    private GameViewModel gameviewmodel;
     private UserPanel userPanel;
     private MenuPanel menuPanel;
     private final int height = 600;
@@ -34,13 +34,15 @@ public class GameFrame extends JFrame
         
 
 
-    public GameFrame() {
+    public GameFrame(int jatekosokszama) {
         setLayout(new BorderLayout());
         setSize(width, height);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         this.setResizable(true);
+        gameviewmodel = new GameViewModel(new Game());
+        gameviewmodel.start(jatekosokszama);
         initComponents();
     };
 
