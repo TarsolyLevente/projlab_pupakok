@@ -46,6 +46,8 @@ public class GameFrame extends JFrame
         initComponents();
     };
 
+
+    
     public void initComponents() 
     {
         gamePanel =  new GamePanel(/* Aktualis szoba viewmodeljét kell átadni */);

@@ -1,15 +1,9 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import Game.Game;
-import Proto.Proto;
 import Views.HomeFrame;
 
 public class Main {
     public static void main(String[] args) {
         HomeFrame test = new HomeFrame();
-        InputStreamReader str = new InputStreamReader(System.in);
+        /*InputStreamReader str = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(str);
         String val = "";
         System.out.println("1: Játék indítása");
@@ -43,6 +37,6 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 }
