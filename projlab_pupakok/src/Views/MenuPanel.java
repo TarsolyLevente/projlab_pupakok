@@ -11,13 +11,11 @@ public class MenuPanel extends JPanel {
     private JLabel timeLabel;
     private JLabel playerLabel;
     private JLabel roomLabel;
-    private HallgatoViewModel hVM;
-    private GameViewModel gVM;
     private Timer updateTimer;
+    private int Time;
 
-    public MenuPanel(HallgatoViewModel viewModel,GameViewModel gameViewModel ) {
-        hVM = viewModel;
-        gVM = gameViewModel;
+    public MenuPanel() {
+
         initComponents();
     }
 
@@ -25,9 +23,9 @@ public class MenuPanel extends JPanel {
         // Panel inicializálása és elrendezése
         setLayout(new GridLayout());
         timeLabel = new JLabel("Idő: 0");
-        playerLabel = new JLabel("Játékos: " + hVM.getHallgato().getid());
-        roomLabel = new JLabel("Szoba: "+ hVM.getHallgato().getSzoba().getid());
-
+        playerLabel = new JLabel("Játékos: " );
+        roomLabel = new JLabel("Szoba: ");
+        Time=0;
 
         
 
@@ -43,7 +41,13 @@ public class MenuPanel extends JPanel {
 
     
     private void updateLabels() {
-        timeLabel.setText("Idő: " + gVM.getTime());
+        Time++;
+        timeLabel.setText("Idő: " + Time);
+    }
+
+    public void update(HallgatoViewModel hVM){
+        playerLabel = new JLabel("Játékos: " + hVM.getHallgatoID() );
+        roomLabel = new JLabel("Szoba: "+ hVM.getSzobaID());
     }
 
 }

@@ -31,9 +31,9 @@ public class MapViewModel {
         return palya;
     }
 
-    public void general() {
-        palya.general();
-    }
+    // public void general() {
+    //     palya.general();
+    // }
 
     public void leptet(){
         palya.leptet();
