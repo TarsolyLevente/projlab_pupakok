@@ -25,10 +25,21 @@ public class GamePanel extends JPanel{
         setLayout(new BorderLayout());
         cp.setLayout(new GridLayout(GRID_SIZE, GRID_SIZE));
         // Konténer feltöltése a cellákkal
+        
+
+       
+        
+
+        this.add(cp);
+    }
+
+    public void update(SzobaViewModel szVM){
+
         for (int row = 0; row < GRID_SIZE; ++row) {
             for (int col = 0; col < GRID_SIZE; ++col) {
                 if((row  == (GRID_SIZE-1)) && (col == (GRID_SIZE-1)))
                 {   
+                    //TODO tranzisztor
                     try{
                         Image img = ImageIO.read(getClass().getResource("resources/chest.png"));
                         chestButton.setIcon(new ImageIcon(img));
@@ -41,29 +52,17 @@ public class GamePanel extends JPanel{
                 else{
                 cells[row][col] = new JLabel();
                 
-               // cells[row][col].setBackground(szvm.giveSzobaBackgroundColor());
+                cells[row][col].setBackground(szVM.giveSzobaBackgroundColor());
                 cp.add(cells[row][col]);
-                //TODO Lehet fel lehet használni ezért itt hagyom
-                //cells[row][col].setHorizontalAlignment(JTextField.CENTER);
-                //cells[row][col].setFont(FONT_NUMBERS);
-
-                // DocumentListener hozzáadása minden egyes JTextField-hez
-                //cells[row][col].getDocument().addDocumentListener(new SudokuDocumentListener(row, col));
-
-                // ActionListener hozzáadása minden egyes JTextField-hez
-                //cells[row][col].addActionListener(new SudokuActionListener(row, col));
                 }
             }
         }
-
-        //cellák feltöltése a karakterek képeivel.
-        ImageIcon[] characterpictures = szvm.getCharactersPictures();
+         //cellák feltöltése a karakterek képeivel.
+        ImageIcon[] characterpictures = szVM.getCharactersPictures();
         for (int row = 0; row < GRID_SIZE; ++row) {
             for (int col = 0; col < GRID_SIZE; ++col) {
                 ((JLabel)cells[row][col]).setIcon(characterpictures[col]);
             }
         }
-
-        this.add(cp);
     }
 }
