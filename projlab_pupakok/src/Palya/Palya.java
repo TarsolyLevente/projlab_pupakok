@@ -16,6 +16,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Palya {
+    private static final String FILE_PATH = "projlab_pupakok/src/Data/";
     public ArrayList<Oktato> getOktatok() {
         return oktatok;
     }
@@ -85,7 +86,7 @@ public class Palya {
     public void general(int jatekosokszama) {
 
         // Szobak hozzaadasa
-        File f = new File("Data/Szoba_attributumok.txt");
+        File f = new File(FILE_PATH + "Szoba_attributumok.txt");
         File attr = new File(f.getAbsolutePath());
 
         try {
@@ -107,7 +108,7 @@ public class Palya {
         } catch (Exception e) {
         }
 
-        f = new File("Data/Szoba_szomszedok.txt");
+        f = new File(FILE_PATH + "Szoba_szomszedok.txt");
         File szomsz = new File(f.getAbsolutePath());
 
         try {
