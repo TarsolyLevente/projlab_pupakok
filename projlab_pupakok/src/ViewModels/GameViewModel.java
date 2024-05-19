@@ -6,15 +6,24 @@ import Karakter.Hallgato;
 public class GameViewModel {
     private Game game;
 
-    private MapViewModel mapviewmodel;
+    //private MapViewModel mapviewmodel;
 
     public GameViewModel(Game g){
         game = g;
-        mapviewmodel = new MapViewModel(game.getPalya());
+        //mapviewmodel = new MapViewModel(game.getPalya());
     }
 
-    public MapViewModel getMapViewModel(){
-        return mapviewmodel;
+    // public MapViewModel getMapViewModel(){
+    //     return mapviewmodel;
+    // }
+
+    /**
+     * Visszaadja a Game objektumot.
+     * 
+     * @return A Game objektum.
+     */
+    public Game getGame() {
+        return game;
     }
 
     public void start(int jatekosokszama){
@@ -30,4 +39,6 @@ public class GameViewModel {
     public void endgame(){
         game.endgame();
     }
+
+
 }
