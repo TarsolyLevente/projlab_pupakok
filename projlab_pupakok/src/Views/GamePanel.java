@@ -1,6 +1,7 @@
 package Views;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -63,7 +64,8 @@ public class GamePanel extends JPanel{
         ImageIcon[] characterpictures = szVM.getCharactersPictures();
         for (int row = 0; row < GRID_SIZE; ++row) {
             for (int col = 0; col < GRID_SIZE; ++col) {
-                ((JLabel)cells[row][col]).setIcon(characterpictures[col]);
+                if(characterpictures[col] != null)
+                    ((JLabel)cells[row][col]).setIcon(characterpictures[col]);
             }
         }
     }
