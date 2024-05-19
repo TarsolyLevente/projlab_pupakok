@@ -6,16 +6,16 @@ import Karakter.Hallgato;
 public class GameViewModel {
     private Game game;
 
-    //private MapViewModel mapviewmodel;
+    private MapViewModel mapviewmodel;
 
     public GameViewModel(Game g){
         game = g;
-        //mapviewmodel = new MapViewModel(game.getPalya());
+        mapviewmodel = new MapViewModel(game.getPalya());
     }
 
-    // public MapViewModel getMapViewModel(){
-    //     return mapviewmodel;
-    // }
+    public MapViewModel getMapViewModel(){
+        return mapviewmodel;
+    }
 
     /**
      * Visszaadja a Game objektumot.
