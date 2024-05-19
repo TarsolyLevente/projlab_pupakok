@@ -49,6 +49,8 @@ public class UserPanel extends JPanel {
     }
 
     public void update(HallgatoViewModel hVM) {
+        this.hVM = hVM;
+        this.revalidate();
         /*
          * DefaultListModel<ImageIcon> listModel = new DefaultListModel<>();
          * 
