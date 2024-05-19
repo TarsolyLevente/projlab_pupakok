@@ -62,7 +62,17 @@ public class GameFrame extends JFrame
         //TODO aktiv tranzisztorok? 
     }
 
-    public void update(){
-
+    public void updateGamePanel(SzobaViewModel szvm){
+        gamePanel.update(szvm);
     }
+
+    public void updateUserPanel(HallgatoViewModel hvm){
+        userPanel.update(hvm);
+    }
+
+    public void updateMenuPanel(HallgatoViewModel hvm){
+        menuPanel.update(hvm);
+    }
+
+
 }
