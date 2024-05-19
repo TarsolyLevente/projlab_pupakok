@@ -40,5 +40,9 @@ public class GameViewModel {
         game.endgame();
     }
 
+    public int getTime() {
+        return game.getSzamlalo();
+    }
+
 
 }

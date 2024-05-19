@@ -176,5 +176,7 @@ public class Game {
     }
 
     public Palya getPalya() {return palya;}
+    
+    public int getSzamlalo(){return szamlalo;};
 
 }
