@@ -2,6 +2,8 @@ package Views;
 import java.awt.*;
 import javax.swing.*;
 
+import ViewModels.GameViewModel;
+
 public class HomeFrame extends JFrame {
     private final int height = 600;
     private final int width = 600;
@@ -36,7 +38,7 @@ public class HomeFrame extends JFrame {
         startButton.addActionListener(e -> {
             int jatekosokszama = showHallgatoCountDialog();
             this.setVisible(false);
-            new GameFrame(jatekosokszama);});
+            new GameViewModel(jatekosokszama);});
         
         panel.add(startButton, gbc);
 

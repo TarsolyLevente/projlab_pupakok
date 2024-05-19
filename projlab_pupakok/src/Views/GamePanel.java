@@ -14,13 +14,13 @@ public class GamePanel extends JPanel{
     private JButton chestButton = new JButton("Chest");
 
 
-    public GamePanel(SzobaViewModel szvm)
+    public GamePanel()
     {
         
-        initComponents(szvm);
+        initComponents();
     }
     
-    public void initComponents(SzobaViewModel szvm)
+    public void initComponents()
     {
         setLayout(new BorderLayout());
         cp.setLayout(new GridLayout(GRID_SIZE, GRID_SIZE));
@@ -41,7 +41,7 @@ public class GamePanel extends JPanel{
                 else{
                 cells[row][col] = new JLabel();
                 
-                cells[row][col].setBackground(szvm.giveSzobaBackgroundColor());
+               // cells[row][col].setBackground(szvm.giveSzobaBackgroundColor());
                 cp.add(cells[row][col]);
                 //TODO Lehet fel lehet használni ezért itt hagyom
                 //cells[row][col].setHorizontalAlignment(JTextField.CENTER);

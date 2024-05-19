@@ -34,15 +34,13 @@ public class GameFrame extends JFrame
         
 
 
-    public GameFrame(int jatekosokszama) {
+    public GameFrame() {
         setLayout(new BorderLayout());
         setSize(width, height);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         this.setResizable(true);
-        gameviewmodel = new GameViewModel(new Game());
-        gameviewmodel.start(jatekosokszama);
         initComponents();
     };
 
@@ -50,27 +48,21 @@ public class GameFrame extends JFrame
     
     public void initComponents() 
     {
-        gamePanel =  new GamePanel(/* Aktualis szoba viewmodeljét kell átadni */);
-        userPanel = new UserPanel(/*Aktuális hallgató viewmodell átadása */);
-        menuPanel = new MenuPanel(gameviewmodel);
+        gamePanel = new GamePanel();
+        userPanel = new UserPanel();
+        menuPanel = new MenuPanel();
 
-
-        for (Hallgato hallgato: gameviewmodel.getMapViewModel().getPalya().getHallgatok()) 
-        {
-            characterLabels.add(new JLabel("" + hallgato.getid()));
-            //Mit mutasson épp?
-        }
-
-
-        menuPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-        userPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-        gamePanel.setBorder(BorderFactory.createLineBorder(Color.red, 5));
-        this.add(menuPanel, BorderLayout.NORTH);
-        this.add(userPanel, BorderLayout.EAST);
-        this.add(gamePanel, BorderLayout.CENTER);
+        // menuPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        // userPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        // gamePanel.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+        // this.add(menuPanel, BorderLayout.NORTH);
+        // this.add(userPanel, BorderLayout.EAST);
+        // this.add(gamePanel, BorderLayout.CENTER);
         this.setVisible(true);
-        //TODO aktiv tranzisztorok?
+        //TODO aktiv tranzisztorok? 
+    }
 
-        
+    public void update(){
+
     }
 }

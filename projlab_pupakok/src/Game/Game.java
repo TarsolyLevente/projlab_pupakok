@@ -42,7 +42,6 @@ public class Game {
     public void start(int jatekosokszama) {
         timer.start();
         palya.general(jatekosokszama);
-        jatekLeptetes();
     }
 
     public void hallgatoLep(Hallgato hallgato) {
@@ -134,33 +133,7 @@ public class Game {
         }
     }
 
-    /**
-     * Ezt fogja a start() a végén meghívni, hogy folyamatosan futtathassa a játékot
-     */
-    public void jatekLeptetes() {
-        while (szamlalo < 900) {
-            for (int i = 0; i < palya.getHallgatok().size(); ++i) {
-                if (!palya.getHallgatok().get(i).getEszmeletvesztett()) {
-                    hallgatoLep(palya.getHallgatok().get(i));
-                }
-            }
-            boolean esz = true;
-            for (Hallgato h : palya.getHallgatok()) {
-                if (!h.getEszmeletvesztett()) {
-                    esz = false;
-                    break;
-                }
-
-            }
-            if (esz) {
-                if (szamlalo % 30 == 0) {
-                    palya.leptet();
-                }
-            } else
-                palya.leptet();
-        }
-        endgame();
-    }
+    
 
     /**
      * Befejezi a játékot
