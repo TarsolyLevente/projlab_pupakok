@@ -1,6 +1,8 @@
 package Views;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -43,8 +45,9 @@ public class GamePanel extends JPanel{
                 {   
                     //TODO tranzisztor
                     try{
-                        Image img = ImageIO.read(getClass().getResource("resources/chest.png"));
-                        chestButton.setIcon(new ImageIcon(img));
+                        BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/chest.png"));
+                        chestButton.setBorder(BorderFactory.createEmptyBorder());
+                        chestButton = new JButton(new ImageIcon(buttonIcon));
                         cells[row][col] = chestButton;
                     }
                     catch(Exception ex){
@@ -63,7 +66,8 @@ public class GamePanel extends JPanel{
         ImageIcon[] characterpictures = szVM.getCharactersPictures();
         for (int row = 0; row < GRID_SIZE; ++row) {
             for (int col = 0; col < GRID_SIZE; ++col) {
-                ((JLabel)cells[row][col]).setIcon(characterpictures[col]);
+                if (characterpictures[col] != null)
+                    ((JLabel) cells[row][col]).setIcon(characterpictures[col]);
             }
         }
     }

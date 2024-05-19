@@ -135,10 +135,6 @@ public class Palya {
         int input;
         // hallgatók felvétele
         if (toggle_random) {
-
-            System.out.println("Játékosok száma:");
-            Scanner reader = new Scanner(System.in);
-            //input = reader.nextInt();
             input = jatekosokszama;
             if (input == 10)
                 hallgatok.add(new Hallgato(szobak.get(rand.nextInt(10)), String.valueOf(hallgatok.size())));

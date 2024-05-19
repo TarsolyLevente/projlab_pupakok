@@ -5,6 +5,9 @@ import javax.swing.*;
 import ViewModels.HallgatoViewModel;
 
 import java.awt.Image; // Import the Image class from java.awt
+import java.awt.image.BufferedImage;
+import java.io.File;
+
 import javax.imageio.ImageIO; // Import the ImageIO class from javax.imageio
 import java.awt.BorderLayout; // Import the BorderLayout class from java.awt
 
@@ -26,8 +29,9 @@ public class UserPanel extends JPanel {
 
 
         try {
-            Image img = ImageIO.read(getClass().getResource("resources/move.png"));
-            roomButton.setIcon(new ImageIcon(img));
+            BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move.png"));
+            roomButton = new JButton(new ImageIcon(buttonIcon));
+            roomButton.setBorder(BorderFactory.createEmptyBorder());
         } catch (Exception ex) {
             System.out.println(ex);
         }
