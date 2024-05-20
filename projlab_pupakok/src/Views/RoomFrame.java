@@ -44,8 +44,6 @@ public class RoomFrame extends JFrame{
         //Elő kell állítani a megjelenítendő ImageIcon tömböt.
         SzobaViewModel ujSzobaViewModel = new SzobaViewModel(hvm.getHallgato().getSzoba());
         roomlist = new JList<>(ujSzobaViewModel.getNeighbouringRoomsNames());
-        System.err.println(ujSzobaViewModel.getNeighbouringRoomsNames()[0]);
-        System.err.println(ujSzobaViewModel.getNeighbouringRoomsNames()[1]);
 
 
         scrollpane = new JScrollPane(roomlist);
