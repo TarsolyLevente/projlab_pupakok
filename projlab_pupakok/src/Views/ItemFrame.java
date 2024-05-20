@@ -49,7 +49,7 @@ public class ItemFrame extends JFrame{
             this.dispose();
         });
 
-        panel.add(scrollpane, BorderLayout.EAST);
+        panel.add(scrollpane, BorderLayout.CENTER);
         panel.add(pickupbutton, BorderLayout.WEST);
         add(panel);
     }
