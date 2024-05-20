@@ -1,9 +1,14 @@
 package ViewModels;
 
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import Szoba.*;
 import Targy.Camembert;
@@ -91,20 +96,29 @@ public class SzobaViewModel {
     /*
      * Visszaadja egy tömbben az adott szobában található karakterek képeit.
      */
-    public ImageIcon[] getCharactersPictures() {
+    public ImageIcon[] getCharactersPictures() throws IOException {
         int h = szoba.getHallgatok().size();
         int o = szoba.getOktatok().size();
         int t = szoba.getTakaritok().size();
         int n = h + o + t;
         ImageIcon[] images = new ImageIcon[n];
-        for (int i = 0; i < h; ++i) { // hallgatok
-            images[i] = new ImageIcon("resources/student.png");
+        try{
+            BufferedImage studenticon = ImageIO.read(new File("projlab_pupakok/src/resources/student.png"));
+            BufferedImage teachericon = ImageIO.read(new File("projlab_pupakok/src/resources/teacher.png"));
+            BufferedImage janitoricon = ImageIO.read(new File("projlab_pupakok/src/resources/janitor.png"));
+            for (int i = 0; i < h; ++i) { // hallgatok
+                images[i] = new ImageIcon(studenticon);
+                
+            }
+            for (int i = 0; i < o; ++i) { // oktatok
+                images[h + i] = new ImageIcon(teachericon);
+            }
+            for (int i = 0; i < t; ++i) { // takaritok
+                images[h + o + i] = new ImageIcon(janitoricon);
+            }
         }
-        for (int i = 0; i < o; ++i) { // oktatok
-            images[h + i] = new ImageIcon("resources/teacher.png");
-        }
-        for (int i = 0; i < t; ++i) { // takaritok
-            images[h + o + i] = new ImageIcon("resources/janitor.png");
+        catch(IOException e){
+            e.printStackTrace();
         }
         return images;
     }
