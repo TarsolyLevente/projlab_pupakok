@@ -38,6 +38,12 @@ public class HallgatoViewModel {
      */
     public void mozgas() {
         RoomFrame rf = new RoomFrame(this);
+        rf.setVisible(true);
+    }
+
+    public void mozgas(Szoba szoba) {
+        hallgato.mozog(szoba);
+        notifyAll();
     }
 
     /**

@@ -16,7 +16,8 @@ public class GameViewModel {
         mapViewModel = new MapViewModel(game.getPalya());
         gameFrame = new GameFrame();
         start(jatekosokszama);
-        jatekLeptetes();
+        // update(game.getPalya().getHallgatok().get(0));
+        // jatekLeptetes();
     }
 
     public MapViewModel getMapViewModel(){
@@ -64,25 +65,31 @@ public class GameViewModel {
                     esz = false;
                     break;
                 }
-
             }
             if (esz) {
                 if (game.getSzamlalo() % 30 == 0) {
                     game.getPalya().leptet();
                 }
             } else
-            game.getPalya().leptet();
+                game.getPalya().leptet();
         }
         endgame();
     }
 
-    public void update(Hallgato h){
+    public void update(Hallgato h) {
         SzobaViewModel szVW = new SzobaViewModel(h.getSzoba());
         HallgatoViewModel hVM = new HallgatoViewModel(h);
         gameFrame.updateGamePanel(szVW);
         gameFrame.updateMenuPanel(hVM);
         gameFrame.updateUserPanel(hVM);
+            synchronized (this) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    System.err.println("Thread Interrupted");
+                    e.printStackTrace();
+                }
+            }
+        }
     }
-
-
-}
