@@ -3,12 +3,9 @@ package ViewModels;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.UIManager;
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -113,20 +110,17 @@ public class SzobaViewModel {
         ImageIcon[] images = new ImageIcon[n];
         try{
             BufferedImage studenticon = ImageIO.read(new File("projlab_pupakok/src/resources/student.png"));
-            Image studentScaledIcon = studenticon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
             BufferedImage teachericon = ImageIO.read(new File("projlab_pupakok/src/resources/teacher.png"));
-            Image teacherScaledIcon = teachericon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
             BufferedImage janitoricon = ImageIO.read(new File("projlab_pupakok/src/resources/janitor.png"));
-            Image janitorScaledIcon = janitoricon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
             for (int i = 0; i < h; ++i) { // hallgatok
-                images[i] = new ImageIcon(studentScaledIcon);
+                images[i] = new ImageIcon(studenticon);
                 
             }
             for (int i = 0; i < o; ++i) { // oktatok
-                images[h + i] = new ImageIcon(teacherScaledIcon);
+                images[h + i] = new ImageIcon(teachericon);
             }
             for (int i = 0; i < t; ++i) { // takaritok
-                images[h + o + i] = new ImageIcon(janitorScaledIcon);
+                images[h + o + i] = new ImageIcon(janitoricon);
             }
         }
         catch(IOException e){
@@ -175,7 +169,6 @@ public class SzobaViewModel {
         }
     }
 
-    
     /*
      * getter a szoba attribútumra
      */

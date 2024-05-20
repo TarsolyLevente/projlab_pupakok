@@ -74,10 +74,8 @@ public class GameViewModel {
                 if (game.getSzamlalo() % 30 == 0) {
                     game.getPalya().leptet();
                 }
-            } else {
+            } else
                 game.getPalya().leptet();
-                System.err.println("asdasgfasgasgasgassgaasgs");
-            }
         }
         endgame();
     }

@@ -52,7 +52,7 @@ public class UserPanel extends JPanel {
             update(hVM);
         });
         throwButton.addActionListener(e -> {
-            hVM.eldob(targyLista.getSelectedIndex());
+            hVM.hasznal(targyLista.getSelectedIndex());
             update(hVM);
         });
         roomButton.addActionListener(e -> {
