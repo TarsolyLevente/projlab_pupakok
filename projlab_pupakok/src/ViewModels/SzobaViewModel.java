@@ -44,7 +44,10 @@ public class SzobaViewModel {
             if(sz.getTargyak().get(i) instanceof Maszk) itemviewmodels.add(new MaszkViewModel((Maszk)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof Rongy) itemviewmodels.add(new RongyViewModel((Rongy)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof Sorospohar) itemviewmodels.add(new SorospoharViewModel((Sorospohar)sz.getTargyak().get(i)));
-            if(sz.getTargyak().get(i) instanceof Tranzisztor) tranzisztorviewmodels.add(new TranzisztorViewModel((Tranzisztor)sz.getTargyak().get(i)));
+            if (sz.getTargyak().get(i) instanceof Tranzisztor) {
+                tranzisztorviewmodels.add(new TranzisztorViewModel((Tranzisztor) sz.getTargyak().get(i)));
+                itemviewmodels.add(new TranzisztorViewModel((Tranzisztor) sz.getTargyak().get(i)));
+            }
             if(sz.getTargyak().get(i) instanceof Logarlec) itemviewmodels.add(new LogarlecViewModel((Logarlec)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof TVSZ) itemviewmodels.add(new TVSZViewModel((TVSZ)sz.getTargyak().get(i)));
         }

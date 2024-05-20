@@ -91,6 +91,7 @@ public class HallgatoViewModel {
      */
     public void felvesz(Targy targy) {
         hallgato.felvesz(targy);
+        gameViewModel.getGameFrame().updateUserPanel(this);
     }
 
     /**

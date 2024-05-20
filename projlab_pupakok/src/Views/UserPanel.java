@@ -22,6 +22,7 @@ public class UserPanel extends JPanel {
     private HallgatoViewModel hVM;
 
     public UserPanel() {
+        targyLista = new JList<ImageIcon>();
         initComponents();
     }
 
@@ -66,20 +67,19 @@ public class UserPanel extends JPanel {
 
     public void update(HallgatoViewModel hVM) {
         this.hVM = hVM;
-        this.revalidate();
-        /*
-         * DefaultListModel<ImageIcon> listModel = new DefaultListModel<>();
-         * 
-         * for (int i = 0; i < hVM.getHallgato().getTargyak().size(); i++) {
-         * listModel.addElement(new
-         * ImageIcon(hVM.getHallgato().getTargyak().get(i).getKep()));
-         * }
-         * targyLista = new JList<>(listModel);
-         * scrollpane.setViewportView(targyLista);
-         */
-        targyLista = new JList<ImageIcon>(hVM.giveTaskabanLevoTargyakKepe());
+        DefaultListModel<ImageIcon> LM = new DefaultListModel<>();
+        for (ImageIcon icon : hVM.giveTaskabanLevoTargyakKepe()) {
+            LM.addElement(icon);
+        }
+        targyLista.setModel(LM);
         targyLista.setCellRenderer(new ImageListCellRenderer());
-        scrollpane = new JScrollPane(targyLista);
+        scrollpane.setViewportView(targyLista);
+        /*
+         * 
+         * targyLista = new JList<ImageIcon>(hVM.giveTaskabanLevoTargyakKepe());
+         * targyLista.setCellRenderer(new ImageListCellRenderer());
+         * scrollpane = new JScrollPane(targyLista);
+         */
     }
 
     private class ImageListCellRenderer extends JLabel implements ListCellRenderer<ImageIcon> {
