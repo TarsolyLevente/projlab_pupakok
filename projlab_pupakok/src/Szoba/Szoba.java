@@ -308,16 +308,14 @@ public class Szoba {
     public boolean addHallgato(Hallgato h) {
         if (befer()) {
             hallgatok.add(h);
-            if (isGazos()) {
-                if (!h.vedette(Vedettseg.gaztol)) {
+            if (isGazos() && !h.vedette(Vedettseg.gaztol)) {
                     h.eszmeletvesztes();
                 }
-            }
-            if (oktatok.size() != 0) {
-                if (!h.vedette(Vedettseg.oktatotol)) {
+
+                if (!oktatok.isEmpty() && !h.vedette(Vedettseg.oktatotol)) {
                     h.kibukik();
                 }
-            }
+
             return true;
         } else {
             return false;

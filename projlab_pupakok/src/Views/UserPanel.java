@@ -57,6 +57,7 @@ public class UserPanel extends JPanel {
             targyLista.setCellRenderer(new ImageListCellRenderer());
         }
         scrollpane = new JScrollPane(targyLista);
+        scrollpane.setPreferredSize(new Dimension(90, 400));
 
         try {
             BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move.png"));
