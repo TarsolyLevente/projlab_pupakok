@@ -10,6 +10,7 @@ import java.io.File;
 
 import javax.imageio.ImageIO; // Import the ImageIO class from javax.imageio
 import java.awt.BorderLayout; // Import the BorderLayout class from java.awt
+import java.awt.Dimension;
 
 public class UserPanel extends JPanel {
     private JScrollPane scrollpane;
@@ -29,7 +30,7 @@ public class UserPanel extends JPanel {
 
 
         try {
-            BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move3.2.png"));
+            BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move.png"));
             roomButton = new JButton(new ImageIcon(buttonIcon));
             //roomButton.setBorder(BorderFactory.createEmptyBorder()); - ezt kivettem
             roomButton.setContentAreaFilled(false);
