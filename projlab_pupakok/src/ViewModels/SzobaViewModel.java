@@ -62,22 +62,18 @@ public class SzobaViewModel {
     public ImageIcon[] getItemsPictures(){
         ArrayList<? extends ItemViewModel>[] lists = createitemviewmodels();
         ArrayList<? extends ItemViewModel> itemviewmodels = lists[0];
-        ArrayList<TranzisztorViewModel> tranzisztorviewmodels = (ArrayList<TranzisztorViewModel>)lists[1];
         int itemcount = itemviewmodels.size();
-        int inactivtransistorcount = 0;
-        for(int i = 0; i < tranzisztorviewmodels.size(); ++i){
-            if(!tranzisztorviewmodels.get(i).getTranzisztor().getAktiv()){
-                inactivtransistorcount++;
+        int activtransistorcount = 0;
+        for(int i = 0; i < itemviewmodels.size(); ++i){
+            if(itemviewmodels.get(i) instanceof TranzisztorViewModel){
+                if(((TranzisztorViewModel) itemviewmodels.get(i)).getTranzisztor().getAktiv()){
+                    activtransistorcount++;
+                }
             }
         }
-        ImageIcon[] images = new ImageIcon[inactivtransistorcount + itemcount];
+        ImageIcon[] images = new ImageIcon[itemcount - activtransistorcount];
         for(int i = 0; i < itemcount; ++i){
             images[i] = itemviewmodels.get(i).getItemImage();
-        }
-        for(int i = 0; i < tranzisztorviewmodels.size(); ++i){
-            if(!tranzisztorviewmodels.get(i).getTranzisztor().getAktiv()){
-                images[itemcount + i] = tranzisztorviewmodels.get(i).getItemImage(); 
-            }
         }
         return images;
     }
@@ -114,7 +110,6 @@ public class SzobaViewModel {
             BufferedImage janitoricon = ImageIO.read(new File("projlab_pupakok/src/resources/janitor.png"));
             for (int i = 0; i < h; ++i) { // hallgatok
                 images[i] = new ImageIcon(studenticon);
-                
             }
             for (int i = 0; i < o; ++i) { // oktatok
                 images[h + i] = new ImageIcon(teachericon);
