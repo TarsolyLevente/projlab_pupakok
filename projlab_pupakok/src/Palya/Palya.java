@@ -160,7 +160,7 @@ public class Palya {
         for (Szoba sz : szobak) {
             for (int i = 0; i < 5; i++) {
 
-                switch (rand.nextInt(1, 7)) {
+                switch (rand.nextInt(1, 8)) {
                     case 1:
                         new Tranzisztor(sz, String.valueOf(id_distributor));
                         break;
@@ -178,6 +178,9 @@ public class Palya {
                         break;
                     case 6:
                         new Logarlec(Funkcio.hamis, sz, String.valueOf(id_distributor));
+                        break;
+                    case 7:
+                        new Legfrissito(sz, String.valueOf(id_distributor));
                         break;
                     default:
                         new TVSZ(sz, String.valueOf(id_distributor));
