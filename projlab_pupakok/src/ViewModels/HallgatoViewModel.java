@@ -104,7 +104,11 @@ public class HallgatoViewModel {
      * @param t A teleportáláshoz használt Tranzisztor objektum.
      */
     public void teleportal(Tranzisztor t) {
-        hallgato.teleport(t);
+        if (hallgato.teleport(t)) {
+            gameViewModel.getGameFrame().updateGamePanel(new SzobaViewModel(hallgato.getSzoba()), this);
+            gameViewModel.getGameFrame().updateUserPanel(this);
+            gameViewModel.getGameFrame().updateMenuPanel(this);
+        }
     }
 
     public String getSzobaID(){

@@ -69,13 +69,17 @@ public class Hallgato extends Karakter {
      * @param t Ehhez a teleoporthoz teleportál
      */
 
-    public void teleport(Tranzisztor t) {
+    public boolean teleport(Tranzisztor t) {
         if (t.getAktiv()) {
             System.out
                     .println("Hallgató " + id + " teleportál a " + t.getTars().getSzoba().getid() + " számú szobába!");
             this.mozog(t.getTars().getSzoba());
             t.setAktiv(false);
             t.getTars().setAktiv(true);
+            return true;
+        } else {
+            System.out.println("A tranzisztor nem aktív!");
+            return false;
         }
     }
 

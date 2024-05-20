@@ -72,8 +72,7 @@ public class GamePanel extends JPanel{
                     cp.add(cells[row][col]);
                     charactersTemp.remove(0);
                 }
-                else if(!transistorCount.isEmpty()){
-                    //Image transistorScaledIcon = transistorIcon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+                else if (!transistorCount.isEmpty()) {
                     cells[row][col] = new JButton(transistorCount.get(0).getItemImage());
                     cp.add(cells[row][col]);
                     transistorCount.remove(0);

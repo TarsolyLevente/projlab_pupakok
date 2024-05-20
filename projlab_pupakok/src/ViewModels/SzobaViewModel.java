@@ -67,7 +67,7 @@ public class SzobaViewModel {
         int activtransistorcount = 0;
         for(int i = 0; i < itemviewmodels.size(); ++i){
             if(itemviewmodels.get(i) instanceof TranzisztorViewModel){
-                if(((TranzisztorViewModel) itemviewmodels.get(i)).getTranzisztor().getAktiv()){
+                if (((TranzisztorViewModel) itemviewmodels.get(i)).getTranzisztor().getTars() != null) {
                     activtransistorcount++;
                 }
             }
@@ -88,7 +88,7 @@ public class SzobaViewModel {
         ArrayList<TranzisztorViewModel> tranzisztorviewmodels = (ArrayList<TranzisztorViewModel>)lists[1];
         ArrayList<TranzisztorViewModel> aktivtranzisztorviewmodels = new ArrayList<TranzisztorViewModel>();
         for(int i = 0; i < tranzisztorviewmodels.size(); ++i){
-            if((tranzisztorviewmodels.get(i).getTranzisztor()).getAktiv()){
+            if (tranzisztorviewmodels.get(i).getTranzisztor().getTars() != null) {
                 aktivtranzisztorviewmodels.add(tranzisztorviewmodels.get(i));
             }
         }
