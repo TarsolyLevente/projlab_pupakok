@@ -29,10 +29,6 @@ public class GamePanel extends JPanel{
         setLayout(new BorderLayout());
         cp.setLayout(new GridLayout(GRID_SIZE, GRID_SIZE));
         // Konténer feltöltése a cellákkal
-        
-
-       
-        
 
         this.add(cp);
     }
@@ -40,6 +36,7 @@ public class GamePanel extends JPanel{
     public void update(SzobaViewModel szVM, HallgatoViewModel hVM){
         setBackground(szVM.giveSzobaBackgroundColor());
         setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
+        cp.removeAll();
 
         //cellák feltöltése a karakterek képeivel.
         ImageIcon[] characterpictures;

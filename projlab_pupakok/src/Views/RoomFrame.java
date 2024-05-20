@@ -49,8 +49,12 @@ public class RoomFrame extends JFrame{
         scrollpane = new JScrollPane(roomlist);
 
         movebutton.addActionListener(e -> {
-            Szoba szoba = hvm.getHallgato().getSzoba().getSzomszedok().get(roomlist.getSelectedIndex());
-            hvm.mozgas(szoba);
+            Szoba szoba = null;
+            if (roomlist.getSelectedIndex() != -1) {
+                szoba = hvm.getHallgato().getSzoba().getSzomszedok().get(roomlist.getSelectedIndex());
+                hvm.mozgas(szoba);
+                this.dispose();
+            }
         });
 
         panel.add(scrollpane, BorderLayout.CENTER);

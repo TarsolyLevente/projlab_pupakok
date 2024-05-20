@@ -76,19 +76,19 @@ public class GameViewModel {
         endgame();
     }
 
-    public void update(Hallgato h) {
+    public synchronized void update(Hallgato h) {
         SzobaViewModel szVW = new SzobaViewModel(h.getSzoba());
-        HallgatoViewModel hVM = new HallgatoViewModel(h);
+        HallgatoViewModel hVM = new HallgatoViewModel(h, this);
         gameFrame.updateGamePanel(szVW, hVM);
         gameFrame.updateMenuPanel(hVM);
         gameFrame.updateUserPanel(hVM);
-            synchronized (this) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    System.err.println("Thread Interrupted");
-                    e.printStackTrace();
-                }
-            }
+
+        try {
+            wait();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
         }
     }

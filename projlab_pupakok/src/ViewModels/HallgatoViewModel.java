@@ -20,8 +20,14 @@ import Views.RoomFrame;
 
 public class HallgatoViewModel {
     private Hallgato hallgato;
+    private GameViewModel gameViewModel;
 
-    public HallgatoViewModel(Hallgato h){
+    public HallgatoViewModel(Hallgato h, GameViewModel gVM) {
+        hallgato = h;
+        gameViewModel = gVM;
+    }
+
+    public HallgatoViewModel(Hallgato h) {
         hallgato = h;
     }
 
@@ -55,9 +61,10 @@ public class HallgatoViewModel {
 
     public void mozgas(Szoba szoba) {
         hallgato.mozog(szoba);
-        notifyAll();
+        synchronized (gameViewModel) {
+            gameViewModel.notifyAll();
+        }
     }
-
     /**
      * Használja a megadott Targy objektumot.
      * 
