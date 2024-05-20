@@ -22,7 +22,7 @@ public class Game {
      */
     private int szamlalo = 0;
 
-    Timer timer = new Timer(1000, e -> {
+    Timer timer = new Timer(1, e -> {
         szamlalo++;
     });
 
@@ -139,7 +139,7 @@ public class Game {
      * Befejezi a játékot
      */
     public void endgame() {
-        if (szamlalo >= 900) // 15 perc a játék
+        if (szamlalo >= 900000) // 15 perc a játék
             System.out.println("Az idő lejárt!");
         else if (palya.getHallgatok().isEmpty())
             System.out.println("Minden hallgató kibukott!");

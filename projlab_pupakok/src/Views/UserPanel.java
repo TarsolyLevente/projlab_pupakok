@@ -48,12 +48,16 @@ public class UserPanel extends JPanel {
         }
 
         useButton.addActionListener(e -> {
-            hVM.hasznal(targyLista.getSelectedIndex());
-            update(hVM);
+            if (targyLista.getSelectedIndex() != -1) {
+                hVM.hasznal(targyLista.getSelectedIndex());
+                update(hVM);
+            }
         });
         throwButton.addActionListener(e -> {
-            hVM.eldob(targyLista.getSelectedIndex());
-            update(hVM);
+            if(targyLista.getSelectedIndex() != -1){
+                hVM.eldob(targyLista.getSelectedIndex());
+                update(hVM);
+            }
         });
         roomButton.addActionListener(e -> {
             hVM.mozgas();
