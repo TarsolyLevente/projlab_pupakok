@@ -36,7 +36,7 @@ public class GamePanel extends JPanel{
     }
 
     public void update(SzobaViewModel szVM){
-
+        setBackground(szVM.giveSzobaBackgroundColor());
         setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
 
         for (int row = 0; row < GRID_SIZE; ++row) {
@@ -47,18 +47,16 @@ public class GamePanel extends JPanel{
                     try{
                         BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/chest.png"));
                         chestButton.setBorder(BorderFactory.createEmptyBorder());
-                        chestButton = new JButton(new ImageIcon(buttonIcon));
-                        cells[row][col] = chestButton;
+                        cells[row][col] = new JButton(new ImageIcon(buttonIcon));
+                        cp.add(cells[row][col]);
                     }
                     catch(Exception ex){
                         ex.printStackTrace();
                     }
                 }
                 else{
-                cells[row][col] = new JLabel();
-                
-                cells[row][col].setBackground(szVM.giveSzobaBackgroundColor());
-                cp.add(cells[row][col]);
+                    cells[row][col] = new JLabel();
+                    cp.add(cells[row][col]);
                 }
             }
         }
@@ -67,5 +65,7 @@ public class GamePanel extends JPanel{
         for(int i = 0; i < characterpictures.length; ++i){
             ((JLabel)cells[0][i]).setIcon(characterpictures[i]);
         }
+
+        
     }
 }
