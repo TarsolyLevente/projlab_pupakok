@@ -37,7 +37,8 @@ public class HomeFrame extends JFrame {
 
         startButton.addActionListener(e -> {
             int jatekosokszama = showHallgatoCountDialog();
-            this.setVisible(false);
+            if(jatekosokszama > 0){
+                this.setVisible(false);
             GameViewModel gameViewModel = new GameViewModel(jatekosokszama);
             SwingUtilities.invokeLater(() -> {
                 Thread gThread = new Thread(() -> {
@@ -48,6 +49,8 @@ public class HomeFrame extends JFrame {
                 });
                 gThread.start();
             });
+            }
+            
         });
         
         panel.add(startButton, gbc);
@@ -63,6 +66,12 @@ public class HomeFrame extends JFrame {
 
     private int showHallgatoCountDialog() {
         String temp = JOptionPane.showInputDialog(this, "Hallgatók száma:");
+        
+        // Ha a felhasználó megnyomta a "Mégsem" gombot vagy bezárta az ablakot, a temp null lesz.
+        if (temp == null) {
+
+            return -1; // Speciális érték a "Mégsem" gomb vagy az ablak bezárásának jelzésére.
+        }
         try {
             hallagatocnt = Integer.valueOf(temp);
         } catch (NumberFormatException e) {
