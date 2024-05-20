@@ -27,6 +27,7 @@ public class ItemFrame extends JFrame{
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents(szvm, hvm);
+        this.setVisible(true);
     }
 
     /*
@@ -45,7 +46,6 @@ public class ItemFrame extends JFrame{
         pickupbutton.addActionListener(e -> {
             //összerendeljük a képet a tárggyal
             hvm.felvesz(szvm.getSzoba().getTargyak().get(itemlist.getSelectedIndex()));
-            
         });
 
         panel.add(scrollpane, BorderLayout.EAST);

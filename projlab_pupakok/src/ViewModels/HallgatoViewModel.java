@@ -4,6 +4,7 @@ import Karakter.Hallgato;
 import Szoba.Szoba;
 import Targy.Targy;
 import Targy.Tranzisztor;
+import Views.ItemFrame;
 import Views.RoomFrame;
 
 public class HallgatoViewModel {
@@ -85,5 +86,12 @@ public class HallgatoViewModel {
     public String getHallgatoID(){
         return hallgato.getid();
 
+    }
+
+    /*
+     * Létrehozza az itemframet.
+     */
+    public void createItemFrame(SzobaViewModel szobaViewModel){
+        ItemFrame itemframe = new ItemFrame(szobaViewModel, this);
     }
 }

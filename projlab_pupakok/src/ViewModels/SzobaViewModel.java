@@ -19,6 +19,7 @@ import Targy.Rongy;
 import Targy.Sorospohar;
 import Targy.TVSZ;
 import Targy.Tranzisztor;
+import Views.ItemFrame;
 
 public class SzobaViewModel {
     /*

@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import ViewModels.HallgatoViewModel;
 import ViewModels.SzobaViewModel;
 
 public class GamePanel extends JPanel{
@@ -36,7 +37,7 @@ public class GamePanel extends JPanel{
         this.add(cp);
     }
 
-    public void update(SzobaViewModel szVM){
+    public void update(SzobaViewModel szVM, HallgatoViewModel hVM){
         setBackground(szVM.giveSzobaBackgroundColor());
         setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
 
@@ -54,7 +55,11 @@ public class GamePanel extends JPanel{
                     try{
                         BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/chest.png"));
                         chestButton.setBorder(BorderFactory.createEmptyBorder());
-                        cells[row][col] = new JButton(new ImageIcon(buttonIcon));
+                        chestButton = new JButton(new ImageIcon(buttonIcon));
+                        chestButton.addActionListener(e ->{
+                            hVM.createItemFrame(szVM);
+                        });
+                        cells[row][col] = chestButton;
                         cp.add(cells[row][col]);
                     }
                     catch(Exception ex){

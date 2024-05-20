@@ -80,7 +80,7 @@ public class GameViewModel {
     public void update(Hallgato h){
         SzobaViewModel szVW = new SzobaViewModel(h.getSzoba());
         HallgatoViewModel hVM = new HallgatoViewModel(h);
-        gameFrame.updateGamePanel(szVW);
+        gameFrame.updateGamePanel(szVW, hVM);
         gameFrame.updateMenuPanel(hVM);
         gameFrame.updateUserPanel(hVM);
     }
