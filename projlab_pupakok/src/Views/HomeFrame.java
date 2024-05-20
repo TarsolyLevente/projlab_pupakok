@@ -42,10 +42,8 @@ public class HomeFrame extends JFrame {
             GameViewModel gameViewModel = new GameViewModel(jatekosokszama);
             SwingUtilities.invokeLater(() -> {
                 Thread gThread = new Thread(() -> {
-                    while (gameViewModel.getTime() < 900) {
                         gameViewModel.jatekLeptetes();
-                    }
-                    gameViewModel.endgame();
+                        showEndGameDialog(gameViewModel.getGame().endgame());
                 });
                 gThread.start();
             });
@@ -79,5 +77,16 @@ public class HomeFrame extends JFrame {
         }
         return hallagatocnt;
     }
+
+    private void showEndGameDialog(int endgameType) {
+        if(endgameType == 1)
+            JOptionPane.showMessageDialog(this, "Letelt az idő!");
+        else if(endgameType == 2)
+            JOptionPane.showMessageDialog(this, "Az utolsó hallgató is kibukott!");
+        else
+            JOptionPane.showMessageDialog(this, "Szép volt pupákok!");
+
+    }
+
 
 }

@@ -52,13 +52,13 @@ public class GameFrame extends JFrame
         userPanel = new UserPanel();
         menuPanel = new MenuPanel();
 
-         menuPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-         userPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-         this.add(menuPanel, BorderLayout.NORTH);
-         this.add(userPanel, BorderLayout.EAST);
-         this.add(gamePanel, BorderLayout.CENTER);
+        menuPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+
+        userPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        this.add(menuPanel, BorderLayout.NORTH);
+        this.add(userPanel, BorderLayout.EAST);
+        this.add(gamePanel, BorderLayout.CENTER);
         this.setVisible(true);
-        //TODO aktiv tranzisztorok? 
     }
 
     public void updateGamePanel(SzobaViewModel szvm, HallgatoViewModel hvm){

@@ -26,6 +26,8 @@ public class Game {
         szamlalo++;
     });
 
+    private boolean jatekVege = false;
+
     /**
      * Konstruktor
      * 
@@ -138,18 +140,30 @@ public class Game {
     /**
      * Befejezi a játékot
      */
-    public void endgame() {
-        if (szamlalo >= 900000) // 15 perc a játék
-            System.out.println("Az idő lejárt!");
+    public int endgame() {
+        // 15 perc a játék
+        if (szamlalo >= 900000)
+        {
+            jatekVege = true;
+            return 1;
+        }
         else if (palya.getHallgatok().isEmpty())
-            System.out.println("Minden hallgató kibukott!");
+        {
+            jatekVege = true;
+            return 2;
+        }
+            
         else
-            System.out.println("Sikerült megtalálni a logarlécet! Győzelem!");
-        System.exit(0);
+        {
+            jatekVege = true;
+            return 3;
+        }
     }
 
     public Palya getPalya() {return palya;}
     
-    public int getSzamlalo(){return szamlalo;};
+    public int getSzamlalo(){return szamlalo;}
+
+    public boolean getJatekVege(){return jatekVege;}
 
 }
