@@ -18,7 +18,7 @@ public class RoomFrame extends JFrame{
     //Az ablakot felépítő panel, lista és gomb.
     private JPanel panel = new JPanel();
     private JScrollPane scrollpane;
-    private JList<ImageIcon> roomlist;
+    private JList<String> roomlist;
     private JButton movebutton = new JButton("Move");
 
     /*
@@ -47,7 +47,8 @@ public class RoomFrame extends JFrame{
         scrollpane = new JScrollPane(roomlist);
 
         movebutton.addActionListener(e -> {
-            hvm.mozgas();
+            Szoba szoba = hvm.getHallgato().getSzoba().getSzomszedok().get(roomlist.getSelectedIndex());
+            hvm.mozgas(szoba);
         });
 
         panel.add(scrollpane, BorderLayout.EAST);

@@ -38,7 +38,17 @@ public class HomeFrame extends JFrame {
         startButton.addActionListener(e -> {
             int jatekosokszama = showHallgatoCountDialog();
             this.setVisible(false);
-            new GameViewModel(jatekosokszama);});
+            GameViewModel gameViewModel = new GameViewModel(jatekosokszama);
+            SwingUtilities.invokeLater(() -> {
+                Thread gThread = new Thread(() -> {
+                    while (gameViewModel.getTime() < 900) {
+                        gameViewModel.jatekLeptetes();
+                    }
+                    gameViewModel.endgame();
+                });
+                gThread.start();
+            });
+        });
         
         panel.add(startButton, gbc);
 
