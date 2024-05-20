@@ -29,7 +29,7 @@ public class RoomFrame extends JFrame{
         super("Room " + hvm.getHallgato().getSzoba().getid() + " szomszedjai");
         setSize(height, width);
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         initComponents(hvm);
     }
 
