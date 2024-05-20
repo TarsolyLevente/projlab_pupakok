@@ -29,9 +29,14 @@ public class UserPanel extends JPanel {
 
 
         try {
-            BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move.png"));
+            BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move3.2.png"));
             roomButton = new JButton(new ImageIcon(buttonIcon));
-            roomButton.setBorder(BorderFactory.createEmptyBorder());
+            //roomButton.setBorder(BorderFactory.createEmptyBorder()); - ezt kivettem
+            roomButton.setContentAreaFilled(false);
+            roomButton.setPreferredSize(new Dimension(90,25));
+            //ezek meg nem biztos hogy kellenek
+            throwButton.setPreferredSize(new Dimension(90,25));
+            useButton.setPreferredSize(new Dimension(90,25));
         } catch (Exception ex) {
             System.out.println(ex);
         }
