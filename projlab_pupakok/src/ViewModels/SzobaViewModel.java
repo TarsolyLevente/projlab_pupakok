@@ -131,7 +131,7 @@ public class SzobaViewModel {
         int n = szoba.getSzomszedok().size();
         String[] szomszedokneve = new String[n];
         for (int i = 0; i < n; ++i) {
-            szomszedokneve[i] = "Szoba " + szoba.getSzomszedok().get(0).getid();
+            szomszedokneve[i] = "Szoba " + szoba.getSzomszedok().get(i).getid();
         }
         return szomszedokneve;
     }
