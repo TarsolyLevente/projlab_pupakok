@@ -3,6 +3,7 @@ import javax.swing.*;
 
 import Szoba.Szoba;
 import ViewModels.HallgatoViewModel;
+import ViewModels.SzobaViewModel;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -41,7 +42,10 @@ public class RoomFrame extends JFrame{
 
         //TODO
         //Elő kell állítani a megjelenítendő ImageIcon tömböt.
-        roomlist = new JList<>();
+        SzobaViewModel ujSzobaViewModel = new SzobaViewModel(hvm.getHallgato().getSzoba());
+        roomlist = new JList<>(ujSzobaViewModel.getNeighbouringRoomsNames());
+        System.err.println(ujSzobaViewModel.getNeighbouringRoomsNames()[0]);
+        System.err.println(ujSzobaViewModel.getNeighbouringRoomsNames()[1]);
 
 
         scrollpane = new JScrollPane(roomlist);
@@ -51,7 +55,7 @@ public class RoomFrame extends JFrame{
             hvm.mozgas(szoba);
         });
 
-        panel.add(scrollpane, BorderLayout.EAST);
+        panel.add(scrollpane, BorderLayout.CENTER);
         panel.add(movebutton, BorderLayout.WEST);
         add(panel);
     }
