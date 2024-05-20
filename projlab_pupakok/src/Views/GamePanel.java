@@ -10,6 +10,7 @@ import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import ViewModels.HallgatoViewModel;
 import ViewModels.SzobaViewModel;
 import ViewModels.TranzisztorViewModel;
 
@@ -32,17 +33,14 @@ public class GamePanel extends JPanel{
         setLayout(new BorderLayout());
         cp.setLayout(new GridLayout(GRID_SIZE, GRID_SIZE));
         // Konténer feltöltése a cellákkal
-        
-
-       
-        
 
         this.add(cp);
     }
 
-    public void update(SzobaViewModel szVM){
+    public void update(SzobaViewModel szVM, HallgatoViewModel hVM){
         setBackground(szVM.giveSzobaBackgroundColor());
         setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
+        cp.removeAll();
 
         //cellák feltöltése a karakterek képeivel.
         ImageIcon[] characterpictures;
@@ -63,7 +61,13 @@ public class GamePanel extends JPanel{
                         BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/chest.png"));
                         Image scaledIcon = buttonIcon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
                         chestButton.setBorder(BorderFactory.createEmptyBorder());
+                        chestButton = new JButton(new ImageIcon(buttonIcon));
+                        chestButton.addActionListener(e ->{
+                            hVM.createItemFrame(szVM);
+                        });
+                        cells[row][col] = chestButton;
                         cells[row][col] = new JButton(new ImageIcon(scaledIcon));
+
                         cp.add(cells[row][col]);
                         
                     }

@@ -25,8 +25,9 @@ public class ItemFrame extends JFrame{
         super("Room " + szvm.getSzoba().getid() + " targyai");
         setSize(height, width);
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         initComponents(szvm, hvm);
+        this.setVisible(true);
     }
 
     /*
@@ -36,7 +37,7 @@ public class ItemFrame extends JFrame{
         this.setLayout(new BorderLayout());
         panel.setLayout(new BorderLayout());
 
-        itemlist = new JList<>(szvm.getItemsPictures());
+        itemlist = new JList<ImageIcon>(szvm.getItemsPictures());
         itemlist.setCellRenderer(new ImageListCellRenderer());
 
 
@@ -45,10 +46,11 @@ public class ItemFrame extends JFrame{
         pickupbutton.addActionListener(e -> {
             //összerendeljük a képet a tárggyal
             hvm.felvesz(szvm.getSzoba().getTargyak().get(itemlist.getSelectedIndex()));
+            this.dispose();
             
         });
 
-        panel.add(scrollpane, BorderLayout.EAST);
+        panel.add(scrollpane, BorderLayout.CENTER);
         panel.add(pickupbutton, BorderLayout.WEST);
         add(panel);
     }
