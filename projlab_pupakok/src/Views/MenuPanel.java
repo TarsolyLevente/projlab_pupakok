@@ -2,6 +2,8 @@ package Views;
 
 import javax.swing.*;
 
+import Karakter.Hallgato;
+import Szoba.Szoba;
 import ViewModels.GameViewModel;
 import ViewModels.HallgatoViewModel;
 
@@ -47,8 +49,9 @@ public class MenuPanel extends JPanel {
     }
 
     public void update(HallgatoViewModel hVM){
-        playerLabel = new JLabel("Játékos: " + hVM.getHallgatoID() );
-        roomLabel = new JLabel("Szoba: "+ hVM.getSzobaID());
+        
+        playerLabel.setText("Játékos: " + hVM.getHallgatoID());
+        roomLabel.setText("Szoba: "+ hVM.getSzobaID());
     }
 
     String formatTime(int seconds) {
