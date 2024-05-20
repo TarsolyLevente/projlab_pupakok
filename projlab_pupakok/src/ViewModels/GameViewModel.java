@@ -10,6 +10,10 @@ public class GameViewModel {
     private MapViewModel mapViewModel;
     private GameFrame gameFrame;
 
+    public GameFrame getGameFrame() {
+        return gameFrame;
+    }
+
     public GameViewModel(int jatekosokszama){
         
         game = new Game();
