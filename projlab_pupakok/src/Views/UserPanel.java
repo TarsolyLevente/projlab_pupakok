@@ -35,7 +35,7 @@ public class UserPanel extends JPanel {
             } else{
                 throwButton.setEnabled(false);
             }
-            if(hVM != null && hVM.getHallgato().getTaska().size() != 0){
+            if(hVM != null && targyLista.getSelectedValue() != null){
                 if(hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Tranzisztor ||
                 hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Legfrissito ||
                 hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Camembert){
