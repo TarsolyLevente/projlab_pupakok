@@ -64,11 +64,8 @@ public class GamePanel extends JPanel{
         }
          //cellák feltöltése a karakterek képeivel.
         ImageIcon[] characterpictures = szVM.getCharactersPictures();
-        for (int row = 0; row < GRID_SIZE; ++row) {
-            for (int col = 0; col < GRID_SIZE; ++col) {
-                if(characterpictures[col] != null)
-                    ((JLabel)cells[row][col]).setIcon(characterpictures[col]);
-            }
+        for(int i = 0; i < characterpictures.length; ++i){
+            ((JLabel)cells[0][i]).setIcon(characterpictures[i]);
         }
     }
 }
