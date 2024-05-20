@@ -30,24 +30,6 @@ public class UserPanel extends JPanel {
         useButton.setEnabled(false);
         throwButton.setEnabled(false);
 
-        Timer timer = new Timer(400, e -> {
-            if(targyLista.getSelectedValue() != null){
-                throwButton.setEnabled(true);
-            } else{
-                throwButton.setEnabled(false);
-            }
-            if(hVM != null && targyLista.getSelectedValue() != null){
-                if(hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Tranzisztor ||
-                hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Legfrissito ||
-                hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Camembert){
-                    useButton.setEnabled(true);
-                } else{
-                    useButton.setEnabled(false);
-                }
-            }
-        });
-        timer.start();
-
         initComponents();
     }
 
@@ -73,12 +55,43 @@ public class UserPanel extends JPanel {
             System.out.println(ex);
         }
 
+        Timer timer = new Timer(400, e -> {
+            if(targyLista.getSelectedValue() != null && !hVM.getHallgato().getEszmeletvesztett()){
+                throwButton.setEnabled(true);
+            } else{
+                throwButton.setEnabled(false);
+            }
+            if(hVM != null && targyLista.getSelectedValue() != null && !hVM.getHallgato().getEszmeletvesztett()){
+                if(hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Tranzisztor ||
+                hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Legfrissito ||
+                hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Camembert){
+                    useButton.setEnabled(true);
+                } else{
+                    useButton.setEnabled(false);
+                }
+            } else {
+                useButton.setEnabled(false);
+            }
+            if(hVM != null){
+                if(hVM.getHallgato().getEszmeletvesztett()){
+                    roomButton.setEnabled(false);
+                } else {
+                    roomButton.setEnabled(true);
+                }
+            } else {
+                roomButton.setEnabled(true);
+            }
+        });
+        timer.start();
+
         useButton.addActionListener(e -> {
             if(hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()).getFunkcio() == Funkcio.hamis){
                 showFakeItemDialog();
             }
-            hVM.hasznal(targyLista.getSelectedIndex());
-            update(hVM);
+            if(targyLista.getSelectedIndex() != -1){
+                hVM.hasznal(targyLista.getSelectedIndex());
+                update(hVM);
+            }
         });
         throwButton.addActionListener(e -> {
             if(targyLista.getSelectedIndex() != -1){

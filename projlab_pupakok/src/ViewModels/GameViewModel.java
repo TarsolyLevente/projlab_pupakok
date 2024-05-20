@@ -21,7 +21,7 @@ public class GameViewModel {
         gameFrame = new GameFrame();
         start(jatekosokszama);
         // update(game.getPalya().getHallgatok().get(0));
-        // jatekLeptetes();
+        //jatekLeptetes();
     }
 
     public MapViewModel getMapViewModel(){

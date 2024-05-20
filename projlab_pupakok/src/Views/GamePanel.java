@@ -23,7 +23,6 @@ public class GamePanel extends JPanel{
 
     public GamePanel()
     {
-        
         initComponents();
     }
     
@@ -38,6 +37,16 @@ public class GamePanel extends JPanel{
     public void update(SzobaViewModel szVM, HallgatoViewModel hVM){
         setBackground(szVM.giveSzobaBackgroundColor());
         setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
+
+        Timer timer = new Timer(400, e -> {
+            if(hVM.getHallgato().getEszmeletvesztett()){
+                chestButton.setEnabled(false);
+            } else {
+                chestButton.setEnabled(true);
+            }
+        });
+        timer.start();
+
         cp.removeAll();
 
         //cellák feltöltése a karakterek képeivel.
