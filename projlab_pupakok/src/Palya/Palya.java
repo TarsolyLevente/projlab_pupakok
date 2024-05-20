@@ -112,7 +112,7 @@ public class Palya {
         File szomsz = new File(f.getAbsolutePath());
 
         try {
-            FileInputStream fis = new FileInputStream(attr);
+            FileInputStream fis = new FileInputStream(szomsz);
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             String line;

@@ -1,15 +1,33 @@
 package ViewModels;
 
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+
 import Karakter.Hallgato;
 import Szoba.Szoba;
+import Targy.Camembert;
+import Targy.Legfrissito;
+import Targy.Logarlec;
+import Targy.Maszk;
+import Targy.Rongy;
+import Targy.Sorospohar;
+import Targy.TVSZ;
 import Targy.Targy;
 import Targy.Tranzisztor;
+import Views.ItemFrame;
 import Views.RoomFrame;
 
 public class HallgatoViewModel {
     private Hallgato hallgato;
+    private GameViewModel gameViewModel;
 
-    public HallgatoViewModel(Hallgato h){
+    public HallgatoViewModel(Hallgato h, GameViewModel gVM) {
+        hallgato = h;
+        gameViewModel = gVM;
+    }
+
+    public HallgatoViewModel(Hallgato h) {
         hallgato = h;
     }
 
@@ -43,9 +61,10 @@ public class HallgatoViewModel {
 
     public void mozgas(Szoba szoba) {
         hallgato.mozog(szoba);
-        notifyAll();
+        synchronized (gameViewModel) {
+            gameViewModel.notifyAll();
+        }
     }
-
     /**
      * Használja a megadott Targy objektumot.
      * 
@@ -53,6 +72,7 @@ public class HallgatoViewModel {
      */
     public void hasznal(int i) {
         hallgato.getTaska().get(i).use();
+        gameViewModel.getGameFrame().updateGamePanel(new SzobaViewModel(hallgato.getSzoba()), this);
     }
 
     /**
@@ -62,6 +82,7 @@ public class HallgatoViewModel {
      */
     public void eldob(int i) {
         hallgato.eldob(hallgato.getTaska().get(i));
+        gameViewModel.getGameFrame().updateGamePanel(new SzobaViewModel(hallgato.getSzoba()), this);
     }
 
     /**
@@ -72,6 +93,7 @@ public class HallgatoViewModel {
      */
     public void felvesz(Targy targy) {
         hallgato.felvesz(targy);
+        gameViewModel.getGameFrame().updateUserPanel(this);
     }
 
     /**
@@ -91,5 +113,39 @@ public class HallgatoViewModel {
     public String getHallgatoID(){
         return hallgato.getid();
 
+    }
+
+    /*
+     * Létrehozza az itemframet.
+     */
+    public void createItemFrame(SzobaViewModel szobaViewModel){
+        ItemFrame itemframe = new ItemFrame(szobaViewModel, this);
+    }
+
+    /*
+     * Visszaadja a hallgatónál lévő tárgyak képeit.
+     */
+    public ArrayList<ItemViewModel> createitemviewmodels(){
+        ArrayList<ItemViewModel> itemviewmodels = new ArrayList<ItemViewModel>();
+        ArrayList<Targy> sz = this.getHallgato().getTaska();
+        for(int i = 0; i < sz.size(); ++i){
+            if(sz.get(i) instanceof Camembert) itemviewmodels.add(new CamembertViewModel((Camembert)sz.get(i)));
+            if(sz.get(i) instanceof Legfrissito) itemviewmodels.add(new LegfrissitoViewModel((Legfrissito)sz.get(i)));
+            if(sz.get(i) instanceof Maszk) itemviewmodels.add(new MaszkViewModel((Maszk)sz.get(i)));
+            if(sz.get(i) instanceof Rongy) itemviewmodels.add(new RongyViewModel((Rongy)sz.get(i)));
+            if(sz.get(i) instanceof Sorospohar) itemviewmodels.add(new SorospoharViewModel((Sorospohar)sz.get(i)));
+            if(sz.get(i) instanceof Tranzisztor) itemviewmodels.add(new TranzisztorViewModel((Tranzisztor)sz.get(i)));
+            if(sz.get(i) instanceof Logarlec) itemviewmodels.add(new LogarlecViewModel((Logarlec)sz.get(i)));
+            if(sz.get(i) instanceof TVSZ) itemviewmodels.add(new TVSZViewModel((TVSZ)sz.get(i)));
+        }
+        return itemviewmodels;
+    }
+    public ImageIcon[] giveTaskabanLevoTargyakKepe(){
+        ArrayList<ItemViewModel> itemviewmodels = createitemviewmodels();
+        ImageIcon[] images = new ImageIcon[itemviewmodels.size()];
+        for(int i = 0; i < itemviewmodels.size(); ++i){
+            images[i] = itemviewmodels.get(i).getItemImage();
+        }
+        return images;
     }
 }

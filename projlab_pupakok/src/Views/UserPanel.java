@@ -10,6 +10,7 @@ import java.io.File;
 
 import javax.imageio.ImageIO; // Import the ImageIO class from javax.imageio
 import java.awt.BorderLayout; // Import the BorderLayout class from java.awt
+import java.awt.Component;
 import java.awt.Dimension;
 
 public class UserPanel extends JPanel {
@@ -17,17 +18,21 @@ public class UserPanel extends JPanel {
     private JList<ImageIcon> targyLista;
     private JButton useButton = new JButton("Használ");
     private JButton throwButton = new JButton("Eldob");
-    private JButton roomButton = new JButton("Mozog");
+    private JButton roomButton;
     private HallgatoViewModel hVM;
 
     public UserPanel() {
+        targyLista = new JList<ImageIcon>();
         initComponents();
     }
 
     private void initComponents() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        if(hVM != null){
+            targyLista = new JList<ImageIcon>(hVM.giveTaskabanLevoTargyakKepe());
+            targyLista.setCellRenderer(new ImageListCellRenderer());
+        }
         scrollpane = new JScrollPane(targyLista);
-
 
         try {
             BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move.png"));
@@ -44,6 +49,7 @@ public class UserPanel extends JPanel {
 
         useButton.addActionListener(e -> {
             hVM.hasznal(targyLista.getSelectedIndex());
+            update(hVM);
         });
         throwButton.addActionListener(e -> {
             hVM.eldob(targyLista.getSelectedIndex());
@@ -61,16 +67,39 @@ public class UserPanel extends JPanel {
 
     public void update(HallgatoViewModel hVM) {
         this.hVM = hVM;
-        this.revalidate();
+        DefaultListModel<ImageIcon> LM = new DefaultListModel<>();
+        for (ImageIcon icon : hVM.giveTaskabanLevoTargyakKepe()) {
+            LM.addElement(icon);
+        }
+        targyLista.setModel(LM);
+        targyLista.setCellRenderer(new ImageListCellRenderer());
+        scrollpane.setViewportView(targyLista);
         /*
-         * DefaultListModel<ImageIcon> listModel = new DefaultListModel<>();
          * 
-         * for (int i = 0; i < hVM.getHallgato().getTargyak().size(); i++) {
-         * listModel.addElement(new
-         * ImageIcon(hVM.getHallgato().getTargyak().get(i).getKep()));
-         * }
-         * targyLista = new JList<>(listModel);
-         * scrollpane.setViewportView(targyLista);
+         * targyLista = new JList<ImageIcon>(hVM.giveTaskabanLevoTargyakKepe());
+         * targyLista.setCellRenderer(new ImageListCellRenderer());
+         * scrollpane = new JScrollPane(targyLista);
          */
+    }
+
+    private class ImageListCellRenderer extends JLabel implements ListCellRenderer<ImageIcon> {
+        public ImageListCellRenderer() {
+            setOpaque(true);
+            setHorizontalAlignment(CENTER);
+            setVerticalAlignment(CENTER);
+        }
+
+        @Override
+        public Component getListCellRendererComponent(JList<? extends ImageIcon> list, ImageIcon value, int index, boolean isSelected, boolean cellHasFocus) {
+            setIcon(value);
+            if (isSelected) {
+                setBackground(list.getSelectionBackground());
+                setForeground(list.getSelectionForeground());
+            } else {
+                setBackground(list.getBackground());
+                setForeground(list.getForeground());
+            }
+            return this;
+        }
     }
 }
