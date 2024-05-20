@@ -16,6 +16,7 @@ import javax.imageio.ImageIO; // Import the ImageIO class from javax.imageio
 import java.awt.BorderLayout; // Import the BorderLayout class from java.awt
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Window;
 
 public class UserPanel extends JPanel {
     private JScrollPane scrollpane;
@@ -100,6 +101,12 @@ public class UserPanel extends JPanel {
             }
         });
         roomButton.addActionListener(e -> {
+            Window[] windows = Window.getWindows();
+            for (Window window : windows) {
+                if (window instanceof ItemFrame || window instanceof RoomFrame) {
+                    ((JFrame) window).dispose();
+                }
+            }
             hVM.mozgas();
         });
 
