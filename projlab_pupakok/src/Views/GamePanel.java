@@ -68,15 +68,15 @@ public class GamePanel extends JPanel{
                     }
                 }
                 else if(!charactersTemp.isEmpty()){
-                    cells[row][col] = new JLabel(charactersTemp.getFirst());
+                    cells[row][col] = new JLabel(charactersTemp.get(0));
                     cp.add(cells[row][col]);
-                    charactersTemp.removeFirst();
+                    charactersTemp.remove(0);
                 }
                 else if(!transistorCount.isEmpty()){
                     //Image transistorScaledIcon = transistorIcon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
-                    cells[row][col] = new JButton(transistorCount.getFirst().getItemImage());
+                    cells[row][col] = new JButton(transistorCount.get(0).getItemImage());
                     cp.add(cells[row][col]);
-                    transistorCount.removeFirst();
+                    transistorCount.remove(0);
                 }
                 else{
                     cells[row][col] = new JLabel();
