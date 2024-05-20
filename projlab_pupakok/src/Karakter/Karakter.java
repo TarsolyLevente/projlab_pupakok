@@ -150,6 +150,14 @@ public abstract class Karakter {
                 }
             }
         }
+            else if (v == Vedettseg.gaztol) {
+                for (int i = 0; i < taska.size(); i++) {
+                    if (taska.get(i).getFunkcio() == Funkcio.gaztol_ved) {
+                        taska.get(i).use();
+                        return true;
+                    }
+                }
+            }
         return false;
     }
 
