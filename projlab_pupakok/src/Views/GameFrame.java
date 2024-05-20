@@ -15,13 +15,15 @@ import javax.swing.event.MenuEvent;
 import Game.Game;
 import Karakter.Hallgato;
 import Szoba.Szoba;
+import Targy.Camembert;
+import Targy.Legfrissito;
+import Targy.Tranzisztor;
 import ViewModels.GameViewModel;
 import ViewModels.HallgatoViewModel;
 import ViewModels.SzobaViewModel;
 
 public class GameFrame extends JFrame
 {
-    private GameViewModel gameviewmodel;
     private UserPanel userPanel;
     private MenuPanel menuPanel;
     private GamePanel gamePanel;
@@ -48,6 +50,8 @@ public class GameFrame extends JFrame
     
     public void initComponents() 
     {
+        
+
         gamePanel = new GamePanel();
         userPanel = new UserPanel();
         menuPanel = new MenuPanel();

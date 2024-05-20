@@ -40,16 +40,26 @@ public class HomeFrame extends JFrame {
             if(jatekosokszama > 0){
                 this.setVisible(false);
             GameViewModel gameViewModel = new GameViewModel(jatekosokszama);
+            Timer timer = new Timer(400, d -> {
+                if(gameViewModel.getGame().getJatekVege())
+                {
+                    showEndGameDialog(gameViewModel.getGame().endgame());
+                    gameViewModel.getGameFrame().dispose();
+                    ((Timer)d.getSource()).stop();
+                }
+            });
+            timer.start();
             SwingUtilities.invokeLater(() -> {
                 Thread gThread = new Thread(() -> {
                         gameViewModel.jatekLeptetes();
-                        showEndGameDialog(gameViewModel.getGame().endgame());
                 });
                 gThread.start();
             });
             }
             
         });
+
+        
         
         panel.add(startButton, gbc);
 

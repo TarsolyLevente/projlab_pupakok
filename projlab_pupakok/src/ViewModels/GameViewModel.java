@@ -1,5 +1,7 @@
 package ViewModels;
 
+import javax.swing.*;
+
 import Game.Game;
 import Karakter.Hallgato;
 import Views.GameFrame;
@@ -80,7 +82,6 @@ public class GameViewModel {
                 System.err.println("asdasgfasgasgasgassgaasgs");
             }
         }
-        gameFrame.dispose();
     }
 
     public synchronized void update(Hallgato h) {
