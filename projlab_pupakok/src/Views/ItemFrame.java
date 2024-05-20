@@ -25,7 +25,7 @@ public class ItemFrame extends JFrame{
         super("Room " + szvm.getSzoba().getid() + " targyai");
         setSize(height, width);
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         initComponents(szvm, hvm);
         this.setVisible(true);
     }

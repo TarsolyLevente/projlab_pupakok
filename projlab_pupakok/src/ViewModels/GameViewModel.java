@@ -86,7 +86,6 @@ public class GameViewModel {
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     System.err.println("Thread Interrupted");
                     e.printStackTrace();
                 }
