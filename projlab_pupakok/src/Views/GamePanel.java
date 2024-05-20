@@ -19,6 +19,7 @@ public class GamePanel extends JPanel{
     public static final int GRID_SIZE = 9;
     private JComponent[][] cells = new JComponent[GRID_SIZE][GRID_SIZE];
     private JButton chestButton = new JButton("Chest");
+    private HallgatoViewModel hVM;
 
 
     public GamePanel()
@@ -31,21 +32,30 @@ public class GamePanel extends JPanel{
         setLayout(new BorderLayout());
         cp.setLayout(new GridLayout(GRID_SIZE, GRID_SIZE));
         // Konténer feltöltése a cellákkal
+        Timer timer = new Timer(400, e -> {
+            if(hVM != null)
+            {
+                if(hVM.getHallgato().getEszmeletvesztett())
+                    chestButton.setEnabled(false);
+                else
+                chestButton.setEnabled(true);
+            }
+            else
+            {
+                chestButton.setEnabled(true);
+                ((Timer)e.getSource()).stop();
+            }
+        });
+        timer.start();
         this.add(cp);
     }
 
     public void update(SzobaViewModel szVM, HallgatoViewModel hVM){
+        this.hVM = hVM;
         setBackground(szVM.giveSzobaBackgroundColor());
         setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
 
-        Timer timer = new Timer(400, e -> {
-            if(hVM.getHallgato().getEszmeletvesztett()){
-                chestButton.setEnabled(false);
-            } else {
-                chestButton.setEnabled(true);
-            }
-        });
-        timer.start();
+        
 
         cp.removeAll();
 
