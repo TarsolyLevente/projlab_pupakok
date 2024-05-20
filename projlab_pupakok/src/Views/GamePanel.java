@@ -3,6 +3,7 @@ package Views;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -39,6 +40,12 @@ public class GamePanel extends JPanel{
         setBackground(szVM.giveSzobaBackgroundColor());
         setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
 
+        //cellák feltöltése a karakterek képeivel.
+        ImageIcon[] characterpictures;
+        try {
+            characterpictures = szVM.getCharactersPictures();  
+
+
         for (int row = 0; row < GRID_SIZE; ++row) {
             for (int col = 0; col < GRID_SIZE; ++col) {
                 if((row  == (GRID_SIZE-1)) && (col == (GRID_SIZE-1)))
@@ -54,18 +61,19 @@ public class GamePanel extends JPanel{
                         ex.printStackTrace();
                     }
                 }
+                else if(row == 0 && col < characterpictures.length){
+                    cells[row][col] = new JLabel(characterpictures[col]);
+                    cp.add(cells[row][col]);
+                }
                 else{
                     cells[row][col] = new JLabel();
                     cp.add(cells[row][col]);
                 }
             }
         }
-         //cellák feltöltése a karakterek képeivel.
-        ImageIcon[] characterpictures = szVM.getCharactersPictures();
-        for(int i = 0; i < characterpictures.length; ++i){
-            ((JLabel)cells[0][i]).setIcon(characterpictures[i]);
-        }
 
-        
+        } catch (IOException e) {
+            e.printStackTrace();
+        }    
     }
 }
