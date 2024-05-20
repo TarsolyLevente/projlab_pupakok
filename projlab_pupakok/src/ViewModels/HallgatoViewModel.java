@@ -58,6 +58,7 @@ public class HallgatoViewModel {
     public void mozgas() {
         RoomFrame rf = new RoomFrame(this);
         rf.setVisible(true);
+        rf.setLocationRelativeTo(null);
     }
 
     public void mozgas(Szoba szoba) {
@@ -125,6 +126,7 @@ public class HallgatoViewModel {
      */
     public void createItemFrame(SzobaViewModel szobaViewModel){
         ItemFrame itemframe = new ItemFrame(szobaViewModel, this);
+        itemframe.setLocationRelativeTo(null);
     }
 
     /*
