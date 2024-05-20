@@ -3,6 +3,7 @@ package Views;
 import javax.swing.*;
 
 import Targy.Camembert;
+import Targy.Funkcio;
 import Targy.Legfrissito;
 import Targy.Tranzisztor;
 import ViewModels.HallgatoViewModel;
@@ -73,6 +74,9 @@ public class UserPanel extends JPanel {
         }
 
         useButton.addActionListener(e -> {
+            if(hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()).getFunkcio() == Funkcio.hamis){
+                showFakeItemDialog();
+            }
             hVM.hasznal(targyLista.getSelectedIndex());
             update(hVM);
         });
@@ -121,5 +125,9 @@ public class UserPanel extends JPanel {
             }
             return this;
         }
+    }
+
+    private void showFakeItemDialog(){
+        JOptionPane.showMessageDialog(this, "A targy hamis, ezt jól be****");
     }
 }
