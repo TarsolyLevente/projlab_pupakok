@@ -10,10 +10,6 @@ public class GameViewModel {
     private MapViewModel mapViewModel;
     private GameFrame gameFrame;
 
-    public GameFrame getGameFrame() {
-        return gameFrame;
-    }
-
     public GameViewModel(int jatekosokszama){
         
         game = new Game();
@@ -80,19 +76,20 @@ public class GameViewModel {
         endgame();
     }
 
-    public synchronized void update(Hallgato h) {
+    public void update(Hallgato h) {
         SzobaViewModel szVW = new SzobaViewModel(h.getSzoba());
-        HallgatoViewModel hVM = new HallgatoViewModel(h, this);
-        gameFrame.updateGamePanel(szVW, hVM);
+        HallgatoViewModel hVM = new HallgatoViewModel(h);
+        gameFrame.updateGamePanel(szVW);
         gameFrame.updateMenuPanel(hVM);
         gameFrame.updateUserPanel(hVM);
-
-        try {
-            wait();
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
+            synchronized (this) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    System.err.println("Thread Interrupted");
+                    e.printStackTrace();
+                }
+            }
         }
     }

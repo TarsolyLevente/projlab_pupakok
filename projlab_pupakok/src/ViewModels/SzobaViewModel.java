@@ -30,42 +30,38 @@ public class SzobaViewModel {
     private Szoba szoba;
 
     /*
+     * A szobában található tárgyak viewmodellei
+     */
+    private ArrayList<ItemViewModel> itemviewmodels;
+
+    /*
+     * TranzisztorViewModels a szobában.
+     */
+    private ArrayList<TranzisztorViewModel> tranzisztorviewmodels;
+
+    /*
      * SzobaViewModel konstruktora, paraméterben az aktuális szoba.
      */
     public SzobaViewModel(Szoba sz) {
         szoba = sz;
-    }
-
-    public ArrayList<? extends ItemViewModel>[] createitemviewmodels(){
-        ArrayList<? extends ItemViewModel>[] lists = (ArrayList<? extends ItemViewModel>[]) new ArrayList[2];
-        ArrayList<ItemViewModel> itemviewmodels = new ArrayList<ItemViewModel>();
-        ArrayList<TranzisztorViewModel> tranzisztorviewmodels = new ArrayList<TranzisztorViewModel>();
-        Szoba sz = this.getSzoba();
+        itemviewmodels = new ArrayList<ItemViewModel>();
+        tranzisztorviewmodels = new ArrayList<TranzisztorViewModel>();
         for(int i = 0; i < sz.getTargyak().size(); ++i){
             if(sz.getTargyak().get(i) instanceof Camembert) itemviewmodels.add(new CamembertViewModel((Camembert)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof Legfrissito) itemviewmodels.add(new LegfrissitoViewModel((Legfrissito)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof Maszk) itemviewmodels.add(new MaszkViewModel((Maszk)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof Rongy) itemviewmodels.add(new RongyViewModel((Rongy)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof Sorospohar) itemviewmodels.add(new SorospoharViewModel((Sorospohar)sz.getTargyak().get(i)));
-            if (sz.getTargyak().get(i) instanceof Tranzisztor) {
-                tranzisztorviewmodels.add(new TranzisztorViewModel((Tranzisztor) sz.getTargyak().get(i)));
-                itemviewmodels.add(new TranzisztorViewModel((Tranzisztor) sz.getTargyak().get(i)));
-            }
+            if(sz.getTargyak().get(i) instanceof Tranzisztor) tranzisztorviewmodels.add(new TranzisztorViewModel((Tranzisztor)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof Logarlec) itemviewmodels.add(new LogarlecViewModel((Logarlec)sz.getTargyak().get(i)));
             if(sz.getTargyak().get(i) instanceof TVSZ) itemviewmodels.add(new TVSZViewModel((TVSZ)sz.getTargyak().get(i)));
         }
-        lists[0] = itemviewmodels;
-        lists[1] = tranzisztorviewmodels;
-        return lists;
     }
 
     /*
      * visszaadja egy tömbben az adott szobában található tárgyak képeit.
      */
     public ImageIcon[] getItemsPictures(){
-        ArrayList<? extends ItemViewModel>[] lists = createitemviewmodels();
-        ArrayList<? extends ItemViewModel> itemviewmodels = lists[0];
-        ArrayList<TranzisztorViewModel> tranzisztorviewmodels = (ArrayList<TranzisztorViewModel>)lists[1];
         int itemcount = itemviewmodels.size();
         int inactivtransistorcount = 0;
         for(int i = 0; i < tranzisztorviewmodels.size(); ++i){
@@ -90,8 +86,6 @@ public class SzobaViewModel {
      * Aktív tranzisztorok viewmodelleinek visszaadása.
      */
     public ArrayList<TranzisztorViewModel> getActiveTransistorViewModels(){
-        ArrayList<? extends ItemViewModel>[] lists = createitemviewmodels();
-        ArrayList<TranzisztorViewModel> tranzisztorviewmodels = (ArrayList<TranzisztorViewModel>)lists[1];
         ArrayList<TranzisztorViewModel> aktivtranzisztorviewmodels = new ArrayList<TranzisztorViewModel>();
         for(int i = 0; i < tranzisztorviewmodels.size(); ++i){
             if((tranzisztorviewmodels.get(i).getTranzisztor()).getAktiv()){
@@ -142,7 +136,7 @@ public class SzobaViewModel {
         int n = szoba.getSzomszedok().size();
         String[] szomszedokneve = new String[n];
         for (int i = 0; i < n; ++i) {
-            szomszedokneve[i] = "Szoba " + szoba.getSzomszedok().get(i).getid();
+            szomszedokneve[i] = "Szoba " + szoba.getSzomszedok().get(0).getid();
         }
         return szomszedokneve;
     }

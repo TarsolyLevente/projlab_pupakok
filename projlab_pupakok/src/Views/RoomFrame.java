@@ -3,7 +3,6 @@ import javax.swing.*;
 
 import Szoba.Szoba;
 import ViewModels.HallgatoViewModel;
-import ViewModels.SzobaViewModel;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -29,7 +28,7 @@ public class RoomFrame extends JFrame{
         super("Room " + hvm.getHallgato().getSzoba().getid() + " szomszedjai");
         setSize(height, width);
         setResizable(false);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         initComponents(hvm);
     }
 
@@ -42,22 +41,17 @@ public class RoomFrame extends JFrame{
 
         //TODO
         //Elő kell állítani a megjelenítendő ImageIcon tömböt.
-        SzobaViewModel ujSzobaViewModel = new SzobaViewModel(hvm.getHallgato().getSzoba());
-        roomlist = new JList<>(ujSzobaViewModel.getNeighbouringRoomsNames());
+        roomlist = new JList<>();
 
 
         scrollpane = new JScrollPane(roomlist);
 
         movebutton.addActionListener(e -> {
-            Szoba szoba = null;
-            if (roomlist.getSelectedIndex() != -1) {
-                szoba = hvm.getHallgato().getSzoba().getSzomszedok().get(roomlist.getSelectedIndex());
-                hvm.mozgas(szoba);
-                this.dispose();
-            }
+            Szoba szoba = hvm.getHallgato().getSzoba().getSzomszedok().get(roomlist.getSelectedIndex());
+            hvm.mozgas(szoba);
         });
 
-        panel.add(scrollpane, BorderLayout.CENTER);
+        panel.add(scrollpane, BorderLayout.EAST);
         panel.add(movebutton, BorderLayout.WEST);
         add(panel);
     }
