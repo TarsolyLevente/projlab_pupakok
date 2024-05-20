@@ -57,7 +57,7 @@ public class GameViewModel {
      * Ezt fogja a start() a végén meghívni, hogy folyamatosan futtathassa a játékot
      */
     public void jatekLeptetes() {
-        while (game.getSzamlalo() < 900) {
+        while (game.getSzamlalo() < 900000) {
             for (int i = 0; i < game.getPalya().getHallgatok().size(); ++i) {
                 if (!game.getPalya().getHallgatok().get(i).getEszmeletvesztett()) {
                     update(game.getPalya().getHallgatok().get(i));
@@ -71,8 +71,9 @@ public class GameViewModel {
                 }
             }
             if (esz) {
-                if (game.getSzamlalo() % 30 == 0) {
+                if (game.getSzamlalo() % 30000 == 0) {
                     game.getPalya().leptet();
+                    System.err.println("asdasgfasgasgasgassgaasgs");
                 }
             } else {
                 game.getPalya().leptet();

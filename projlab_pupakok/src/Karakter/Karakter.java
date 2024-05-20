@@ -37,11 +37,17 @@ public abstract class Karakter {
      */
     Timer timer = new Timer(1000, e -> {
         counter++;
-        if (counter == 180) {
-            setEszmeletvesztett(false);
+        if (counter >= 60) {
+            noEszmeletvesztes();
         }
     });
 
+    void noEszmeletvesztes() {
+        setEszmeletvesztett(false);
+        System.out.println("Karakter " + id + " felébredt!");
+        timer.stop();
+        counter = 0;
+    }
     /**
      * Karakter konstruktora
      * 

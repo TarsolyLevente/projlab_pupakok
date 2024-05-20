@@ -81,8 +81,10 @@ public class UserPanel extends JPanel {
             update(hVM);
         });
         throwButton.addActionListener(e -> {
-            hVM.eldob(targyLista.getSelectedIndex());
-            update(hVM);
+            if(targyLista.getSelectedIndex() != -1){
+                hVM.eldob(targyLista.getSelectedIndex());
+                update(hVM);
+            }
         });
         roomButton.addActionListener(e -> {
             hVM.mozgas();

@@ -63,7 +63,11 @@ public class HomeFrame extends JFrame {
 
     private int showHallgatoCountDialog() {
         String temp = JOptionPane.showInputDialog(this, "Hallgatók száma:");
-        hallagatocnt = Integer.valueOf(temp);
+        try {
+            hallagatocnt = Integer.valueOf(temp);
+        } catch (NumberFormatException e) {
+            hallagatocnt = showHallgatoCountDialog();
+        }
         return hallagatocnt;
     }
 
