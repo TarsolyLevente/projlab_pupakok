@@ -1,7 +1,18 @@
 package ViewModels;
 
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+
 import Karakter.Hallgato;
 import Szoba.Szoba;
+import Targy.Camembert;
+import Targy.Legfrissito;
+import Targy.Logarlec;
+import Targy.Maszk;
+import Targy.Rongy;
+import Targy.Sorospohar;
+import Targy.TVSZ;
 import Targy.Targy;
 import Targy.Tranzisztor;
 import Views.ItemFrame;
@@ -99,5 +110,32 @@ public class HallgatoViewModel {
      */
     public void createItemFrame(SzobaViewModel szobaViewModel){
         ItemFrame itemframe = new ItemFrame(szobaViewModel, this);
+    }
+
+    /*
+     * Visszaadja a hallgatónál lévő tárgyak képeit.
+     */
+    public ArrayList<ItemViewModel> createitemviewmodels(){
+        ArrayList<ItemViewModel> itemviewmodels = new ArrayList<ItemViewModel>();
+        ArrayList<Targy> sz = this.getHallgato().getTaska();
+        for(int i = 0; i < sz.size(); ++i){
+            if(sz.get(i) instanceof Camembert) itemviewmodels.add(new CamembertViewModel((Camembert)sz.get(i)));
+            if(sz.get(i) instanceof Legfrissito) itemviewmodels.add(new LegfrissitoViewModel((Legfrissito)sz.get(i)));
+            if(sz.get(i) instanceof Maszk) itemviewmodels.add(new MaszkViewModel((Maszk)sz.get(i)));
+            if(sz.get(i) instanceof Rongy) itemviewmodels.add(new RongyViewModel((Rongy)sz.get(i)));
+            if(sz.get(i) instanceof Sorospohar) itemviewmodels.add(new SorospoharViewModel((Sorospohar)sz.get(i)));
+            if(sz.get(i) instanceof Tranzisztor) itemviewmodels.add(new TranzisztorViewModel((Tranzisztor)sz.get(i)));
+            if(sz.get(i) instanceof Logarlec) itemviewmodels.add(new LogarlecViewModel((Logarlec)sz.get(i)));
+            if(sz.get(i) instanceof TVSZ) itemviewmodels.add(new TVSZViewModel((TVSZ)sz.get(i)));
+        }
+        return itemviewmodels;
+    }
+    public ImageIcon[] giveTaskabanLevoTargyakKepe(){
+        ArrayList<ItemViewModel> itemviewmodels = createitemviewmodels();
+        ImageIcon[] images = new ImageIcon[itemviewmodels.size()];
+        for(int i = 0; i < itemviewmodels.size(); ++i){
+            images[i] = itemviewmodels.get(i).getItemImage();
+        }
+        return images;
     }
 }

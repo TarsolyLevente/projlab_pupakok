@@ -47,6 +47,7 @@ public class ItemFrame extends JFrame{
             //összerendeljük a képet a tárggyal
             hvm.felvesz(szvm.getSzoba().getTargyak().get(itemlist.getSelectedIndex()));
             this.dispose();
+            
         });
 
         panel.add(scrollpane, BorderLayout.EAST);
