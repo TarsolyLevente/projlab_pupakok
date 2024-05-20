@@ -17,6 +17,7 @@ import Targy.Targy;
 import Targy.Tranzisztor;
 import Views.ItemFrame;
 import Views.RoomFrame;
+import Views.UserPanel;
 
 public class HallgatoViewModel {
     private Hallgato hallgato;
