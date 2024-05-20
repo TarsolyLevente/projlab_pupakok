@@ -58,6 +58,12 @@ public class GamePanel extends JPanel{
                         chestButton.setBorder(BorderFactory.createEmptyBorder());
                         chestButton = new JButton(new ImageIcon(scaledIcon));
                         chestButton.addActionListener(e ->{
+                            Window[] windows = Window.getWindows();
+                            for (Window window : windows) {
+                                if (window instanceof RoomFrame || window instanceof ItemFrame) {
+                                    ((JFrame) window).dispose();
+                                }
+                            }
                             hVM.createItemFrame(szVM);
                         });
                         cells[row][col] = chestButton;
