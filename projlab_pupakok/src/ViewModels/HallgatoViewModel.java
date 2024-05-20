@@ -72,6 +72,7 @@ public class HallgatoViewModel {
      */
     public void hasznal(int i) {
         hallgato.getTaska().get(i).use();
+        gameViewModel.getGameFrame().updateGamePanel(new SzobaViewModel(hallgato.getSzoba()), this);
     }
 
     /**
@@ -81,6 +82,7 @@ public class HallgatoViewModel {
      */
     public void eldob(int i) {
         hallgato.eldob(hallgato.getTaska().get(i));
+        gameViewModel.getGameFrame().updateGamePanel(new SzobaViewModel(hallgato.getSzoba()), this);
     }
 
     /**
