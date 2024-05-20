@@ -2,6 +2,9 @@ package Views;
 
 import javax.swing.*;
 
+import Targy.Camembert;
+import Targy.Legfrissito;
+import Targy.Tranzisztor;
 import ViewModels.HallgatoViewModel;
 
 import java.awt.Image; // Import the Image class from java.awt
@@ -23,6 +26,27 @@ public class UserPanel extends JPanel {
 
     public UserPanel() {
         targyLista = new JList<ImageIcon>();
+        useButton.setEnabled(false);
+        throwButton.setEnabled(false);
+
+        Timer timer = new Timer(400, e -> {
+            if(targyLista.getSelectedValue() != null){
+                throwButton.setEnabled(true);
+            } else{
+                throwButton.setEnabled(false);
+            }
+            if(hVM != null && hVM.getHallgato().getTaska().size() != 0){
+                if(hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Tranzisztor ||
+                hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Legfrissito ||
+                hVM.getHallgato().getTaska().get(targyLista.getSelectedIndex()) instanceof Camembert){
+                    useButton.setEnabled(true);
+                } else{
+                    useButton.setEnabled(false);
+                }
+            }
+        });
+        timer.start();
+
         initComponents();
     }
 
@@ -33,6 +57,7 @@ public class UserPanel extends JPanel {
             targyLista.setCellRenderer(new ImageListCellRenderer());
         }
         scrollpane = new JScrollPane(targyLista);
+        scrollpane.setPreferredSize(new Dimension(90, 400));
 
         try {
             BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move.png"));
@@ -78,12 +103,7 @@ public class UserPanel extends JPanel {
         targyLista.setModel(LM);
         targyLista.setCellRenderer(new ImageListCellRenderer());
         scrollpane.setViewportView(targyLista);
-        /*
-         * 
-         * targyLista = new JList<ImageIcon>(hVM.giveTaskabanLevoTargyakKepe());
-         * targyLista.setCellRenderer(new ImageListCellRenderer());
-         * scrollpane = new JScrollPane(targyLista);
-         */
+
     }
 
     private class ImageListCellRenderer extends JLabel implements ListCellRenderer<ImageIcon> {
