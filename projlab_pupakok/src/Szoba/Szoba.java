@@ -189,7 +189,7 @@ public class Szoba {
             // Szomszédok kezelése
             for (int i = 0; i < sz.getSzomszedok().size(); i++) {
                 Szoba szoba = sz.getSzomszedok().get(i);
-                if (!this.szomszedok.contains(szoba) && szoba != this) {
+                if (!this.szomszedok.contains(szoba) && szoba != this && szoba != sz) {
                     this.addSzomszed(szoba);
                     szoba.addSzomszed(this);
                 }
