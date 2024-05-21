@@ -90,7 +90,9 @@ public class GameViewModel {
                     getGameFrame().showKibukasDialog(new HallgatoViewModel(hallgato));
                 }
                 
-                if (!game.getPalya().getHallgatok().get(i).getEszmeletvesztett()  && !game.getJatekVege()) {
+                if (!game.getPalya().getHallgatok().get(i).getEszmeletvesztett() && !game.getJatekVege()
+                        && !kibukottHallgatok.contains(
+                                game.getPalya().getHallgatok().get(i))) {
                     update(game.getPalya().getHallgatok().get(i));
                 }
             }

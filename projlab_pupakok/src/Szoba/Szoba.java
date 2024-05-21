@@ -389,7 +389,7 @@ public class Szoba {
     public void deleteHallgato(Hallgato h) {
         removeHallgato(h);
         palya.removeHallgato(h);
-        if (palya.getHallgatok().size() == 0)
+        if (palya.getHallgatok().isEmpty())
             palya.getGame().endgame();
     }
 
