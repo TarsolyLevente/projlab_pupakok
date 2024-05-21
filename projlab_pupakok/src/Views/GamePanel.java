@@ -24,6 +24,7 @@ public class GamePanel extends JPanel{
     private JButton chestButton = new JButton("Chest");
     private HallgatoViewModel hVM;
     private ArrayList<JButton> transistorButtons = new ArrayList<JButton>();
+    private ArrayList<TranzisztorViewModel> tranzisztorok = new ArrayList<TranzisztorViewModel>();
 
     /**
      * A GamePanel osztály konstruktora, amely inicializálja a komponenseket.
@@ -95,7 +96,7 @@ public class GamePanel extends JPanel{
         this.hVM = hVM;
         setBackground(szVM.giveSzobaBackgroundColor());
         setBorder(BorderFactory.createLineBorder(szVM.giveSzobaFrameColor(), 5));
-
+        tranzisztorok = szVM.getActiveTransistorViewModels();
         
 
         cp.removeAll();
@@ -107,7 +108,7 @@ public class GamePanel extends JPanel{
             characterpictures = szVM.getCharactersPictures();
             transistorCount = szVM.getActiveTransistorViewModels();
             ArrayList<ImageIcon> charactersTemp = new ArrayList<>(Arrays.asList(characterpictures));
-
+            int tridx = 0;
         for (int row = 0; row < GRID_SIZE; ++row) {
             for (int col = 0; col < GRID_SIZE; ++col) {
                 if((row  == (GRID_SIZE-1)) && (col == (GRID_SIZE-1)))
@@ -139,7 +140,11 @@ public class GamePanel extends JPanel{
                     charactersTemp.remove(0);
                 }
                 else if (!transistorCount.isEmpty()) {
-                    transistorButtons.add(new JButton(transistorCount.get(0).getItemImage()));
+                    JButton trButton = new JButton(transistorCount.get(tridx).getItemImage());
+                    trButton.addActionListener(e -> {
+                        hVM.teleportal(tranzisztorok.get(tridx).getTranzisztor());
+                    });
+                    transistorButtons.add(trButton);
                     cells[row][col] = transistorButtons.get(transistorButtons.size() - 1);
                     cp.add(cells[row][col]);
                     transistorCount.remove(0);

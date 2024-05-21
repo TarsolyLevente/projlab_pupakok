@@ -34,12 +34,12 @@ public abstract class Targy {
 	 * @param i  - id paraméter
 	 * @param sz - szoba paraméter
 	 */
-	public Targy(Funkcio f, String i, Szoba sz) {
+	protected Targy(Funkcio f, String i, Szoba sz) {
 		id = i;
 		szoba = sz;
 		sz.targy_elhelyezese(this);
 		Random rand = new Random();
-		if (rand.nextInt() % 2 == 0) {
+		if (rand.nextInt() % 1 == 0) {
 			funkcio = f;
 		} else {
 			funkcio = Funkcio.hamis;
