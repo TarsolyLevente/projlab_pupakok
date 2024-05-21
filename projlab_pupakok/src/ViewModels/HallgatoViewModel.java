@@ -82,6 +82,8 @@ public class HallgatoViewModel {
     public void hasznal(int i) {
         hallgato.getTaska().get(i).use();
         gameViewModel.getGameFrame().updateGamePanel(new SzobaViewModel(hallgato.getSzoba()), this);
+        gameViewModel.getGameFrame().updateMenuPanel(this);
+        gameViewModel.getGameFrame().updateUserPanel(this);
     }
 
     /**

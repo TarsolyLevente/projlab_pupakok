@@ -76,8 +76,12 @@ public class SzobaViewModel {
             }
         }
         ImageIcon[] images = new ImageIcon[itemcount - activtransistorcount];
+        int imageidx = 0;
         for(int i = 0; i < itemcount; ++i){
-            images[i] = itemviewmodels.get(i).getItemImage();
+            if (i < itemcount - activtransistorcount) {
+                images[imageidx] = itemviewmodels.get(i).getItemImage();
+                imageidx++;
+            }   
         }
         return images;
     }

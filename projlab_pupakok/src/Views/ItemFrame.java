@@ -35,7 +35,7 @@ public class ItemFrame extends JFrame{
      * @param hvm a HallgatoViewModel objektum, amely a felhasználó aktuális állapotát tartalmazza
      */
     public ItemFrame(SzobaViewModel szvm, HallgatoViewModel hvm){
-        super("Room " + szvm.getSzoba().getid() + " targyai");
+        super("Szoba " + szvm.getSzoba().getid() + " targyai");
         setSize(height, width);
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
