@@ -107,7 +107,7 @@ public abstract class Karakter {
      * 
      * @param sz Ide mozog át
      */
-    public abstract boolean mozog(Szoba sz);
+    public abstract void mozog(Szoba sz);
 
     /**
      * Karakter absztrakt felvesz függvénye

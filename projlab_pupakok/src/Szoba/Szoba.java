@@ -314,7 +314,6 @@ public class Szoba {
 
                 if (!oktatok.isEmpty() && !h.vedette(Vedettseg.oktatotol)) {
                     h.kibukik();
-                    return false;
                 }
 
             return true;
