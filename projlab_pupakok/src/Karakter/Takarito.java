@@ -57,7 +57,7 @@ public class Takarito extends Karakter {
      */
     void takarit(){
         getSzoba().setRagacs_cnt(0);
-
+        getSzoba().setGaz(false);
     }
 
 
