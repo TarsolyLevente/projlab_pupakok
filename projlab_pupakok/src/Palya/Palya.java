@@ -207,9 +207,11 @@ public class Palya {
                 if (!oktato.getEszmeletvesztett()) {
                     Szoba szoba = oktato.getSzoba();
                     ArrayList<Szoba> szomszedok = szoba.getSzomszedok();
-                    int randomIndex = rand.nextInt(szomszedok.size());
-                    Szoba randomSzoba = szomszedok.get(randomIndex);
-                    oktato.mozog(randomSzoba);
+                    if (szomszedok.isEmpty()) {
+                        int randomIndex = rand.nextInt(szomszedok.size());
+                        Szoba randomSzoba = szomszedok.get(randomIndex);
+                        oktato.mozog(randomSzoba);
+                    }
                 }
             }
         } else {
