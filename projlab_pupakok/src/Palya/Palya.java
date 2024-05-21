@@ -160,7 +160,7 @@ public class Palya {
         for (Szoba sz : szobak) {
             for (int i = 0; i < 5; i++) {
 
-                switch (rand.nextInt(1, 8)) {
+                switch (rand.nextInt(1, 9)) {
                     case 1:
                         new Tranzisztor(sz, String.valueOf(id_distributor));
                         break;
