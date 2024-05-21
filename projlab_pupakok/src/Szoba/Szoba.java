@@ -322,8 +322,11 @@ public class Szoba {
                             break;
                         }
                     }
-                    if (!h.vedette(Vedettseg.oktatotol))
+                    if (!h.vedette(Vedettseg.oktatotol)) {
                         h.kibukik();
+                        return false;
+                    }
+
                 }
 
             return true;
