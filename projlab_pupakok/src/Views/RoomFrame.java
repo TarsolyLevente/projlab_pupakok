@@ -60,7 +60,9 @@ public class RoomFrame extends JFrame{
             Szoba szoba = null;
             if (roomlist.getSelectedIndex() != -1) {
                 szoba = hvm.getHallgato().getSzoba().getSzomszedok().get(roomlist.getSelectedIndex());
-                hvm.mozgas(szoba);
+                if(!hvm.mozgas(szoba)){
+                    showKibukasDialog(hvm);
+                }
                 this.dispose();
             }
         });
@@ -68,5 +70,9 @@ public class RoomFrame extends JFrame{
         panel.add(scrollpane, BorderLayout.CENTER);
         panel.add(movebutton, BorderLayout.WEST);
         add(panel);
+    }
+
+    private void showKibukasDialog(HallgatoViewModel hvm){
+        JOptionPane.showMessageDialog(this, "Hallgató " + hvm.getHallgatoID() + " kibukott!! :(");
     }
 }

@@ -20,7 +20,7 @@ public class Takarito extends Karakter {
      * Takarító mozgásért felelős függvénye
      * @param sz Ebbe a szobába mozog át.
      */
-    public void mozog(Szoba sz){
+    public boolean mozog(Szoba sz){
         
         if(sz.addTakarito(this)){
             for (Targy targy : taska) {
@@ -31,8 +31,9 @@ public class Takarito extends Karakter {
             getSzoba().removeTakarito(this);
             this.setSzoba(sz);
             takarit();
-                 
+            return true;   
         }
+        return false;
     }
 
     

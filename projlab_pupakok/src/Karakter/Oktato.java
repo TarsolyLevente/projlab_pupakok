@@ -27,7 +27,7 @@ public class Oktato extends Karakter {
      * 
      * @param sz Ebbe a szobába mozog át.
      */
-    public void mozog(Szoba sz) {
+    public boolean mozog(Szoba sz) {
 
         if (sz.addOktato(this)) {
             for (Targy targy : taska) {
@@ -45,7 +45,9 @@ public class Oktato extends Karakter {
                 }
 
             }
+            return true;
         }
+        return false;
     }
 
     /**

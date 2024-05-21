@@ -33,7 +33,7 @@ public class Hallgato extends Karakter {
      * @param sz Ebbe a szobába mozog át.
      */
 
-    public void mozog(Szoba sz) {
+    public boolean mozog(Szoba sz) {
 
         if (sz.addHallgato(this)) {
             getSzoba().removeHallgato(this);
@@ -45,8 +45,9 @@ public class Hallgato extends Karakter {
             for (Targy targy : taska) {
                 targy.setSzoba(sz);
             }
-
+            return true;
         }
+        return false;
     }
 
     /**
