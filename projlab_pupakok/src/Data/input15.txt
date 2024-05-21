@@ -1,7 +1,0 @@
-create_room;szoba1;2;0;0
-create_room;szoba2;5;0;0
-create_room;szoba3;1;0;0
-connect;szoba1;szoba3
-connect;szoba3;szoba1
-spawn_item;maszk;maszk1;szoba2
-merge;szoba1;szoba2

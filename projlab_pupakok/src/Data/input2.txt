@@ -1,2 +1,0 @@
-create_room;szoba1;5;0;0;
-add_character;oktato;o1;szoba1;

@@ -1,7 +1,0 @@
-create_room;szoba1;5;0;0;
-create_room;gazosszoba1;5;1;0;
-connect;szoba1;gazosszoba1;
-add_character;hallgato;hallgato1;szoba1;
-spawn_item;maszk;maszk1;szoba1;
-pick;hallgato1;maszk1;
-move;hallgato1;gazosszoba1;

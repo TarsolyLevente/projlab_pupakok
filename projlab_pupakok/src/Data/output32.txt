@@ -1,5 +1,0 @@
-Szoba hozzáadása sikeres.
-Tárgy hozzáadása sikeres.
-Karakter sikeresen hozzáadva.
-Tárgy felvétele sikeres.
-Tárgy használata sikeres.

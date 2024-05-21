@@ -1,3 +1,0 @@
-create_room;szoba1;2;0;0
-create_room;szoba2;5;0;1
-merge;szoba1;szoba2

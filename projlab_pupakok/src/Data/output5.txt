@@ -1,8 +1,0 @@
-Szoba hozzáadása sikeres.
-Szoba hozzáadása sikeres.
-Szobák összekapcsolása sikeres.
-Karakter sikeresen hozzáadva.
-Karakter sikeresen hozzáadva.
-Tárgy hozzáadása sikeres.
-Tárgy felvétele sikeres.
-Karakter mozgása sikeres.
