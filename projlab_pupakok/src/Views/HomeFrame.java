@@ -96,4 +96,6 @@ public class HomeFrame extends JFrame {
         else
             JOptionPane.showMessageDialog(this, "Szép volt pupákok!");
     }
+
+
 }
