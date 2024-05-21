@@ -1,5 +1,9 @@
 package ViewModels;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.swing.*;
 
 import Game.Game;
@@ -11,7 +15,8 @@ import Views.GameFrame;
  */
 public class GameViewModel {
     private Game game;
-
+    //hallgatók listája
+    private ArrayList<Hallgato> gameHallgatok;
     private MapViewModel mapViewModel;
     private GameFrame gameFrame;
 
@@ -36,6 +41,7 @@ public class GameViewModel {
         mapViewModel = new MapViewModel(game.getPalya());
         gameFrame = new GameFrame();
         start(jatekosokszama);
+        gameHallgatok = new ArrayList<>(game.getPalya().getHallgatok());
     }
 
     /**
@@ -77,7 +83,13 @@ public class GameViewModel {
      */
     public void jatekLeptetes() {
         while (game.getSzamlalo() < 900000 && !game.getJatekVege()) {
+            
             for (int i = 0; i < game.getPalya().getHallgatok().size(); ++i) {
+                ArrayList<Hallgato> kibukottHallgatok = kibukottehallgato();
+                for (Hallgato hallgato : kibukottHallgatok) {
+                    getGameFrame().showKibukasDialog(new HallgatoViewModel(hallgato));
+                }
+                
                 if (!game.getPalya().getHallgatok().get(i).getEszmeletvesztett()  && !game.getJatekVege()) {
                     update(game.getPalya().getHallgatok().get(i));
                 }
@@ -122,5 +134,20 @@ public class GameViewModel {
             getGameFrame().showEszmeletvesztesDialog(hVM);
             notifyAll();
         }
+    }
+    public ArrayList<Hallgato> kibukottehallgato() {
+        ArrayList<Hallgato> akthallgatok = new ArrayList<>(game.getPalya().getHallgatok());
+        ArrayList<Hallgato> kibukottHallgatok = new ArrayList<>();
+    
+        if (!gameHallgatok.equals(akthallgatok)) {
+            for (Hallgato hallgato : gameHallgatok) {
+                if (!akthallgatok.contains(hallgato)) {
+                    kibukottHallgatok.add(hallgato);
+                }
+            }
+            gameHallgatok = new ArrayList<>(game.getPalya().getHallgatok());
+        }
+    
+        return kibukottHallgatok;
     }
 }
