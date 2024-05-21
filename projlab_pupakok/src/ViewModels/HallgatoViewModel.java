@@ -118,6 +118,9 @@ public class HallgatoViewModel {
             gameViewModel.getGameFrame().updateGamePanel(new SzobaViewModel(hallgato.getSzoba()), this);
             gameViewModel.getGameFrame().updateUserPanel(this);
             gameViewModel.getGameFrame().updateMenuPanel(this);
+            synchronized (gameViewModel) {
+                gameViewModel.notifyAll();
+            }
         }
     }
 
