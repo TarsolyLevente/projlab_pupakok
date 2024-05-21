@@ -82,6 +82,7 @@ public class HomeFrame extends JFrame {
         }
         try {
             hallagatocnt = Integer.valueOf(temp);
+            if(hallagatocnt <= 0) throw new NumberFormatException();
         } catch (NumberFormatException e) {
             hallagatocnt = showHallgatoCountDialog();
         }

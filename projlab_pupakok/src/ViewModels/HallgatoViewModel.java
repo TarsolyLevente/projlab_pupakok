@@ -70,6 +70,7 @@ public class HallgatoViewModel {
             gameViewModel.notifyAll();
         }
     }
+    
     /**
      * Használja a megadott Targy objektumot.
      * 
