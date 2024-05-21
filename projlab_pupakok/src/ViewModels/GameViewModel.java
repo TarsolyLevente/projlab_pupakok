@@ -83,8 +83,8 @@ public class GameViewModel {
                 }
             }
             boolean esz = true;
-            for (Hallgato h : game.getPalya().getHallgatok()) {
-                if (!h.getEszmeletvesztett()) {
+            for (int i = 0; i < game.getPalya().getHallgatok().size(); i++) {
+                if (!game.getPalya().getHallgatok().get(i).getEszmeletvesztett()) {
                     esz = false;
                     break;
                 }
