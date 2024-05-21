@@ -1,3 +1,4 @@
+
 package Szoba;
 
 import Palya.*;
@@ -313,8 +314,16 @@ public class Szoba {
                     h.eszmeletvesztes();
                 }
 
-                if (!oktatok.isEmpty() && !h.vedette(Vedettseg.oktatotol)) {
-                    h.kibukik();
+                if (!oktatok.isEmpty()) {
+                    boolean stunnedokt = false;
+                    for (Oktato o : oktatok) {
+                        if (o.getEszmeletvesztett()) {
+                            stunnedokt = true;
+                            break;
+                        }
+                    }
+                    if (!h.vedette(Vedettseg.oktatotol))
+                        h.kibukik();
                 }
 
             return true;
