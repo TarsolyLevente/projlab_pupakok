@@ -387,6 +387,7 @@ public class Szoba {
      * @param A játékból törlendő hallgató
      */
     public void deleteHallgato(Hallgato h) {
+        removeHallgato(h);
         palya.removeHallgato(h);
         if (palya.getHallgatok().size() == 0)
             palya.getGame().endgame();
