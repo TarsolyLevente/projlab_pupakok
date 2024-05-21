@@ -38,7 +38,6 @@ public class Tranzisztor extends AktivTargy {
             if (this.getTars().getAktiv() != true) {
                 ((Hallgato) getBirtokos()).eldob(this);
                 this.setAktiv(true);
-                System.out.println("Az 1. tranzisztor aktiválva lett.");
             } else {
                 Hallgato h = (Hallgato) this.getBirtokos();
                 h.eldob(this);

@@ -61,7 +61,6 @@ public class UserPanel extends JPanel {
             throwButton.setPreferredSize(new Dimension(90,25));
             useButton.setPreferredSize(new Dimension(90,25));
         } catch (Exception ex) {
-            System.out.println(ex);
         }
 
         /**
@@ -194,6 +193,6 @@ public class UserPanel extends JPanel {
      * Figyelmeztető párbeszédablak megjelenítése, amely jelzi, hogy a kiválasztott tárgy hamis.
      */
     private void showFakeItemDialog(){
-        JOptionPane.showMessageDialog(this, "A targy hamis, ezt jól be****");
+        JOptionPane.showMessageDialog(this, "A targy hamis, ezt jól megszívtad");
     }
 }

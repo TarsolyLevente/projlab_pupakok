@@ -44,7 +44,6 @@ public abstract class Karakter {
 
     void noEszmeletvesztes() {
         setEszmeletvesztett(false);
-        System.out.println("Karakter " + id + " felébredt!");
         timer.stop();
         counter = 0;
     }
@@ -127,11 +126,6 @@ public abstract class Karakter {
             getSzoba().targy_elhelyezese(targy);// elhelyezzük a szobába
         }
         taska.clear(); // Minden elemet eltávolítunk a listából
-        if (this instanceof Hallgato) // ha hallgató volt
-            System.out.println("Hallgató " + id + " eszméletvesztett!");
-        else if (this instanceof Oktato) // ha oktató volt
-            System.out.println("Oktató " + id + " eszméletvesztett!");
-
         timer.start();
     }
 
