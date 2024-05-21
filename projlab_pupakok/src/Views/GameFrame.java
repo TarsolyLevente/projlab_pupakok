@@ -81,4 +81,10 @@ public class GameFrame extends JFrame
         JOptionPane.showMessageDialog(this, "Hallgató " + hvm.getHallgatoID() + " elvesztette az eszméletét:(");
     }
 
+    public void showKibukasDialog(HallgatoViewModel hvm){
+        JOptionPane.showMessageDialog(this, "Hallgató " + hvm.getHallgatoID() + " kibukott!! :(");
+    }
+
+
+
 }

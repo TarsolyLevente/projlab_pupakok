@@ -61,12 +61,11 @@ public class HallgatoViewModel {
         rf.setLocationRelativeTo(null);
     }
 
-    public boolean mozgas(Szoba szoba) {
-        boolean ret = hallgato.mozog(szoba);
+    public void mozgas(Szoba szoba) {
+        hallgato.mozog(szoba);
         synchronized (gameViewModel) {
             gameViewModel.notifyAll();
         }
-        return ret;
     }
     /**
      * Használja a megadott Targy objektumot.
