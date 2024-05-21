@@ -30,6 +30,17 @@ public class RoomFrame extends JFrame{
         setSize(height, width);
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        movebutton.setEnabled(false);
+        Timer timer = new Timer(400, e -> {
+            if(roomlist.getSelectedValue() != null){
+                movebutton.setEnabled(true);
+            } else {
+                movebutton.setEnabled(false);
+            }
+        });
+        timer.start();
+
         initComponents(hvm);
     }
 
@@ -40,11 +51,8 @@ public class RoomFrame extends JFrame{
         this.setLayout(new BorderLayout());
         panel.setLayout(new BorderLayout());
 
-        //TODO
-        //Elő kell állítani a megjelenítendő ImageIcon tömböt.
         SzobaViewModel ujSzobaViewModel = new SzobaViewModel(hvm.getHallgato().getSzoba());
         roomlist = new JList<>(ujSzobaViewModel.getNeighbouringRoomsNames());
-
 
         scrollpane = new JScrollPane(roomlist);
 

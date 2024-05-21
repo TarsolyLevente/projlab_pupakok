@@ -26,6 +26,17 @@ public class ItemFrame extends JFrame{
         setSize(height, width);
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        pickupbutton.setEnabled(false);
+        Timer timer = new Timer(400, e -> {
+            if(itemlist.getSelectedValue() != null){
+                pickupbutton.setEnabled(true);
+            } else {
+                pickupbutton.setEnabled(false);
+            }
+        });
+        timer.start();
+
         initComponents(szvm, hvm);
         this.setVisible(true);
     }
