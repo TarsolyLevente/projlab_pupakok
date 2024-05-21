@@ -114,7 +114,7 @@ public class GamePanel extends JPanel{
                 if((row  == (GRID_SIZE-1)) && (col == (GRID_SIZE-1)))
                 {
                     try{
-                        BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/chest.png"));
+                        BufferedImage buttonIcon = ImageIO.read(new File("resources/chest.png"));
                         Image scaledIcon = buttonIcon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
                         chestButton.setBorder(BorderFactory.createEmptyBorder());
                         chestButton = new JButton(new ImageIcon(scaledIcon));

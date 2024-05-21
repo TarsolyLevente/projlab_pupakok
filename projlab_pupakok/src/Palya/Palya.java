@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Palya {
-    private static final String FILE_PATH = "projlab_pupakok/src/Data/";
+    private static final String FILE_PATH = "Data/";
     public ArrayList<Oktato> getOktatok() {
         return oktatok;
     }

@@ -27,7 +27,7 @@ public class MaszkViewModel extends ItemViewModel{
     public ImageIcon getItemImage() {
         BufferedImage sicon;
         try {
-            sicon = ImageIO.read(new File("projlab_pupakok/src/resources/maszk.png"));
+            sicon = ImageIO.read(new File("resources/maszk.png"));
             Image icon = sicon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
             return new ImageIcon(icon);
         } catch (IOException e) {

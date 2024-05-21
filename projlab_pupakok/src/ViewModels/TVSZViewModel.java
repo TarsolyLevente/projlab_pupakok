@@ -27,7 +27,7 @@ public class TVSZViewModel extends ItemViewModel{
     public ImageIcon getItemImage() {
         BufferedImage sicon;
         try {
-            sicon = ImageIO.read(new File("projlab_pupakok/src/resources/tvsz.png"));
+            sicon = ImageIO.read(new File("resources/tvsz.png"));
             Image icon = sicon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
             return new ImageIcon(icon);
         } catch (IOException e) {

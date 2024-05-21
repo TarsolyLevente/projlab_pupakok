@@ -26,7 +26,7 @@ public class SorospoharViewModel extends ItemViewModel{
     public ImageIcon getItemImage() {
         BufferedImage sicon;
         try {
-            sicon = ImageIO.read(new File("projlab_pupakok/src/resources/sorospohar.png"));
+            sicon = ImageIO.read(new File("resources/sorospohar.png"));
             Image icon = sicon.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
             return new ImageIcon(icon);
         } catch (IOException e) {

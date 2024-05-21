@@ -52,7 +52,7 @@ public class UserPanel extends JPanel {
         scrollpane.setPreferredSize(new Dimension(90, 400));
 
         try {
-            BufferedImage buttonIcon = ImageIO.read(new File("projlab_pupakok/src/resources/move.png"));
+            BufferedImage buttonIcon = ImageIO.read(new File("resources/move.png"));
             roomButton = new JButton(new ImageIcon(buttonIcon));
             //roomButton.setBorder(BorderFactory.createEmptyBorder()); - ezt kivettem
             roomButton.setContentAreaFilled(false);
