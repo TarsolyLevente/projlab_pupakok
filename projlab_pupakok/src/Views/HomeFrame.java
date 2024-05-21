@@ -46,6 +46,7 @@ public class HomeFrame extends JFrame {
                     showEndGameDialog(gameViewModel.getGame().endgame());
                     gameViewModel.getGameFrame().dispose();
                     ((Timer)d.getSource()).stop();
+                    System.exit(0);
                 }
             });
             timer.start();
