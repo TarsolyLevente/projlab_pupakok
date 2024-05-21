@@ -39,7 +39,7 @@ public abstract class Targy {
 		szoba = sz;
 		sz.targy_elhelyezese(this);
 		Random rand = new Random();
-		if (rand.nextInt() % 1 == 0) {
+		if (rand.nextInt() % 2 == 0) {
 			funkcio = f;
 		} else {
 			funkcio = Funkcio.hamis;
