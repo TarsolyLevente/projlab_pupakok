@@ -23,6 +23,7 @@ public class GamePanel extends JPanel{
     private JComponent[][] cells = new JComponent[GRID_SIZE][GRID_SIZE];
     private JButton chestButton = new JButton("Chest");
     private HallgatoViewModel hVM;
+    private ArrayList<JButton> transistorButtons = new ArrayList<JButton>();
 
     /**
      * A GamePanel osztály konstruktora, amely inicializálja a komponenseket.
@@ -39,8 +40,8 @@ public class GamePanel extends JPanel{
     {
         setLayout(new BorderLayout());
         cp.setLayout(new GridLayout(GRID_SIZE, GRID_SIZE));
-        // Konténer feltöltése a cellákkal
-        Timer timer = new Timer(400, e -> {
+        
+        Timer chestbuttontimer = new Timer(400, e -> {
             if(hVM != null)
             {
                 if(hVM.getHallgato().getEszmeletvesztett())
@@ -54,7 +55,33 @@ public class GamePanel extends JPanel{
                 ((Timer)e.getSource()).stop();
             }
         });
-        timer.start();
+        chestbuttontimer.start();
+
+        Timer transistorbuttonstimer = new Timer(400, f -> {
+            if(hVM != null)
+            {
+                if(hVM.getHallgato().getEszmeletvesztett()){
+                    for(JButton button : transistorButtons){
+                        button.setEnabled(false);
+                    }
+                }
+                else{
+                    for(JButton button : transistorButtons){
+                        button.setEnabled(true);
+                    }
+                }
+            }
+            else
+            {
+                for(JButton button : transistorButtons){
+                    button.setEnabled(true);
+                }
+                ((Timer)f.getSource()).stop();
+            }
+        });
+        transistorbuttonstimer.start();
+
+        // Konténer feltöltése a cellákkal
         this.add(cp);
     }
 
@@ -112,7 +139,8 @@ public class GamePanel extends JPanel{
                     charactersTemp.remove(0);
                 }
                 else if (!transistorCount.isEmpty()) {
-                    cells[row][col] = new JButton(transistorCount.get(0).getItemImage());
+                    transistorButtons.add(new JButton(transistorCount.get(0).getItemImage()));
+                    cells[row][col] = transistorButtons.get(transistorButtons.size() - 1);
                     cp.add(cells[row][col]);
                     transistorCount.remove(0);
                 }

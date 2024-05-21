@@ -33,9 +33,6 @@ public class GameFrame extends JFrame
     private final int height = 600;
     private final int width = 600;
     
-    private ArrayList<JLabel> characterLabels = new ArrayList<JLabel>();
-    private ArrayList<JButton> transistorButtons = new ArrayList<JButton>();
-    
     /**
      * A GameFrame osztály konstruktora, inicializálja az ablakot és a komponenseket.
      */
