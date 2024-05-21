@@ -46,6 +46,7 @@ public class HomeFrame extends JFrame {
                     showEndGameDialog(gameViewModel.getGame().endgame());
                     gameViewModel.getGameFrame().dispose();
                     ((Timer)d.getSource()).stop();
+                    System.exit(0);
                 }
             });
             timer.start();
@@ -82,6 +83,7 @@ public class HomeFrame extends JFrame {
         }
         try {
             hallagatocnt = Integer.valueOf(temp);
+            if(hallagatocnt <= 0) throw new NumberFormatException();
         } catch (NumberFormatException e) {
             hallagatocnt = showHallgatoCountDialog();
         }
