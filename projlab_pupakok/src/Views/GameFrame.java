@@ -77,5 +77,14 @@ public class GameFrame extends JFrame
         menuPanel.update(hvm);
     }
 
+    public void showEszmeletvesztesDialog(HallgatoViewModel hvm){
+        JOptionPane.showMessageDialog(this, "Hallgató " + hvm.getHallgatoID() + " elvesztette az eszméletét:(");
+    }
+
+    public void showKibukasDialog(HallgatoViewModel hvm){
+        JOptionPane.showMessageDialog(this, "Hallgató " + hvm.getHallgatoID() + " kibukott!! :(");
+    }
+
+
 
 }

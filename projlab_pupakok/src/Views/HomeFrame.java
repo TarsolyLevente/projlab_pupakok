@@ -95,7 +95,6 @@ public class HomeFrame extends JFrame {
             JOptionPane.showMessageDialog(this, "Az utolsó hallgató is kibukott!");
         else
             JOptionPane.showMessageDialog(this, "Szép volt pupákok!");
-
     }
 
 

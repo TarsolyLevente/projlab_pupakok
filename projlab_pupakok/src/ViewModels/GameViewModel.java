@@ -22,8 +22,6 @@ public class GameViewModel {
         mapViewModel = new MapViewModel(game.getPalya());
         gameFrame = new GameFrame();
         start(jatekosokszama);
-        // update(game.getPalya().getHallgatok().get(0));
-        //jatekLeptetes();
     }
 
     public MapViewModel getMapViewModel(){
@@ -96,6 +94,9 @@ public class GameViewModel {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+        if(h.getEszmeletvesztett()){
+            getGameFrame().showEszmeletvesztesDialog(hVM);
+            notifyAll();
         }
     }
+}
