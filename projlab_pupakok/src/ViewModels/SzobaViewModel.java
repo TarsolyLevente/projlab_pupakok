@@ -77,11 +77,16 @@ public class SzobaViewModel {
         }
         ImageIcon[] images = new ImageIcon[itemcount - activtransistorcount];
         int imageidx = 0;
-        for(int i = 0; i < itemcount; ++i){
-            if (i < itemcount - activtransistorcount) {
-                images[imageidx] = itemviewmodels.get(i).getItemImage();
-                imageidx++;
-            }   
+        for(int i = 0; i < itemcount - activtransistorcount; ++i){
+            if(itemviewmodels.get(i) instanceof TranzisztorViewModel){
+                if (((TranzisztorViewModel) itemviewmodels.get(i)).getTranzisztor().getTars() != null) {
+                    ;
+                } else {
+                    images[i] = itemviewmodels.get(i).getItemImage();
+                }
+            } else {
+                images[i] = itemviewmodels.get(i).getItemImage();
+            }
         }
         return images;
     }
