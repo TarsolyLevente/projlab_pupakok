@@ -59,7 +59,6 @@ public class Hallgato extends Karakter {
             targy.setSzoba(null);
             targy.setBirtokos(null);
         }
-        System.out.println("Hallgató " + id + " kibukott!");
         this.getSzoba().deleteHallgato(this);
     }
 
@@ -71,14 +70,11 @@ public class Hallgato extends Karakter {
 
     public boolean teleport(Tranzisztor t) {
         if (t.getAktiv()) {
-            System.out
-                    .println("Hallgató " + id + " teleportál a " + t.getTars().getSzoba().getid() + " számú szobába!");
             this.mozog(t.getTars().getSzoba());
             t.setAktiv(false);
             t.getTars().setAktiv(true);
             return true;
         } else {
-            System.out.println("A tranzisztor nem aktív!");
             return false;
         }
     }
@@ -94,7 +90,6 @@ public class Hallgato extends Karakter {
                 if (t instanceof Tranzisztor) {
                     int tranzisztorSzam = 0;
                     if ((((Tranzisztor) t).getTars() != null)) {
-                        System.out.println("Ez a tranzisztor már aktív!");
                         return;
                     }
                     // Számoljuk meg, hány tranzisztor van már a taskában
@@ -103,7 +98,6 @@ public class Hallgato extends Karakter {
                             tranzisztorSzam++;
                         }
                         if (tranzisztorSzam >= 2) {
-                            System.out.println("Nem vehetsz fel több tranzisztort!");
                             return;
                         }
 
@@ -124,7 +118,7 @@ public class Hallgato extends Karakter {
                 t.setBirtokos(this);
                 getSzoba().targy_eltuntetese(t);
                 taska.add(t);
-                if (szoba.getRegiszobak().size() != 0) {
+                if (!szoba.getRegiszobak().isEmpty()) {
 
                     for (int j = 0; j < getSzoba().getRegiszobak().get(0).getTargyak().size(); ++j) {
                         if (getSzoba().getRegiszobak().get(0).getTargyak().get(0).getId().equals(t.getId())) {

@@ -8,12 +8,10 @@ import Targy.Legfrissito;
 import Targy.Tranzisztor;
 import ViewModels.HallgatoViewModel;
 
-import java.awt.Image; // Import the Image class from java.awt
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import javax.imageio.ImageIO; // Import the ImageIO class from javax.imageio
-import java.awt.BorderLayout; // Import the BorderLayout class from java.awt
+import javax.imageio.ImageIO;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Window;

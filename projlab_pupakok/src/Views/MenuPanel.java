@@ -2,13 +2,9 @@ package Views;
 
 import javax.swing.*;
 
-import Karakter.Hallgato;
-import Szoba.Szoba;
-import ViewModels.GameViewModel;
 import ViewModels.HallgatoViewModel;
 
 import java.awt.*;
-import java.util.concurrent.TimeoutException;
 
 /**
  * A MenuPanel osztály, egy JPanel, amely a játék menüjének elemeit tartalmazza, mint például az idő, a játékos és a szoba információit.

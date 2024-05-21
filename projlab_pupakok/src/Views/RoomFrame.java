@@ -6,10 +6,7 @@ import ViewModels.HallgatoViewModel;
 import ViewModels.SzobaViewModel;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
 
-//TODO
 //Hogyan adjuk át neki a szobát.
 
 /**

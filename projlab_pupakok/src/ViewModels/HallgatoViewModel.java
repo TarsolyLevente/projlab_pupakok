@@ -17,7 +17,6 @@ import Targy.Targy;
 import Targy.Tranzisztor;
 import Views.ItemFrame;
 import Views.RoomFrame;
-import Views.UserPanel;
 
 /**
  * A HallgatoViewModel osztály, amely egy Hallgatót reprezentál a nézethez.

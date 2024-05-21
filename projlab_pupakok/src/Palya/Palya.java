@@ -8,12 +8,9 @@ import Targy.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Palya {
     private static final String FILE_PATH = "projlab_pupakok/src/Data/";
@@ -63,7 +60,7 @@ public class Palya {
         hallgatok = new ArrayList<>();
         oktatok = new ArrayList<>();
         szobak = new ArrayList<>();
-        takaritok = new ArrayList<Takarito>();
+        takaritok = new ArrayList<>();
     }
 
     /**
@@ -72,10 +69,10 @@ public class Palya {
      * @param g a game amihez a pálya tartozik
      */
     public Palya(Game g) {
-        hallgatok = new ArrayList<Hallgato>();
-        oktatok = new ArrayList<Oktato>();
-        szobak = new ArrayList<Szoba>();
-        takaritok = new ArrayList<Takarito>();
+        hallgatok = new ArrayList<>();
+        oktatok = new ArrayList<>();
+        szobak = new ArrayList<>();
+        takaritok = new ArrayList<>();
         game = g;
     }
 
@@ -106,6 +103,7 @@ public class Palya {
             }
             br.close();
         } catch (Exception e) {
+            System.err.println(e);
         }
 
         f = new File(FILE_PATH + "Szoba_szomszedok.txt");
@@ -129,6 +127,7 @@ public class Palya {
             }
             br.close();
         } catch (Exception e) {
+            System.err.println(e);
         }
 
         Random rand = new Random();

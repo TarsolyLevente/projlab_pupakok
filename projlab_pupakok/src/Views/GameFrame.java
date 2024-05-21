@@ -2,23 +2,9 @@ package Views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
 
-import Game.Game;
-import Karakter.Hallgato;
-import Szoba.Szoba;
-import Targy.Camembert;
-import Targy.Legfrissito;
-import Targy.Tranzisztor;
-import ViewModels.GameViewModel;
 import ViewModels.HallgatoViewModel;
 import ViewModels.SzobaViewModel;
 

@@ -39,7 +39,7 @@ public class Oktato extends Karakter {
                 getSzoba().setRagacs_cnt(getSzoba().getRagacs_cnt()+1);
             }
 
-            if (sz.getHallgatok().size() != 0) {
+            if (!sz.getHallgatok().isEmpty()) {
                 for (Hallgato hallgato : sz.getHallgatok()) {
                     hallgato.vedette(Vedettseg.oktatotol);
                 }
@@ -53,7 +53,6 @@ public class Oktato extends Karakter {
      */
     public void megbenul() {
         megbenult = true;
-        System.out.println("Oktató " + getid() + " megbénult!");
 
         Timer timer = new Timer();
             
@@ -82,7 +81,7 @@ public class Oktato extends Karakter {
                 return;
             }
             
-            if(getSzoba().getRegiszobak().size() != 0){
+            if (!getSzoba().getRegiszobak().isEmpty()) {
                 
                     for(int j = 0; j < getSzoba().getRegiszobak().get(0).getTargyak().size(); ++j){
                         if(getSzoba().getRegiszobak().get(0).getTargyak().get(0).getId().equals(t.getId())){

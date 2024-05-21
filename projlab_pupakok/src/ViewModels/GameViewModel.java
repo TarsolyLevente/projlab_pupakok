@@ -1,10 +1,6 @@
 package ViewModels;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import javax.swing.*;
 
 import Game.Game;
 import Karakter.Hallgato;
@@ -66,10 +62,6 @@ public class GameViewModel {
         game.start(jatekosokszama);
     }
 
-    public void hallgatoLep(Hallgato hallgato){
-        game.hallgatoLep(hallgato);
-    }
-
     public void endgame(){
         game.endgame();
     }
@@ -106,11 +98,9 @@ public class GameViewModel {
             if (esz) {
                 if (game.getSzamlalo() % 30000 == 0) {
                     game.getPalya().leptet();
-                    System.err.println("asdasgfasgasgasgassgaasgs");
                 }
             } else {
                 game.getPalya().leptet();
-                System.err.println("asdasgfasgasgasgassgaasgs");
             }
         }
     }
@@ -129,7 +119,6 @@ public class GameViewModel {
         try {
             wait();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         if(h.getEszmeletvesztett()){

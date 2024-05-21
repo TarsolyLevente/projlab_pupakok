@@ -78,8 +78,6 @@ public class Proto {
             }
             br.close();
         } catch (Exception e) {
-            System.err.println("EZ KUTYAFASZLETT");
-            // TODO ha kész lesz minden
             throw new RuntimeException(e);
         }
 

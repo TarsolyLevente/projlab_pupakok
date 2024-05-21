@@ -1,11 +1,6 @@
 package ViewModels;
 
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import javax.swing.UIManager;
-import java.awt.Color;
-
-import Targy.*;
 
 /**
  * A ItemViewModel osztály, amelyből származtathatóak tárgyakar reprezentáló a nézetek.
