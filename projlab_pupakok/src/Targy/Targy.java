@@ -117,5 +117,8 @@ public abstract class Targy {
 	 */
 	public abstract void use();
 
+	/**
+     * Visszaadja az objektum szöveges reprezentációját a Funkcio attribútum alapján.
+     */
 	public abstract String toString(Funkcio funkcio);
 }

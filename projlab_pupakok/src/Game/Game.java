@@ -160,10 +160,19 @@ public class Game {
         }
     }
 
+    /**
+     * Getter a pálya attribútumra.
+     */
     public Palya getPalya() {return palya;}
     
+    /**
+     * Getter a számláló attribútumra.
+     */
     public int getSzamlalo(){return szamlalo;}
 
+    /**
+     * Getter a jatekVege attribútumra.
+     */
     public boolean getJatekVege(){return jatekVege;}
 
 }

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import Palya.Palya;
 
+/**
+ * A MapViewModel osztály, amely a Pályát reprezentálja a nézethez.
+ */
 public class MapViewModel {
     private Palya palya;
 

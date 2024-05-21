@@ -10,6 +10,9 @@ import javax.swing.*;
 
 import Targy.*;
 
+/**
+ * A TVSZViewModel osztály, egy ItemViewModel leszármazottja, amely a TVSZ tárgyat reprezentálja a nézethez.
+ */
 public class TVSZViewModel extends ItemViewModel{
     private TVSZ tvsz;
 

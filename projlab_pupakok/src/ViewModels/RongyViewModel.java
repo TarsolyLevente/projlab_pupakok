@@ -10,6 +10,9 @@ import javax.swing.*;
 
 import Targy.*;
 
+/**
+ * A RongyViewModel osztály, egy ItemViewModel leszármazottja, amely a Rongy tárgyat reprezentálja a nézethez.
+ */
 public class RongyViewModel extends ItemViewModel{
     private Rongy rongy;
 

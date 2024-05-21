@@ -19,6 +19,9 @@ import Views.ItemFrame;
 import Views.RoomFrame;
 import Views.UserPanel;
 
+/**
+ * A HallgatoViewModel osztály, amely egy Hallgatót reprezentál a nézethez.
+ */
 public class HallgatoViewModel {
     private Hallgato hallgato;
     private GameViewModel gameViewModel;
@@ -151,6 +154,12 @@ public class HallgatoViewModel {
         }
         return itemviewmodels;
     }
+
+    /**
+     * Visszaadja a feladatban lévő tárgyak képeit.
+     * 
+     * @return a feladatban lévő tárgyak képeinek tömbje
+     */
     public ImageIcon[] giveTaskabanLevoTargyakKepe(){
         ArrayList<ItemViewModel> itemviewmodels = createitemviewmodels();
         ImageIcon[] images = new ImageIcon[itemviewmodels.size()];

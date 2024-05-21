@@ -6,16 +6,30 @@ import Game.Game;
 import Karakter.Hallgato;
 import Views.GameFrame;
 
+/**
+ * A GameViewModel osztály, amely a Game-t reprezentálja a nézethez.
+ */
 public class GameViewModel {
     private Game game;
 
     private MapViewModel mapViewModel;
     private GameFrame gameFrame;
 
+    /**
+     * Visszaadja a játékablakot.
+     * 
+     * @return a játékablak
+     */
     public GameFrame getGameFrame() {
         return gameFrame;
     }
 
+    /**
+     * A GameViewModel osztály konstruktora inicializálja a játékmodellt, a térképnézetmodellt és a játékablakot,
+     * majd elindítja a játékot a megadott játékosok számával.
+     * 
+     * @param jatekosokszama a játékosok száma
+     */
     public GameViewModel(int jatekosokszama){
         
         game = new Game();
@@ -24,6 +38,11 @@ public class GameViewModel {
         start(jatekosokszama);
     }
 
+    /**
+     * Visszaadja a térképnézetmodellt.
+     * 
+     * @return a térképnézetmodell
+     */
     public MapViewModel getMapViewModel(){
         return mapViewModel;
     }
@@ -82,6 +101,11 @@ public class GameViewModel {
         }
     }
 
+    /**
+     * Frissíti a játék keretét és paneljeit a megadott játékos állapotával és szobájával kapcsolatos információkkal.
+     * 
+     * @param h a játékos, akinek az állapotát frissíteni kell
+     */
     public synchronized void update(Hallgato h) {
         SzobaViewModel szVW = new SzobaViewModel(h.getSzoba());
         HallgatoViewModel hVM = new HallgatoViewModel(h, this);

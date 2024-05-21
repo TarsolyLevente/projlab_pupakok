@@ -10,6 +10,9 @@ import javax.swing.ImageIcon;
 
 import Targy.*;
 
+/**
+ * A CamembertViewModel osztály, egy ItemViewModel leszármazottja, amely a Camembert tárgyat reprezentálja a nézethez.
+ */
 public class CamembertViewModel extends ItemViewModel{
     /**
      * Camembert attribútum

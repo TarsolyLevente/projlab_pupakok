@@ -10,6 +10,9 @@ import javax.swing.ImageIcon;
 
 import Targy.*;
 
+/**
+ * A LegfrissitoViewModel osztály, egy ItemViewModel leszármazottja, amely a Legfrissito tárgyat reprezentálja a nézethez.
+ */
 public class LegfrissitoViewModel extends ItemViewModel{
     /**
      * Légfrissítő attribútum

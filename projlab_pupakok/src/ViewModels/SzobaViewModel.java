@@ -21,6 +21,9 @@ import Targy.Sorospohar;
 import Targy.TVSZ;
 import Targy.Tranzisztor;
 
+/**
+ * A SzobaViewModel osztály, amely egy Szobát reprezentál a nézethez.
+ */
 public class SzobaViewModel {
     /*
      * Az adott szoba osztály elérése a modellben.

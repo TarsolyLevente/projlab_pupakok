@@ -29,5 +29,8 @@ public abstract class PasszivTargy extends Targy{
         return toltet;
     }
 
+    /**
+     * Visszaadja az objektum szöveges reprezentációját a Funkcio attribútum alapján.
+     */
     public abstract String toString(Funkcio funkcio);
 }

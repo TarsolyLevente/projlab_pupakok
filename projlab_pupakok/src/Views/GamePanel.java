@@ -14,6 +14,9 @@ import ViewModels.HallgatoViewModel;
 import ViewModels.SzobaViewModel;
 import ViewModels.TranzisztorViewModel;
 
+/**
+ * A GamePanel osztály, egy JPanel, amely a játék tábláját reprezentálja.
+ */
 public class GamePanel extends JPanel{
     private Container cp = new Container();
     public static final int GRID_SIZE = 9;
@@ -21,12 +24,17 @@ public class GamePanel extends JPanel{
     private JButton chestButton = new JButton("Chest");
     private HallgatoViewModel hVM;
 
-
+    /**
+     * A GamePanel osztály konstruktora, amely inicializálja a komponenseket.
+     */
     public GamePanel()
     {
         initComponents();
     }
     
+    /**
+     * Inicializálja a GamePanel komponenseit és elrendezését.
+     */
     public void initComponents()
     {
         setLayout(new BorderLayout());
@@ -50,6 +58,12 @@ public class GamePanel extends JPanel{
         this.add(cp);
     }
 
+    /**
+     * A GamePanel osztály update metódusa frissíti a panel tartalmát a kapott szoba és hallgatói viewmodell alapján.
+     * 
+     * @param szVM a SzobaViewModel, amely a szoba állapotát reprezentálja
+     * @param hVM a HallgatoViewModel, amely a játékos állapotát reprezentálja
+     */
     public void update(SzobaViewModel szVM, HallgatoViewModel hVM){
         this.hVM = hVM;
         setBackground(szVM.giveSzobaBackgroundColor());

@@ -11,6 +11,10 @@ import java.util.ArrayList;
 
 //TODO
 //Hogyan adjuk át neki a szobát.
+
+/**
+ * A RoomFrame osztály, egy JFrame, amely megjeleníti a hallgató aktuális szobájának szomszédos szobáit.
+ */
 public class RoomFrame extends JFrame{
     //Ablak mérete statikus tagváltozókban.
     private final int height = 500;
@@ -22,8 +26,13 @@ public class RoomFrame extends JFrame{
     private JList<String> roomlist;
     private JButton movebutton = new JButton("Move");
 
-    /*
-     * A Frame konstruktora.
+    /**
+     * A RoomFrame konstruktora, amely inicializálja az ablakot a megadott HallgatoViewModel alapján.
+     * Beállítja az ablak méretét, lezárhatóságát, és alapértelmezett bezárási műveletét.
+     * Létrehoz egy időzítőt, amely 400 milliszekundumonként ellenőrzi, hogy van-e kiválasztott szoba a listában,
+     * és ennek megfelelően engedélyezi vagy letiltja a movebutton gombot.
+     *
+     * @param hvm a HallgatoViewModel objektum, amely a felhasználó aktuális állapotát tartalmazza
      */
     public RoomFrame(HallgatoViewModel hvm) {
         super("Room " + hvm.getHallgato().getSzoba().getid() + " szomszedjai");
@@ -44,8 +53,10 @@ public class RoomFrame extends JFrame{
         initComponents(hvm);
     }
 
-    /*
-     * A Framet inicializáló függvény.
+    /**
+     * Inicializálja és beállítja a RoomFrame komponenseit a megadott HallgatoViewModel alapján.
+     *
+     * @param hvm a HallgatoViewModel objektum, amely a felhasználó aktuális állapotát tartalmazza
      */
     private void initComponents(HallgatoViewModel hvm){
         this.setLayout(new BorderLayout());

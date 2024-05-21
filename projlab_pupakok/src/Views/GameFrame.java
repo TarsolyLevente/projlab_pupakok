@@ -22,6 +22,9 @@ import ViewModels.GameViewModel;
 import ViewModels.HallgatoViewModel;
 import ViewModels.SzobaViewModel;
 
+/**
+ * A GameFrame osztály egy JFrame, amely a játék fő ablakát reprezentálja.
+ */
 public class GameFrame extends JFrame
 {
     private UserPanel userPanel;
@@ -33,9 +36,9 @@ public class GameFrame extends JFrame
     private ArrayList<JLabel> characterLabels = new ArrayList<JLabel>();
     private ArrayList<JButton> transistorButtons = new ArrayList<JButton>();
     
-        
-
-
+    /**
+     * A GameFrame osztály konstruktora, inicializálja az ablakot és a komponenseket.
+     */
     public GameFrame() {
         setLayout(new BorderLayout());
         setSize(width, height);
@@ -46,8 +49,9 @@ public class GameFrame extends JFrame
         initComponents();
     };
 
-
-    
+    /**
+     * A GameFrame osztály konstruktora, inicializálja az ablakot és a komponenseket.
+     */
     public void initComponents() 
     {
         
@@ -65,26 +69,49 @@ public class GameFrame extends JFrame
         this.setVisible(true);
     }
 
+    /**
+     * Frissíti a GamePanel tartalmát a kapott szoba és hallgatói modell alapján.
+     * 
+     * @param szvm a SzobaViewModel, amely a szoba állapotát reprezentálja
+     * @param hvm a HallgatoViewModel, amely a játékos állapotát reprezentálja
+     */
     public void updateGamePanel(SzobaViewModel szvm, HallgatoViewModel hvm){
         gamePanel.update(szvm, hvm);
     }
 
+    /**
+     * Frissíti a UserPanel tartalmát a kapott hallgatói modell alapján.
+     * 
+     * @param hvm a HallgatoViewModel, amely a játékos állapotát reprezentálja
+     */
     public void updateUserPanel(HallgatoViewModel hvm){
         userPanel.update(hvm);
     }
 
+    /**
+     * Frissíti a MenuPanel tartalmát a kapott hallgatói modell alapján.
+     * 
+     * @param hvm a HallgatoViewModel, amely a játékos állapotát reprezentálja
+     */
     public void updateMenuPanel(HallgatoViewModel hvm){
         menuPanel.update(hvm);
     }
 
+    /**
+     * Megjeleníti az eszméletvesztés dialógusablakot a kapott hallgatói modell alapján.
+     * 
+     * @param hvm a HallgatoViewModel, amely a játékos állapotát reprezentálja
+     */
     public void showEszmeletvesztesDialog(HallgatoViewModel hvm){
         JOptionPane.showMessageDialog(this, "Hallgató " + hvm.getHallgatoID() + " elvesztette az eszméletét:(");
     }
 
+    /**
+     * Megjeleníti a kibukás dialógusablakot a kapott hallgatói modell alapján.
+     * 
+     * @param hvm a HallgatoViewModel, amely a játékos állapotát reprezentálja
+     */
     public void showKibukasDialog(HallgatoViewModel hvm){
         JOptionPane.showMessageDialog(this, "Hallgató " + hvm.getHallgatoID() + " kibukott!! :(");
     }
-
-
-
 }

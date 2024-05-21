@@ -1,5 +1,11 @@
 import Views.HomeFrame;
 
+/**
+ * A program belépési pontja, amely létrehozza a játék első ablakát, a HomeFrame-et.
+ * A HomeFrame egy JFrame, amely a játék főmenüjét jeleníti meg.
+ * 
+ * @param args a parancssori argumentumok tömbje
+ */
 public class Main {
     public static void main(String[] args) {
         HomeFrame test = new HomeFrame();

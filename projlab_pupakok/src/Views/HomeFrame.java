@@ -4,6 +4,9 @@ import javax.swing.*;
 
 import ViewModels.GameViewModel;
 
+/**
+ * A HomeFrame osztály, egy JFrame, amely a játék kezdőképernyőjét reprezentálja.
+ */
 public class HomeFrame extends JFrame {
     private final int height = 600;
     private final int width = 600;
@@ -14,7 +17,9 @@ public class HomeFrame extends JFrame {
     private JPanel panel = new JPanel();
     int hallagatocnt = 0;
 
-
+    /**
+     * A HomeFrame osztály konstruktora, amely inicializálja az ablakot és hozzáadja a komponenseket.
+     */
     public HomeFrame() {
         setSize(height, width);
         setResizable(false);
@@ -23,6 +28,10 @@ public class HomeFrame extends JFrame {
         this.setResizable(true);
         initComponents();
     }
+
+    /**
+     * Inicializálja a kezdőképernyő komponenseit és hozzáadja őket az ablakhoz.
+     */
     private void initComponents() {
         this.setLayout(new BorderLayout());
         panel.setLayout(new GridBagLayout());
@@ -73,6 +82,11 @@ public class HomeFrame extends JFrame {
     
     }
 
+    /**
+     * Megjeleníti a dialógusablakot, amelyen a felhasználó megadhatja a hallgatók számát.
+     *
+     * @return a megadott hallgatók száma
+     */
     private int showHallgatoCountDialog() {
         String temp = JOptionPane.showInputDialog(this, "Hallgatók száma:");
         
@@ -90,6 +104,11 @@ public class HomeFrame extends JFrame {
         return hallagatocnt;
     }
 
+    /**
+     * Megjeleníti a játék végét jelző üzenetet.
+     *
+     * @param endgameType a játék vége típusa
+     */
     private void showEndGameDialog(int endgameType) {
         if(endgameType == 1)
             JOptionPane.showMessageDialog(this, "Letelt az idő!");
@@ -98,6 +117,4 @@ public class HomeFrame extends JFrame {
         else
             JOptionPane.showMessageDialog(this, "Szép volt pupákok!");
     }
-
-
 }

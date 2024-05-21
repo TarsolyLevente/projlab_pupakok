@@ -10,6 +10,9 @@ import javax.swing.*;
 
 import Targy.*;
 
+/**
+ * A MaszkViewModel osztály, egy ItemViewModel leszármazottja, amely a Maszk tárgyat reprezentálja a nézethez.
+ */
 public class MaszkViewModel extends ItemViewModel{
     private Maszk maszk;
 

@@ -10,6 +10,9 @@ import javax.swing.ImageIcon;
 
 import Targy.*;
 
+/**
+ * A TranzisztorViewModel osztály, egy ItemViewModel leszármazottja, amely a Tranzisztor tárgyat reprezentálja a nézethez.
+ */
 public class TranzisztorViewModel extends ItemViewModel{
     /**
      * Tranzisztor attribútum

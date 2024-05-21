@@ -30,6 +30,9 @@ public class Maszk extends PasszivTargy{
         }
     }
 
+    /**
+     * Visszaadja az objektum szöveges reprezentációját a Funkcio attribútum alapján.
+     */
     public String toString(Funkcio funkcio) {
         if (funkcio == null || funkcio == this.funkcio)
             return "Maszk";

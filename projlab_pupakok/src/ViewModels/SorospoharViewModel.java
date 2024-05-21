@@ -10,6 +10,9 @@ import javax.swing.*;
 
 import Targy.*;
 
+/**
+ * A SorospoharViewModel osztály, egy ItemViewModel leszármazottja, amely a Sorospohar tárgyat reprezentálja a nézethez.
+ */
 public class SorospoharViewModel extends ItemViewModel{
     private Sorospohar sorospohar;
 

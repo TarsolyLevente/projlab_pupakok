@@ -10,6 +10,9 @@ import javax.swing.*;
 
 import Targy.Logarlec;
 
+/**
+ * A LogarlecViewModel osztály, egy ItemViewModel leszármazottja, amely a Logarlec tárgyat reprezentálja a nézethez.
+ */
 public class LogarlecViewModel extends ItemViewModel{
     private Logarlec logarlec;
 

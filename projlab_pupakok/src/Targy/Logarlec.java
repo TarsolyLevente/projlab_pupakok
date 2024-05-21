@@ -48,6 +48,9 @@ public class Logarlec extends Targy {
 		support.addPropertyChangeListener(listener);
 	}
 
+	/**
+     * Visszaadja az objektum szöveges reprezentációját a Funkcio attribútum alapján.
+     */
 	public String toString(Funkcio funkcio) {
 		if (funkcio == null || funkcio == this.funkcio)
 			return "Logarléc";
