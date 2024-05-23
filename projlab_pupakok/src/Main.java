@@ -8,7 +8,7 @@ import Views.HomeFrame;
  */
 public class Main {
     public static void main(String[] args) {
-        HomeFrame test = new HomeFrame();
+        HomeFrame homeFrame = new HomeFrame();
         /*InputStreamReader str = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(str);
         String val = "";
